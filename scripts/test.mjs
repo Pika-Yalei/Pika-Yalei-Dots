@@ -24,8 +24,12 @@ test('build generates the homepage, about, article and real 404 page', async () 
 test('all local references and fragment targets resolve', async () => {
   for (const file of pages) {
     const html = await readFile(file,'utf8');
-    for (const [,ref] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
-      assert.ok(!/^https?:|^\/\//.test(ref), `External request: ${ref}`);
+    for (const [,attribute,ref] of html.matchAll(/(href|src)="([^"]+)"/g)) {
+      if (/^https?:|^\/\//.test(ref)) {
+        assert.equal(attribute, 'href', 'No external resource loads are allowed');
+        assert.equal(ref, 'https://github.com/Pika-Yalei/Pika-Yalei-Dots', 'Only the public repository link is allowed');
+        continue;
+      }
       if (ref.startsWith('#')) {
         assert.ok(html.includes(`id="${ref.slice(1)}"`));
         continue;
@@ -87,4 +91,14 @@ test('untrusted-looking article strings are escaped and unsafe slugs rejected', 
   } finally {
     await rm(temp,{recursive:true,force:true});
   }
+});
+
+test('every page links the public repository and the decorative arrow uses SVG', async () => {
+  for (const file of pages) {
+    const html = await readFile(file, 'utf8');
+    assert.match(html, /<footer[^>]*>[\s\S]*<a href="https:\/\/github\.com\/Pika-Yalei\/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub<\/a>[\s\S]*<\/footer>/);
+  }
+  const home = await readFile(path.join(dist, 'index.html'), 'utf8');
+  assert.match(home, /<svg class="entry-arrow" aria-hidden="true" focusable="false"/);
+  assert.doesNotMatch(home, /class="entry-arrow"[^>]*>↗/);
 });
