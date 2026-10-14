@@ -213,3 +213,64 @@ test('every page exposes the feed to readers and feed MIME type is configured', 
   const headers = await readFile(path.join(dist, '_headers'), 'utf8');
   assert.match(headers, /\/feed.xml\n  Content-Type: application\/rss\+xml; charset=utf-8/);
 });
+
+test('reading anchors are unique, repeatable and independent of other headings', async () => {
+  const { sectionAnchors } = await import('./reading-navigation.mjs');
+  const sections = ['检查', '检查', '检查-2', '检查', '<img " & >'].map(heading => ({heading, paragraphs:['内容']}));
+  const result = sectionAnchors(sections);
+  assert.equal(new Set(result.map(section => section.id)).size, sections.length);
+  assert.deepEqual(sectionAnchors(sections), result);
+  const inserted = sectionAnchors([{heading:'新章节', paragraphs:['内容']}, ...sections]);
+  assert.deepEqual(inserted.slice(1), result);
+  assert.deepEqual(sections.map(section => Object.keys(section)), sections.map(() => ['heading', 'paragraphs']));
+  for (const section of result) {
+    assert.match(section.id, /^section-[a-f0-9]{16}(?:-\d+)?$/);
+  }
+});
+
+test('reading navigation resolves duplicate sections, escapes labels and handles article boundaries', async () => {
+  const temp = await mkdtemp(path.join(tmpdir(), 'notebook-reading-'));
+  try {
+    for (const dir of ['scripts', 'public', 'content']) {
+      await cp(path.join(root, dir), path.join(temp, dir), {recursive:true});
+    }
+    const [base] = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
+    const sample = ['old', 'middle', 'new'].map((slug, index) => ({...base, slug, title:`标题 <${slug}> & "引号"`, date:`2026-10-${10 + index}`, sections:[{heading:'同名 <标题> & "引用"', paragraphs:['正文']}, {heading:'同名 <标题> & "引用"', paragraphs:['正文']}]}));
+    const build = async (posts) => {
+      await writeFile(path.join(temp, 'content/posts.json'), JSON.stringify(posts));
+      execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp});
+    };
+    await build([sample[0]]);
+    const single = await readFile(path.join(temp, 'dist/notes/old/index.html'), 'utf8');
+    assert.doesNotMatch(single, /class="article-neighbors"|rel="prev"|rel="next"/);
+    assert.match(single, /aria-labelledby="contents-title"/);
+    assert.match(single, /id="article-top" tabindex="-1"/);
+    assert.match(single, /href="#article-top"/);
+    const ids = [...single.matchAll(/<h2 id="(section-[^"]+)" tabindex="-1">/g)].map(match => match[1]);
+    assert.equal(ids.length, 2);
+    assert.notEqual(ids[0], ids[1]);
+    for (const id of ids) {
+      assert.match(single, new RegExp(`href="#${id}"`));
+    }
+    assert.match(single, /同名 &lt;标题&gt; &amp; &quot;引用&quot;/);
+    assert.doesNotMatch(single, /<标题>|<old>/);
+    await build(sample);
+    for (const [slug, prev, next] of [['new','middle',null], ['middle','old','new'], ['old',null,'middle']]) {
+      const html = await readFile(path.join(temp, 'dist/notes', slug, 'index.html'), 'utf8');
+      for (const [rel, expected] of [['prev',prev], ['next',next]]) {
+        const actual = [...html.matchAll(new RegExp(`<a href="([^"]+)" rel="${rel}">`, 'g'))];
+        assert.equal(actual.length, expected ? 1 : 0);
+        if (expected) {
+          assert.equal(actual[0][1], `/notes/${expected}/`);
+          assert.ok((await stat(path.join(temp, 'dist', actual[0][1], 'index.html'))).isFile());
+        }
+      }
+      assert.match(html, /标题 &lt;\w+&gt; &amp; &quot;引号&quot;/);
+      assert.doesNotMatch(html, /<script\b/);
+    }
+    await build([]);
+    assert.ok((await stat(path.join(temp, 'dist/index.html'))).isFile());
+  } finally {
+    await rm(temp, {recursive:true, force:true});
+  }
+});
