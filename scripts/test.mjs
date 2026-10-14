@@ -157,3 +157,59 @@ test('archive groups all posts by descending year and month with accurate counts
     await rm(temp, {recursive:true, force:true});
   }
 });
+
+test('RSS includes every post exactly once with absolute stable IDs and UTC dates', async () => {
+  const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
+  const feed = await readFile(path.join(dist, 'feed.xml'), 'utf8');
+  const { renderFeed, siteUrl } = await import('./feed.mjs');
+  assert.equal(feed, renderFeed(posts));
+  assert.match(feed, /^<\?xml version="1.0" encoding="UTF-8"\?>\n<rss version="2.0"/);
+  assert.match(feed, /xmlns:atom="http:\/\/www.w3.org\/2005\/Atom"/);
+  assert.ok(feed.includes(`<atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />`));
+  const items = [...feed.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(match => match[1]);
+  assert.equal(items.length, posts.length);
+  const ordered = [...posts].sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+  for (const [index, post] of ordered.entries()) {
+    const url = `${siteUrl}/notes/${post.slug}/`;
+    assert.ok(items[index].includes(`<link>${url}</link>`));
+    assert.ok(items[index].includes(`<guid isPermaLink="true">${url}</guid>`));
+    assert.ok(items[index].includes(`<pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>`));
+  }
+  const ids = [...feed.matchAll(/<guid[^>]*>([^<]+)<\/guid>/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, posts.length);
+  for (const [, url] of feed.matchAll(/<link>([^<]+)<\/link>/g)) {
+    assert.equal(new URL(url).origin, siteUrl);
+  }
+});
+
+test('RSS text escapes XML, replaces forbidden characters, and handles empty input', async () => {
+  const { renderFeed } = await import('./feed.mjs');
+  const text = `A & <tag> "quote" 'apostrophe' ]]> 中文 😀\u0000\ud800`;
+  const escaped = 'A &amp; &lt;tag&gt; &quot;quote&quot; &apos;apostrophe&apos; ]]&gt; 中文 😀\uFFFD\uFFFD';
+  const fixture = {slug: 'xml-test', date: '2026-10-14', title: text, summary: text, category: text};
+  const feed = renderFeed([fixture]);
+  for (const element of ['title', 'description', 'category']) {
+    assert.ok(feed.includes(`<${element}>${escaped}</${element}>`));
+  }
+  assert.doesNotMatch(feed, /<tag>|\u0000|\ud800/u);
+  assert.match(renderFeed([]), /<channel>[\s\S]*<\/channel>\n<\/rss>/);
+  assert.doesNotMatch(renderFeed([]), /<item>|Invalid Date/);
+  const sameDate = {...fixture, slug: 'a-first'};
+  const newer = {...fixture, slug: 'newer', date: '2026-10-15'};
+  const input = [fixture, sameDate, newer];
+  const output = renderFeed(input);
+  assert.ok(output.indexOf('/notes/newer/') < output.indexOf('/notes/a-first/'));
+  assert.ok(output.indexOf('/notes/a-first/') < output.indexOf('/notes/xml-test/'));
+  assert.deepEqual(input.map(post => post.slug), ['xml-test', 'a-first', 'newer']);
+  assert.equal(renderFeed(input), output, 'Rebuilding must not change feed content or IDs');
+});
+
+test('every page exposes the feed to readers and feed MIME type is configured', async () => {
+  for (const file of pages) {
+    const html = await readFile(file, 'utf8');
+    assert.match(html, /<head>[\s\S]*<link rel="alternate" type="application\/rss\+xml" title="韩立的工作手记 RSS" href="\/feed.xml">[\s\S]*<\/head>/);
+    assert.match(html, /<footer[^>]*>[\s\S]*<a href="\/feed.xml" aria-label="订阅手记 RSS">订阅<\/a>[\s\S]*<\/footer>/);
+  }
+  const headers = await readFile(path.join(dist, '_headers'), 'utf8');
+  assert.match(headers, /\/feed.xml\n  Content-Type: application\/rss\+xml; charset=utf-8/);
+});

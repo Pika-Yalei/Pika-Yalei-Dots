@@ -2,6 +2,7 @@ import { readFile, mkdir, rm, writeFile, cp } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { renderArchive } from './archive.mjs';
+import { renderFeed } from './feed.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
@@ -42,6 +43,7 @@ function layout(title, description, content, active = '') {
 <title>${escape(title)} · 韩立的工作手记</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="韩立的工作手记 RSS" href="/feed.xml">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -51,7 +53,7 @@ function layout(title, description, content, active = '') {
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main">${content}</main>
-<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
+<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
 </html>\n`;
@@ -74,4 +76,5 @@ for (const post of posts) {
   await writeFile(path.join(dir,'index.html'),layout(post.title,post.summary,`<article class="article-shell"><a class="back-link" href="/">← 所有手记</a><header class="article-header"><div class="entry-meta"><time datetime="${escape(post.date)}">${date(post.date)}</time><span>${escape(post.category)}</span><span>${post.readingMinutes} 分钟阅读</span></div><h1>${escape(post.title)}</h1><p class="article-subtitle">${escape(post.subtitle)}</p></header><div class="prose">${post.sections.map(section=>`<section><h2>${escape(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${escape(p)}</p>`).join('')}</section>`).join('')}</div><div class="closing-note">${escape(post.closing)}</div><p class="article-disclosure">AI 撰写 · 通用观察，不涉及真实私人事件</p><a class="back-link bottom-back" href="/">← 回到手记归档</a></article>`));
 }
 await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',`<section class="not-found"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>这一页，<br>还没写到。</h1><p>也可能是地址走岔了路。</p><a class="read-link" href="/">回到手记首页 →</a></section>`));
+await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
 console.log(`Built ${posts.length + 4} HTML pages in dist/`);
