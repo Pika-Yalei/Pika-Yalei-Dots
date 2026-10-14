@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
 execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:root});
@@ -270,6 +271,37 @@ test('reading navigation resolves duplicate sections, escapes labels and handles
     }
     await build([]);
     assert.ok((await stat(path.join(temp, 'dist/index.html'))).isFile());
+  } finally {
+    await rm(temp, {recursive:true, force:true});
+  }
+});
+
+test('stylesheets use a content-derived URL and change only when CSS changes', async () => {
+  const css = await readFile(path.join(root, 'public/style.css'));
+  const expected = `style.${createHash('sha256').update(css).digest('hex').slice(0, 16)}.css`;
+  assert.deepEqual(await readFile(path.join(dist, expected)), css);
+  assert.deepEqual(await readFile(path.join(dist, 'style.css')), css);
+  for (const file of pages) {
+    const html = await readFile(file, 'utf8');
+    assert.ok(html.includes(`<link rel="stylesheet" href="/${expected}">`));
+  }
+  const temp = await mkdtemp(path.join(tmpdir(), 'notebook-css-'));
+  try {
+    for (const dir of ['scripts', 'public', 'content']) {
+      await cp(path.join(root, dir), path.join(temp, dir), {recursive:true});
+    }
+    const build = async () => {
+      execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp});
+      const html = await readFile(path.join(temp, 'dist/index.html'), 'utf8');
+      return html.match(/rel="stylesheet" href="\/(style\.[a-f0-9]{16}\.css)"/)[1];
+    };
+    assert.equal(await build(), expected);
+    assert.equal(await build(), expected);
+    await writeFile(path.join(temp, 'public/style.css'), `${css}\n/* synthetic test change */\n`);
+    const changed = await build();
+    assert.notEqual(changed, expected);
+    assert.ok((await stat(path.join(temp, 'dist', changed))).isFile());
+    assert.equal(await build(), changed);
   } finally {
     await rm(temp, {recursive:true, force:true});
   }
