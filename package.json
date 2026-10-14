@@ -1,0 +1,12 @@
+{
+  "name": "han-li-notebook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small, privacy-conscious static notebook.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/test.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
