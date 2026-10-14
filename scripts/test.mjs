@@ -16,8 +16,8 @@ const all = await files(dist);
 const pages = all.filter(f=>f.endsWith('.html'));
 test('build generates the homepage, about, article and real 404 page', async () => {
   const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
-  assert.equal(pages.length, posts.length + 3);
-  for (const file of ['index.html','about/index.html','404.html', ...posts.map(p => `notes/${p.slug}/index.html`)]) {
+  assert.equal(pages.length, posts.length + 4);
+  for (const file of ['index.html','about/index.html','archive/index.html','404.html', ...posts.map(p => `notes/${p.slug}/index.html`)]) {
     assert.ok(all.includes(path.join(dist,file)));
   }
 });
@@ -101,4 +101,59 @@ test('every page links the public repository and the decorative arrow uses SVG',
   const home = await readFile(path.join(dist, 'index.html'), 'utf8');
   assert.match(home, /<svg class="entry-arrow" aria-hidden="true" focusable="false"/);
   assert.doesNotMatch(home, /class="entry-arrow"[^>]*>↗/);
+});
+
+test('archive navigation is present on every page and active only on the archive', async () => {
+  for (const file of pages) {
+    const html = await readFile(file, 'utf8');
+    assert.match(html, /<a href="\/archive\/"(?: aria-current="page")?>归档<\/a>/);
+    assert.equal(html.includes('href="/archive/" aria-current="page"'), file === path.join(dist, 'archive/index.html'));
+  }
+});
+
+test('archive groups all posts by descending year and month with accurate counts, dates and safe links', async () => {
+  const temp = await mkdtemp(path.join(tmpdir(), 'notebook-archive-'));
+  try {
+    for (const dir of ['scripts', 'public', 'content']) {
+      await cp(path.join(root, dir), path.join(temp, dir), {recursive:true});
+    }
+    const [base] = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
+    const fixtures = [
+      {...base, slug:'older-year', date:'2024-12-31', title:'Earlier year'},
+      {...base, slug:'same-day-z', date:'2025-10-14', title:'Z title'},
+      {...base, slug:'older-month', date:'2025-02-02', title:'Earlier month'},
+      {...base, slug:'same-day-a', date:'2025-10-14', title:'<img src=x> & "Title"'},
+      {...base, slug:'later-date', date:'2025-10-15', title:'Latest title'}
+    ];
+    const buildArchive = async posts => {
+      await writeFile(path.join(temp, 'content/posts.json'), JSON.stringify(posts));
+      execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp});
+      return readFile(path.join(temp, 'dist/archive/index.html'), 'utf8');
+    };
+    const html = await buildArchive(fixtures);
+    assert.match(html, /共 5 篇手记/);
+    assert.match(html, /id="year-2025">2025 年<\/h2><span>4 篇/);
+    assert.match(html, /id="year-2024">2024 年<\/h2><span>1 篇/);
+    assert.match(html, /id="month-2025-10">10 月 <span>3 篇/);
+    assert.match(html, /id="month-2025-02">2 月 <span>1 篇/);
+    assert.ok(html.indexOf('id="year-2025"') < html.indexOf('id="year-2024"'));
+    assert.ok(html.indexOf('id="month-2025-10"') < html.indexOf('id="month-2025-02"'));
+    const links = [...html.matchAll(/href="\/notes\/([^/]+)\/"/g)].map(match => match[1]);
+    assert.deepEqual(links, ['later-date', 'same-day-a', 'same-day-z', 'older-month', 'older-year']);
+    for (const post of fixtures) {
+      assert.match(html, new RegExp(`<time datetime="${post.date}">${post.date.replaceAll('-', '\\.')}</time>`));
+      assert.ok((await stat(path.join(temp, 'dist/notes', post.slug, 'index.html'))).isFile());
+    }
+    assert.match(html, /&lt;img src=x&gt; &amp; &quot;Title&quot;/);
+    assert.doesNotMatch(html, /<img|<script/);
+    const one = await buildArchive([fixtures[0]]);
+    assert.match(one, /共 1 篇手记/);
+    assert.equal([...one.matchAll(/<li>/g)].length, 1);
+    const empty = await buildArchive([]);
+    assert.match(empty, /共 0 篇手记/);
+    assert.match(empty, /第一篇正在路上/);
+    assert.doesNotMatch(empty, /class="archive-year"|<ol/);
+  } finally {
+    await rm(temp, {recursive:true, force:true});
+  }
 });
