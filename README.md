@@ -64,3 +64,10 @@ python3 -m http.server 8080 --directory dist
 - `scripts/test.mjs`：构建、链接、转义及基础隐私检查
 - `public/`：本地样式、图标和安全响应头
 - `dist/`：生成的静态站点（不提交）
+
+
+## 站点地图
+
+构建自动生成 `sitemap.xml` 和 `robots.txt`，列出首页、关于页、归档页和所有公开文章，供搜索引擎发现。404 页、样式及订阅源不列入网页地图。地图不编造最近修改日期；文章日期仍表示发布日期。两者与 RSS 共用 `scripts/feed.mjs` 中的正式站点地址。
+
+`robots.txt` 不是访问控制或隐私保护；不要把不应公开的文件放进发布目录。
