@@ -2,6 +2,7 @@ import { readFile, mkdir, rm, writeFile, cp } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { validatePosts } from './validate-posts.mjs';
 import { renderArchive } from './archive.mjs';
 import { renderFeed } from './feed.mjs';
 import { renderSitemap, renderRobots } from './sitemap.mjs';
@@ -12,28 +13,8 @@ const out = path.join(root, 'dist');
 const stylesheet = await readFile(path.join(root, 'public/style.css'));
 const stylesheetName = `style.${createHash('sha256').update(stylesheet).digest('hex').slice(0, 16)}.css`;
 const escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
-const slugs = new Set();
-for (const post of posts) {
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.slug) || slugs.has(post.slug)) {
-    throw new Error('Post slugs must be unique lowercase URL-safe strings');
-  }
-  slugs.add(post.slug);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(post.date) || !Number.isFinite(Date.parse(post.date)) || new Date(post.date).toISOString().slice(0, 10) !== post.date) {
-    throw new Error('Invalid date');
-  }
-  for (const key of ['title', 'subtitle', 'category', 'summary', 'closing']) {
-    if (typeof post[key] !== 'string' || !post[key].trim()) {
-      throw new Error(`Missing ${key}`);
-    }
-  }
-  if (!Number.isInteger(post.readingMinutes) || post.readingMinutes < 1) {
-    throw new Error('Invalid reading time');
-  }
-  if (!Array.isArray(post.sections) || !post.sections.length || post.sections.some(s => typeof s.heading !== 'string' || !Array.isArray(s.paragraphs) || !s.paragraphs.length || s.paragraphs.some(p => typeof p !== 'string'))) {
-    throw new Error('Invalid sections');
-  }
-}
+// Reject malformed content before touching the previous successful build.
+const posts = validatePosts(JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8')));
 posts.sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 const date = value => value.replaceAll('-', '.');
 const link = post => `/notes/${post.slug}/`;
