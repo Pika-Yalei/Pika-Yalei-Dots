@@ -49,7 +49,7 @@ test('every page has semantic and accessible foundations', async () => {
     assert.match(html, /<html lang="zh-CN">/);
     assert.match(html, /name="viewport"/);
     assert.equal([...html.matchAll(/<h1\b/g)].length,1);
-    assert.match(html, /<main id="main">/);
+    assert.match(html, /<main id="main" tabindex="-1">/);
     assert.match(html, /class="skip"/);
     assert.match(html, /<title>[^<]+<\/title>/);
     assert.match(html, /name="description"/);
@@ -306,3 +306,4 @@ test('stylesheets use a content-derived URL and change only when CSS changes', a
     await rm(temp, {recursive:true, force:true});
   }
 });
+
