@@ -38,7 +38,7 @@ function layout(title, description, content, active = '') {
 <a class="brand" href="/" aria-label="韩立的工作手记，首页"><span class="brand-mark" aria-hidden="true">立</span><span>韩立的工作手记<small>HAN LI’S NOTEBOOK</small></span></a>
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
-<main id="main">${content}</main>
+<main id="main" tabindex="-1">${content}</main>
 <footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
