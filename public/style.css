@@ -3,7 +3,7 @@
 @media(min-width:1500px){.site-wrap{max-width:1230px}.hero{padding-top:105px;padding-bottom:103px}}
 @media(max-width:700px){.site-wrap{padding:0 25px}.site-header{min-height:103px;gap:12px}.brand{font-size:14px;gap:10px;letter-spacing:.4px}.brand small{font-size:8px;letter-spacing:1.2px}.brand-mark{width:32px;height:38px;font-size:24px}nav{gap:20px;font-size:12px}.hero{padding:52px 0 48px;gap:0}.hero h1{font-size:36px;line-height:1.55;letter-spacing:1px}.eyebrow{font-size:8px;letter-spacing:1.7px;margin-bottom:22px}.hero-description{font-size:13px;line-height:2;margin-top:20px}.margin-note{display:none}.entry{grid-template-columns:36px minmax(0,1fr);padding:27px 0 30px}.entry-index{font-size:21px;padding-top:32px}.entry h2{font-size:23px;letter-spacing:0;margin:13px 0}.entry-meta{font-size:10px;gap:8px}.entry-meta span::before{margin-right:8px}.entry-content>p{font-size:13px}.section-label h2{font-size:12px}.section-label>span{font-size:10px}.home-aside{padding:26px 0 35px;gap:12px}.home-aside p{font-size:11px}.site-footer{flex-direction:column;gap:5px;padding:22px 0}.article-shell{padding:30px 0 45px}.article-header{padding:36px 0 24px;margin-bottom:28px}.article-header h1{font-size:30px;line-height:1.55}.article-subtitle{font-size:14px}.prose{font-size:16px;line-height:2}.prose h2{font-size:21px;margin-top:29px}.closing-note{font-size:16px;padding:18px 20px}.not-found{padding:60px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{body{background:white;color:black}.site-wrap{padding:0}.site-header,.site-footer,.back-link,.article-disclosure{display:none}.article-shell{padding:0;max-width:none}.article-header{padding-top:0}.prose{font-size:12pt}.closing-note{background:none}.margin-note{display:none}}
+
 
 /* A compact, script-free chronological index. */
 .archive-year{margin-bottom:40px}.archive-year .section-label h2{font-family:var(--serif);font-size:24px;letter-spacing:1px}.archive-month{margin-top:26px}.archive-month h3{font-size:14px;font-weight:500;color:var(--green);margin:0 0 12px}.archive-month h3 span{font-size:11px;font-weight:400;color:var(--muted);margin-left:12px}.archive-list{list-style:none;padding:0;margin:0}.archive-list li{display:grid;grid-template-columns:100px minmax(0,1fr);gap:18px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}.archive-list time{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.archive-list a{font-family:var(--serif);font-size:18px;line-height:1.8;overflow-wrap:anywhere}.archive-empty{color:var(--muted);line-height:1.9}
@@ -11,7 +11,8 @@
 /* Local reading aids stay in the same paper-and-ink palette. */
 .article-contents{display:block;padding:20px 24px;border:1px solid var(--line);background:var(--wash);margin:0 0 32px;overflow-wrap:anywhere}.article-contents h2{font-size:13px;font-weight:500;letter-spacing:1px;margin:0 0 12px}.article-contents ol{margin:0;padding-left:22px}.article-contents li{padding-left:4px}.article-contents a{display:inline-block;padding:7px 0;text-decoration:underline;line-height:1.7}.prose h2[id],#article-top{scroll-margin-top:24px}.prose h2[id]:focus,#article-top:focus{outline:2px solid var(--green);outline-offset:7px}.article-return{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}.article-neighbors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-top:1px solid var(--line);margin-top:32px;padding-top:18px}.article-neighbors a{font-family:var(--serif);font-size:18px;line-height:1.8;overflow-wrap:anywhere}.article-neighbors span{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);margin-bottom:6px}
 @media(max-width:700px){.article-contents{padding:18px}.article-neighbors{grid-template-columns:1fr;gap:12px}.article-neighbors a{font-size:17px}}
-@media print{.article-contents,.article-return,.article-neighbors{display:none}}
+
+
 
 /* Let unbroken titles and URLs wrap without widening the reading column. */
 .article-shell,.entry-content{overflow-wrap:anywhere}
@@ -19,3 +20,27 @@
 /* Fragment navigation must move keyboard focus, not just the viewport. */
 #main{scroll-margin-top:24px}
 #main:focus{outline:2px solid var(--green);outline-offset:7px}
+
+/* Printed copies keep authorship and flow naturally across page boundaries. */
+@media print{
+  @page{margin:18mm}
+  :root{--ink:#000;--muted:#333;--green:#222;--line:#aaa}
+  html{scroll-behavior:auto}
+  body{background:white;color:black}
+  .site-wrap{max-width:none;padding:0}
+  .site-header,.skip,.back-link,.article-contents,.article-return,.article-neighbors,.margin-note,.home-aside{display:none}
+  .site-footer{display:block;color:black}
+  .site-footer>span{display:block}
+  .article-shell{padding:0;max-width:none;overflow-wrap:anywhere}
+  .article-header{padding-top:0;break-after:avoid-page;page-break-after:avoid}
+  .article-header h1{font-size:24pt}
+  h1,h2,h3,.section-label{break-after:avoid-page;page-break-after:avoid}
+  .prose{font-size:12pt;line-height:1.7}
+  p{orphans:3;widows:3}
+  .closing-note{background:none;color:black}
+  .article-disclosure{display:block;color:black}
+  /* Grid/flex print fragmentation can clip or squeeze long content. */
+  .entry,.archive-list li,.entry h2 a{display:block}
+  .entry-index,.entry-arrow{display:none}
+  #main:focus,.prose h2[id]:focus,#article-top:focus{outline:none}
+}
