@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { renderArchive } from './archive.mjs';
 import { renderFeed } from './feed.mjs';
+import { renderSitemap, renderRobots } from './sitemap.mjs';
 import { sectionAnchors, renderContents, renderAdjacent } from './reading-navigation.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -83,4 +84,7 @@ for (const [index, post] of posts.entries()) {
 }
 await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',`<section class="not-found"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>这一页，<br>还没写到。</h1><p>也可能是地址走岔了路。</p><a class="read-link" href="/">回到手记首页 →</a></section>`));
 await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
+await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
+await writeFile(path.join(out, 'robots.txt'), renderRobots());
 console.log(`Built ${posts.length + 4} HTML pages in dist/`);
+
