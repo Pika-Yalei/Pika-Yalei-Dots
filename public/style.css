@@ -44,3 +44,19 @@
   .entry-index,.entry-arrow{display:none}
   #main:focus,.prose h2[id]:focus,#article-top:focus{outline:none}
 }
+
+/* Respect the user's high-contrast palette; outlines never change box geometry. */
+@media screen and (forced-colors:active){
+  :root{--paper:Canvas;--ink:CanvasText;--muted:CanvasText;--line:CanvasText;--green:CanvasText;--wash:Canvas}
+  /* Underlines identify links even when the palette uses one foreground color. */
+  :root a:any-link{color:LinkText;text-decoration-line:underline}
+  :root a:visited{color:VisitedText}
+  :root nav a[aria-current="page"]{text-decoration-style:double;text-decoration-thickness:2px;box-shadow:none}
+  :root a:focus-visible,#main:focus,.prose h2[id]:focus,#article-top:focus{outline:2px solid Highlight;outline-offset:7px}
+  /* Keep the revealed skip link readable over the page and give it an edge. */
+  :root .skip,:root .skip:focus{background:Canvas;color:LinkText;outline:2px solid Highlight}
+  .margin-note{outline:1px solid CanvasText}
+  .closing-note{border-left-color:CanvasText}
+  .article-contents{border-color:CanvasText}
+  ::selection{background:Highlight;color:HighlightText}
+}
