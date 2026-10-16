@@ -8,6 +8,8 @@ import { renderFeed } from './feed.mjs';
 import { renderSitemap, renderRobots } from './sitemap.mjs';
 import { sectionAnchors, renderContents, renderAdjacent } from './reading-navigation.mjs';
 
+import { renderNotFound } from './not-found.mjs';
+
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
 const stylesheet = await readFile(path.join(root, 'public/style.css'));
@@ -63,7 +65,7 @@ for (const [index, post] of posts.entries()) {
   await mkdir(dir,{recursive:true});
   await writeFile(path.join(dir,'index.html'),layout(post.title,post.summary,`<article class="article-shell"><a class="back-link" href="/">← 所有手记</a><header class="article-header" id="article-top" tabindex="-1"><div class="entry-meta"><time datetime="${escape(post.date)}">${date(post.date)}</time><span>${escape(post.category)}</span><span>${post.readingMinutes} 分钟阅读</span></div><h1>${escape(post.title)}</h1><p class="article-subtitle">${escape(post.subtitle)}</p></header>${renderContents(sections)}<div class="prose">${sections.map(section=>`<section><h2 id="${section.id}" tabindex="-1">${escape(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${escape(p)}</p>`).join('')}</section>`).join('')}</div><div class="closing-note">${escape(post.closing)}</div><p class="article-disclosure">AI 撰写 · 通用观察，不涉及真实私人事件</p><div class="article-return"><a class="back-link bottom-back" href="/">← 回到手记归档</a><a class="back-link bottom-back" href="#article-top">回到篇首 ↑</a></div>${renderAdjacent(posts, index)}</article>`));
 }
-await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',`<section class="not-found"><p class="eyebrow">404 / PAGE NOT FOUND</p><h1>这一页，<br>还没写到。</h1><p>也可能是地址走岔了路。</p><a class="read-link" href="/">回到手记首页 →</a></section>`));
+await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',renderNotFound(posts)));
 await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
