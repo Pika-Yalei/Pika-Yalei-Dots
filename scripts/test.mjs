@@ -28,7 +28,7 @@ test('all local references and fragment targets resolve', async () => {
     for (const [,attribute,ref] of html.matchAll(/(href|src)="([^"]+)"/g)) {
       if (/^https?:|^\/\//.test(ref)) {
         assert.equal(attribute, 'href', 'No external resource loads are allowed');
-        assert.equal(ref, 'https://github.com/Pika-Yalei/Pika-Yalei-Dots', 'Only the public repository link is allowed');
+        assert.ok(ref === 'https://github.com/Pika-Yalei/Pika-Yalei-Dots' || ref.startsWith('https://pika-yalei-dots.yaleizhang.com/'), 'Only the repository and canonical site URLs are allowed');
         continue;
       }
       if (ref.startsWith('#')) {
