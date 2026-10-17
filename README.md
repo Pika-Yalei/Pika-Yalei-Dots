@@ -15,6 +15,8 @@ python3 -m http.server 8080 --directory dist
 
 打开 http://localhost:8080 。构建产物在 `dist/`，不要把仓库根目录当作发布目录。
 
+`npm test` 会重新构建并检查生成 HTML 中的 `href`、`src`：本地文件与目录首页必须存在，同页或跨页的 HTML 片段链接必须指向目标页的 `id`（空片段和 `#top` 可回到页首）。正式域名的绝对链接也会核对本地输出；查询参数、百分号编码和生成器使用的 HTML 属性转义会先解析。失败信息包含来源页面、链接及缺失的文件或片段。检查不会访问网络，仅允许现有 GitHub 仓库外链；不校验非 HTML 文件内部的片段，也不替代完整的 HTML 语法检查。
+
 ## Cloudflare Pages
 
 由仓库所有者在 Cloudflare 控制台连接此仓库并部署：
@@ -64,6 +66,7 @@ python3 -m http.server 8080 --directory dist
 - `content/posts.json`：公开文章内容
 - `scripts/build.mjs`：静态页面生成器
 - `scripts/test.mjs`：构建、链接、转义及基础隐私检查
+- `scripts/validate-links.mjs`：生成页面的离线链接与 HTML 片段校验
 - `public/`：本地样式、图标和安全响应头
 - `dist/`：生成的静态站点（不提交）
 
