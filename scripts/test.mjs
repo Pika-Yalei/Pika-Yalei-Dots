@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { validateLinks } from './validate-links.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
 execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:root});
@@ -23,25 +24,7 @@ test('build generates the homepage, about, article and real 404 page', async () 
   }
 });
 test('all local references and fragment targets resolve', async () => {
-  for (const file of pages) {
-    const html = await readFile(file,'utf8');
-    for (const [,attribute,ref] of html.matchAll(/(href|src)="([^"]+)"/g)) {
-      if (/^https?:|^\/\//.test(ref)) {
-        assert.equal(attribute, 'href', 'No external resource loads are allowed');
-        assert.ok(ref === 'https://github.com/Pika-Yalei/Pika-Yalei-Dots' || ref.startsWith('https://pika-yalei-dots.yaleizhang.com/'), 'Only the repository and canonical site URLs are allowed');
-        continue;
-      }
-      if (ref.startsWith('#')) {
-        assert.ok(html.includes(`id="${ref.slice(1)}"`));
-        continue;
-      }
-      const target = path.join(dist,ref);
-      const info = await stat(target);
-      if (info.isDirectory()) {
-        assert.ok((await stat(path.join(target,'index.html'))).isFile());
-      }
-    }
-  }
+  await validateLinks(dist);
 });
 test('every page has semantic and accessible foundations', async () => {
   for (const file of pages) {
