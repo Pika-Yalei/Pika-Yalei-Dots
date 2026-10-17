@@ -60,3 +60,9 @@
   .article-contents{border-color:CanvasText}
   ::selection{background:Highlight;color:HighlightText}
 }
+
+.related-notes { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid currentColor; }
+.related-notes h2 { font-size: 1.2rem; }
+.related-notes ul { padding-inline-start: 1.25rem; }
+.related-notes li { margin-block: 1rem; overflow-wrap: anywhere; }
+.related-notes li p { margin-block: .4rem; line-height: 1.7; }
