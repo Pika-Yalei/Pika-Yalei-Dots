@@ -32,6 +32,8 @@ test('skip link targets a focusable main on every kind of generated page', async
     assert.equal([...html.matchAll(/<main\b/g)].length, 1);
     assert.match(html, /<main id="main" tabindex="-1">/);
     assert.doesNotMatch(html, /tabindex="[1-9]\d*"/);
+    assert.match(html, /<meta name="viewport" content="width=device-width, initial-scale=1">/);
+    assert.doesNotMatch(html, /user-scalable|maximum-scale|minimum-scale/);
   }
   assert.match(css, /\.skip:focus\s*\{[^}]*transform:\s*translateY\(0\)/);
   assert.match(css, /#main:focus\s*\{[^}]*outline:\s*2px solid var\(--green\)/);
@@ -39,8 +41,8 @@ test('skip link targets a focusable main on every kind of generated page', async
 });
 
 test('desktop and mobile entry columns can shrink and wrap long words', () => {
-  assert.match(css, /\.entry\s*\{[^}]*grid-template-columns:\s*80px minmax\(0,1fr\)/);
-  assert.match(css, /@media\(max-width:700px\)[\s\S]*?\.entry\s*\{[^}]*grid-template-columns:\s*36px minmax\(0,1fr\)/);
+  assert.match(css, /\.entry\s*\{[^}]*grid-template-columns:\s*5rem minmax\(0,1fr\)/);
+  assert.match(css, /@media\(max-width:43\.75em\)[\s\S]*?\.entry\s*\{[^}]*grid-template-columns:\s*2\.25rem minmax\(0,1fr\)/);
   assert.match(css, /\.article-shell,\.entry-content\s*\{[^}]*overflow-wrap:\s*anywhere/);
   assert.match(css, /\.entry-content\s*\{[^}]*min-width:\s*0/);
   assert.doesNotMatch(css, /(?:html|body|\.article-shell|\.entry-content)\s*\{[^}]*(?:overflow(?:-x)?:\s*(?:hidden|clip)|text-overflow:\s*ellipsis)/);
