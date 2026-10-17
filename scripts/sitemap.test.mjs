@@ -7,19 +7,20 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderSitemap, renderRobots } from './sitemap.mjs';
 import { siteUrl } from './feed.mjs';
+import { categoryPath, groupCategories } from './categories.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 
 test('sitemap is deterministic, absolute and excludes non-content paths', () => {
-  const posts = [{slug:'z-last'}, {slug:'a-first'}];
+  const posts = [{slug:'z-last', category:'中文'}, {slug:'a-first', category:'<tag> & ?'}];
   const xml = renderSitemap(posts);
   assert.match(xml, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(xml, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-  assert.deepEqual(urls, ['/', '/about/', '/archive/', '/notes/a-first/', '/notes/z-last/'].map(p => siteUrl + p));
+  assert.deepEqual(urls, ['/', '/about/', '/archive/', '/categories/', ...posts.map(post => categoryPath(post.category)).sort(), '/notes/a-first/', '/notes/z-last/'].map(p => siteUrl + p));
   assert.equal(xml, renderSitemap([...posts].reverse()));
   assert.deepEqual(posts.map(p=>p.slug), ['z-last', 'a-first']);
   assert.doesNotMatch(xml, /404|feed\.xml|style|lastmod/);
-  assert.equal([...renderSitemap([]).matchAll(/<url>/g)].length, 3);
+  assert.equal([...renderSitemap([]).matchAll(/<url>/g)].length, 4);
   assert.equal(renderRobots(), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
 });
 
@@ -34,7 +35,7 @@ test('build publishes a sitemap whose unique links all resolve, including empty 
       const xml = await readFile(path.join(temp,'dist/sitemap.xml'),'utf8');
       assert.equal(xml,renderSitemap(input));
       const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-      assert.equal(new Set(urls).size,input.length+3);
+      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+4);
       for (const value of urls) {
         const url = new URL(value);
         assert.equal(url.origin,siteUrl);

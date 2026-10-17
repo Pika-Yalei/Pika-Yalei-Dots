@@ -7,6 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { categoryPath } from './categories.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const fixture = await mkdtemp(path.join(tmpdir(), 'notebook-reading-layout-'));
@@ -26,7 +27,7 @@ execFileSync(process.execPath, ['scripts/build.mjs'], { cwd: fixture });
 const css = await readFile(path.join(fixture, 'public/style.css'), 'utf8');
 
 test('skip link targets a focusable main on every kind of generated page', async () => {
-  for (const file of ['index.html', 'archive/index.html', 'about/index.html', '404.html', `notes/${post.slug}/index.html`]) {
+  for (const file of ['index.html', 'archive/index.html', 'categories/index.html', `${categoryPath(post.category).slice(1)}index.html`, 'about/index.html', '404.html', `notes/${post.slug}/index.html`]) {
     const html = await readFile(path.join(fixture, 'dist', file), 'utf8');
     assert.match(html, /<body>\s*<a class="skip" href="#main">跳到正文<\/a>/);
     assert.equal([...html.matchAll(/<main\b/g)].length, 1);
@@ -45,11 +46,13 @@ test('desktop and mobile entry columns can shrink and wrap long words', () => {
   assert.match(css, /@media\(max-width:43\.75em\)[\s\S]*?\.entry\s*\{[^}]*grid-template-columns:\s*2\.25rem minmax\(0,1fr\)/);
   assert.match(css, /\.article-shell,\.entry-content\s*\{[^}]*overflow-wrap:\s*anywhere/);
   assert.match(css, /\.entry-content\s*\{[^}]*min-width:\s*0/);
+  assert.match(css, /\.category-list a>span:first-child\s*\{[^}]*min-width:\s*0;overflow-wrap:\s*anywhere/);
+  assert.match(css, /\.category-count\s*\{[^}]*flex-shrink:\s*0/);
   assert.doesNotMatch(css, /(?:html|body|\.article-shell|\.entry-content)\s*\{[^}]*(?:overflow(?:-x)?:\s*(?:hidden|clip)|text-overflow:\s*ellipsis)/);
 });
 
-test('long text remains complete in home, archive and article markup', async () => {
-  for (const file of ['index.html', 'archive/index.html', `notes/${post.slug}/index.html`]) {
+test('long text remains complete in home, archive, category and article markup', async () => {
+  for (const file of ['index.html', 'archive/index.html', 'categories/index.html', `${categoryPath(post.category).slice(1)}index.html`, `notes/${post.slug}/index.html`]) {
     const html = await readFile(path.join(fixture, 'dist', file), 'utf8');
     assert.ok(html.includes(longText), `${file} must preserve the complete title`);
   }
