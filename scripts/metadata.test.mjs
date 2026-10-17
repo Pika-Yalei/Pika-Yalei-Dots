@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderMetadata } from './metadata.mjs';
+import { groupCategories } from './categories.mjs';
 
 test('canonical and sharing metadata use the stable public URL', () => {
   const html = renderMetadata({title:'标题', description:'摘要', pagePath:'/notes/one/'});
@@ -34,7 +35,7 @@ test('built pages expose their own canonical address and 404 stays noindex', asy
     }
     execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp});
     const posts = JSON.parse(await readFile(join(temp, 'content/posts.json'), 'utf8'));
-    for (const pagePath of ['/', '/about/', '/archive/', ...posts.map(post => `/notes/${post.slug}/`)]) {
+    for (const pagePath of ['/', '/about/', '/archive/', '/categories/', ...groupCategories(posts).map(category => category.path), ...posts.map(post => `/notes/${post.slug}/`)]) {
       const html = await readFile(join(temp, 'dist', pagePath, 'index.html'), 'utf8');
       assert.ok(html.includes(`<link rel="canonical" href="https://pika-yalei-dots.yaleizhang.com${pagePath}">`));
       assert.equal([...html.matchAll(/rel="canonical"/g)].length, 1);

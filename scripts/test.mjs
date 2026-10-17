@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { validateLinks } from './validate-links.mjs';
+import { groupCategories } from './categories.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');
 execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:root});
@@ -16,10 +17,10 @@ async function files(dir) {
 }
 const all = await files(dist);
 const pages = all.filter(f=>f.endsWith('.html'));
-test('build generates the homepage, about, article and real 404 page', async () => {
+test('build generates every public page and a real 404 page', async () => {
   const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
-  assert.equal(pages.length, posts.length + 4);
-  for (const file of ['index.html','about/index.html','archive/index.html','404.html', ...posts.map(p => `notes/${p.slug}/index.html`)]) {
+  assert.equal(pages.length, posts.length + groupCategories(posts).length + 5);
+  for (const file of ['index.html','about/index.html','archive/index.html','categories/index.html','404.html', ...groupCategories(posts).map(category => `${category.path.slice(1)}index.html`), ...posts.map(p => `notes/${p.slug}/index.html`)]) {
     assert.ok(all.includes(path.join(dist,file)));
   }
 });
@@ -92,6 +93,14 @@ test('archive navigation is present on every page and active only on the archive
     const html = await readFile(file, 'utf8');
     assert.match(html, /<a href="\/archive\/"(?: aria-current="page")?>归档<\/a>/);
     assert.equal(html.includes('href="/archive/" aria-current="page"'), file === path.join(dist, 'archive/index.html'));
+  }
+});
+
+test('category navigation appears on every page and only marks the index as current', async () => {
+  for (const file of pages) {
+    const html = await readFile(file, 'utf8');
+    assert.match(html, /<a href="\/categories\/"(?: aria-current="page")?>分类<\/a>/);
+    assert.equal(html.includes('href="/categories/" aria-current="page"'), file === path.join(dist, 'categories/index.html'));
   }
 });
 
