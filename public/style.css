@@ -33,6 +33,15 @@
 #main{scroll-margin-top:24px}
 #main:focus{outline:2px solid var(--green);outline-offset:7px}
 
+/* Breadcrumbs retain list semantics and wrap rather than truncate long labels. */
+.breadcrumbs{display:block;color:var(--muted);font-size:0.75rem;line-height:1.8}
+.breadcrumbs ol{display:flex;flex-wrap:wrap;gap:0.25rem 0.75rem;list-style:none;padding:0;margin:0}
+.breadcrumbs li{display:flex;align-items:baseline;gap:0.75rem;min-width:0;max-width:100%}
+.breadcrumbs a,.breadcrumbs [aria-current]{min-width:0;overflow-wrap:anywhere}
+.breadcrumbs a{padding:0.25rem 0;text-decoration:underline}
+.breadcrumbs [aria-current]{color:var(--ink)}
+.breadcrumb-separator{flex-shrink:0}
+
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 @media print{
   @page{margin:18mm}
@@ -40,7 +49,7 @@
   html{scroll-behavior:auto}
   body{background:white;color:black}
   .site-wrap{max-width:none;padding:0}
-  .site-header,.skip,.back-link,.article-contents,.article-return,.article-neighbors,.margin-note,.home-aside{display:none}
+  .breadcrumbs,.site-header,.skip,.back-link,.article-contents,.article-return,.article-neighbors,.margin-note,.home-aside{display:none}
   .site-footer{display:block;color:black}
   .site-footer>span{display:block}
   .article-shell{padding:0;max-width:none;overflow-wrap:anywhere}
