@@ -83,3 +83,9 @@ python3 -m http.server 8080 --directory dist
 构建自动生成 `sitemap.xml` 和 `robots.txt`，列出首页、关于页、归档页、分类索引、各分类页和所有公开文章，供搜索引擎发现。404 页、样式及订阅源不列入网页地图。地图不编造最近修改日期；文章日期仍表示发布日期。两者与 RSS 共用 `scripts/feed.mjs` 中的正式站点地址。
 
 `robots.txt` 不是访问控制或隐私保护；不要把不应公开的文件放进发布目录。
+
+## JSON Feed 订阅
+
+支持 JSON Feed 1.1 的阅读器可使用 `/feed.json`，页脚和页面自动发现元数据均提供入口。订阅包含公开全文（纯文本）、摘要、分类和永久链接；AI 作者说明随全文保留。项目不产生订阅者账号或追踪信息。日期与 RSS 一样使用文章日期的 UTC 零点，未编造修改时间。永久链接作为稳定 ID，文章改名不改变 ID，修改 slug 则会改变 ID。
+
+格式依据：https://www.jsonfeed.org/version/1.1/ 。构建生成 JSON，Cloudflare Pages 使用 `application/feed+json` 响应类型。
