@@ -1,7 +1,8 @@
-import { readFile, mkdir, rm, writeFile } from 'node:fs/promises';
+import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { buildDirectory } from './build-directory.mjs';
 import { readPublicAssets } from './public-assets.mjs';
 import { validatePosts } from './validate-posts.mjs';
 import { renderBreadcrumbs } from './breadcrumbs.mjs';
@@ -17,7 +18,6 @@ import { sectionAnchors, renderContents, renderAdjacent } from './reading-naviga
 import { renderNotFound } from './not-found.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const out = path.join(root, 'dist');
 const publicAssets = await readPublicAssets(path.join(root, 'public'));
 const stylesheet = publicAssets.get('style.css');
 const stylesheetName = `style.${createHash('sha256').update(stylesheet).digest('hex').slice(0, 16)}.css`;
@@ -56,8 +56,7 @@ ${renderMetadata({title, description, pagePath})}
 </body>
 </html>\n`;
 }
-await rm(out, {recursive: true, force: true});
-await mkdir(out, {recursive: true});
+await buildDirectory(path.join(root, 'dist'), async out => {
 for (const [name, bytes] of publicAssets) {
   await writeFile(path.join(out, name), bytes);
 }
@@ -89,5 +88,6 @@ await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
 await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
+});
 console.log(`Built ${posts.length + categories.length + 5} HTML pages in dist/`);
 
