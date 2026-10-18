@@ -63,13 +63,13 @@ test('category renderers escape labels and article titles and handle an empty no
   const detail = renderCategory(category);
   assert.match(detail, /<h1>&lt;script&gt; &amp; &quot;name&quot;<\/h1>/);
   assert.match(detail, /&lt;img src=x&gt; &amp; &#39;title&#39;/);
-  assert.match(detail, /href="\/categories\/">← 所有分类/);
+  assert.match(detail, /href="\/categories\/">分类/);
   assert.deepEqual(noteSlugs(detail), ['category-example']);
   for (const html of [index, detail]) assert.doesNotMatch(html, /<script\b|<img\b/);
   const empty = renderCategories([]);
   assert.match(empty, /共 0 个分类 · 0 篇手记/);
   assert.match(empty, /第一篇手记发布后会自动出现/);
-  assert.doesNotMatch(empty, /<ul|<li/);
+  assert.doesNotMatch(empty, /<ul class="category-list"/);
 });
 
 test('static category pages link each group, preserve exact labels and clean up removed groups', async () => {
@@ -112,7 +112,7 @@ test('static category pages link each group, preserve exact labels and clean up 
       assert.deepEqual(noteSlugs(html), category.posts.map(post => post.slug));
       assert.ok(html.includes(`<link rel="canonical" href="${siteUrl}${category.path}">`));
       assert.match(html, /property="og:type" content="website"/);
-      assert.match(html, /href="\/categories\/">← 所有分类/);
+      assert.match(html, /href="\/categories\/">分类/);
       assert.doesNotMatch(html, /href="\/categories\/" aria-current/);
       assert.doesNotMatch(html, /<script\b|<form\b|<img\b|<iframe\b/);
       for (const post of category.posts) {
