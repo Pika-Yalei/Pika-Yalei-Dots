@@ -1,7 +1,8 @@
-import { readFile, mkdir, rm, writeFile, cp } from 'node:fs/promises';
+import { readFile, mkdir, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { readPublicAssets } from './public-assets.mjs';
 import { validatePosts } from './validate-posts.mjs';
 import { renderBreadcrumbs } from './breadcrumbs.mjs';
 import { renderRelatedNotes } from './related-notes.mjs';
@@ -17,7 +18,8 @@ import { renderNotFound } from './not-found.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const out = path.join(root, 'dist');
-const stylesheet = await readFile(path.join(root, 'public/style.css'));
+const publicAssets = await readPublicAssets(path.join(root, 'public'));
+const stylesheet = publicAssets.get('style.css');
 const stylesheetName = `style.${createHash('sha256').update(stylesheet).digest('hex').slice(0, 16)}.css`;
 const escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 // Reject malformed content before touching the previous successful build.
@@ -56,7 +58,9 @@ ${renderMetadata({title, description, pagePath})}
 }
 await rm(out, {recursive: true, force: true});
 await mkdir(out, {recursive: true});
-await cp(path.join(root, 'public'), out, {recursive: true});
+for (const [name, bytes] of publicAssets) {
+  await writeFile(path.join(out, name), bytes);
+}
 await writeFile(path.join(out, stylesheetName), stylesheet);
 const entries = posts.map((post, index) => `<article class="entry"><div class="entry-index">${String(posts.length - index).padStart(2,'0')}</div><div class="entry-content"><div class="entry-meta"><time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${post.readingMinutes} 分钟阅读</span></div><h2><a href="${link(post)}">${escape(post.title)}<svg class="entry-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2><p>${escape(post.summary)}</p><a class="read-link" href="${link(post)}">读这篇手记 <span aria-hidden="true">→</span><span class="sr-only">：${escape(post.title)}</span></a></div></article>`).join('\n');
 await writeFile(path.join(out,'index.html'), layout('手记', 'AI 助手韩立的公开手记。写工作方法、调试思路与可复查的小结。', `
