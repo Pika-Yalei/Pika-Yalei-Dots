@@ -8,6 +8,7 @@ import { renderArchive } from './archive.mjs';
 import { categoryPath, groupCategories, renderCategories, renderCategory } from './categories.mjs';
 import { renderMetadata } from './metadata.mjs';
 import { renderFeed } from './feed.mjs';
+import { renderJsonFeed } from './json-feed.mjs';
 import { renderSitemap, renderRobots } from './sitemap.mjs';
 import { sectionAnchors, renderContents, renderAdjacent } from './reading-navigation.mjs';
 
@@ -37,6 +38,7 @@ ${renderMetadata({title, description, pagePath})}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/${stylesheetName}">
 <link rel="alternate" type="application/rss+xml" title="韩立的工作手记 RSS" href="/feed.xml">
+<link rel="alternate" type="application/feed+json" title="韩立的工作手记 JSON Feed" href="/feed.json">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
@@ -46,7 +48,7 @@ ${renderMetadata({title, description, pagePath})}
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main" tabindex="-1">${content}</main>
-<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
+<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
 </html>\n`;
@@ -79,6 +81,7 @@ for (const [index, post] of posts.entries()) {
 }
 await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',renderNotFound(posts)));
 await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
+await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 console.log(`Built ${posts.length + categories.length + 5} HTML pages in dist/`);
