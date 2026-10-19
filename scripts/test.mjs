@@ -124,6 +124,10 @@ test('archive groups all posts by descending year and month with accurate counts
       return readFile(path.join(temp, 'dist/archive/index.html'), 'utf8');
     };
     const html = await buildArchive(fixtures);
+    const monthLinks = [...html.matchAll(/href="#(month-[^"]+)"/g)].map(match => match[1]);
+    assert.deepEqual(monthLinks, ['month-2025-10', 'month-2025-02', 'month-2024-12']);
+    for (const id of monthLinks) assert.ok(html.includes(`<h3 tabindex="-1" id="${id}">`));
+    await validateLinks(path.join(temp, 'dist'));
     assert.match(html, /共 5 篇手记/);
     assert.match(html, /id="year-2025">2025 年<\/h2><span>4 篇/);
     assert.match(html, /id="year-2024">2024 年<\/h2><span>1 篇/);
@@ -141,6 +145,7 @@ test('archive groups all posts by descending year and month with accurate counts
     assert.doesNotMatch(html, /<img|<script/);
     const one = await buildArchive([fixtures[0]]);
     assert.match(one, /共 1 篇手记/);
+    assert.doesNotMatch(one, /archive-months-title|href="#month-/);
     assert.equal([...one.matchAll(/<li>/g)].length, 1);
     const empty = await buildArchive([]);
     assert.match(empty, /共 0 篇手记/);

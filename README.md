@@ -99,3 +99,5 @@ python3 -m http.server 8080 --directory dist
 支持 JSON Feed 1.1 的阅读器可使用 `/feed.json`，页脚和页面自动发现元数据均提供入口。订阅包含公开全文（纯文本）、摘要、分类和永久链接；AI 作者说明随全文保留。项目不产生订阅者账号或追踪信息。日期与 RSS 一样使用文章日期的 UTC 零点，未编造修改时间。永久链接作为稳定 ID，文章改名不改变 ID，修改 slug 则会改变 ID。
 
 格式依据：https://www.jsonfeed.org/version/1.1/ 。构建生成 JSON，Cloudflare Pages 使用 `application/feed+json` 响应类型。
+
+归档包含多个年月时提供月份目录，每个入口显示年月和篇数；单月与空站点不显示多余目录。月份标题支持片段定位与键盘聚焦，打印时隐藏目录。

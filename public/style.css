@@ -11,7 +11,7 @@
 /* Category labels are text; long names wrap while counts remain readable. */
 .category-list{list-style:none;padding:0;margin:0}.category-list a{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:1.25rem;line-height:1.8}.category-list a>span:first-child{min-width:0;overflow-wrap:anywhere}.category-count{flex-shrink:0;font-family:var(--sans);font-size:0.75rem;color:var(--muted)}
 /* Local reading aids stay in the same paper-and-ink palette. */
-.article-contents{display:block;padding:20px 24px;border:1px solid var(--line);background:var(--wash);margin:0 0 32px;overflow-wrap:anywhere}.article-contents h2{font-size:0.8125rem;font-weight:500;letter-spacing:1px;margin:0 0 12px}.article-contents ol{margin:0;padding-left:22px}.article-contents li{padding-left:4px}.article-contents a{display:inline-block;padding:7px 0;text-decoration:underline;line-height:1.7}.prose h2[id],#article-top{scroll-margin-top:24px}.prose h2[id]:focus,#article-top:focus{outline:2px solid var(--green);outline-offset:7px}.article-return{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}.article-neighbors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-top:1px solid var(--line);margin-top:32px;padding-top:18px}.article-neighbors a{font-family:var(--serif);font-size:1.125rem;line-height:1.8;overflow-wrap:anywhere}.article-neighbors span{display:block;font-family:var(--sans);font-size:0.6875rem;color:var(--muted);margin-bottom:6px}
+.article-contents{display:block;padding:20px 24px;border:1px solid var(--line);background:var(--wash);margin:0 0 32px;overflow-wrap:anywhere}.article-contents h2{font-size:0.8125rem;font-weight:500;letter-spacing:1px;margin:0 0 12px}.article-contents ol{margin:0;padding-left:22px}.article-contents li{padding-left:4px}.article-contents a{display:inline-block;padding:7px 0;text-decoration:underline;line-height:1.7}.prose h2[id],.archive-month h3[id],#article-top{scroll-margin-top:24px}.prose h2[id]:focus,.archive-month h3[id]:focus,#article-top:focus{outline:2px solid var(--green);outline-offset:7px}.article-return{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}.article-neighbors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;border-top:1px solid var(--line);margin-top:32px;padding-top:18px}.article-neighbors a{font-family:var(--serif);font-size:1.125rem;line-height:1.8;overflow-wrap:anywhere}.article-neighbors span{display:block;font-family:var(--sans);font-size:0.6875rem;color:var(--muted);margin-bottom:6px}
 @media(max-width:43.75em){.article-contents{padding:18px}.article-neighbors{grid-template-columns:1fr;gap:12px}.article-neighbors a{font-size:1.0625rem}}
 
 
@@ -64,7 +64,7 @@
   .entry,.archive-list li,.entry h2 a{display:block}
   .category-list a{display:block}.category-count{margin-left:1em}
   .entry-index,.entry-arrow{display:none}
-  #main:focus,.prose h2[id]:focus,#article-top:focus{outline:none}
+  #main:focus,.prose h2[id]:focus,.archive-month h3[id]:focus,#article-top:focus{outline:none}
 }
 
 /* Respect the user's high-contrast palette; outlines never change box geometry. */
@@ -74,7 +74,7 @@
   :root a:any-link{color:LinkText;text-decoration-line:underline}
   :root a:visited{color:VisitedText}
   :root nav a[aria-current="page"]{text-decoration-style:double;text-decoration-thickness:2px;box-shadow:none}
-  :root a:focus-visible,#main:focus,.prose h2[id]:focus,#article-top:focus{outline:2px solid Highlight;outline-offset:7px}
+  :root a:focus-visible,#main:focus,.prose h2[id]:focus,.archive-month h3[id]:focus,#article-top:focus{outline:2px solid Highlight;outline-offset:7px}
   /* Keep the revealed skip link readable over the page and give it an edge. */
   :root .skip,:root .skip:focus{background:Canvas;color:LinkText;outline:2px solid Highlight}
   .margin-note{outline:1px solid CanvasText}
