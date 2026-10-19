@@ -42,6 +42,9 @@
 .breadcrumbs [aria-current]{color:var(--ink)}
 .breadcrumb-separator{flex-shrink:0}
 
+/* The article source is a reading aid for printed copies only. */
+.print-source{display:none}
+
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 @media print{
   @page{margin:18mm}
@@ -60,6 +63,7 @@
   p{orphans:3;widows:3}
   .closing-note{background:none;color:black}
   .article-disclosure{display:block;color:black}
+  .print-source{display:block;color:black;font-size:10pt;line-height:1.7;overflow-wrap:anywhere;white-space:normal}
   /* Grid/flex print fragmentation can clip or squeeze long content. */
   .entry,.archive-list li,.entry h2 a{display:block}
   .category-list a{display:block}.category-count{margin-left:1em}
