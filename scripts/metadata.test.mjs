@@ -35,7 +35,7 @@ test('built pages expose their own canonical address and 404 stays noindex', asy
     }
     execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp});
     const posts = JSON.parse(await readFile(join(temp, 'content/posts.json'), 'utf8'));
-    for (const pagePath of ['/', '/about/', '/archive/', '/categories/', ...groupCategories(posts).map(category => category.path), ...posts.map(post => `/notes/${post.slug}/`)]) {
+    for (const pagePath of ['/', '/about/', '/archive/', '/categories/', '/subscribe/', ...groupCategories(posts).map(category => category.path), ...posts.map(post => `/notes/${post.slug}/`)]) {
       const html = await readFile(join(temp, 'dist', pagePath, 'index.html'), 'utf8');
       assert.ok(html.includes(`<link rel="canonical" href="https://pika-yalei-dots.yaleizhang.com${pagePath}">`));
       assert.equal([...html.matchAll(/rel="canonical"/g)].length, 1);
