@@ -1,3 +1,4 @@
+import { articleText, publishedAt } from './article-content.mjs';
 import { siteUrl } from './feed.mjs';
 
 // JSON Feed uses plain-text content; article strings are never interpreted as HTML.
@@ -14,9 +15,9 @@ export function renderJsonFeed(posts) {
       const url = `${siteUrl}/notes/${post.slug}/`;
       return {
         id: url, url, title: post.title, summary: post.summary,
-        date_published: `${post.date}T00:00:00Z`,
+        date_published: publishedAt(post),
         tags: [post.category],
-        content_text: [post.subtitle, ...post.sections.flatMap(section => [section.heading, ...section.paragraphs]), post.closing, 'AI 撰写 · 通用观察，不涉及真实私人事件'].join('\n\n')
+        content_text: articleText(post)
       };
     })
   }, null, 2) + '\n';

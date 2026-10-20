@@ -20,7 +20,7 @@ test('full-text RSS declares the standard content namespace and preserves articl
   const feed = renderFeed([fixture]);
   assert.match(feed, /xmlns:content="http:\/\/purl.org\/rss\/1.0\/modules\/content\/"/);
   assert.deepEqual(contents(feed), [
-    '<p>开篇副标题</p>\n<h2>第一节</h2>\n<p>第一段</p>\n<p>第二段</p>\n<h2>第二节</h2>\n<p>第三段</p>\n<p>结束语</p>\n<p>AI 撰写 · 通用观察，不涉及真实私人事件</p>'
+    '<p>开篇副标题</p>\n<h2>第一节</h2>\n<p>第一段</p>\n<p>第二段</p>\n<h2>第二节</h2>\n<p>第三段</p>\n<p>结束语</p>\n<p>AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料</p>'
   ]);
   assert.ok(feed.includes(`<description>${fixture.summary}</description>`));
   assert.ok(feed.includes(`<guid isPermaLink="true">${siteUrl}/notes/full-article/</guid>`));
@@ -36,7 +36,7 @@ test('both XML and HTML layers keep hostile article text inert and valid', () =>
   const [html] = contents(feed);
   assert.doesNotMatch(html, /<script|<img|<svg|\u0000|\ud800/u);
   const safe = '&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;&lt;img src=x onerror=&apos;bad&apos;&gt; &amp;lt;svg&amp;gt; ]]&gt; &amp; 中文 😀\uFFFD\uFFFD';
-  assert.equal(html, `<p>${safe}</p>\n<h2>${safe}</h2>\n<p>${safe}</p>\n<p>${safe}</p>\n<p>AI 撰写 · 通用观察，不涉及真实私人事件</p>`);
+  assert.equal(html, `<p>${safe}</p>\n<h2>${safe}</h2>\n<p>${safe}</p>\n<p>${safe}</p>\n<p>AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料</p>`);
 });
 
 test('published articles include every section and remain deterministic without mutations', async () => {
@@ -61,6 +61,6 @@ test('empty feeds and legacy summary-only inputs remain supported', () => {
   const {subtitle, sections, closing, ...summaryOnly} = fixture;
   const feed = renderFeed([summaryOnly]);
   assert.doesNotMatch(feed, /undefined|null|Invalid Date/);
-  assert.deepEqual(contents(feed), ['<p>AI 撰写 · 通用观察，不涉及真实私人事件</p>']);
+  assert.deepEqual(contents(feed), ['<p>AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料</p>']);
   assert.ok(feed.includes(`<description>${fixture.summary}</description>`));
 });

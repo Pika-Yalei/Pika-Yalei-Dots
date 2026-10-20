@@ -1,8 +1,9 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
+import { sourceUrls } from './article-content.mjs';
 import { siteUrl } from './feed.mjs';
 
-const allowedExternalUrls = new Set(['https://github.com/Pika-Yalei/Pika-Yalei-Dots']);
+const allowedExternalUrls = new Set(['https://github.com/Pika-Yalei/Pika-Yalei-Dots', ...sourceUrls]);
 const entities = { amp: '&', AMP: '&', lt: '<', LT: '<', gt: '>', GT: '>', quot: '"', QUOT: '"', apos: "'" };
 
 // Decode once, just as HTML attributes are decoded before URL resolution.

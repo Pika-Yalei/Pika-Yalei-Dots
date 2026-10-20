@@ -1,10 +1,12 @@
+import { isReviewedSource } from './article-content.mjs';
+
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const postFields = new Set([
   'slug', 'date', 'title', 'subtitle', 'category', 'summary',
-  'readingMinutes', 'sections', 'closing'
+  'readingMinutes', 'sections', 'closing', 'publishedAt'
 ]);
-const sectionFields = new Set(['heading', 'paragraphs']);
+const sectionFields = new Set(['heading', 'paragraphs', 'sources']);
 
 function invalid(location, requirement) {
   throw new TypeError(`Invalid content at ${location}: ${requirement}`);
@@ -68,6 +70,13 @@ export function validatePosts(posts) {
       invalid(`${location}.date`, 'expected a real date in YYYY-MM-DD format');
     }
 
+    if (Object.hasOwn(post, 'publishedAt')) {
+      const value = post.publishedAt;
+      if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(value) || !Number.isFinite(Date.parse(value)) || new Date(value).toISOString() !== value.replace('Z', '.000Z')) {
+        invalid(`${location}.publishedAt`, 'expected a real UTC timestamp in YYYY-MM-DDTHH:mm:ssZ format');
+      }
+    }
+
     for (const key of ['title', 'subtitle', 'category', 'summary', 'closing']) {
       requireText(post[key], `${location}.${key}`);
     }
@@ -80,6 +89,18 @@ export function validatePosts(posts) {
       const sectionLocation = `${location}.sections[${sectionIndex}]`;
       requireObject(section, sectionLocation);
       requireKnownFields(section, sectionFields, sectionLocation);
+      if (Object.hasOwn(section, 'sources')) {
+        requireNonEmptyArray(section.sources, `${sectionLocation}.sources`);
+        for (const [index, source] of section.sources.entries()) {
+          const sourceLocation = `${sectionLocation}.sources[${index}]`;
+          requireObject(source, sourceLocation);
+          requireKnownFields(source, new Set(['label', 'url']), sourceLocation);
+          requireText(source.label, `${sourceLocation}.label`);
+          if (!isReviewedSource(source.url)) {
+            invalid(`${sourceLocation}.url`, 'expected an exact reviewed HTTPS source URL without credentials');
+          }
+        }
+      }
       requireText(section.heading, `${sectionLocation}.heading`);
       requireNonEmptyArray(section.paragraphs, `${sectionLocation}.paragraphs`);
       for (const [paragraphIndex, paragraph] of section.paragraphs.entries()) {

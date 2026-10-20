@@ -107,3 +107,5 @@
 .related-notes ul { padding-inline-start: 1.25rem; }
 .related-notes li { margin-block: 1rem; overflow-wrap: anywhere; }
 .related-notes li p { margin-block: .4rem; line-height: 1.7; }
+
+.article-publication{color:var(--muted);font-size:0.875rem;line-height:1.9;overflow-wrap:anywhere}.article-sources{padding-left:1.5em;font-size:0.875rem;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}.article-sources a{color:var(--green)}

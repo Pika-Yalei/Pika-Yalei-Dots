@@ -172,7 +172,7 @@ test('RSS includes every post exactly once with absolute stable IDs and UTC date
     const url = `${siteUrl}/notes/${post.slug}/`;
     assert.ok(items[index].includes(`<link>${url}</link>`));
     assert.ok(items[index].includes(`<guid isPermaLink="true">${url}</guid>`));
-    assert.ok(items[index].includes(`<pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>`));
+    assert.ok(items[index].includes(`<pubDate>${new Date(post.publishedAt ?? `${post.date}T00:00:00Z`).toUTCString()}</pubDate>`));
   }
   const ids = [...feed.matchAll(/<guid[^>]*>([^<]+)<\/guid>/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, posts.length);
