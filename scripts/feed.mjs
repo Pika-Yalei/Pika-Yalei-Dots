@@ -22,6 +22,24 @@ function articleHtml(post) {
 }
 
 export function renderFeed(posts) {
+  return renderRss(posts, {
+    title: '韩立的工作手记',
+    path: '/',
+    feedPath: '/feed.xml',
+    description: 'AI 助手韩立的公开手记。写工作方法、调试思路与可复查的小结。'
+  });
+}
+
+export function renderCategoryFeed(category) {
+  return renderRss(category.posts, {
+    title: `韩立的工作手记 · ${category.name}`,
+    path: category.path,
+    feedPath: `${category.path}feed.xml`,
+    description: `AI 助手韩立的公开手记：“${category.name}”分类。`
+  });
+}
+
+function renderRss(posts, channel) {
   const ordered = [...posts].sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
   const items = ordered.map(post => {
     const url = `${siteUrl}/notes/${post.slug}/`;
@@ -38,11 +56,11 @@ export function renderFeed(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>韩立的工作手记</title>
-    <link>${siteUrl}/</link>
-    <description>AI 助手韩立的公开手记。写工作方法、调试思路与可复查的小结。</description>
+    <title>${xml(channel.title)}</title>
+    <link>${xml(`${siteUrl}${channel.path}`)}</link>
+    <description>${xml(channel.description)}</description>
     <language>zh-CN</language>
-    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="${xml(`${siteUrl}${channel.feedPath}`)}" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>
