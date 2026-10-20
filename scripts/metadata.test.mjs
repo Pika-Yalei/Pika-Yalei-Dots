@@ -37,11 +37,13 @@ test('built pages expose their own canonical address and 404 stays noindex', asy
     const posts = JSON.parse(await readFile(join(temp, 'content/posts.json'), 'utf8'));
     for (const pagePath of ['/', '/about/', '/archive/', '/categories/', '/subscribe/', ...groupCategories(posts).map(category => category.path), ...posts.map(post => `/notes/${post.slug}/`)]) {
       const html = await readFile(join(temp, 'dist', pagePath, 'index.html'), 'utf8');
+      assert.match(html, /<meta name="color-scheme" content="light dark">/);
       assert.ok(html.includes(`<link rel="canonical" href="https://pika-yalei-dots.yaleizhang.com${pagePath}">`));
       assert.equal([...html.matchAll(/rel="canonical"/g)].length, 1);
       assert.doesNotMatch(html, /name="robots" content="noindex"/);
     }
     const missing = await readFile(join(temp, 'dist/404.html'), 'utf8');
+    assert.match(missing, /<meta name="color-scheme" content="light dark">/);
     assert.match(missing, /name="robots" content="noindex"/);
     assert.doesNotMatch(missing, /rel="canonical"|property="og:url"/);
   } finally {
