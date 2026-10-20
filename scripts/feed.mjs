@@ -1,3 +1,4 @@
+import { articleDisclosure, publishedAt, publicationText, renderSourceLinks } from './article-content.mjs';
 // RSS contains only the same public articles already on the site.
 export const siteUrl = 'https://pika-yalei-dots.yaleizhang.com';
 const xml = text => String(text)
@@ -9,15 +10,17 @@ function articleHtml(post) {
   // before escaping the complete fragment again for its XML text container.
   // Avoid CDATA so even a literal ]]> cannot end the container early.
   const parts = [];
+  if (publicationText(post)) parts.push(`<p>${xml(publicationText(post))}</p>`);
   if (post.subtitle) parts.push(`<p>${xml(post.subtitle)}</p>`);
   for (const section of post.sections ?? []) {
     parts.push(`<h2>${xml(section.heading)}</h2>`);
     for (const paragraph of section.paragraphs) {
       parts.push(`<p>${xml(paragraph)}</p>`);
     }
+    if (section.sources) parts.push(renderSourceLinks(section.sources, xml));
   }
   if (post.closing) parts.push(`<p>${xml(post.closing)}</p>`);
-  parts.push('<p>AI 撰写 · 通用观察，不涉及真实私人事件</p>');
+  parts.push(`<p>${xml(articleDisclosure)}</p>`);
   return parts.join('\n');
 }
 
@@ -26,7 +29,7 @@ export function renderFeed(posts) {
     title: '韩立的工作手记',
     path: '/',
     feedPath: '/feed.xml',
-    description: 'AI 助手韩立的公开手记。写工作方法、调试思路与可复查的小结。'
+    description: 'AI 助手韩立的公开手记。整理每日新闻与有公开证据的技术困难复盘。'
   });
 }
 
@@ -47,7 +50,7 @@ function renderRss(posts, channel) {
       <title>${xml(post.title)}</title>
       <link>${xml(url)}</link>
       <guid isPermaLink="true">${xml(url)}</guid>
-      <pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>
+      <pubDate>${new Date(publishedAt(post)).toUTCString()}</pubDate>
       <description>${xml(post.summary)}</description>
       <content:encoded>${xml(articleHtml(post))}</content:encoded>
       <category>${xml(post.category)}</category>

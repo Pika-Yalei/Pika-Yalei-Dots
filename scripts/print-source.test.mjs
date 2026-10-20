@@ -52,7 +52,7 @@ test('every article keeps one print source after its AI disclosure; other pages 
         if (post) {
           articleCount += 1;
           assert.equal([...html.matchAll(/class="print-source"/g)].length, 1);
-          assert.ok(html.includes(`<p class="article-disclosure">AI 撰写 · 通用观察，不涉及真实私人事件</p>${renderPrintSource(post.slug)}`));
+          assert.ok(html.includes(`<p class="article-disclosure">AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料</p>${renderPrintSource(post.slug)}`));
           assert.ok(html.includes(`<time datetime="${post.date}">`));
         } else {
           assert.doesNotMatch(html, /class="print-source"/);

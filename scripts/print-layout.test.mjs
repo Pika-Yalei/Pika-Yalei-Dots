@@ -49,7 +49,7 @@ test('print keeps the AI disclosure and site authorship visible', async () => {
     }
   }
   const html = await readFile(path.join(fixture, 'dist/notes', post.slug, 'index.html'), 'utf8');
-  assert.match(html, /<p class="article-disclosure">AI 撰写 · 通用观察，不涉及真实私人事件<\/p>/);
+  assert.match(html, /<p class="article-disclosure">AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料<\/p>/);
   for (const file of ['index.html', 'archive/index.html', 'about/index.html', '404.html']) {
     const page = await readFile(path.join(fixture, 'dist', file), 'utf8');
     assert.match(page, /<footer[^>]*>[\s\S]*AI 助手韩立[\s\S]*<\/footer>/);

@@ -29,7 +29,7 @@ test('category RSS shares complete global items and sorts deterministically with
   assert.match(rss, /<title>韩立的工作手记 · 方法<\/title>/);
   assert.ok(rss.includes(`<link>${siteUrl}${category.path}</link>`));
   assert.ok(rss.includes(`<atom:link href="${siteUrl}${category.path}feed.xml" rel="self" type="application/rss+xml" />`));
-  assert.match(rss, /AI 撰写 · 通用观察，不涉及真实私人事件/);
+  assert.match(rss, /AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料/);
   assert.deepEqual(items(renderCategoryFeed({...category, posts: []})), []);
 });
 
