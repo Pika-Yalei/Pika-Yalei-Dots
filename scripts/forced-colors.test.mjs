@@ -33,6 +33,9 @@ test('high contrast uses native system colors without disabling user overrides',
   assert.deepEqual(style(':root'), {
     '--paper': 'Canvas', '--ink': 'CanvasText', '--muted': 'CanvasText',
     '--line': 'CanvasText', '--green': 'CanvasText', '--wash': 'Canvas',
+    '--selection': 'Highlight', '--selection-ink': 'HighlightText',
+    '--note-muted': 'CanvasText', '--note-rule': 'CanvasText',
+    '--index': 'CanvasText', '--separator': 'CanvasText',
   });
   assert.deepEqual(style('::selection'), { background: 'Highlight', color: 'HighlightText' });
 });

@@ -39,7 +39,7 @@ function layout(title, description, content, active = '', pagePath = null, categ
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="${escape(description)}">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 ${renderMetadata({title, description, pagePath})}
 <title>${escape(title)} · 韩立的工作手记</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
