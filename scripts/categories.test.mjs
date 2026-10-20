@@ -1,3 +1,4 @@
+import { pageCount, paginatePosts } from './pagination.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { cp, mkdtemp, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
@@ -95,9 +96,9 @@ test('static category pages link each group, preserve exact labels and clean up 
       return execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp, stdio:'pipe'}).toString();
     };
     const categories = groupCategories(posts);
-    assert.match(await build(posts), new RegExp(`Built ${posts.length + categories.length + 6} HTML pages`));
+    assert.match(await build(posts), new RegExp(`Built ${posts.length + categories.length + pageCount(posts) + 5} HTML pages`));
     const index = await readFile(path.join(dist, 'categories/index.html'), 'utf8');
-    const home = await readFile(path.join(dist, 'index.html'), 'utf8');
+    const home = (await Promise.all(paginatePosts(posts).map(page => readFile(path.join(dist, page.path, 'index.html'), 'utf8')))).join('\n');
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
     assert.match(index, /共 6 个分类 · 8 篇手记/);
     assert.match(index, /href="\/categories\/" aria-current="page">分类/);
