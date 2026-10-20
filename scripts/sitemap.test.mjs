@@ -1,3 +1,4 @@
+import { pageCount } from './pagination.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, cp, mkdtemp, writeFile, rm, stat } from 'node:fs/promises';
@@ -35,7 +36,7 @@ test('build publishes a sitemap whose unique links all resolve, including empty 
       const xml = await readFile(path.join(temp,'dist/sitemap.xml'),'utf8');
       assert.equal(xml,renderSitemap(input));
       const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+5);
+      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+pageCount(input)+4);
       for (const value of urls) {
         const url = new URL(value);
         assert.equal(url.origin,siteUrl);

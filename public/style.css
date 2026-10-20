@@ -45,9 +45,18 @@
 /* The article source is a reading aid for printed copies only. */
 .print-source{display:none}
 
+/* Bounded, keyboard-accessible navigation for the static notebook index. */
+.index-page-header{padding:3rem 0 2rem;overflow-wrap:anywhere}
+.index-page-header p,.page-range{color:var(--muted);font-size:0.875rem;line-height:1.8}
+.pagination{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem 1.5rem;margin-top:1.5rem;line-height:1.8;overflow-wrap:anywhere}
+.pagination>*{min-width:0;max-width:100%}
+.pagination a{text-decoration:underline;padding:0.75rem 0}
+.pagination [aria-current]{font-variant-numeric:tabular-nums}
+
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 @media print{
   @page{margin:18mm}
+  .pagination{display:none}
   :root{--ink:#000;--muted:#333;--green:#222;--line:#aaa}
   html{scroll-behavior:auto}
   body{background:white;color:black}
