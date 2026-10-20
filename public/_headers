@@ -16,3 +16,6 @@
 
 /feed.json
   Content-Type: application/feed+json; charset=utf-8
+
+/categories/*/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8

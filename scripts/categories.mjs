@@ -33,5 +33,5 @@ export function renderCategories(categories) {
 
 export function renderCategory(category) {
   const list = category.posts.map(post => `<li><time datetime="${escape(post.date)}">${escape(post.date.replaceAll('-', '.'))}</time><a href="/notes/${escape(post.slug)}/">${escape(post.title)}</a></li>`).join('');
-  return `<div class="article-shell">${renderBreadcrumbs([{label:'首页', href:'/'}, {label:'分类', href:'/categories/'}, {label:category.name}])}<header class="article-header"><p class="eyebrow">NOTES IN THIS CATEGORY</p><h1>${escape(category.name)}</h1><p class="article-subtitle">共 ${category.posts.length} 篇手记 · 按日期由新到旧</p></header><ol class="archive-list">${list}</ol></div>`;
+  return `<div class="article-shell">${renderBreadcrumbs([{label:'首页', href:'/'}, {label:'分类', href:'/categories/'}, {label:category.name}])}<header class="article-header"><p class="eyebrow">NOTES IN THIS CATEGORY</p><h1>${escape(category.name)}</h1><p class="article-subtitle">共 ${category.posts.length} 篇手记 · 按日期由新到旧</p><p><a href="${category.path}feed.xml">订阅此分类 RSS</a></p></header><ol class="archive-list">${list}</ol></div>`;
 }
