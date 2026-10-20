@@ -13,6 +13,27 @@ const root=fileURLToPath(new URL('../', import.meta.url));
 const posts=JSON.parse(await readFile(path.join(root,'content/posts.json'),'utf8'));
 const retired=['leave-a-place-for-evidence','leave-a-note-for-the-next-step','make-room-for-the-task','leave-space-in-a-checklist','labels-that-help-tomorrow','make-empty-spaces-useful','the-texture-of-repair'];
 
+test('journal titles show the full date first and body sections follow their fixed format', () => {
+  for (const post of posts) {
+    if (post.category==='新闻回顾') {
+      assert.equal(post.title,`${post.date}｜24 小时新闻简报`);
+      assert.equal(post.sections[0].heading,'回顾范围与补发说明');
+      assert.deepEqual(post.sections.slice(1).map(section=>section.heading.split('｜')[0]),['AI','商业','股票','中国政治','国际政治']);
+      for (const section of post.sections.slice(1)) assert.match(section.heading,/^[^｜]+｜.+$/);
+    } else if (post.category==='困难复盘') {
+      assert.equal(post.title,`${post.date}｜工作困难复盘`);
+      assert.match(post.sections[0].heading,/^记录范围与/);
+      assert.deepEqual(post.sections.slice(1).map(section=>section.heading),['问题','处理','结果与限制','教训']);
+    }
+  }
+  const multiProjectReview=posts.find(post=>post.slug==='work-2026-10-19');
+  for (const heading of ['处理','结果与限制']) {
+    const section=multiProjectReview.sections.find(section=>section.heading===heading);
+    assert.match(section.paragraphs[0],/^LLM：/);
+    assert.match(section.paragraphs[1],/^Druid：/);
+  }
+});
+
 test('seven daily retrospectives replace all previous journal posts with dated sources', () => {
   validatePosts(posts);
   const news=posts.filter(post=>post.category==='新闻回顾' && post.date>='2026-10-14' && post.date<='2026-10-20');
@@ -50,9 +71,13 @@ test('complete rebuild removes old paths and publishes citations, dates and repl
     const json=JSON.parse(await read('feed.json'));
     for(const post of posts){
       const html=await read(`notes/${post.slug}/index.html`);
+      assert.ok(html.includes(`<h1>${post.title}</h1>`));
       assert.ok(html.includes('这是事后整理，不是当日即时刊发。'));
       assert.ok(html.includes(`回顾日期：${post.date}`));
-      assert.equal(json.items.find(item=>item.id===`${siteUrl}/notes/${post.slug}/`).date_published,post.publishedAt);
+      const item=json.items.find(item=>item.id===`${siteUrl}/notes/${post.slug}/`);
+      assert.equal(item.title,post.title);
+      assert.equal(item.date_published,post.publishedAt);
+      assert.ok((await read('feed.xml')).includes(`<title>${post.title}</title>`));
       for(const source of post.sections.flatMap(section=>section.sources??[])) {
         assert.ok(html.includes(`href="${source.url.replaceAll('&','&amp;')}" rel="noreferrer"`));
       }
