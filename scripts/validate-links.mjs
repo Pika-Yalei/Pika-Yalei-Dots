@@ -21,8 +21,10 @@ function decodeAttribute(value) {
 // This scans the well-formed static HTML emitted by our generator, rather
 // than attempting browser error recovery for arbitrary malformed documents.
 function inspectHtml(html) {
-  const ids = new Set();
+  const ids = new Map();
   const references = [];
+  let line = 1;
+  let lineOffset = 0;
   const tags = /<!--[\s\S]*?-->|<(\/?)([a-z][a-z\d:-]*)(?=[\s/>])((?:[^"'<>]|"[^"]*"|'[^']*')*)>/gi;
   for (let tag; (tag = tags.exec(html));) {
     if (!tag[2] || tag[1]) continue;
@@ -33,7 +35,16 @@ function inspectHtml(html) {
       // HTML keeps the first occurrence of duplicate attributes.
       if (!attributes.has(attribute)) attributes.set(attribute, decodeAttribute(match[2] ?? match[3] ?? match[4] ?? ''));
     }
-    if (attributes.has('id')) ids.add(attributes.get('id'));
+    if (attributes.has('id')) {
+      const id = attributes.get('id');
+      // Keep every occurrence, including IDs which no link currently uses.
+      // Offsets belong to opening tags, not apparent markup in raw text.
+      const occurrences = ids.get(id) ?? [];
+      line += html.slice(lineOffset, tag.index).split('\n').length - 1;
+      lineOffset = tag.index;
+      occurrences.push(line);
+      ids.set(id, occurrences);
+    }
     for (const attribute of ['href', 'src']) {
       if (attributes.has(attribute)) references.push({ tag: name, attribute, value: attributes.get(attribute) });
     }
@@ -67,7 +78,12 @@ export async function validateLinks(directory) {
     if (file.endsWith('.html')) pages.set(file, inspectHtml(await readFile(path.join(directory, file), 'utf8')));
   }
   const problems = [];
-  for (const [source, { references }] of pages) {
+  for (const [source, { ids, references }] of pages) {
+    for (const [id, lines] of ids) {
+      if (lines.length > 1) {
+        problems.push(`${source}: Duplicate id=${JSON.stringify(id)} on lines ${lines.join(', ')}`);
+      }
+    }
     const base = new URL(source, siteUrl);
     for (const { tag, attribute, value } of references) {
       const report = message => problems.push(`${source}: ${attribute}=${JSON.stringify(value)}: ${message}`);
@@ -102,7 +118,9 @@ export async function validateLinks(directory) {
       const page = pages.get(target);
       // Assets may define their own fragments (e.g. SVG views); only HTML IDs
       // are in scope. HTML's special #top also works without a matching ID.
-      if (page && !page.ids.has(fragment) && fragment.toLowerCase() !== 'top') {
+      if (page?.ids.get(fragment)?.length > 1) {
+        report(`Ambiguous fragment #${fragment} in ${target} (${page.ids.get(fragment).length} matching IDs)`);
+      } else if (page && !page.ids.has(fragment) && fragment.toLowerCase() !== 'top') {
         report(`Missing fragment #${fragment} in ${target}`);
       }
     }

@@ -149,3 +149,67 @@ test('malformed URLs and invalid percent encoding give actionable diagnostics', 
     return true;
   });
 });
+
+test('unreferenced duplicate IDs fail with page, decoded ID and every occurrence line', async t => {
+  const directory = await fixture(t, {
+    'index.html': '<div id="repeated"></div>\n<section id="repeated"></section>\n<p id="repeated"></p>',
+    'notes/one/index.html': '<h2 id="a&amp;b"></h2>\n<p ID="a&#38;b"></p>'
+  });
+  await assert.rejects(validateLinks(directory), error => {
+    assert.equal(error.message.split('\n').length, 3);
+    assert.ok(error.message.includes('/index.html: Duplicate id="repeated" on lines 1, 2, 3'));
+    assert.ok(error.message.includes('/notes/one/index.html: Duplicate id="a&b" on lines 1, 2'));
+    return true;
+  });
+});
+
+test('same-page and cross-page links cannot silently resolve duplicate targets', async t => {
+  const directory = await fixture(t, {
+    'index.html': '<a href="/notes/one/#a%26b">Other page</a>',
+    'notes/one/index.html': '<div id="a&amp;b"></div><p id="a&#38;b"></p><a href="#a%26b">Same page</a>'
+  });
+  await assert.rejects(validateLinks(directory), error => {
+    for (const [page, href] of [['/index.html', '/notes/one/#a%26b'], ['/notes/one/index.html', '#a%26b']]) {
+      assert.ok(error.message.includes(`${page}: href="${href}": Ambiguous fragment #a&b in /notes/one/index.html (2 matching IDs)`));
+    }
+    assert.ok(error.message.includes('/notes/one/index.html: Duplicate id="a&b"'));
+    assert.equal(error.message.split('\n').length, 4);
+    return true;
+  });
+});
+
+test('IDs are page-local and case-sensitive, decoded once, and first attributes win', async t => {
+  const directory = await fixture(t, {
+    'index.html': `<div id="same" ID="same"></div><p id="Same"></p>
+      <p id="a&amp;lt;"></p><p id="a&lt;"></p><p data-id="same"></p>
+      <a href="#same">First</a><a href="#Same">Case</a>
+      <a href="/other.html#same">Other page</a>`,
+    'other.html': '<div id=same></div><a href="#same">Other</a>'
+  });
+  await assert.doesNotReject(validateLinks(directory));
+});
+
+test('apparent duplicate IDs in comments, quoted attributes and raw text are ignored', async t => {
+  const directory = await fixture(t, {
+    'index.html': `<div id="real" title='<p id="real">'></div>
+      <!-- <p id="real"></p><p id="real"></p> -->
+      <script>const sample = '<p id="real"></p>';</script>
+      <style>/* <p id="real"></p> */</style>
+      <textarea><p id="real"></p></textarea>
+      <title><p id="real"></p></title>
+      <p>&lt;p id="real"&gt;</p><a href="#real">Real</a>`
+  });
+  await assert.doesNotReject(validateLinks(directory));
+});
+
+test('raw-text elements own IDs count, and duplicate top IDs are not exempt', async t => {
+  const directory = await fixture(t, {
+    'index.html': '<script id="top">const sample = "<p id=top>";</script>\n<style id="top"></style><a href="#top">Top</a><a href="#ToP">Implicit top</a>'
+  });
+  await assert.rejects(validateLinks(directory), error => {
+    assert.ok(error.message.includes('Duplicate id="top" on lines 1, 2'));
+    assert.ok(error.message.includes('href="#top": Ambiguous fragment #top'));
+    assert.equal(error.message.split('\n').length, 3);
+    return true;
+  });
+});
