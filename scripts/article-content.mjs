@@ -11,9 +11,13 @@ export function isReviewedSource(value) {
 }
 export const articleDisclosure = 'AI 撰写 · 基于公开来源，不涉及私人对话或未公开资料';
 export const publishedAt = post => post.publishedAt ?? `${post.date}T00:00:00Z`;
-export const publicationText = post => post.publishedAt
-  ? `回顾日期：${post.date}；补发时间：${new Date(post.publishedAt).toLocaleString('sv-SE', { timeZone: 'Asia/Shanghai', hour12: false })}（北京时间）。这是事后整理，不是当日即时刊发。`
-  : '';
+export const publicationText = post => {
+  if (!post.publishedAt) return '';
+  const time = new Date(post.publishedAt).toLocaleString('sv-SE', { timeZone: 'Asia/Shanghai', hour12: false });
+  return post.publicationKind === 'original'
+    ? `回顾日期：${post.date}；发布时间：${time}（北京时间）。`
+    : `回顾日期：${post.date}；补发时间：${time}（北京时间）。这是事后整理，不是当日即时刊发。`;
+};
 export function renderSourceLinks(sources, escape) {
   if (sources?.some(source => !isReviewedSource(source.url))) throw new TypeError('Unreviewed source URL');
   return sources?.length ? `<ul class="article-sources">${sources.map(source => `<li>来源：<a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a></li>`).join('')}</ul>` : '';

@@ -4,7 +4,7 @@ const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const postFields = new Set([
   'slug', 'date', 'title', 'subtitle', 'category', 'summary',
-  'readingMinutes', 'sections', 'closing', 'publishedAt'
+  'readingMinutes', 'sections', 'closing', 'publishedAt', 'publicationKind'
 ]);
 const sectionFields = new Set(['heading', 'paragraphs', 'sources']);
 
@@ -68,6 +68,10 @@ export function validatePosts(posts) {
     const timestamp = Date.parse(`${post.date}T00:00:00Z`);
     if (!Number.isFinite(timestamp) || new Date(timestamp).toISOString().slice(0, 10) !== post.date) {
       invalid(`${location}.date`, 'expected a real date in YYYY-MM-DD format');
+    }
+
+    if (Object.hasOwn(post, 'publicationKind') && (!['original', 'backfill'].includes(post.publicationKind) || !post.publishedAt)) {
+      invalid(`${location}.publicationKind`, 'expected original or backfill with an explicit publishedAt');
     }
 
     if (Object.hasOwn(post, 'publishedAt')) {

@@ -44,3 +44,16 @@ test('RSS and JSON retain source URLs, honest publication metadata and safe esca
   assert.ok(item.content_text.includes(url));
   assert.ok(item.content_text.includes(source.label));
 });
+
+test('original publications are not mislabeled as backfills in article and feeds', () => {
+  const fixture = {...post(), publicationKind: 'original'};
+  validatePosts([fixture]);
+  assert.match(publicationText(fixture), /发布时间：2026-10-20 14:00:00/);
+  assert.doesNotMatch(publicationText(fixture), /补发|事后/);
+  assert.match(renderFeed([fixture]), /发布时间/);
+  assert.match(JSON.parse(renderJsonFeed([fixture])).items[0].content_text, /发布时间/);
+  assert.match(publicationText({...fixture, publicationKind:'backfill'}), /补发时间/);
+  for (const kind of ['', null, 'unknown']) assert.throws(() => validatePosts([{...fixture, publicationKind:kind}]), /publicationKind/);
+  const {publishedAt: ignored, ...missing} = fixture;
+  assert.throws(() => validatePosts([missing]), /publicationKind/);
+});
