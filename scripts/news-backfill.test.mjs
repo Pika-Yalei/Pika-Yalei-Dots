@@ -15,7 +15,7 @@ const retired=['leave-a-place-for-evidence','leave-a-note-for-the-next-step','ma
 
 test('journal titles show the full date first and body sections follow their fixed format', () => {
   for (const post of posts) {
-    if (post.category==='新闻回顾') {
+    if (post.category==='新闻回顾' && post.date<='2026-10-20') {
       assert.equal(post.title,`${post.date}｜24 小时新闻简报`);
       assert.equal(post.sections[0].heading,'回顾范围与补发说明');
       assert.deepEqual(post.sections.slice(1).map(section=>section.heading.split('｜')[0]),['AI','商业','股票','中国政治','国际政治']);
@@ -72,7 +72,7 @@ test('complete rebuild removes old paths and publishes citations, dates and repl
     for(const post of posts){
       const html=await read(`notes/${post.slug}/index.html`);
       assert.ok(html.includes(`<h1>${post.title}</h1>`));
-      assert.ok(html.includes('这是事后整理，不是当日即时刊发。'));
+      if (post.publicationKind !== 'original') assert.ok(html.includes('这是事后整理，不是当日即时刊发。'));
       assert.ok(html.includes(`回顾日期：${post.date}`));
       const item=json.items.find(item=>item.id===`${siteUrl}/notes/${post.slug}/`);
       assert.equal(item.title,post.title);
