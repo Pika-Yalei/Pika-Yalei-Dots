@@ -5,45 +5,143 @@
     "title": "2026-10-14｜24 小时新闻简报",
     "subtitle": "北京时间 2026-10-13 12:00 至 2026-10-14 12:00",
     "category": "新闻回顾",
-    "readingMinutes": 4,
-    "summary": "英伟达在法国的投资、摩根大通财报、美股小幅回落，以及中国卫生健康政策和基辅袭击最新报道。",
+    "readingMinutes": 18,
+    "summary": "补充覆盖AI、商业、股票市场、中国政治与政策、国际政治与重大事件五个栏目，每栏至少五项独立进展；保留原稿有效内容并区分事实、表态与分析。",
     "sections": [
       {
         "heading": "回顾范围与补发说明",
         "paragraphs": [
-          "回顾范围：北京时间 2026-10-13 12:00 至 2026-10-14 12:00，共24小时。本篇于2026年10月20日补发，依据该窗口内发布或更新的公开报道整理；涉及更早发生的事件或未来行程，正文另行说明。"
+          "回顾范围：北京时间 2026-10-13 12:00 至 2026-10-14 12:00，共24小时。原文于北京时间2026-10-20 13:55:54补发；实际补充时间：北京时间2026-10-21 14:38，现收录28项独立进展。按事件发生或实质新增进展归入原窗口；晚于截止的报道如用于事后核验，正文另行说明，不冒充当时已知信息。",
+          "行情口径：各指数数值单位均为点，不是货币金额。美国股票交易币种为美元，中国A股为人民币，香港为港元，日本为日元；STOXX600采用欧元基准，涵盖多币种市场。分别标明当地交易日与收盘状态，不把历史行情写成补充当天涨跌。"
         ]
       },
       {
-        "heading": "AI｜英伟达入股法国科技企业",
+        "heading": "AI｜模型、工具与产业进展",
         "paragraphs": [
-          "路透社13日报道，Doctolib与Genesis AI确认英伟达将入股。Doctolib表示，这是一笔少数股权投资，将帮助公司开发人工智能工具，但没有披露持股比例或金额。Genesis AI也确认英伟达成为战略投资者。相比芯片新品发布，这次消息体现的是英伟达以投资方式参与法国科技企业的发展。"
+          "1. 谷歌向开发者和用户开放 Gemini 4 Argon。谷歌宣布 Gemini 4 Argon 全球开放，开发者可经 API 使用，Pro 与 Ultra 订阅者也获入口；输入、输出每百万词元分别为2和10美元。分析：前沿推理竞争扩展至可用性与价格，企业仍需自行验证复杂任务表现。",
+          "2. Liquid AI 发布面向端侧代理的 LFM2.5。Liquid AI 发布 LFM2.5-24B-A2B，240亿总参数、每词元激活20亿参数，支持推理、工具调用和本地多步骤任务。分析：小激活规模有利于常驻代理降低推理成本，但厂商基准不能替代目标设备上的实测。",
+          "3. Hugging Face 发布 Llama Windows 本地模型应用。Hugging Face 团队宣布免费开源的 Llama Windows，可在系统托盘下载并运行本地模型，原生支持 Windows on Arm。分析：图形入口降低端侧模型门槛，数据留在设备的优势仍受内存、模型体量及实际性能约束。",
+          "4. 谷歌与新加坡合作研发端侧反诈骗模型。Google DeepMind 与新加坡政府宣布合作，以本地运行的 Gemma 模型识别对话诈骗，重点是不将私人聊天传往云端。分析：反诈能力向终端迁移可缓解隐私冲突，但识别准确率、误报与部署范围仍需后续验证。",
+          "5. OpenAI 举办体育领域 AI 应用峰会。OpenAI 在旧金山举办 Game Changers 峰会，议程覆盖运动员健康、教练决策、团队运营和球迷体验，并安排产品演示。分析：行业交流显示体育正在探索AI落地，但会议本身不等于已验证的临床效果或商业收入。",
+          "6. 英伟达入股法国科技企业。路透社13日报道，Doctolib与Genesis AI确认英伟达将入股。Doctolib表示，这是一笔少数股权投资，将帮助公司开发人工智能工具，但没有披露持股比例或金额。Genesis AI也确认英伟达成为战略投资者。相比芯片新品发布，这次消息体现的是英伟达以投资方式参与法国科技企业的发展。"
         ],
         "sources": [
           {
-            "label": "路透社，经 AOL 刊载",
+            "label": "1. 谷歌向开发者和用户开放 Gemini 4 Argon｜Gemini 4 Argon: Built to solve your hardest problems",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"
+          },
+          {
+            "label": "2. Liquid AI 发布面向端侧代理的 LFM2.5｜Run fast, private agents on-device with LFM2.5-24B-A2B",
+            "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
+          },
+          {
+            "label": "3. Hugging Face 发布 Llama Windows 本地模型应用｜Introducing Llama Windows: llama.cpp in your Windows tray",
+            "url": "https://huggingface.co/blog/huggingface/llama-windows"
+          },
+          {
+            "label": "4. 谷歌与新加坡合作研发端侧反诈骗模型｜On-Device AI Against Scams: Google DeepMind & MDDI",
+            "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/"
+          },
+          {
+            "label": "5. OpenAI 举办体育领域 AI 应用峰会｜Game Changers Summit: How AI Is Shaping the Future of Sports",
+            "url": "https://forum.openai.com/public/events/game-changers-summit-how-ai-is-shaping-the-future-of-sports-zb3ayk280g"
+          },
+          {
+            "label": "6. 英伟达入股法国科技企业｜路透社，经 AOL 刊载",
             "url": "https://www.aol.com/articles/nvidia-buy-minority-stake-frances-160818000.html"
           }
         ]
       },
       {
-        "heading": "商业｜摩根大通盈利低于市场预期",
+        "heading": "商业｜企业财报、投资与产业动态",
         "paragraphs": [
-          "摩根大通13日披露第三季度每股利润5.57美元，低于路透社所引LSEG分析师预期的5.85美元。投行业务手续费收入同比增长14%，却比第二季度下降8%；股票交易收入同比增长49%，固定收益交易收入则下降4%。管理层称交易储备仍强，近期项目更可能推迟而非取消，反映出业务扩张与短期降温同时存在。"
+          "1. 摩根大通三季度净利153亿美元，股票交易收入增长49%。摩根大通公布三季度净利润153亿美元，同比增长6%；管理口径收入509亿美元，股票交易收入增长49%，平均贷款增加10%。分析：交易与信贷共同支撑增长，但费用上升及新增拨备仍需关注。 原稿补充：摩根大通13日披露第三季度每股利润5.57美元，低于路透社所引LSEG分析师预期的5.85美元。投行业务手续费收入同比增长14%，却比第二季度下降8%；股票交易收入同比增长49%，固定收益交易收入则下降4%。管理层称交易储备仍强，近期项目更可能推迟而非取消，反映出业务扩张与短期降温同时存在。",
+          "2. 高盛三季度营收186.8亿美元，每股收益17.01美元。高盛公布三季度净营收186.8亿美元、净利润52.9亿美元，每股收益17.01美元，年化普通股权益回报率18.7%；公司称营收为历史第二高季度。分析：强劲业务表现扩大盈利缓冲，但市场波动仍影响收入持续性。",
+          "3. Hartford完成收购Equitable员工福利业务。Hartford宣布完成收购Equitable员工福利业务，纳入约5亿美元非医疗福利保费规模、约300名员工及相关技术；交易金额未披露。分析：新增牙科、视力等产品和数字能力，有助于扩大中小企业客户覆盖。",
+          "4. 贝恩与Tillman完成15亿美元光纤投资及Ripple并购。贝恩资本与Tillman宣布完成对Eaton Fiber的15亿美元投资，同时完成收购Ripple Fiber；资金支持Verizon光纤网络扩展至逾百万处新址。分析：资本与运营平台整合加快宽带建设，但建设回报仍取决于用户渗透率。",
+          "5. Porch签约收购Allied Trust，拟进入路易斯安那州。Porch及其互助保险平台签约收购Allied Trust相关保险和管理业务，预计首个完整年度增加约2亿美元保费及2500万美元调整后收益，仍待监管批准。分析：交易扩张区域与数据规模，协同收益不能视为已实现。"
         ],
         "sources": [
           {
+            "label": "1. 摩根大通三季度净利153亿美元，股票交易收入增长49%｜JPMorganChase Reports Third-Quarter 2026 Results",
+            "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/quarterly-earnings/2026/3rd-quarter/6c1f8114-1be4-4174-8292-f75bbb59bc21.pdf"
+          },
+          {
+            "label": "2. 高盛三季度营收186.8亿美元，每股收益17.01美元｜Goldman Sachs Reports 2026 Third Quarter Earnings Per Common Share of $17.01 and Annualized Return on Common Equity of 18.7%",
+            "url": "https://www.goldmansachs.com/pressroom/press-releases/2026/2026-10-13-q3-results"
+          },
+          {
+            "label": "3. Hartford完成收购Equitable员工福利业务｜The Hartford Closes Acquisition Of Equitable’s Employee Benefits Business",
+            "url": "https://ir.thehartford.com/news/news-details/2026/The-Hartford-Closes-Acquisition-Of-Equitables-Employee-Benefits-Business/default.aspx"
+          },
+          {
+            "label": "4. 贝恩与Tillman完成15亿美元光纤投资及Ripple并购｜Bain Capital and Tillman Global Holdings Complete $1.5 Billion Investment in Eaton Fiber and Acquisition of Ripple Fiber",
+            "url": "https://www.tillmanglobal.com/news/2026-10-13-bain-capital-and-tillman-global-holdings-complete-15-billion-investment-in-eaton-fiber-and-acquisition-of-ripple-fiber"
+          },
+          {
+            "label": "5. Porch签约收购Allied Trust，拟进入路易斯安那州｜Porch Group Announces Agreement to Acquire Allied Trust",
+            "url": "https://ir.porchgroup.com/investors/news/news-details/2026/Porch-Group-Announces-Agreement-to-Acquire-Allied-Trust/default.aspx"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.streetinsider.com/Business%2BWire/JPMorganChase%2BReports%2BThird-Quarter%2B2026%2BFinancial%2BResults/27176960.html"
+          },
+          {
             "label": "路透社，经 AOL 刊载",
             "url": "https://www.aol.com/articles/jpmorgans-profit-rises-investment-banking-103421000.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.marketscreener.com/news/goldman-sachs-reports-2026-third-quarter-earnings-per-common-share-of-17-01-and-annualized-return-ce785ddddf8ff620"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://finance.yahoo.com/small-business/articles/hartford-closes-acquisition-equitable-employee-142600711.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://finance.yahoo.com/technology/articles/bain-capital-tillman-global-holdings-204500314.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://markets.financialcontent.com/lightport.lightport3/article/bizwire-2026-10-13-porch-group-announces-agreement-to-acquire-allied-trust"
           }
         ]
       },
       {
-        "heading": "股票｜美股小幅回落，财报反应分化",
+        "heading": "股票｜市场收盘与交易日回顾",
         "paragraphs": [
-          "美国市场13日收盘，标普500跌幅不足0.1%，道指下跌0.3%，纳斯达克综合指数下跌0.2%。美联社称，企业财报带来的涨跌相互抵消，主要指数变化不大，部分银行股盘中反复波动。以上为纽约13日交易日收盘表现，对应北京时间14日凌晨。"
+          "1. 美股10月13日收盘。美国10月13日16:00 EDT收盘（北京时间14日04:00）：标普500 7,805.45，跌不足0.1%；道指51,670.10，跌0.3%；纳指27,204.38，跌0.2%。 分析：三大指数之间的强弱差异说明单一指数不能代表全部股票表现，不据此预测次日涨跌。 原稿补充：美国市场13日收盘，标普500跌幅不足0.1%，道指下跌0.3%，纳斯达克综合指数下跌0.2%。美联社称，企业财报带来的涨跌相互抵消，主要指数变化不大，部分银行股盘中反复波动。以上为纽约13日交易日收盘表现，对应北京时间14日凌晨。",
+          "2. A股10月13日收盘。北京时间10月13日15:00收盘，上证指数3,800.86，上涨0.10%；深证成指跌0.25%，创业板指跌0.18%。 分析：沪深与创业板涨跌幅不同，反映市场内部表现分化，不能将指数变化等同个股收益。",
+          "3. 港股10月13日收盘。香港10月13日交易日收盘：恒生指数24,345.22，上涨0.30%；恒生科技指数4,136.63，下跌0.79%。收盘口径，非盘中报价。 分析：恒生科技指数与恒指表现差异，可用于观察成长板块相对大盘的波动，不构成买卖建议。",
+          "4. 日经225在10月13日收盘−1.82%。日本10月13日15:30 JST收盘（北京时间14:30），日经225为67,777.52点，较上一交易日−1.82%。 分析：该数据提供日本市场当日方向，不将单日涨跌外推为中长期趋势。",
+          "5. 欧洲STOXX600在10月13日收盘。欧洲10月13日交易日结束，STOXX600为635.01，下跌0.10%。这是收盘报道，不是当日早盘点位。 分析：欧洲综合指数与亚洲、美股并不同步，比较时应区分市场和当地交易时段。"
         ],
         "sources": [
+          {
+            "label": "1. 美股10月13日收盘｜Associated Press",
+            "url": "https://apnews.com/article/a0a577dfd12f63ee6780a56ab02b55c4"
+          },
+          {
+            "label": "2. A股10月13日收盘｜上海证券报·中国证券网（东方财富转载）",
+            "url": "https://finance.eastmoney.com/a/202610133894185078.html"
+          },
+          {
+            "label": "3. 港股10月13日收盘｜哈富证券（东方财富转载）",
+            "url": "https://finance.eastmoney.com/a/202610133894154941.html"
+          },
+          {
+            "label": "4. 日经225在10月13日收盘−1.82%｜Nikkei Indexes官方历史日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=10132026&idx=nk225"
+          },
+          {
+            "label": "5. 欧洲STOXX600在10月13日收盘｜Reuters",
+            "url": "https://www.marketscreener.com/news/chip-selloff-pulls-european-stocks-back-from-one-week-high-ce785dddd08ef721"
+          },
           {
             "label": "美联社，经 AOL 刊载",
             "url": "https://www.aol.com/articles/major-us-stock-indexes-fared-202026000.html"
@@ -51,26 +149,152 @@
         ]
       },
       {
-        "heading": "中国政治｜全国卫生与健康大会讨论“十五五”任务",
+        "heading": "中国政治｜政策、外交与公开措施",
         "paragraphs": [
-          "新华社13日下午报道，全国卫生与健康大会于12日至13日在北京召开，习近平出席并讲话，李强作总结讲话。会议把“十五五”时期定位为实现2035年健康中国目标的关键时期，要求发挥现有优势、补齐短板并提升卫生健康事业发展质量。报道公布的是政策方向，后续具体实施安排仍需关注主管部门发布。"
+          "1. 中博关系提升为全面战略合作伙伴关系。习近平13日下午在北京同博茨瓦纳总统博科会谈，双方宣布建立全面战略合作伙伴关系，并见证签署绿色矿产、卫生健康等合作文件。分析：关系升级为矿业增值、农业和数字合作提供政治框架，项目收益仍取决于后续落实。",
+          "2. 中多宣布构建新时代命运共同体。习近平13日下午会见多哥部长会议主席福雷，双方宣布将关系定位提升为新时代中多命运共同体，讨论零关税、输华绿色通道及新能源合作。分析：合作重点兼顾西非贸易枢纽与产业发展，外交定位本身不等于新增项目已落地。",
+          "3. 何立峰与法国总统外事顾问磋商经贸关系。何立峰13日下午在人民大会堂会见法国总统外事顾问博纳，讨论中法务实合作及中欧经贸关系；双方表达继续对话、推动贸易投资磋商的意愿。分析：会谈保留了处理经贸分歧的高层沟通渠道，但未公布具体协议或争端解决结果。",
+          "4. 李强在广交会座谈会强调开放与产业链合作。李强14日上午在广州出席“广交世界70年”座谈会，提出优化外资环境、扩大市场准入，并建设智慧、绿色、人文广交会。近30个国家和地区约70位工商界人士参加。分析：政策信号强调贸易与投资联动，落实仍需具体准入措施配套。 时间说明：事件发生于14日上午，官方报道在当日16:27发布；本次补充以后续报道核实窗口内事件，不表示截稿时已经公开。",
+          "5. 国台办宣布对VWAY实施交易合作禁令。国台办14日上午宣布对VWAY公司实施惩戒，禁止其与大陆组织、企业及个人交易合作，并称该公司涉及规避此前制裁。相关指控尚无独立核实。分析：新措施扩大了涉台企业限制范围，相关经营者需关注具体适用对象和执行边界。",
+          "6. 全国卫生与健康大会讨论“十五五”任务。新华社13日下午报道，全国卫生与健康大会于12日至13日在北京召开，习近平出席并讲话，李强作总结讲话。会议把“十五五”时期定位为实现2035年健康中国目标的关键时期，要求发挥现有优势、补齐短板并提升卫生健康事业发展质量。报道公布的是政策方向，后续具体实施安排仍需关注主管部门发布。"
         ],
         "sources": [
           {
-            "label": "新华社",
+            "label": "1. 中博关系提升为全面战略合作伙伴关系｜原始来源",
+            "url": "https://www.mfa.gov.cn/web/wjb_673085/zzjg_673183/xws_674681/xgxw_674683/202610/t20261013_12039641.shtml"
+          },
+          {
+            "label": "2. 中多宣布构建新时代命运共同体｜原始来源",
+            "url": "https://www.fmprc.gov.cn/zyxw/202610/t20261013_12039643.shtml"
+          },
+          {
+            "label": "3. 何立峰与法国总统外事顾问磋商经贸关系｜原始来源",
+            "url": "https://fr.china-embassy.gov.cn/ttxw/202610/t20261014_12040093.htm"
+          },
+          {
+            "label": "4. 李强在广交会座谈会强调开放与产业链合作｜原始来源",
+            "url": "https://tg.china-embassy.gov.cn/zyxws/202610/t20261014_12040187.htm"
+          },
+          {
+            "label": "5. 国台办宣布对VWAY实施交易合作禁令｜原始来源",
+            "url": "https://www.bjstb.gov.cn/bjtb/ywdt/qwfb2/1371680/index.html"
+          },
+          {
+            "label": "6. 全国卫生与健康大会讨论“十五五”任务｜新华社",
             "url": "https://www.news.cn/politics/leaders/20261013/f0943fdf42f8406fa72cea5fd51d3d53/c.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www2.xinhuanet.com/politics/leaders/20261013/a31b4bf1255a4228876a316ed9de5d00/c.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.fmprc.gov.cn/web/zyxw/202610/t20261013_12039645.shtml"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://politics.people.com.cn/BIG5/n1/2026/1013/c1024-40813882.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://m.jiemian.com/article/15188284.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://politics.people.com.cn/n1/2026/1015/c1001-40814897.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.news.cn/politics/leaders/20261014/86bb43363e8346868cdb7a1e32b4401a/c.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://politics.people.com.cn/n1/2026/1015/c1024-40814886.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.thepaper.cn/newsDetail_forward_34247681"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://tw.news.yahoo.com/%E5%9C%8B%E5%8F%B0%E8%BE%A6%E6%87%B2%E6%88%92%E7%88%B6%E8%A6%AA%E5%8F%A6%E5%AE%B6%E5%85%AC%E5%8F%B8-%E6%B2%88%E4%BC%AF%E6%B4%8B-%E8%83%BD%E7%AB%AF%E5%87%BA%E4%BB%80%E9%BA%BC%E6%A8%A3%E6%96%B0%E8%8F%9C-050226120.html"
           }
         ]
       },
       {
-        "heading": "国际政治｜基辅遭导弹袭击，乌方质疑预警缺失",
+        "heading": "国际政治｜外交、公共政策与重大事件",
         "paragraphs": [
-          "路透社13日晚更新报道，俄罗斯导弹击中基辅住宅和热电厂。基辅市长称两人死亡、21人受伤，其中16人住院、4人伤势严重，救援人员正灭火并疏散居民。泽连斯基表示，主要目标是能源设施，乌方没有收到西方伙伴提前预警。死伤数字及预警情况均来自乌方官员，报道未独立确定预警缺失的原因。"
+          "1. 欧盟推进乌克兰与摩尔多瓦入盟谈判。欧盟13日在卢森堡分别与乌克兰、摩尔多瓦举行入盟会议，开启内部市场及竞争力与包容性增长两组谈判，涵盖竞争、税收、就业等领域。分析：谈判推进增加改革约束与市场接轨预期，但并非入盟批准，仍需逐项满足条件。",
+          "2. 联合国选出十五个人权理事会成员。联合国大会13日在纽约选出15个人权理事会成员，任期为2027至2029年，日本、乌克兰、德国和爱尔兰等入选；各地区候选人数与席位数相同。分析：成员更新将影响议题协商与调查授权，非竞争性名单也使遴选问责受到关注。 时间说明：选举发生于纽约13日；日本外务省14日的正式名单用于后续核验。",
+          "3. 波兰与英国外长磋商防务和援乌合作。波兰与英国外长13日在华沙会谈，讨论防务工业合作，并磋商由波兰承办、英国部队参加的“志愿联盟”演习；双方表示继续支持乌克兰。分析：合作将援乌外交与军工、演训衔接，但通稿未披露具体兵力规模与部署安排。",
+          "4. 美国法院继续保护三家媒体白宫采访通行证。美国联邦法官凯利13日晚签发初步禁令，使CNN、MS NOW和Politico记者在诉讼期间继续保有白宫通行证，认为其言论自由与程序权利主张可能胜诉。分析：裁定暂时约束撤证权，但不是终局判决，也不保证进入每场总统活动。",
+          "5. 美国最高法院受理DOGE记录开示争议。美国最高法院13日上午同意审理DOGE相关案件，焦点是在判断其是否受信息自由法约束前，法院能否要求广泛证据开示，以及总统顾问机构的权力边界。分析：受理将影响政府透明度诉讼路径，但不等于裁定DOGE记录永久豁免公开。",
+          "6. 基辅遭导弹袭击，乌方质疑预警缺失。路透社13日晚更新报道，俄罗斯导弹击中基辅住宅和热电厂。基辅市长称两人死亡、21人受伤，其中16人住院、4人伤势严重，救援人员正灭火并疏散居民。泽连斯基表示，主要目标是能源设施，乌方没有收到西方伙伴提前预警。死伤数字及预警情况均来自乌方官员，报道未独立确定预警缺失的原因。"
         ],
         "sources": [
           {
-            "label": "路透社，经 MarketScreener 刊载",
+            "label": "1. 欧盟推进乌克兰与摩尔多瓦入盟谈判｜原始来源",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/10/13/enlargement-eu-opens-accession-negotiations-with-ukraine-on-internal-market-competitiveness-and-inclusive-growth/"
+          },
+          {
+            "label": "2. 联合国选出十五个人权理事会成员｜原始来源",
+            "url": "https://www.mofa.go.jp/press/release/pressite_000001_02738.html"
+          },
+          {
+            "label": "3. 波兰与英国外长磋商防务和援乌合作｜原始来源",
+            "url": "https://www.gov.pl/web/diplomacy/heads-of-diplomacy-of-poland-and-uk-meet-in-warsaw"
+          },
+          {
+            "label": "4. 美国法院继续保护三家媒体白宫采访通行证｜原始来源",
+            "url": "https://law.justia.com/cases/federal/district-courts/district-of-columbia/dcdce/1%3A2026cv03287/296754/50/"
+          },
+          {
+            "label": "5. 美国最高法院受理DOGE记录开示争议｜原始来源",
+            "url": "https://www.supremecourt.gov/orders/courtorders/101326zor_qol1.pdf"
+          },
+          {
+            "label": "6. 基辅遭导弹袭击，乌方质疑预警缺失｜路透社，经 MarketScreener 刊载",
             "url": "https://www.marketscreener.com/news/russian-missile-attack-on-kyiv-kills-one-ce785dd2d889f721"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/10/13/enlargement-eu-and-moldova-start-negotiations-on-internal-market-competitiveness-and-inclusive-growth/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.consilium.europa.eu/en/meetings/international-ministerial-meetings/2026/10/13/ukraine/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://ishr.ch/latest-updates/uncontested-vote-lands-15-new-states-at-the-un-human-rights-council/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.washingtonpost.com/world/2026/10/13/un-human-rights-council-election-competition-africa/bc837d88-c76d-11f1-aefb-abe4112d087e_story.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.publicnow.com/view/E5A6228FCEB7DDA0A30A6A8D33FB1BA4D83F9376"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.streetinsider.com/Reuters/Judge%2Bextends%2BWhite%2BHouse%2Baccess%2Bfor%2BCNN,%2BMS%2BNOW,%2BPolitico%2Bamid%2Blegal%2Bfight/27182442.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.nbcbayarea.com/news/national-international/federal-judge-longer-term-decision-block-trump-media-ban/4157784/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.wsbtv.com/news/politics/supreme-court-sides/K5VPNXMNEQ7ATHDEHIZZJ5WVMA/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.cbsnews.com/news/supreme-court-doge-case/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.supremecourt.gov/search.aspx?filename=%2Fdocket%2Fdocketfiles%2Fhtml%2Fpublic%2F25-1103.html"
           }
         ]
       }
@@ -84,36 +308,108 @@
     "title": "2026-10-15｜24 小时新闻简报",
     "subtitle": "北京时间 2026-10-14 12:00 至 2026-10-15 12:00",
     "category": "新闻回顾",
-    "readingMinutes": 4,
-    "summary": "AI治理讨论与ASML设备需求并行，美股受通胀担忧拖累；中朝公布桥梁开通安排，欧盟讨论援乌融资缺口。",
+    "readingMinutes": 18,
+    "summary": "补充覆盖AI、商业、股票市场、中国政治与政策、国际政治与重大事件五个栏目，每栏至少五项独立进展；保留原稿有效内容并区分事实、表态与分析。",
     "sections": [
       {
         "heading": "回顾范围与补发说明",
         "paragraphs": [
-          "回顾范围：北京时间 2026-10-14 12:00 至 2026-10-15 12:00，共24小时。本篇于2026年10月20日补发，依据该窗口内发布或更新的公开报道整理；涉及更早发生的事件或未来行程，正文另行说明。"
-        ]
-      },
-      {
-        "heading": "AI｜哈里斯呼吁政府与开发者共同制定防护措施",
-        "paragraphs": [
-          "美国前副总统哈里斯14日在首尔峨山政策研究院演讲，呼吁政府与AI开发企业共同建立防护措施。她提到网络安全、AI武器及系统失控风险，并主张中美就国际规则与标准开展合作，认为战略竞争不应排除共同应对风险。上述内容是她提出的政策主张，不代表美国政府已经发布新的监管规定。"
+          "回顾范围：北京时间 2026-10-14 12:00 至 2026-10-15 12:00，共24小时。原文于北京时间2026-10-20 13:55:54补发；实际补充时间：北京时间2026-10-21 14:38，现收录27项独立进展。按事件发生或实质新增进展归入原窗口；晚于截止的报道如用于事后核验，正文另行说明，不冒充当时已知信息。",
+          "行情口径：各指数数值单位均为点，不是货币金额。美国股票交易币种为美元，中国A股为人民币，香港为港元，日本为日元；STOXX600采用欧元基准，涵盖多币种市场。分别标明当地交易日与收盘状态，不把历史行情写成补充当天涨跌。",
+          "原稿背景保留（具体事件时刻或窗口内新增进展尚未充分确认，不计入本期新增新闻）：哈里斯呼吁政府与开发者共同制定防护措施。美国前副总统哈里斯14日在首尔峨山政策研究院演讲，呼吁政府与AI开发企业共同建立防护措施。她提到网络安全、AI武器及系统失控风险，并主张中美就国际规则与标准开展合作，认为战略竞争不应排除共同应对风险。上述内容是她提出的政策主张，不代表美国政府已经发布新的监管规定。"
         ],
         "sources": [
           {
-            "label": "路透社，经 MarketScreener 刊载",
+            "label": "6. 哈里斯呼吁政府与开发者共同制定防护措施｜路透社，经 MarketScreener 刊载",
             "url": "https://ca.marketscreener.com/news/kamala-harris-warns-window-closing-for-ai-safeguards-urges-us-china-cooperation-ce785dd2db8df321"
           }
         ]
       },
       {
-        "heading": "商业｜ASML季度销售创新高，继续讨论扩产",
+        "heading": "AI｜模型、工具与产业进展",
         "paragraphs": [
-          "ASML14日公布第三季度净销售额约117亿欧元、净利润约50亿欧元，预计全年销售额为440亿至450亿欧元。公司称，部分客户已表达对2029年、2030年设备订单的兴趣，现有2027年和2028年供给计划可能仍不足。ASML正在研究进一步扩大2028年产能；远期客户兴趣与正式订单仍有区别。"
+          "1. Ai2 公布高分辨率气候模拟器 HiRO-ACEv2。Ai2 公布 HiRO-ACEv2，可生成全球3公里分辨率气候数据，并改进极端降雨、风速和气压模拟；团队称成本约为对照模型的三百分之一。分析：低成本有利于扩大风险情景测试，但性能来自特定模拟体系的验证。",
+          "2. Cribl 公布运行中代理故障监测研究 OnTrack。Cribl AI研究团队公布 OnTrack，在代理执行过程中分析步骤依赖，并以低延迟识别循环、停滞及偏离；测试回放了2294条编程代理轨迹。分析：过程监测可能减少无效计算，但论文明确它不能保证最终补丁正确。",
+          "3. 英伟达宣布英国初创企业新增投资计划。英伟达宣布拟投资 Boltz、Foresight、Hiverge、Prima Mente 与 Riverlane，覆盖生物模型、工程规划、算法和量子纠错。分析：布局从算力供给延伸到行业应用，但公告未公布各笔金额，计划投资不等于已交割。",
+          "4. 英伟达披露欧洲城市部署代理与数字孪生进展。英伟达披露欧洲及周边地区城市项目进展，合作伙伴以代理和数字孪生支持维护、交通、安全与公共服务，部分项目仍属试点探索。分析：城市AI正进入具体工作流，能否复制取决于数据治理、采购与成效验证。",
+          "5. NEURA 发布融合触觉与记忆的 Neuron AI。NEURA 推出 Neuron AI，将3D视觉、触觉、声音、机器人状态、语言与记忆整合，称可用于五类机器人形态。分析：多感官模型有望改善遮挡与接触任务，但随后展会的洗衣演示仍属预告，不能写成已完成验证。"
         ],
         "sources": [
           {
-            "label": "ASML官方第三季度财报",
+            "label": "1. Ai2 公布高分辨率气候模拟器 HiRO-ACEv2｜HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
+            "url": "https://huggingface.co/blog/allenai/hiro-acev2"
+          },
+          {
+            "label": "2. Cribl 公布运行中代理故障监测研究 OnTrack｜OnTrack: Catching a Failing Agent Run While It's Still Running",
+            "url": "https://huggingface.co/blog/cribl-ai/ontrack-catching-a-failing-agent-run-while-its-sti"
+          },
+          {
+            "label": "3. 英伟达宣布英国初创企业新增投资计划｜NVIDIA Announces New Investments in the UK Startup Ecosystem",
+            "url": "https://blogs.nvidia.com/blog/uk-ecosystem-deployment/"
+          },
+          {
+            "label": "4. 英伟达披露欧洲城市部署代理与数字孪生进展｜European Cities Deploy NVIDIA-Powered AI Agents to Run Smarter Urban Operations",
+            "url": "https://blogs.nvidia.com/blog/european-cities-agents-urban-operations/"
+          },
+          {
+            "label": "5. NEURA 发布融合触觉与记忆的 Neuron AI｜NEURA Robotics Introduces Neuron AI: The Brain of the Physical World",
+            "url": "https://neura-robotics.com/neura-robotics-introduces-neuron-ai/"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://www.streetinsider.com/Business%2BWire/NEURA%2BRobotics%2BIntroduces%2BNeuron%2BAI%3A%2BThe%2BBrain%2Bof%2Bthe%2BPhysical%2BWorld/27182600.html"
+          }
+        ]
+      },
+      {
+        "heading": "商业｜企业财报、投资与产业动态",
+        "paragraphs": [
+          "1. 美国银行三季度净利69亿美元，监管和解费用拖累业绩。美国银行公布三季度收入300亿美元、净利润69亿美元、每股收益0.91美元；剔除12亿美元监管和解费用后，每股收益为1.08美元。分析：一次性费用放大盈利降幅，评估基本面仍须同时观察交易和投行业务表现。",
+          "2. 摩根士丹利季度收入203亿美元，财富管理吸金2320亿美元。摩根士丹利公布三季度净收入203亿美元、净利润49亿美元，每股收益3.03美元；财富管理新增净资产2320亿美元，收入创纪录。分析：财富管理资金流入强化持续收费基础，有助于平衡交易业务的周期波动。",
+          "3. 贝莱德管理资产达15.5万亿美元，季度净流入2050亿美元。贝莱德公布三季度管理资产达15.5万亿美元，季度净流入约2050亿美元；收入同比增长19%，调整后每股收益增长38%。分析：资金流入与市场升值共同扩大收费资产，仍需区分市场上涨和有机增长的贡献。",
+          "4. ASML季度销售创纪录，预计2027至2028年供给仍不足。ASML公布三季度销售116.62亿欧元、净利润49.60亿欧元，毛利率57.5%；公司预计现有产能规划仍难满足2027至2028年需求。分析：设备供应约束增强增长能见度，但客户意向不等于已锁定订单。 原稿补充：ASML14日公布第三季度净销售额约117亿欧元、净利润约50亿欧元，预计全年销售额为440亿至450亿欧元。公司称，部分客户已表达对2029年、2030年设备订单的兴趣，现有2027年和2028年供给计划可能仍不足。ASML正在研究进一步扩大2028年产能；远期客户兴趣与正式订单仍有区别。",
+          "5. AEP拟投40亿美元建702兆瓦燃料电池项目供电谷歌。AEP宣布计划投资约40亿美元，在怀俄明州推进702兆瓦燃料电池项目，并与谷歌签订20年购电协议；预计2028年底全面投运。分析：长期合约为大规模电源投资提供收入基础，工期与建设成本仍是关键风险。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美国银行三季度净利69亿美元，监管和解费用拖累业绩｜Bank of America Reports Third Quarter 2026 Financial Results",
+            "url": "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/10/bank-of-america-reports-third-quarter-2026-financial-results.html"
+          },
+          {
+            "label": "2. 摩根士丹利季度收入203亿美元，财富管理吸金2320亿美元｜Morgan Stanley Reports Third Quarter 2026",
+            "url": "https://www.morganstanley.com/press-releases/morgan-stanley-reports-third-quarter-2026"
+          },
+          {
+            "label": "3. 贝莱德管理资产达15.5万亿美元，季度净流入2050亿美元｜BlackRock Reports Third Quarter 2026 Diluted EPS",
+            "url": "https://www.blackrock.com/corporate/newsroom/media/press-releases/blackrock-reports-third-quarter-2026"
+          },
+          {
+            "label": "4. ASML季度销售创纪录，预计2027至2028年供给仍不足｜ASML reports €11.7 billion total net sales and €5.0 billion net income in Q3 2026",
             "url": "https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026"
+          },
+          {
+            "label": "5. AEP拟投40亿美元建702兆瓦燃料电池项目供电谷歌｜AEP Advances Innovative Energy Solution for Google with 702MW of Bloom Fuel Cells",
+            "url": "https://www.prnewswire.com/news-releases/aep-advances-innovative-energy-solution-for-google-with-702mw-of-bloom-fuel-cells-302907658.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://investor.bankofamerica.com/regulatory-and-other-filings/select-sec-filings/content/0000070858-26-000481/bac09302026ex991.htm"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.nasdaq.com/press-release/morgan-stanley-reports-third-quarter-2026-earnings-results-2026-10-14"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.morganstanley.com/about-us-ir/shareholder/3q2026.pdf?cid=SM_CORP_LINKEDIN_morgan-stanley_20261014"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://markets.financialcontent.com/stocks/article/bizwire-2026-10-14-blackrock-reports-third-quarter-2026-earnings?Language=english%2F1000."
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://live.euronext.com/pt/listview/company-press-release/058805"
           },
           {
             "label": "路透社，经 MarketScreener 刊载（核验时间窗）",
@@ -122,11 +418,35 @@
         ]
       },
       {
-        "heading": "股票｜美国14日收盘：科技股拖累大盘",
+        "heading": "股票｜市场收盘与交易日回顾",
         "paragraphs": [
-          "美国市场14日收盘，标普500下跌1.1%，道指下跌0.1%，纳斯达克综合指数下跌1.9%。美联社称，通胀加速强化了加息预期，借贷成本可能上升的担忧令AI相关股票承压。以上为纽约14日交易日收盘结果，对应北京时间15日凌晨。"
+          "1. 美股10月14日收盘。美国10月14日16:00 EDT收盘（北京时间15日04:00）：标普500 7,718.94，跌1.1%；道指51,621.48，跌0.1%；纳指26,692.87，跌1.9%。 分析：三大指数之间的强弱差异说明单一指数不能代表全部股票表现，不据此预测次日涨跌。 原稿补充：美国市场14日收盘，标普500下跌1.1%，道指下跌0.1%，纳斯达克综合指数下跌1.9%。美联社称，通胀加速强化了加息预期，借贷成本可能上升的担忧令AI相关股票承压。以上为纽约14日交易日收盘结果，对应北京时间15日凌晨。",
+          "2. A股10月14日收盘。北京时间10月14日15:00收盘，上证指数3,767.23，下跌0.88%；深证成指跌1.97%，创业板指跌3.10%。 分析：沪深与创业板涨跌幅不同，反映市场内部表现分化，不能将指数变化等同个股收益。",
+          "3. 港股10月14日收盘。香港10月14日交易日收盘：恒生指数下跌0.13%，恒生科技指数上涨0.91%。收盘口径，非盘中报价。 分析：恒生科技指数与恒指表现差异，可用于观察成长板块相对大盘的波动，不构成买卖建议。",
+          "4. 日经225在10月14日收盘−0.05%。日本10月14日15:30 JST收盘（北京时间14:30），日经225为67,744.29点，较上一交易日−0.05%。 分析：该数据提供日本市场当日方向，不将单日涨跌外推为中长期趋势。",
+          "5. 欧洲STOXX600在10月14日收盘。欧洲10月14日交易日结束，STOXX600为637.75，上涨0.43%。这是收盘报道，不是当日早盘点位。 分析：欧洲综合指数与亚洲、美股并不同步，比较时应区分市场和当地交易时段。"
         ],
         "sources": [
+          {
+            "label": "1. 美股10月14日收盘｜Associated Press",
+            "url": "https://abcnews.com/amp/Business/wireStory/major-us-stock-indexes-fared-wednesday-10142026-137270020"
+          },
+          {
+            "label": "2. A股10月14日收盘｜上海证券报",
+            "url": "https://paper.cnstock.com/html/2026-10/15/content_2277184.htm"
+          },
+          {
+            "label": "3. 港股10月14日收盘｜第一财经",
+            "url": "https://www.yicai.com/brief/103393432.html"
+          },
+          {
+            "label": "4. 日经225在10月14日收盘−0.05%｜Nikkei Indexes官方历史日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=10142026&idx=nk225"
+          },
+          {
+            "label": "5. 欧洲STOXX600在10月14日收盘｜Reuters",
+            "url": "https://www.streetinsider.com/Reuters/European%2Bshares%2Bedge%2Bhigher%2Bas%2BASMLs%2BAI%2Bdemand%2Boutlook%2Bboosts%2Btech/27182666.html"
+          },
           {
             "label": "美联社，经 myMotherLode 转载",
             "url": "https://mymotherlode.com/news/national/11222119/how-major-us-stock-indexes-fared-wednesday-10-14-2026.html"
@@ -134,26 +454,112 @@
         ]
       },
       {
-        "heading": "中国政治｜中方宣布新鸭绿江大桥将正式开通",
+        "heading": "中国政治｜政策、外交与公开措施",
         "paragraphs": [
-          "外交部14日例行记者会上宣布，经中朝双方商定，新鸭绿江大桥将于15日正式开通，并共同举行开通仪式。发言人将其定位为两国互联互通的重要设施，称将促进经贸交流和人员往来。记者追问仪式时间与出席人员时，中方表示将另行发布；截至这场记者会，公开的是开通安排。"
+          "1. 广交会开幕释放扩大开放信号。李强14日下午在广州出席第140届广交会开幕式，提出进一步降低市场准入门槛、扩大优质产品进口，支持有实力企业有序赴海外投资。分析：讲话释放继续开放的政策信号，但不等于已经出台具体准入清单或新增补贴。",
+          "2. 中阿会见聚焦能源与互联互通。阿塞拜疆总统阿利耶夫14日在巴库会见王毅，表示愿拓展能源与互联互通合作、欢迎中国企业投资；双方讨论战略对接及地区事务。分析：会见为双边合作提供政治支持，但投资意愿不能等同具体项目签约或资金已经落地。",
+          "3. 深圳公布APEC期间交通与弹性工作倡议。深圳15日10时发布会上公布APEC会议期间交通保障安排，倡导少开私家车、选择公交地铁，并鼓励错峰出行、居家办公和带薪休假。分析：措施以分散通勤需求缓解交通压力，属于倡议，不应解读为全市统一停工或强制休假。",
+          "4. 上海披露航运论坛安排与绿色转型方向。上海15日上午发布会上公布北外滩国际航运论坛将于20日至21日举行，设海运、航空及安全、金融、绿色低碳等专题，并介绍水运发展重点。分析：论坛安排为全球航运治理对话搭建平台，但计划发布的成果尚不能视为已经落地。",
+          "5. 山西启动新一轮中药饮片集采执行。山西15日起执行第二批全国中药饮片联盟集采中选结果，覆盖参与联采的公立及医保定点社会办医疗机构，要求优先采购中选产品并保障供应。分析：新闻增量是采购周期正式启动，而非当天新发通知，降费效果仍需结合临床使用与供货落实观察。",
+          "6. 中方宣布新鸭绿江大桥将正式开通。外交部14日例行记者会上宣布，经中朝双方商定，新鸭绿江大桥将于15日正式开通，并共同举行开通仪式。发言人将其定位为两国互联互通的重要设施，称将促进经贸交流和人员往来。记者追问仪式时间与出席人员时，中方表示将另行发布；截至这场记者会，公开的是开通安排。"
         ],
         "sources": [
           {
-            "label": "中国外交部",
+            "label": "1. 广交会开幕释放扩大开放信号｜原始来源",
+            "url": "https://cpc.people.com.cn/n1/2026/1015/c64094-40815063.html"
+          },
+          {
+            "label": "2. 中阿会见聚焦能源与互联互通｜原始来源",
+            "url": "https://www.mfa.gov.cn/web/wjbz_673089/xghd_673097/202610/t20261014_12040376.shtml"
+          },
+          {
+            "label": "3. 深圳公布APEC期间交通与弹性工作倡议｜原始来源",
+            "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_13027647.html"
+          },
+          {
+            "label": "4. 上海披露航运论坛安排与绿色转型方向｜原始来源",
+            "url": "https://en.shio.gov.cn/TrueCMS/shxwbgs/2026n_10y/content/80fb81d0-9797-40b9-be71-ac9d47058b9b.html"
+          },
+          {
+            "label": "5. 山西启动新一轮中药饮片集采执行｜原始来源",
+            "url": "https://wjw.shanxi.gov.cn/xwzx/szyw/202610/t20261012_10233563.shtml"
+          },
+          {
+            "label": "6. 中方宣布新鸭绿江大桥将正式开通｜中国外交部",
             "url": "https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202610/t20261014_12040283.shtml"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://president.az/en/articles/view/74041"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://m.stnn.cc/detail/6ad042818f9d2b19dd97f8ee.html"
+          },
+          {
+            "label": "时间或另一方说法",
+            "url": "https://www.sz.gov.cn/cn/xxgk/xwfyr/tzgg/content/post_13020848.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.shio.gov.cn/TrueCMS/shxwbgs/2026n_10y_wdsl/content/ac620a14-d910-4b63-a499-90e3d80502b7.html"
           }
         ]
       },
       {
-        "heading": "国际政治｜欧盟寻求填补乌克兰2027年融资缺口",
+        "heading": "国际政治｜外交、公共政策与重大事件",
         "paragraphs": [
-          "欧盟经济委员东布罗夫斯基斯14日在曼谷表示，欧盟正借IMF和G7会议向其他伙伴争取援乌资金。路透社报道，乌克兰2026年资金安排已覆盖，但其中约310亿欧元欧盟资金仍待乌方通过约定改革后拨付。2027年即使有欧盟已承诺的450亿欧元，需求仍会更高，欧盟正寻求其他国家补充支持。"
+          "1. 日本农林水产大臣簗和生辞职。日本农林水产大臣簗和生14日晚向高市早苗递交辞呈，首相接受并表示将推进继任人选安排。分析：辞职是对政治争议的实质回应，但相关言论及选举活动问题仍需分别核查，卸任不等于所有争议已经解决。",
+          "2. 爱沙尼亚宣布追加千万欧元援乌资金。爱沙尼亚总理米哈尔14日会见北约秘书长吕特，宣布通过北约PURL机制追加一千万欧元支持乌克兰，并讨论国防能力与威慑建设。分析：这是新的资金承诺，有助于缓解装备采购压力，但承诺金额与实际交付规模、时间并不相同。",
+          "3. 美国最高法院暂停政治广告费率限期令。美国最高法院14日暂停下级法院要求联邦通信委员会迅速裁决政治广告优惠费率争议的命令，使相关行政审查继续进行。分析：裁定改变的是审查程序与时间表，并非最终判定所有政党联合筹款广告都依法享有候选人优惠价。",
+          "4. 联邦法院拒绝暂时叫停承包商DEI命令。美国马里兰联邦法官14日拒绝暂时叫停针对政府所称联邦承包商种族歧视性DEI活动的行政令，并对其适用范围作出较窄解释。分析：行政令暂可继续执行，但这不是终局判决，更不意味着所有合法多元化项目一律被禁止。",
+          "5. 美国审计机构公开执法记录仪监管报告。美国政府问责局14日公开移民执法记录仪审计报告，提出七项改进建议；国土安全部同意其中六项，但反对自动启动控制。分析：报告揭示执行与监督缺口，争议焦点在录像完整性和隐私之间的权衡，而不是当天发生新的执法事件。",
+          "6. 欧盟寻求填补乌克兰2027年融资缺口。欧盟经济委员东布罗夫斯基斯14日在曼谷表示，欧盟正借IMF和G7会议向其他伙伴争取援乌资金。路透社报道，乌克兰2026年资金安排已覆盖，但其中约310亿欧元欧盟资金仍待乌方通过约定改革后拨付。2027年即使有欧盟已承诺的450亿欧元，需求仍会更高，欧盟正寻求其他国家补充支持。"
         ],
         "sources": [
           {
-            "label": "路透社，经 MarketScreener 刊载",
+            "label": "1. 日本农林水产大臣簗和生辞职｜原始来源",
+            "url": "https://www.kantei.go.jp/jp/105/actions/202610/14kaiken.html"
+          },
+          {
+            "label": "2. 爱沙尼亚宣布追加千万欧元援乌资金｜原始来源",
+            "url": "https://valitsus.ee/en/news/michal-meeting-rutte-estonia-support-ukraine-eur10-million-through-natos-purl-initiative"
+          },
+          {
+            "label": "3. 美国最高法院暂停政治广告费率限期令｜原始来源",
+            "url": "https://www.supremecourt.gov/opinions/26pdf/26a476_k537.pdf"
+          },
+          {
+            "label": "4. 联邦法院拒绝暂时叫停承包商DEI命令｜原始来源",
+            "url": "https://www2.mdd.uscourts.gov/Opinions/Opinions/26-cv-1532-ABA%2010-14-26%20NADOHE%20et%20al%20v.%20Trump%20et%20al%20Memo%20Opinion.pdf"
+          },
+          {
+            "label": "5. 美国审计机构公开执法记录仪监管报告｜原始来源",
+            "url": "https://www.gao.gov/products/gao-26-108157"
+          },
+          {
+            "label": "6. 欧盟寻求填补乌克兰2027年融资缺口｜路透社，经 MarketScreener 刊载",
             "url": "https://uk.marketscreener.com/news/eu-seeks-to-raise-cash-for-ukraine-at-imf-and-g7-meetings-dombrovskis-says-ce785dd2dc8af121"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.fnn.jp/articles/FNN/1132842"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://news.err.ee/1610165896/nato-chief-in-tallinn-estonia-a-benchmark-for-what-a-member-state-should-be"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://rollcall.com/2026/10/14/political-ad-rates-case-frozen-through-midterms/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.aol.co.uk/articles/us-judge-wont-block-trump-190305000.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.streetinsider.com/Reuters/US%2Brejects%2Brecommendation%2Bfor%2BICE%2Bbody%2Bcams%2Bto%2Bbe%2Bautomatically%2Bactivated/27188210.html"
           }
         ]
       }
@@ -167,45 +573,157 @@
     "title": "2026-10-16｜24 小时新闻简报",
     "subtitle": "北京时间 2026-10-15 12:00 至 2026-10-16 12:00",
     "category": "新闻回顾",
-    "readingMinutes": 4,
-    "summary": "AI消费者保护诉讼、台积电季度业绩、美股回升，以及李强出访公告和也门亚丁袭击报道。",
+    "readingMinutes": 18,
+    "summary": "补充覆盖AI、商业、股票市场、中国政治与政策、国际政治与重大事件五个栏目，每栏至少五项独立进展；保留原稿有效内容并区分事实、表态与分析。",
     "sections": [
       {
         "heading": "回顾范围与补发说明",
         "paragraphs": [
-          "回顾范围：北京时间 2026-10-15 12:00 至 2026-10-16 12:00，共24小时。本篇于2026年10月20日补发，依据该窗口内发布或更新的公开报道整理；涉及更早发生的事件或未来行程，正文另行说明。"
-        ]
-      },
-      {
-        "heading": "AI｜美国多州对OpenAI提起消费者保护诉讼",
-        "paragraphs": [
-          "美联社15日报道，至少八个美国州已起诉OpenAI，指控ChatGPT危害未成年人并误导用户对安全性的判断。OpenAI回应称，已为年轻用户设置防护措施，并将继续改进，也愿与各州推动适用于整个行业的AI政策。部分州诉状于14日提交，本期按15日的报道时间收录；相关指控尚不等于法院认定。"
+          "回顾范围：北京时间 2026-10-15 12:00 至 2026-10-16 12:00，共24小时。原文于北京时间2026-10-20 13:55:54补发；实际补充时间：北京时间2026-10-21 14:38，现收录27项独立进展。按事件发生或实质新增进展归入原窗口；晚于截止的报道如用于事后核验，正文另行说明，不冒充当时已知信息。",
+          "行情口径：各指数数值单位均为点，不是货币金额。美国股票交易币种为美元，中国A股为人民币，香港为港元，日本为日元；STOXX600采用欧元基准，涵盖多币种市场。分别标明当地交易日与收盘状态，不把历史行情写成补充当天涨跌。",
+          "原稿背景保留（具体事件时刻或窗口内新增进展尚未充分确认，不计入本期新增新闻）：美国多州对OpenAI提起消费者保护诉讼。美联社15日报道，至少八个美国州已起诉OpenAI，指控ChatGPT危害未成年人并误导用户对安全性的判断。OpenAI回应称，已为年轻用户设置防护措施，并将继续改进，也愿与各州推动适用于整个行业的AI政策。部分州诉状于14日提交，本期按15日的报道时间收录；相关指控尚不等于法院认定。"
         ],
         "sources": [
           {
-            "label": "美联社，经 Spectrum News / NY1 转载",
+            "label": "6. 美国多州对OpenAI提起消费者保护诉讼｜美联社，经 Spectrum News / NY1 转载",
             "url": "https://ny1.com/nyc/all-boroughs/business/2026/10/15/states-sue-openai"
           }
         ]
       },
       {
-        "heading": "商业｜台积电再创季度盈利纪录，2027年仍审慎规划",
+        "heading": "AI｜模型、工具与产业进展",
         "paragraphs": [
-          "台积电15日公布第三季度净利润7631亿新台币，同比增长69%，连续第六个季度创下盈利纪录。公司将全年收入增长预期上调至约44%，并维持2026年资本支出600亿至640亿美元的预期。同时，管理层表示消费类、价格敏感市场受零部件涨价及宏观不确定性挑战，2027年经营规划仍将审慎。"
+          "1. 微软披露 MAI-Base-2 预训练成果，尚在后训练阶段。微软披露 MAI-Base-2 拥有2.8万亿总参数、800亿激活参数，以1.6万块GB200训练38天，目前仍在后训练。分析：自建模型链条有助于降低对外部供应的依赖，但效率优势属于公司评测，不能等同已上线产品。",
+          "2. IBM 发布模块化 Granite-Switch 4.1 模型。IBM发布 Granite-Switch 4.1，以80亿和300亿参数版本整合对话、决策、安全判断及语音识别，并通过适配器切换共享基础模型。分析：复用计算与显存有望降低多模型部署负担，实际收益仍取决于业务负载和任务质量。",
+          "3. 谷歌展示 Antigravity 辅助抗菌分子发现流程。谷歌介绍利用 Antigravity 与 ProtNLM 筛查未注释蛋白质的研究流程，从大量序列中寻找潜在抗菌候选，实验验证仍在进行。分析：代理可加快文献、数据和实验规划衔接，但计算筛选结果不代表药效或临床成功。",
+          "4. 英伟达与 AI4Bharat 预告大规模印度语言语料。英伟达与 AI4Bharat 介绍2.8万亿词元的印度语言预训练资源，覆盖22种本地语言及12种罗马化书写，并预告开放生成管线。分析：高质量本地语料有助于改善语言覆盖，但原文称即将发布，不能写成已全部开放下载。",
+          "5. Hugging Face 公布 BERT 分词加速方案。Hugging Face 公布通过优化文本规范化来加速 BERT 分词的方法，特定测试较旧版最高快约50倍，代码仍处于合并请求阶段。分析：基础工具提速可惠及检索与分类，但不能将分词吞吐提升等同整个模型推理加速。"
         ],
         "sources": [
           {
-            "label": "路透社，经 AOL 刊载",
-            "url": "https://www.aol.ca/articles/tsmc-expected-report-sixth-straight-230153000.html"
+            "label": "1. 微软披露 MAI-Base-2 预训练成果，尚在后训练阶段｜Frontier Pre-training at Microsoft AI",
+            "url": "https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/"
+          },
+          {
+            "label": "2. IBM 发布模块化 Granite-Switch 4.1 模型｜Granite-Switch 4.1",
+            "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
+          },
+          {
+            "label": "3. 谷歌展示 Antigravity 辅助抗菌分子发现流程｜Accelerating antimicrobial discovery",
+            "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/"
+          },
+          {
+            "label": "4. 英伟达与 AI4Bharat 预告大规模印度语言语料｜Scaling Indic Pretraining",
+            "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining"
+          },
+          {
+            "label": "5. Hugging Face 公布 BERT 分词加速方案｜Tokenmaxxing BERT: 50x faster tokenization",
+            "url": "https://huggingface.co/blog/huggingface/tokenmaxxing-bert"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://badinfluence.news/items/mgadg3zaqkszicxqszgy1imf0"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://x.com/mustafasuleyman/status/2110766651344146564"
           }
         ]
       },
       {
-        "heading": "股票｜美国15日收盘转升，道指表现领先",
+        "heading": "商业｜企业财报、投资与产业动态",
         "paragraphs": [
-          "美国市场15日收盘，标普500上涨0.3%，道指上涨1.1%，纳斯达克综合指数上涨0.1%。美联社报道，AI股早段承压后收窄跌幅，部分企业较强的利润报告支撑大盘。以上为纽约15日完整交易日的收盘表现，对应北京时间16日凌晨。"
+          "1. 台积电三季度净利增68.7%，先进制程占晶圆收入79%。台积电公布三季度营收1.494万亿元新台币、净利润7630.6亿元，净利同比增长68.7%；7纳米及更先进制程占晶圆收入79%。分析：先进制程贡献体现产品结构优势，但高增长不能替代对后续资本开支与需求的检验。 原稿补充：台积电15日公布第三季度净利润7631亿新台币，同比增长69%，连续第六个季度创下盈利纪录。公司将全年收入增长预期上调至约44%，并维持2026年资本支出600亿至640亿美元的预期。同时，管理层表示消费类、价格敏感市场受零部件涨价及宏观不确定性挑战，2027年经营规划仍将审慎。",
+          "2. Proofpoint拟以63亿美元现金收购Varonis。Proofpoint与Varonis签订约63亿美元现金收购协议，每股对价49.75美元，预计2027年上半年完成，仍待股东及监管批准。分析：交易推动数据与身份安全整合，但整合进度及审批结果决定协同能否兑现。",
+          "3. Prologis三季度核心FFO增至每股1.60美元。Prologis公布三季度每股核心营运资金1.60美元，上年同期为1.49美元；平均出租率95.1%，同店现金净营业收入增长5.9%。分析：租金增长继续支撑物流地产收益，但高利率环境仍抬高扩张资金成本。",
+          "4. PNC三季度净利21亿美元，净利息收入环比增加。PNC公布三季度净利润21亿美元，每股收益4.97美元、调整后5.09美元；净利息收入环比增长2%，非利息费用下降8%。分析：贷款与存款增长改善收入基础，费用控制有利于在高利率环境中维护回报。",
+          "5. 西南航空宣布会员体系升级及全机队Starlink计划。西南航空宣布2027年引入银、金、白金三级会员体系，扩大国际合作伙伴积分兑换，并计划在2027年秋完成全机队Starlink部署。分析：会员和高端体验升级扩大收入抓手，但公告中的未来权益尚未全部上线。"
         ],
         "sources": [
+          {
+            "label": "1. 台积电三季度净利增68.7%，先进制程占晶圆收入79%｜TSMC Reports Third Quarter EPS of NT$29.43",
+            "url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000726/a3q26e_withguidancexfinal.htm"
+          },
+          {
+            "label": "2. Proofpoint拟以63亿美元现金收购Varonis｜Proofpoint to Acquire Varonis in a $6.3 Billion Transaction",
+            "url": "https://www.proofpoint.com/uk/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security"
+          },
+          {
+            "label": "3. Prologis三季度核心FFO增至每股1.60美元｜Prologis Reports Third Quarter 2026 Results",
+            "url": "https://ir.prologis.com/news-events/press-releases/detail/1055/prologis-reports-third-quarter-2026-results"
+          },
+          {
+            "label": "4. PNC三季度净利21亿美元，净利息收入环比增加｜PNC Reports Third Quarter 2026 Net Income of $2.1 Billion, $4.97 Diluted EPS or $5.09 as Adjusted",
+            "url": "https://investor.pnc.com/news-events/financial-press-releases/detail/700/pnc-reports-third-quarter-2026-net-income-of-2-1-billion-4-97-diluted-eps-or-5-09-as-adjusted"
+          },
+          {
+            "label": "5. 西南航空宣布会员体系升级及全机队Starlink计划｜MORE TO LOVE FROM RAPID REWARDS: SOUTHWEST AIRLINES EXPANDS REWARDS, REDEMPTION, AND MEMBER BENEFITS",
+            "url": "https://investors.southwest.com/news-events/press-releases/detail/1946/more-to-love-from-rapid-rewards-southwest-airlines-expands-rewards-redemption-and-member-benefits"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://investor.tsmc.com/english/quarterly-results/teleconference"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://investor.tsmc.com/japanese/encrypt/files/encrypt_file/reports/2026-10/eba4fac72873bf546b669bd2b5d973df5c93215d/TSMC%203Q26%20Transcript.pdf"
+          },
+          {
+            "label": "路透社，经 AOL 刊载",
+            "url": "https://www.aol.ca/articles/tsmc-expected-report-sixth-straight-230153000.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.nasdaq.com/press-release/proofpoint-acquire-varonis-63-billion-transaction-2026-10-15"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.prnewswire.com/news-releases/latest-news-topics/quarterly-earnings-reports/"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.prnewswire.com/news-releases/prologis-reports-third-quarter-2026-results-302909334.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://investor.pnc.com/news-events/financial-press-releases"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://investors.southwest.com/?item=350"
+          }
+        ]
+      },
+      {
+        "heading": "股票｜市场收盘与交易日回顾",
+        "paragraphs": [
+          "1. 美股10月15日收盘。美国10月15日16:00 EDT收盘（北京时间16日04:00）：标普500 7,744.06，涨0.3%；道指52,177.69，涨1.1%；纳指26,713.03，涨0.1%。 分析：三大指数之间的强弱差异说明单一指数不能代表全部股票表现，不据此预测次日涨跌。 原稿补充：美国市场15日收盘，标普500上涨0.3%，道指上涨1.1%，纳斯达克综合指数上涨0.1%。美联社报道，AI股早段承压后收窄跌幅，部分企业较强的利润报告支撑大盘。以上为纽约15日完整交易日的收盘表现，对应北京时间16日凌晨。",
+          "2. A股10月15日收盘。北京时间10月15日15:00收盘，上证指数3,707.48，下跌1.59%；深证成指跌2.43%，创业板指跌2.92%。 分析：沪深与创业板涨跌幅不同，反映市场内部表现分化，不能将指数变化等同个股收益。",
+          "3. 港股10月15日收盘。香港10月15日交易日收盘：恒生指数下跌1.03%，恒生科技指数下跌2.72%。收盘口径，非盘中报价。 分析：恒生科技指数与恒指表现差异，可用于观察成长板块相对大盘的波动，不构成买卖建议。",
+          "4. 日经225在10月15日收盘−4.90%。日本10月15日15:30 JST收盘（北京时间14:30），日经225为64,425.95点，较上一交易日−4.90%。 分析：该数据提供日本市场当日方向，不将单日涨跌外推为中长期趋势。",
+          "5. 欧洲STOXX600在10月15日收盘。欧洲10月15日交易日结束，STOXX600为640.16，上涨0.38%。这是收盘报道，不是当日早盘点位。 分析：欧洲综合指数与亚洲、美股并不同步，比较时应区分市场和当地交易时段。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美股10月15日收盘｜Associated Press",
+            "url": "https://apnews.com/article/f0a4f8aa60a6a24237c419aba38f31fd"
+          },
+          {
+            "label": "2. A股10月15日收盘｜财新",
+            "url": "https://finance.caixin.com/m/2026-10-15/102493779.html"
+          },
+          {
+            "label": "3. 港股10月15日收盘｜第一财经",
+            "url": "https://www.yicai.com/brief/103395135.html"
+          },
+          {
+            "label": "4. 日经225在10月15日收盘−4.90%｜Nikkei Indexes官方历史日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=10152026&idx=nk225"
+          },
+          {
+            "label": "5. 欧洲STOXX600在10月15日收盘｜Reuters",
+            "url": "https://uk.marketscreener.com/news/european-shares-fall-as-global-tech-rout-hits-risk-appetite-ce785dd3db88f026"
+          },
           {
             "label": "美联社，经 AOL 刊载",
             "url": "https://www.aol.com/articles/major-us-stock-indexes-fared-202216000.html"
@@ -213,26 +731,132 @@
         ]
       },
       {
-        "heading": "中国政治｜李强中亚及俄罗斯行程公布",
+        "heading": "中国政治｜政策、外交与公开措施",
         "paragraphs": [
-          "外交部15日宣布，李强将于17日至18日访问乌兹别克斯坦，18日至20日访问塔吉克斯坦并出席上合组织成员国政府首脑理事会会议，20日至22日赴俄罗斯举行中俄总理定期会晤。中方表示，此行将落实领导人共识、深化互信并拓展合作。这里公布的是未来行程，访问与会晤成果尚待后续消息。"
+          "1. 中多会谈签署多领域合作文件。李强15日下午同多哥部长会议主席福雷会谈，双方见证签署产供链、人力资源、数字贸易及海关检验检疫等合作文件，并讨论扩大农产品贸易。分析：新签文件为合作提供执行框架，不能把13日关系升级重复算作当天成果。",
+          "2. 本轮汽柴油价格维持不变。国家发展改革委15日宣布，本轮国内汽柴油价格不作调整，并要求炼油企业做好生产调运、保障稳定供应，地方加强价格检查。分析：政策暂时稳定终端用油成本，但不代表国际原油波动消失，后续调价仍受外部行情影响。",
+          "3. 应急管理部披露强化监管执法措施。应急管理部16日上午发布会上披露，将强化高风险企业检查、监管执法专项检查及责任倒查，对执法不力地区采取约谈和现场督导。分析：监管重点从发现企业隐患延伸至追查执法责任，企业需同时强化现场管理与整改闭环。 时间说明：发布会于16日10:00举行，官方实录14:29发布，本次补充据后续实录核实上午事件。",
+          "4. 王毅在亚信峰会提出四项合作倡议。王毅15日在巴库出席亚信第七次峰会，提出建设和平、繁荣、文明和命运与共的亚洲等合作倡议，会议通过峰会宣言。分析：中方借区域多边平台阐释安全与发展主张，倡议的实际约束力和项目成效仍取决于成员后续落实。",
+          "5. 中博会见聚焦投资保护与产业合作。李强15日下午会见博茨瓦纳总统博科，提出升级双边投资保护协定，深化矿业、数字技术和绿色能源合作，并扩大优质产品输华。分析：会见聚焦把关系提升转化为经贸机制与项目，协定升级目前是合作方向而非已经完成。",
+          "6. 李强中亚及俄罗斯行程公布。外交部15日宣布，李强将于17日至18日访问乌兹别克斯坦，18日至20日访问塔吉克斯坦并出席上合组织成员国政府首脑理事会会议，20日至22日赴俄罗斯举行中俄总理定期会晤。中方表示，此行将落实领导人共识、深化互信并拓展合作。这里公布的是未来行程，访问与会晤成果尚待后续消息。"
         ],
         "sources": [
           {
-            "label": "中国外交部",
+            "label": "1. 中多会谈签署多领域合作文件｜原始来源",
+            "url": "https://www.fmprc.gov.cn/wjb_673085/zzjg_673183/xws_674681/xgxw_674683/202610/t20261015_12041091.shtml"
+          },
+          {
+            "label": "2. 本轮汽柴油价格维持不变｜原始来源",
+            "url": "https://www.ndrc.gov.cn/xwdt/xwfb/202610/t20261015_1408170.html"
+          },
+          {
+            "label": "3. 应急管理部披露强化监管执法措施｜原始来源",
+            "url": "https://www.mem.gov.cn/xw/xwfbh/2026n10y16xwfbh/wzsl_4260/202610/t20261016_735911.shtml"
+          },
+          {
+            "label": "4. 王毅在亚信峰会提出四项合作倡议｜原始来源",
+            "url": "https://www.mfa.gov.cn/web/wjdt_674879/gjldrhd_674881/202610/t20261015_12041093.shtml"
+          },
+          {
+            "label": "5. 中博会见聚焦投资保护与产业合作｜原始来源",
+            "url": "https://www.fmprc.gov.cn/web/gjhdq_676201/gjhdqzz_681964/zgzyjz_148218/xgxw_688964/202610/t20261015_12041089.shtml"
+          },
+          {
+            "label": "6. 李强中亚及俄罗斯行程公布｜中国外交部",
             "url": "https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202610/t20261015_12040831.shtml"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://cpc.people.com.cn/n1/2026/1016/c64094-40815733.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.sina.cn/news/detail/5353512947157028.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.beijing.gov.cn/ywdt/zybwdt/202610/t20261016_4905676.html"
+          },
+          {
+            "label": "时间或另一方说法",
+            "url": "https://www.mem.gov.cn/xw/yjglbgzdt/202610/t20261015_735791.shtml"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://s-cica.org/index.php?id=3230&t=press_releases&view=page"
+          },
+          {
+            "label": "时间或另一方说法",
+            "url": "https://president.az/en/articles/view/74051"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://politics.people.com.cn/n1/2026/1015/c1024-40815544.html"
           }
         ]
       },
       {
-        "heading": "国际政治｜也门亚丁总统府建筑群遭袭",
+        "heading": "国际政治｜外交、公共政策与重大事件",
         "paragraphs": [
-          "路透社15日下午更新报道，也门胡塞武装向亚丁总统府建筑群发射导弹，两名政府官员称两名警卫死亡。也门新闻部长表示，总理和在场内阁成员未受伤。胡塞方面称目标是沙特军官指挥设施及军火库，路透社明确表示无法独立核实这一说法。人员损失按该稿更新时点记录，仍可能随救援进展调整。"
+          "1. 加拿大总理在卡尔加里呼吁维护联邦团结。加拿大总理卡尼15日在卡尔加里参加“永远是加拿大人”集会，在阿尔伯塔省公投前呼吁维护国家团结。分析：总理亲赴当地显示联邦高度重视分离议题，但此次公投的具体问题不能简化成直接决定独立与否。",
+          "2. 武部新正式出任日本农林水产大臣。日本众议员武部新15日傍晚完成皇居认证仪式，正式接任农林水产大臣；此前簗和生因争议辞职。分析：任命结束职位空缺，但农业政策与减税法案的国会协调仍待推进，不能把前任所涉疑问写成已经司法认定的违法。",
+          "3. 特朗普取消胡德堡枪手处决直播计划。特朗普15日宣布，不再公开直播胡德堡枪击案凶手哈桑的处决，遇难者直系家属可选择现场观看；处决安排本身未被取消。分析：决定撤回了有争议的传播方式，而非改变刑罚，显示军方方案受到政治与公共舆论压力。",
+          "4. 美国司法部就选民名单起诉加州。美国司法部15日就选民名单起诉加州，声称两万多名登记者可能不是公民；加州官员反驳联邦识别方法及要求。分析：争议进入诉讼程序，但名单匹配与指控不等于证实非法投票，后续裁判才决定选举管理措施能否改变。",
+          "5. 泽连斯基与吕特商讨新增防空支援。泽连斯基15日在布鲁塞尔会见北约秘书长吕特，协调后续防务支持，重点讨论弹道导弹拦截弹和F-16弹药，并推进新的防空援助包。分析：会议明确了乌方当前装备需求，但讨论中的援助不能视为已经批准或交付。",
+          "6. 也门亚丁总统府建筑群遭袭。路透社15日下午更新报道，也门胡塞武装向亚丁总统府建筑群发射导弹，两名政府官员称两名警卫死亡。也门新闻部长表示，总理和在场内阁成员未受伤。胡塞方面称目标是沙特军官指挥设施及军火库，路透社明确表示无法独立核实这一说法。人员损失按该稿更新时点记录，仍可能随救援进展调整。"
         ],
         "sources": [
           {
-            "label": "路透社，经 AOL 刊载",
+            "label": "1. 加拿大总理在卡尔加里呼吁维护联邦团结｜原始来源",
+            "url": "https://www.pm.gc.ca/en/videos/2026/10/15/prime-minister-carney-delivers-remarks-forever-canadian-rally-calgary"
+          },
+          {
+            "label": "2. 武部新正式出任日本农林水产大臣｜原始来源",
+            "url": "https://zh.kantei.go.jp/cn/105/meibo/daijin/index.html"
+          },
+          {
+            "label": "3. 特朗普取消胡德堡枪手处决直播计划｜原始来源",
+            "url": "https://www.streetinsider.com/Reuters/Trump%2Bsays%2Bmilitary%2Bexecution%2Bwill%2Bnot%2Bbe%2Blivestreamed/27191517.html"
+          },
+          {
+            "label": "4. 美国司法部就选民名单起诉加州｜原始来源",
+            "url": "https://www.justice.gov/usao-cdca/pr/united-states-sues-california-after-determining-more-20000-likely-noncitizens-are"
+          },
+          {
+            "label": "5. 泽连斯基与吕特商讨新增防空支援｜原始来源",
+            "url": "https://president.gov.ua/news/pracyuyemo-nad-novimi-paketami-ppo-volodimir-zelenskij-za-re-106893"
+          },
+          {
+            "label": "6. 也门亚丁总统府建筑群遭袭｜路透社，经 AOL 刊载",
             "url": "https://www.aol.com/articles/houthis-fire-missiles-presidential-palace-143732000.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://apnews.com/article/4e39eb0f5bda2438b3c2fedbf6088d09"
+          },
+          {
+            "label": "时间或另一方说法",
+            "url": "https://www.pm.gc.ca/en/news/media-advisories/2026/10/14/thursday-october-15-2026"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://kumanichi.com/articles/2046947"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://podcasts.apple.com/us/podcast/ukraine-oil-strike-fort-hood-execution-ai-stock-slide/id1665219519?i=1000796471114"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://rollcall.com/2026/10/15/doj-sues-california-alleging-noncitizen-ballots/"
+          },
+          {
+            "label": "时间或另一方说法",
+            "url": "https://www.sos.ca.gov/administration/news-releases-and-advisories/2026-news-releases-and-advisories/california-secretary-state-shirley-n-weber-phd-shares-response-us-department-justice-demands"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://nato.int/en/multimedia/multimedia/photos/2026/10/15/nato-secretary-general-meets-with-the-president-of-ukraine"
           }
         ]
       }
@@ -244,24 +868,198 @@
     "slug": "news-2026-10-17",
     "date": "2026-10-17",
     "title": "2026-10-17｜24 小时新闻简报",
-    "subtitle": "北京时间中午截点的过去24小时新闻补档",
+    "subtitle": "北京时间 2026-10-16 12:00 至 2026-10-17 12:00",
     "category": "新闻回顾",
-    "readingMinutes": 4,
-    "summary": "中国就AI技术出口目录修订征求意见，涂料巨头并购仍待欧盟审查，美股科技股回落；外交日程与俄乌各方表态需区别于实际协议。",
+    "readingMinutes": 18,
+    "summary": "补充覆盖AI、商业、股票市场、中国政治与政策、国际政治与重大事件五个栏目，每栏至少五项独立进展；保留原稿有效内容并区分事实、表态与分析。",
     "sections": [
       {
         "heading": "回顾范围与补发说明",
         "paragraphs": [
-          "本篇为历史新闻补档，回顾范围为北京时间 2026-10-16 12:00 至 2026-10-17 12:00（UTC 10月16日04:00至17日04:00），共24小时。按该窗口内已公开的消息整理；窗口前的必要背景另行说明，不混入截止后的进展。",
-          "本期的共同线索是规则与预期：AI跨境合作面临新草案，大型并购仍待监管放行，市场则继续检验科技投资的回报。以下区分正式行动、拟议政策和当事方表态。"
+          "回顾范围：北京时间 2026-10-16 12:00 至 2026-10-17 12:00，共24小时。原文于北京时间2026-10-20 13:55:54补发；实际补充时间：北京时间2026-10-21 14:38，现收录27项独立进展。按事件发生或实质新增进展归入原窗口；晚于截止的报道如用于事后核验，正文另行说明，不冒充当时已知信息。",
+          "行情口径：各指数数值单位均为点，不是货币金额。美国股票交易币种为美元，中国A股为人民币，香港为港元，日本为日元；STOXX600采用欧元基准，涵盖多币种市场。分别标明当地交易日与收盘状态，不把历史行情写成补充当天涨跌。"
         ]
       },
       {
-        "heading": "AI｜中国就AI技术出口管理调整征求意见",
+        "heading": "AI｜模型、工具与产业进展",
         "paragraphs": [
-          "商务部、科技部10月16日就技术出口目录修订征求意见，拟增列40项关键技术，其中23项涉及人工智能，同时对相关技术实施出口前登记的临时管理措施。商务部说明，受限技术的海外本地化部署，与API、网页或SaaS调用并非同一监管情形。草案还为开源和部分国际合作列出便利安排，不能将其概括为所有中国AI服务停止出海。"
+          "1. Reflection 开放 Beam 权重及代理工具生态。Reflection 正式开放 Beam 权重，采用 Apache 2.0 许可，提供多种精度版本、Mirror CLI 与40多家伙伴集成。分析：开放模型加配套工具降低自主部署门槛，但5010亿总参数仍意味着显著的基础设施需求。",
+          "2. Elorian 发布视觉推理模型 Glimpse 研究预览。Elorian 推出 Glimpse 研究预览，通过API及聊天界面提供视觉推理，可反复放大图像、回看视频并跟踪物体；输入和输出每百万词元分别为0.6及3美元。分析：低价有利于试用，但基准来自厂商，机器人直接控制仍属后续工作。",
+          "3. OpenAI 更新 ChatGPT 高阶模型的并行代理能力。OpenAI宣布更新 ChatGPT 的 GPT-6 Pro，提升响应速度及工具使用，并支持多个代理并行处理不同子任务，向符合条件的Pro用户推送。分析：并行执行可缩短复杂工作等待时间，但可用性仍受账户、工作区与分批上线限制。",
+          "4. Anthropic 介绍 Claude 优化量子电路研究。Anthropic介绍研究：Claude在自动评分器协助下，为八类量子计算基础任务寻找更省量子比特和门数量的电路，部分指标优于既有方案。分析：可验证反馈适合代理优化，但算法资源估计的改进不等于量子硬件已实现实用突破。",
+          "5. RapidCanvas 获2900万美元B轮融资。企业AI交付公司 RapidCanvas 宣布完成2900万美元B轮融资，由Vertex Ventures SEA & India领投，累计融资5250万美元。分析：平台结合现场工程师有助于落地，但人员密集交付能否持续规模化仍需验证。"
         ],
         "sources": [
+          {
+            "label": "1. Reflection 开放 Beam 权重及代理工具生态｜Beam is now available",
+            "url": "https://reflection.ai/blog/beam-is-available"
+          },
+          {
+            "label": "2. Elorian 发布视觉推理模型 Glimpse 研究预览｜Introducing Glimpse",
+            "url": "https://elorian.ai/blog/introducing-glimpse"
+          },
+          {
+            "label": "3. OpenAI 更新 ChatGPT 高阶模型的并行代理能力｜ChatGPT release notes — October 16, 2026",
+            "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          },
+          {
+            "label": "4. Anthropic 介绍 Claude 优化量子电路研究｜Designing more efficient quantum circuits with Claude",
+            "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits"
+          },
+          {
+            "label": "5. RapidCanvas 获2900万美元B轮融资｜RapidCanvas Raises $29M Series B to Bring Fortune 100-Grade AI to Every Enterprise",
+            "url": "https://www.globenewswire.com/news-release/2026/10/16/3382607/0/en/rapidcanvas-raises-29m-series-b-to-bring-fortune-100-grade-ai-to-every-enterprise.html"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://www.advanceintelligence.ai/2026-10-16"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://x.com/reflection_ai/status/2111079965529968798"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://x.com/AndrewDai/status/2111142161584628060"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://x.com/OpenAI/status/2111192259073094035"
+          },
+          {
+            "label": "公告与时间佐证",
+            "url": "https://x.com/AnthropicAI/status/2111152183240511640"
+          }
+        ]
+      },
+      {
+        "heading": "商业｜企业财报、投资与产业动态",
+        "paragraphs": [
+          "1. Copart完成ACV收购，扩展二手车批发拍卖业务。Copart宣布完成对ACV的现金收购，每股对价10.50美元；ACV股票停止在纽交所交易，现有管理层继续领导独立子公司。分析：交易连接经销商置换、批发及报废车拍卖，但平台整合和协同兑现仍待检验。",
+          "2. Travelers三季度净利19.17亿美元，投资收入创纪录。Travelers三季度净利19.17亿美元，核心每股收益9.18美元；综合成本率86.8%，税前净投资收入同比增6%。分析：投资收益与准备金释放支持盈利，不能把每股收益增长全部视为承保业务改善。",
+          "3. Truist调整后每股收益增12%，资产重配拉低账面盈利。Truist三季度每股收益0.56美元，调整后1.16美元、同比增12%；业绩包含出售证券的14亿美元税前损失。分析：资产重配造成实际与调整后盈利明显分化，评估经营质量需同时关注损失和准备金回拨。",
+          "4. M&T三季度净利下降，贷款增长难抵息差压力。M&T三季度净利7.75亿美元，低于上年7.92亿美元；每股收益升至5.04美元，平均贷款环比增加26亿美元，净息差降至3.65%。分析：股数减少支撑每股指标，贷款扩张尚未完全抵消息差与费用压力。",
+          "5. 美国9月工业产出环比增0.7%，公用事业领涨。美联储公布美国9月工业产出环比增长0.7%，制造业增0.3%，公用事业增3.5%；产能利用率升至76.9%。分析：公用事业拉动总量，制造业改善幅度较温和，利用率仍低于长期均值，不能据此断言全面过热。",
+          "6. 阿克苏诺贝尔与艾仕得提出并购补救方案。路透16日报道，阿克苏诺贝尔与艾仕得已向欧盟提交补救方案，争取约250亿美元合并交易获批。提交动作发生在15日，16日公开的欧委会文件使审查期限自动延长10个工作日、进入11月。监管方未披露让步细节；这属于审批进展，并不意味着交易已经获得许可或完成交割。"
+        ],
+        "sources": [
+          {
+            "label": "1. Copart完成ACV收购，扩展二手车批发拍卖业务｜Copart Completes Acquisition of ACV",
+            "url": "https://www.sec.gov/Archives/edgar/data/900075/000119312526423478/d129535dex991.htm"
+          },
+          {
+            "label": "2. Travelers三季度净利19.17亿美元，投资收入创纪录｜Travelers Reports Excellent Third Quarter and Year-to-Date Results",
+            "url": "https://investor.travelers.com/newsroom/press-releases/news-details/2026/Travelers-Reports-Excellent-Third-Quarter-and-Year-to-Date-Results/default.aspx"
+          },
+          {
+            "label": "3. Truist调整后每股收益增12%，资产重配拉低账面盈利｜Truist reports third quarter 2026 results",
+            "url": "https://www.sec.gov/Archives/edgar/data/92230/000009223026000108/ex991-3q26.htm"
+          },
+          {
+            "label": "4. M&T三季度净利下降，贷款增长难抵息差压力｜M&T Bank Corporation (NYSE:MTB) announces third quarter 2026 results",
+            "url": "https://www.prnewswire.com/news-releases/mt-bank-corporation-nysemtb-announces-third-quarter-2026-results-302910052.html"
+          },
+          {
+            "label": "5. 美国9月工业产出环比增0.7%，公用事业领涨｜Industrial Production and Capacity Utilization - G.17",
+            "url": "https://www.federalreserve.gov/releases/g17/20261016/"
+          },
+          {
+            "label": "6. 阿克苏诺贝尔与艾仕得提出并购补救方案｜路透／AOL：AkzoNobel与Axalta并购审查",
+            "url": "https://www.aol.com/articles/akzonobel-axalta-offer-remedies-bid-135723000.html"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://business.woonsocketcall.com/woonsocketcall/article/bizwire-2026-10-16-copart-completes-acquisition-of-acv"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.avpress.marketminute.com/article/bizwire-2026-10-16-travelers-reports-excellent-third-quarter-and-year-to-date-results"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://earningswhispers.com/epsdetails/TRV"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://ir.truist.com/2026-10-16-Truist-reports-third-quarter-2026-results"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.prnewswire.com/news/truist-financial-corporation/"
+          },
+          {
+            "label": "发布时间与交叉核验",
+            "url": "https://www.federalreserve.gov/releases/g17/20261016/g17.pdf"
+          }
+        ]
+      },
+      {
+        "heading": "股票｜市场收盘与交易日回顾",
+        "paragraphs": [
+          "1. 美股10月16日收盘。美国10月16日16:00 EDT收盘（北京时间17日04:00）：标普500 7,659.44，跌1.1%；道指52,002.41，跌0.3%；纳指26,140.03，跌2.1%。 分析：三大指数之间的强弱差异说明单一指数不能代表全部股票表现，不据此预测次日涨跌。 原稿补充：美国10月16日常规交易收盘，标普500跌1.1%，纳斯达克综合指数跌2.1%，道指跌0.3%。美联社将科技股压力与市场对AI建设热潮持续性的担忧联系起来。这里采用美国市场当地16日收盘的指数变动，不是北京时间17日白天的新行情，也不将单日跌幅外推为长期趋势。",
+          "2. A股10月16日收盘。北京时间10月16日15:00收盘，上证指数3,716.28，上涨0.24%；深证成指11,802.46，跌0.12%；创业板指2,772.38，跌0.39%。 分析：沪深与创业板涨跌幅不同，反映市场内部表现分化，不能将指数变化等同个股收益。",
+          "3. 港股10月16日收盘。香港10月16日交易日收盘：恒生指数24,186.83，上涨0.52%；恒生科技指数4,108.24，上涨1.16%。收盘口径，非盘中报价。 分析：恒生科技指数与恒指表现差异，可用于观察成长板块相对大盘的波动，不构成买卖建议。",
+          "4. 日经225在10月16日收盘+1.39%。日本10月16日15:30 JST收盘（北京时间14:30），日经225为65,324.29点，较上一交易日+1.39%。 分析：该数据提供日本市场当日方向，不将单日涨跌外推为中长期趋势。",
+          "5. 欧洲STOXX600在10月16日收盘。欧洲10月16日交易日结束，STOXX600为644.74，上涨0.7%（Reuters四舍五入）。这是收盘报道，不是当日早盘点位。 分析：欧洲综合指数与亚洲、美股并不同步，比较时应区分市场和当地交易时段。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美股10月16日收盘｜Associated Press",
+            "url": "https://abcnews.com/amp/Business/wireStory/major-us-stock-indexes-fared-friday-10162026-137331951"
+          },
+          {
+            "label": "2. A股10月16日收盘｜证券时报·数据宝（新浪转载）",
+            "url": "https://finance.sina.com.cn/stock/relnews/cn/2026-10-16/doc-inivmtxh1563891.shtml"
+          },
+          {
+            "label": "3. 港股10月16日收盘｜东方财富Choice数据",
+            "url": "https://finance.eastmoney.com/a/202610163898396196.html"
+          },
+          {
+            "label": "4. 日经225在10月16日收盘+1.39%｜Nikkei Indexes官方历史日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=10162026&idx=nk225"
+          },
+          {
+            "label": "5. 欧洲STOXX600在10月16日收盘｜Reuters",
+            "url": "https://www.marketscreener.com/news/european-shares-close-out-best-week-since-june-as-earnings-soften-blow-from-tech-selloff-ce785cdadc8ff321"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治｜政策、外交与公开措施",
+        "paragraphs": [
+          "1. 技术出口目录调整征求意见。商务部、科技部16日下午就调整禁止和限制出口技术目录征求意见，涉及人工智能、生物医药及光伏等40项技术，同时提出临时预登记安排。分析：企业需区分征求意见与即时程序要求，不能把草案直接当作全面出口禁令。 原稿补充：商务部、科技部10月16日就技术出口目录修订征求意见，拟增列40项关键技术，其中23项涉及人工智能，同时对相关技术实施出口前登记的临时管理措施。商务部说明，受限技术的海外本地化部署，与API、网页或SaaS调用并非同一监管情形。草案还为开源和部分国际合作列出便利安排，不能将其概括为所有中国AI服务停止出海。",
+          "2. 氢能综合应用试点管理办法公开。工信部等部门16日晚公开氢能综合应用试点管理办法，规范城市群申报、组织实施及绩效评价，推动制储输用全链条协同发展。分析：政策将示范项目与管理考核结合，产业扩张仍须兼顾成本、安全与实际用氢需求。",
+          "3. 中国职业教育白皮书发布。中国职业教育白皮书17日在天津世界职业技术教育发展大会闭幕式发布，梳理产教融合、数字化和国际合作，并提出以标准共建推动全球协作。分析：政策重点由扩大培养规模进一步转向技能质量与产业需求衔接。 时间说明：发布活动发生于17日上午，补充时以后续报道核实，不将较晚的报道发布时间当作事件发生时间。",
+          "4. 粤艇南下首批游艇抵港。粤艇南下安排16日落地，首批五艘内地游艇中午起陆续抵达香港大屿山游艇会，开启跨境游艇往来新通道。分析：实际首航比前期政策预告更具落地意义，有助于湾区海上旅游合作，但规模扩展仍取决于通关配套。",
+          "5. 国防部公布海上医学救援交流安排。国防部16日下午宣布，中国海军将于21日至22日在上海举办西太平洋海军论坛医学研讨会，邀请成员国及观察员国代表讨论海上伤员救治、灾难救援和援潜保障。分析：这是新的军事卫生交流安排，会议尚未举行，不能提前宣称达成成果。",
+          "6. 外交部公布两位非洲国家外长访华安排。外交部在16日例行记者会上宣布，吉布提外长奥马尔和刚果（布）外长邦达均将于10月19日至25日正式访华。两项访问由王毅邀请，属于已宣布、尚未在本期窗口内展开的外交日程。后续应以会谈公报和实际签署文件判断成果，不能提前写成已经达成合作协议。"
+        ],
+        "sources": [
+          {
+            "label": "1. 技术出口目录调整征求意见｜原始来源",
+            "url": "https://www.mofcom.gov.cn/zcfb/dwmygl/art/2026/art_61446ab4beee4f63973d4d0ab3097648.html"
+          },
+          {
+            "label": "2. 氢能综合应用试点管理办法公开｜原始来源",
+            "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_911b982f65be4d34acbc28ade4714bf1.html"
+          },
+          {
+            "label": "3. 中国职业教育白皮书发布｜原始来源",
+            "url": "https://www.xinhuanet.com/edu/20261017/b35a2a065f8f49ab9703c5725504f65c/c.html"
+          },
+          {
+            "label": "4. 粤艇南下首批游艇抵港｜原始来源",
+            "url": "https://gbcode.rthk.hk/TuniS/news.rthk.hk/rthk/ch/component/k2/1874180-20261016.htm"
+          },
+          {
+            "label": "5. 国防部公布海上医学救援交流安排｜原始来源",
+            "url": "https://www.mod.gov.cn/gfbw/qwfb/16493564.html"
+          },
+          {
+            "label": "6. 外交部公布两位非洲国家外长访华安排｜外交部：10月16日例行记者会",
+            "url": "https://www.mfa.gov.cn/fyrbt_673021/jzhsl_673025/202610/t20261016_12041978.shtml"
+          },
           {
             "label": "商务部答记者问",
             "url": "https://cacs.mofcom.gov.cn/article/gnwjmdt/gn/202610/189531.html"
@@ -269,51 +1067,71 @@
           {
             "label": "新华社：商务部详解技术目录修订",
             "url": "https://www.xinhuanet.com.cn/fortune/20261017/1f4b116e36124e2bb9c3c15e26bc86cb/c.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://english.www.gov.cn/news/202610/17/content_WS6ad2de86c6d00ca5f9a0dbdd.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://tj.people.com.cn/n2/2026/1019/c375366-41725953.html"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://m.sohu.com/a/1088642764_362042"
           }
         ]
       },
       {
-        "heading": "商业｜阿克苏诺贝尔与艾仕得提出并购补救方案",
+        "heading": "国际政治｜外交、公共政策与重大事件",
         "paragraphs": [
-          "路透16日报道，阿克苏诺贝尔与艾仕得已向欧盟提交补救方案，争取约250亿美元合并交易获批。提交动作发生在15日，16日公开的欧委会文件使审查期限自动延长10个工作日、进入11月。监管方未披露让步细节；这属于审批进展，并不意味着交易已经获得许可或完成交割。"
+          "1. 美国豁免格雷厄姆法案部分制裁关税。特朗普16日签署行政令，动用豁免条款暂停格雷厄姆法案规定的相关制裁、限制和关税，并向国会提交国家利益认证。分析：这改变了原定措施的执行路径，但不意味着美国历来所有对俄制裁均被撤销。",
+          "2. 白宫新闻秘书短暂任期结束。据路透社与美联社16日报道，白宫新闻秘书扎卡里亚上任不足一周即将离职；特朗普当日已公开表示建议她重新考虑职务。分析：人事变动发生在中期选举前，增加白宫传播协调压力；匿名官员说法应保留归属。",
+          "3. FBI与CISA发布选举网络风险提示。美国FBI与CISA16日联合发布公告，提醒选举及竞选工作人员警惕人工智能增强的虚假邮件、短信和深度伪造，并建议加强账户保护。分析：预警反映选务信息安全压力，不代表机构已确认选举系统遭入侵或结果被篡改。",
+          "4. 美司法部对加州计票官员发出刑责警告。美国司法部16日致函洛杉矶县，警告明知仍统计被联邦标记为疑似非公民者的选票或面临刑责；加州方面质疑名单依据。分析：联邦与地方选务冲突升级，但疑似名单不等于已证实非法投票，更不等于司法判决。",
+          "5. 欧洲理事会通过峰会结论。欧洲理事会16日晚公布峰会结论，要求协调临时能源应对措施、推动单一市场改革，并重申支持乌克兰及加强其防空和能源韧性。分析：共同结论确定后续议程，但具体融资、法规和能源措施仍需分别落实。 原稿补充：泽连斯基16日在布鲁塞尔欧盟峰会期间批评美国与俄罗斯的柴油安排，并欢迎欧洲盟友在和平进程中发挥更大作用。同日，普京称俄方在乌克兰境内建立的“安全区”不在未来谈判的让步范围内。双方公开立场仍存在明显距离；这些表态不构成已达成的停火或和平协议。"
         ],
         "sources": [
           {
-            "label": "路透／AOL：AkzoNobel与Axalta并购审查",
-            "url": "https://www.aol.com/articles/akzonobel-axalta-offer-remedies-bid-135723000.html"
-          }
-        ]
-      },
-      {
-        "heading": "股票｜美股16日收盘，科技股拖累更明显",
-        "paragraphs": [
-          "美国10月16日常规交易收盘，标普500跌1.1%，纳斯达克综合指数跌2.1%，道指跌0.3%。美联社将科技股压力与市场对AI建设热潮持续性的担忧联系起来。这里采用美国市场当地16日收盘的指数变动，不是北京时间17日白天的新行情，也不将单日跌幅外推为长期趋势。"
-        ],
-        "sources": [
+            "label": "1. 美国豁免格雷厄姆法案部分制裁关税｜原始来源",
+            "url": "https://www.whitehouse.gov/presidential-actions/2026/10/implementing-the-lindsey-o-graham-sanctioning-russia-and-iran-act-of-2026/"
+          },
           {
-            "label": "美联社／ABC：10月16日美股收盘",
-            "url": "https://abcnews.com/amp/Business/wireStory/major-us-stock-indexes-fared-friday-10162026-137331951"
-          }
-        ]
-      },
-      {
-        "heading": "中国政治｜外交部公布两位非洲国家外长访华安排",
-        "paragraphs": [
-          "外交部在16日例行记者会上宣布，吉布提外长奥马尔和刚果（布）外长邦达均将于10月19日至25日正式访华。两项访问由王毅邀请，属于已宣布、尚未在本期窗口内展开的外交日程。后续应以会谈公报和实际签署文件判断成果，不能提前写成已经达成合作协议。"
-        ],
-        "sources": [
+            "label": "2. 白宫新闻秘书短暂任期结束｜原始来源",
+            "url": "https://www.investing.com/news/politics-news/trump-says-zacharia-should-reconsider-white-house-spokeswoman-role-4954656"
+          },
           {
-            "label": "外交部：10月16日例行记者会",
-            "url": "https://www.mfa.gov.cn/fyrbt_673021/jzhsl_673025/202610/t20261016_12041978.shtml"
-          }
-        ]
-      },
-      {
-        "heading": "国际政治｜乌克兰批评美俄柴油安排，期待欧洲扩大斡旋作用",
-        "paragraphs": [
-          "泽连斯基16日在布鲁塞尔欧盟峰会期间批评美国与俄罗斯的柴油安排，并欢迎欧洲盟友在和平进程中发挥更大作用。同日，普京称俄方在乌克兰境内建立的“安全区”不在未来谈判的让步范围内。双方公开立场仍存在明显距离；这些表态不构成已达成的停火或和平协议。"
-        ],
-        "sources": [
+            "label": "3. FBI与CISA发布选举网络风险提示｜原始来源",
+            "url": "https://www.ic3.gov/PSA/2026/PSA261016"
+          },
+          {
+            "label": "4. 美司法部对加州计票官员发出刑责警告｜原始来源",
+            "url": "https://www.investing.com/news/politics-news/trump-threatens-california-officials-with-imprisonment-over-stance-on-mail-ballots-4955135"
+          },
+          {
+            "label": "5. 欧洲理事会通过峰会结论｜原始来源",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/10/16/european-council-conclusions-15-and-16-october-2026/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.cbsnews.com/news/trump-waives-sanctions-tariffs-russian-oil-lindsey-graham/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://bostonglobe-prod.cdn.arcpublishing.com/2026/10/16/nation/katie-zacharia-press-secretary/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.investing.com/news/politics-news/us-tells-election-officials-to-be-on-guard-against-aipowered-tricks-ahead-of-midterms-4954542"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.democracydocket.com/news-alerts/trump-doj-threatens-california-election-officials-with-criminal-exposure/"
+          },
+          {
+            "label": "交叉核验",
+            "url": "https://www.consilium.europa.eu/media/4tglqede/en-20261016-european-council-conclusions.pdf"
+          },
           {
             "label": "路透／MarketScreener：泽连斯基谈美俄柴油安排",
             "url": "https://ca.marketscreener.com/news/ukraine-s-zelenskiy-blasts-us-russian-diesel-deal-welcomes-bigger-european-role-in-peace-process-ce785cdadf88ff21"
