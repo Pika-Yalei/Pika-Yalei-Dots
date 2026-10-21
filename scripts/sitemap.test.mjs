@@ -17,11 +17,11 @@ test('sitemap is deterministic, absolute and excludes non-content paths', () => 
   assert.match(xml, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(xml, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-  assert.deepEqual(urls, ['/', '/about/', '/archive/', '/categories/', '/subscribe/', ...posts.map(post => categoryPath(post.category)).sort(), '/notes/a-first/', '/notes/z-last/'].map(p => siteUrl + p));
+  assert.deepEqual(urls, ['/', '/about/', '/archive/', '/categories/', '/subscribe/', '/sources/', ...posts.map(post => categoryPath(post.category)).sort(), '/notes/a-first/', '/notes/z-last/'].map(p => siteUrl + p));
   assert.equal(xml, renderSitemap([...posts].reverse()));
   assert.deepEqual(posts.map(p=>p.slug), ['z-last', 'a-first']);
   assert.doesNotMatch(xml, /404|feed\.xml|style|lastmod/);
-  assert.equal([...renderSitemap([]).matchAll(/<url>/g)].length, 5);
+  assert.equal([...renderSitemap([]).matchAll(/<url>/g)].length, 6);
   assert.equal(renderRobots(), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
 });
 
@@ -36,7 +36,7 @@ test('build publishes a sitemap whose unique links all resolve, including empty 
       const xml = await readFile(path.join(temp,'dist/sitemap.xml'),'utf8');
       assert.equal(xml,renderSitemap(input));
       const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+pageCount(input)+4);
+      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+pageCount(input)+5);
       for (const value of urls) {
         const url = new URL(value);
         assert.equal(url.origin,siteUrl);

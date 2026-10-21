@@ -146,3 +146,7 @@ python3 -m http.server 8080 --directory dist
 ### 正常发布与补发
 
 新文章设置明确的 UTC `publishedAt`，并用 `publicationKind: original` 标记正常发布，或 `backfill` 标记补发。历史文章未设置此标记时保留既有补发说明。HTML、RSS 和 JSON Feed 共享相同的北京时间说明，不根据构建日期猜测文章是否补发。
+
+### 来源索引
+
+页脚的“来源索引”进入 `/sources/`，按文章回顾日期收集实际引用的精确 URL，去重后提供对应文章章节的返回链接。不列出未被文章引用的许可清单条目，不自动加载第三方页面，也不将转载等同于原始报道。

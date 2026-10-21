@@ -20,7 +20,7 @@ const all = await files(dist);
 const pages = all.filter(f=>f.endsWith('.html'));
 test('build generates every public page and a real 404 page', async () => {
   const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
-  assert.equal(pages.length, posts.length + groupCategories(posts).length + pageCount(posts) + 5);
+  assert.equal(pages.length, posts.length + groupCategories(posts).length + pageCount(posts) + 6);
   for (const file of ['index.html','about/index.html','archive/index.html','categories/index.html','404.html', ...groupCategories(posts).map(category => `${category.path.slice(1)}index.html`), ...posts.map(p => `notes/${p.slug}/index.html`)]) {
     assert.ok(all.includes(path.join(dist,file)));
   }
