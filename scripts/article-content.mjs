@@ -1,3 +1,4 @@
+import { newsWindowText } from './news-window.mjs';
 import { readFileSync } from 'node:fs';
 
 // Exact public destinations reviewed alongside the article, never a wildcard host rule.
@@ -14,9 +15,10 @@ export const publishedAt = post => post.publishedAt ?? `${post.date}T00:00:00Z`;
 export const publicationText = post => {
   if (!post.publishedAt) return '';
   const time = new Date(post.publishedAt).toLocaleString('sv-SE', { timeZone: 'Asia/Shanghai', hour12: false });
-  return post.publicationKind === 'original'
+  const publication = post.publicationKind === 'original'
     ? `回顾日期：${post.date}；发布时间：${time}（北京时间）。`
     : `回顾日期：${post.date}；补发时间：${time}（北京时间）。这是事后整理，不是当日即时刊发。`;
+  return [publication, newsWindowText(post)].filter(Boolean).join(' ');
 };
 export function renderSourceLinks(sources, escape) {
   if (sources?.some(source => !isReviewedSource(source.url))) throw new TypeError('Unreviewed source URL');
