@@ -1,10 +1,11 @@
+import { validateNewsWindow } from './news-window.mjs';
 import { isReviewedSource } from './article-content.mjs';
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const postFields = new Set([
   'slug', 'date', 'title', 'subtitle', 'category', 'summary',
-  'readingMinutes', 'sections', 'closing', 'publishedAt', 'publicationKind'
+  'readingMinutes', 'sections', 'closing', 'publishedAt', 'publicationKind', 'newsWindow'
 ]);
 const sectionFields = new Set(['heading', 'paragraphs', 'sources']);
 
@@ -113,5 +114,6 @@ export function validatePosts(posts) {
     }
   }
 
+  for (const [index, post] of posts.entries()) validateNewsWindow(post, `posts[${index}]`);
   return posts;
 }
