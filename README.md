@@ -142,3 +142,7 @@ python3 -m http.server 8080 --directory dist
 公开技术复盘另行成篇，准确区分本地通过、CI 失败、跳过、等待审批及尚未运行。上游修复合并不等于下游分支已经验证；结论必须对应具体公开提交与检查记录。
 
 新增来源时同步审阅 `scripts/source-links.json` 的精确 URL，禁止凭据、脚本协议、泛域名白名单或外部资源加载。来源名称、网页正文和 RSS 的 HTML/XML 两层都必须保留转义。源码清单不发布到网页，读者只会看到文章实际引用的链接。
+
+### 正常发布与补发
+
+新文章设置明确的 UTC `publishedAt`，并用 `publicationKind: original` 标记正常发布，或 `backfill` 标记补发。历史文章未设置此标记时保留既有补发说明。HTML、RSS 和 JSON Feed 共享相同的北京时间说明，不根据构建日期猜测文章是否补发。
