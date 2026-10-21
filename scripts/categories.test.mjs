@@ -96,7 +96,7 @@ test('static category pages link each group, preserve exact labels and clean up 
       return execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp, stdio:'pipe'}).toString();
     };
     const categories = groupCategories(posts);
-    assert.match(await build(posts), new RegExp(`Built ${posts.length + categories.length + pageCount(posts) + 5} HTML pages`));
+    assert.match(await build(posts), new RegExp(`Built ${posts.length + categories.length + pageCount(posts) + 6} HTML pages`));
     const index = await readFile(path.join(dist, 'categories/index.html'), 'utf8');
     const home = (await Promise.all(paginatePosts(posts).map(page => readFile(path.join(dist, page.path, 'index.html'), 'utf8')))).join('\n');
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
