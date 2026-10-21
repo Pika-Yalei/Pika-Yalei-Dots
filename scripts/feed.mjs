@@ -1,3 +1,4 @@
+import { orderFeedPosts } from './feed-order.mjs';
 import { articleDisclosure, publishedAt, publicationText, renderSourceLinks } from './article-content.mjs';
 // RSS contains only the same public articles already on the site.
 export const siteUrl = 'https://pika-yalei-dots.yaleizhang.com';
@@ -43,7 +44,7 @@ export function renderCategoryFeed(category) {
 }
 
 function renderRss(posts, channel) {
-  const ordered = [...posts].sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+  const ordered = orderFeedPosts(posts);
   const items = ordered.map(post => {
     const url = `${siteUrl}/notes/${post.slug}/`;
     return `    <item>
