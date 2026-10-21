@@ -330,62 +330,23 @@
     "title": "2026-10-18｜24 小时新闻简报",
     "subtitle": "北京时间中午截点的过去24小时新闻补档",
     "category": "新闻回顾",
-    "readingMinutes": 4,
-    "summary": "Anthropic提出有条件的AI增长情景，ICICI利润增长但净息差收窄；周末股市仅作交易周复盘，中国调研报道与法国示威带来政治更新。",
+    "readingMinutes": 15,
+    "summary": "按原始24小时窗口补充AI、商业、股票、中国政治和国际政治五栏，逐项列出事实、来源与简短分析，区分已公布结果、条件性计划和旧背景。",
     "sections": [
       {
         "heading": "回顾范围与补发说明",
         "paragraphs": [
           "本篇为历史新闻补档，回顾范围为北京时间 2026-10-17 12:00 至 2026-10-18 12:00（UTC 10月17日04:00至18日04:00），共24小时。按该窗口内已公开的消息整理；窗口前的必要背景另行说明，不混入截止后的进展。",
-          "周末信息仍在增加，但并非每一条都属于新交易行情。本期把AI产业的情景预测、公司财报、公开政治报道和已经发生的街头事件分开处理。"
-        ]
-      },
-      {
-        "heading": "AI｜Anthropic联合创始人提出高增长情景，也呼吁治理",
-        "paragraphs": [
-          "Anthropic联合创始人Jack Clark于17日在曼谷IMF和世界银行年会表示，AI进步可能大幅加快经济与科学变化。他援引公司内部模型称，在技术持续改善等条件下，美国2030年经济产出可能比当前高近50%。这是企业提出的条件性情景，不是IMF预测或确定结果；他同时呼吁国际合作制定更严格的治理规则。"
+          "周末信息仍在增加，但并非每一条都属于新交易行情。本期把AI产业的情景预测、公司财报、公开政治报道和已经发生的街头事件分开处理。",
+          "原稿背景保留（不计作窗口内新增事件）：新华社17日报道，王沪宁于13日至16日在成都、德阳和甘孜调研，议题包括民族团结、民族地区教育协作和宗教事务治理。他强调将相关工作融入教育、就业、社区建设等领域。新闻的新披露发生在本窗口内，而实地调研已于16日结束；报道未宣布一项新的全国性法规或具体财政拨款。",
+          "实际补充时间：北京时间 2026-10-21 14:21。保留原始回顾日期、24小时窗口、首发时间与文章地址，不把补充当天的新闻倒填。本窗口为北京时间10月17日12时至18日12时。欧美、内地和印度常规股票市场周末休市，本栏记录窗口内新公布的五家不同上市银行财报，不将前一交易日价格冒充当日行情。金额均为印度卢比，1 crore=1000万卢比。",
+          "更正说明：原稿将Jack Clark引用的情景工具称为公司内部模型；依据他17日公开澄清，现更正为此前已公开工具中的极端参数情景，不作为确定预测。"
         ],
         "sources": [
           {
             "label": "路透／MarketScreener：Jack Clark在年会发言",
             "url": "https://in.marketscreener.com/news/ai-rapidly-improving-could-vastly-boost-us-gdp-anthropic-s-clark-tells-policymakers-ce785cdade8ef62c"
-          }
-        ]
-      },
-      {
-        "heading": "商业｜ICICI季度利润增长，但净息差收窄",
-        "paragraphs": [
-          "印度ICICI银行17日公布，截至9月底的季度单体净利润同比增长20.1%，高于路透引用的分析师预期。贷款和存款分别增长30%与27.1%，坏账等拨备同比减少；但净息差从上一季度4.36%降至4.18%。这份财报呈现规模扩张与单位盈利能力承压并存，不能只用利润增速概括全部经营变化。"
-        ],
-        "sources": [
-          {
-            "label": "路透／MarketScreener：ICICI季度业绩",
-            "url": "https://in.marketscreener.com/news/india-s-icici-bank-q2-profit-rises-20-1-beats-estimates-ce785cdade8ff225"
-          }
-        ]
-      },
-      {
-        "heading": "股票｜周末没有新美股收盘，区分复盘与行情",
-        "paragraphs": [
-          "本窗口美股没有新增常规交易时段，最近一次收盘仍是美国当地16日。作为明确标注的背景复盘，截至16日的一周，纳指累计跌4.5%，标普500跌1.9%，道指反而涨0.7%。不同指数表现分化；这些是已结束交易周的数据，不是“周六下跌”，也不是下周开盘预测。"
-        ],
-        "sources": [
-          {
-            "label": "纽交所：交易时间与日历",
-            "url": "https://www.nyse.com/trade/hours-calendars"
           },
-          {
-            "label": "美联社／ABC：截至16日的周度数据",
-            "url": "https://abcnews.com/amp/Business/wireStory/major-us-stock-indexes-fared-friday-10162026-137331951"
-          }
-        ]
-      },
-      {
-        "heading": "中国政治｜新华社披露王沪宁四川调研情况",
-        "paragraphs": [
-          "新华社17日报道，王沪宁于13日至16日在成都、德阳和甘孜调研，议题包括民族团结、民族地区教育协作和宗教事务治理。他强调将相关工作融入教育、就业、社区建设等领域。新闻的新披露发生在本窗口内，而实地调研已于16日结束；报道未宣布一项新的全国性法规或具体财政拨款。"
-        ],
-        "sources": [
           {
             "label": "新华社：王沪宁四川调研",
             "url": "https://www.news.cn/politics/leaders/20261017/71603ac4670b47018214088de327ada7/c.html"
@@ -393,14 +354,215 @@
         ]
       },
       {
-        "heading": "国际政治｜法国生活成本示威伴随局部严重暴力",
+        "heading": "AI｜模型、工具与产业新进展",
         "paragraphs": [
-          "法国17日多地举行反对生活成本上涨、公共服务恶化的示威。路透报道，大批参与者和平游行，但部分城市出现纵火、抢掠和袭警；内政部长估计约55万人参加，CGT工会估计80万人。总理勒科尔尼称约1200人被捕，总统马克龙承诺追究暴力行为；不同来源的人数估计不宜混写成唯一确定数字。"
+          "1. DeepSeek发布Flash小版本并开放搜索接口。DeepSeek宣布V4.1-Flash-1017上线网页、应用和API，并开放Search与Fetch接口；速度与成本改善为厂商自测。分析：模型与检索工具同步完善，有助于降低代理开发的集成成本。",
+          "2. OpenCode披露账户安全事件。OpenCode披露前一晚发生安全事件，称影响约1.4%的控制台用户，已邮件通知并与模型供应商处理。分析：接入多家模型的开发工具也成为安全边界，影响范围仍以公司披露为准。",
+          "3. OpenYap公布语音轮次判断模型。The Agentic Data Company公布OpenYap Turn研究，使用亲友真实对话训练模型，判断说话结束或被打断。分析：自然语音交互不仅需要识别文字，也需要把握轮次，所述基准优势仍为团队报告。",
+          "4. NVIDIA发布Nemotron 3.5 Parse。NVIDIA发布Nemotron 3.5 Parse文档解析模型，可提取结构化文字、布局框和阅读顺序，面向检索及数据整理。分析：这类专用模型有助于把扫描材料变成AI可用数据，复杂页面仍需质量检验。",
+          "5. 奇瑞披露L4 Robotaxi展示与合作计划。奇瑞公布将在全球创新活动展示L4 Robotaxi，并计划与阿联酋K2签署战略协议。分析：该消息推进了其自动驾驶国际合作议程，但仍属新公布的展示和签约安排，不能写成已部署或已完成交易。",
+          "6. Jack Clark在IMF年会讨论AI经济情景。Anthropic联合创始人Jack Clark在曼谷IMF年会上提醒决策者，AI快速进步可能显著改变经济与科学研究。他引用的美国2030年GDP约44万亿美元，是既有公开工具的极端情景，非确定预测。分析：政策应同时考虑潜在收益与风险，不能把企业提出的情景当作IMF认可的官方预测。"
         ],
         "sources": [
           {
-            "label": "路透／AOL：法国17日示威",
+            "label": "1. DeepSeek发布Flash小版本并开放搜索接口",
+            "url": "https://api-docs.deepseek.com/news/news261017/"
+          },
+          {
+            "label": "2. OpenCode披露账户安全事件",
+            "url": "https://x.com/opencode/status/2111519637049319818"
+          },
+          {
+            "label": "3. OpenYap公布语音轮次判断模型",
+            "url": "https://theagenticdatacompany.com/research/turn-taking"
+          },
+          {
+            "label": "4. NVIDIA发布Nemotron 3.5 Parse",
+            "url": "https://huggingface.co/nvidia/Nemotron-3.5-Parse"
+          },
+          {
+            "label": "5. 奇瑞披露L4 Robotaxi展示与合作计划",
+            "url": "https://www.globenewswire.com/news-release/2026/10/17/3382889/0/en/chery-auto-to-showcase-l4-robotaxi-and-sign-strategic-agreement-with-uae-based-k2.html"
+          },
+          {
+            "label": "6. Jack Clark：澄清公开工具与情景性质",
+            "url": "https://x.com/jackclarkSF/status/2111411532991177195"
+          },
+          {
+            "label": "Jack Clark：演讲前的时间公告",
+            "url": "https://x.com/jackclarkSF/status/2111350983465095501"
+          }
+        ]
+      },
+      {
+        "heading": "商业｜宏观、产业与公司公告",
+        "paragraphs": [
+          "1. 越南与EFTA签署自贸协定。越南与欧洲自由贸易联盟成员国在河内签署自贸协定，覆盖货物、服务等领域，仍待完成生效程序。分析：协议为双边市场准入提供长期框架，但签署本身不意味着企业立即享受全部关税优惠。",
+          "2. 迪拜发布上半年经济数据。迪拜公布2026年上半年GDP达到4730亿迪拉姆，金融保险业实际增长8.8%，信息通信业增长2.7%。分析：不同部门增速显示经济结构分化，不能把金融业增长率误写为整体GDP增长率。",
+          "3. Lagnam Spintex公布季度业绩。印度纺纱企业Lagnam Spintex公布9月季度营收约17.26亿卢比，净利润约8180万卢比，均高于去年同期。分析：盈利恢复明显，但需结合棉价、产能利用率与后续订单判断其持续性。",
+          "4. Bajaj Healthcare季度利润增长。Bajaj Healthcare披露9月季度营收约17.59亿卢比、净利润约1.41亿卢比，去年同期分别约14.79亿和1.11亿。分析：收入与利润同步增长提供经营改善信号，仍应区分持续经营与终止业务影响。",
+          "5. India Cements季度经营改善。India Cements公布9月季度合并净利润3.882亿卢比，高于去年同期8810万卢比，营收增长约2.23%。分析：利润增幅大于收入增幅，体现经营结构改善，但低基数使同比增长更显突出。"
+        ],
+        "sources": [
+          {
+            "label": "1. 越南与EFTA签署自贸协定",
+            "url": "https://baochinhphu.vn/chinh-thuc-ky-ket-hiep-dinh-thuong-mai-tu-do-viet-nam-efta-102261018102418142.htm"
+          },
+          {
+            "label": "2. 迪拜发布上半年经济数据",
+            "url": "https://www.wam.ae/en/article/17has35-dubais-gdp-reaches-aed473-billion-2026"
+          },
+          {
+            "label": "3. Lagnam Spintex公布季度业绩",
+            "url": "https://financialfilings.com/filings/lagnam-spintex-limited/earnings-release/2026/73776168/"
+          },
+          {
+            "label": "4. Bajaj Healthcare季度利润增长",
+            "url": "https://financialfilings.com/filings/bajaj-healthcare-limited/interim-quarterly-report/2026/73744333/"
+          },
+          {
+            "label": "5. India Cements季度经营改善",
+            "url": "https://www.bazaarwatch.com/announcement/226229/india-cements-ltd-unaudited-standalone-and-consolidated-financial-results-for-the-quarter-and-half-y"
+          }
+        ]
+      },
+      {
+        "heading": "股票｜窗口内的市场与上市公司动态",
+        "paragraphs": [
+          "1. HDFC Bank公布季度盈利。印度上市银行HDFC Bank于10月17日公布截至9月的季度业绩：单体净利润19509.96 crore印度卢比，同比增长4.7%；净利息收入增长9.7%至34619.18 crore。分析：盈利增长与利差表现需分开观察，不能由利润增长推断下一交易日股价；该日为周六，没有常规股票收盘涨跌可供比较。",
+          "2. ICICI Bank净利增长20.1%。ICICI Bank于10月17日董事会后披露季度单体净利润14843 crore印度卢比，同比增长20.1%，净利息收入25339 crore、同比增17.7%；净息差4.18%，低于上一季4.36%。分析：业务规模扩张与息差收窄可以同时发生，阅读财报不应只看利润增速。 原稿记录的贷款和存款同比增幅分别为30%与27.1%，本次并入同一财报事件。",
+          "3. Axis Bank利润增长但低于调查预期。Axis Bank于10月17日公布季度净利润7003.3 crore印度卢比，同比增长37.6%；净利息收入15371.4 crore，同比增长11.8%。据Moneycontrol，净利润仍略低于CNBC-TV18调查预期。分析：高同比增长可能已经部分反映在预期中，因此应同时核对基数、拨备与市场估计。",
+          "4. IDBI Bank净利下降受上年一次性收益影响。IDBI Bank于10月17日披露季度单体净利润2205 crore印度卢比，同比下降39%，净利息收入则增长29%至4228 crore。银行说明，上年包含出售NSDL股份的一次性收益1699 crore，剔除该因素后净利增长约14%。分析：报表同比下降不一定等于经常性业务同幅恶化，应区分一次性基数。",
+          "5. YES Bank披露盈利并提示AT1判决会计影响。YES Bank于10月17日晚公布季度单体净利润1080 crore印度卢比，同比增长65%；结果未计入最高法院有关AT1债券减记判决的潜在财务影响。监管披露的备考测算称，若计入相关影响，当季可能转为亏损5217 crore。分析：这是明确的情景测算而非已入账亏损，报表口径和审计保留意见应与盈利数字一并阅读。"
+        ],
+        "sources": [
+          {
+            "label": "1. HDFC Bank公布季度盈利",
+            "url": "https://www.financialexpress.com/business/hdfc-bank-q2-results-net-profit-rises-4-7-to-rs-19510-crore-nii-grows-97-4363691/"
+          },
+          {
+            "label": "2. ICICI Bank净利增长20.1%",
+            "url": "https://links.sgx.com/FileOpen/NSEBSE171026.ashx?App=Announcement&FileID=907395"
+          },
+          {
+            "label": "3. Axis Bank利润增长但低于调查预期",
+            "url": "https://www.moneycontrol.com/news/business/earnings/axis-bank-q2-results-net-profit-rises-38-to-rs-7-003-crore-misses-estimates-nii-beats-expectations-14054381.html"
+          },
+          {
+            "label": "4. IDBI Bank净利下降受上年一次性收益影响",
+            "url": "https://financialfilings.com/filings/idbi-bank-ltd/earnings-release/2026/73703816/"
+          },
+          {
+            "label": "5. YES Bank披露盈利并提示AT1判决会计影响",
+            "url": "https://www.financialexpress.com/business/news/yes-bank-q2-pat-up-65-at-1-ruling-poses-rs-5217-cr-loss-threat/4363846/"
+          },
+          {
+            "label": "HDFC Bank公布季度盈利：交叉核对",
+            "url": "https://www.hdfc.bank.in/about-us/investor-relations/financial-results"
+          },
+          {
+            "label": "路透／MarketScreener：ICICI季度业绩",
+            "url": "https://in.marketscreener.com/news/india-s-icici-bank-q2-profit-rises-20-1-beats-estimates-ce785cdade8ff225"
+          },
+          {
+            "label": "Axis Bank利润增长但低于调查预期：交叉核对",
+            "url": "https://www.axis.bank.in/shareholders-corner/other-information/audio-call-transcript"
+          },
+          {
+            "label": "IDBI Bank净利下降受上年一次性收益影响：交叉核对",
+            "url": "https://www.idbi.bank.in/announcements-2627.aspx"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治｜政策、监管与外交进展",
+        "paragraphs": [
+          "1. 中乌会谈推进铁路和多领域合作。李强17日下午抵达塔什干后，与乌兹别克斯坦领导人会谈，提出推进中吉乌铁路、能源资源和人工智能合作，并见证经贸、教育、海关等文件签署。分析：互联互通与制度协作同步推进，但签署文件不能等同项目已经投产。",
+          "2. 克罗地亚总理会见王毅。克罗地亚总理普连科维奇17日会见王毅，欢迎中国企业继续参与基础设施建设，希望拓展旅游、光伏与风电合作，并就中欧贸易分歧交换看法。分析：会谈体现双边合作意愿，但经贸争议的解决仍需后续对话。",
+          "3. 海丝地方政府对话会提出福州倡议。21世纪海上丝绸之路地方政府合作暨国际友城对话会17日在福州举行，24国代表参与交流，闭幕式宣读福州倡议。分析：地方层面的交流有助于把合作愿景转化为城市间项目，实际成效仍需以执行进度衡量。",
+          "4. 香港电梯门框巡查新增发现并推进整改。香港机电署17日公布当日下午巡查结果，再发现39幢私人楼宇升降机缺少耐火门框组件，两日累计78幢，并动员商会协助整改。分析：新增检查扩大了问题范围，监管重点转向补装与质量复核，费用由承办商承担。",
+          "5. 两部门发布五省山洪灾害黄色预警。水利部和中国气象局17日18时联合发布黄色山洪灾害气象预警，提示辽宁、吉林、黑龙江、湖北和湖南局地风险较大，要求做好实时监测与转移避险。分析：预警把防灾重点落实到具体区域，但风险预报不等于灾害已经发生。"
+        ],
+        "sources": [
+          {
+            "label": "1. 中乌会谈推进铁路和多领域合作",
+            "url": "https://english.www.gov.cn/news/202610/18/content_WS6ad3f2a0c6d00ca5f9a0dc05.html"
+          },
+          {
+            "label": "2. 克罗地亚总理会见王毅",
+            "url": "https://www.xinhuanet.com/politics/leaders/20261017/773b01fa29974463adc12b97f3766e4d/c.html"
+          },
+          {
+            "label": "3. 海丝地方政府对话会提出福州倡议",
+            "url": "https://fujian.gov.cn/zwgk/ztzl/fjswwxzc/fjkd/202610/t20261017_7237429.htm"
+          },
+          {
+            "label": "4. 香港电梯门框巡查新增发现并推进整改",
+            "url": "https://www.emsd.gov.hk/tc/media/lift_door_frame_c/index.html"
+          },
+          {
+            "label": "5. 两部门发布五省山洪灾害黄色预警",
+            "url": "https://m.weather.com.cn/news/2026/10/4825125.shtml"
+          },
+          {
+            "label": "中乌会谈推进铁路和多领域合作：交叉核对",
+            "url": "https://ps.china-office.gov.cn/zgyw/202610/t20261017_12042242.htm"
+          },
+          {
+            "label": "海丝地方政府对话会提出福州倡议：交叉核对",
+            "url": "https://news.fznews.com.cn/fzyw/20261018/6ad42af438ca6.shtml"
+          },
+          {
+            "label": "香港电梯门框巡查新增发现并推进整改：交叉核对",
+            "url": "https://gbcode.rthk.hk/TuniS/news.rthk.hk/rthk/ch/component/k2/1874328-20261017.htm"
+          },
+          {
+            "label": "两部门发布五省山洪灾害黄色预警：交叉核对",
+            "url": "https://m.nbd.com.cn/articles/2026-10-17/4607439.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治｜合作、外交与公共事件",
+        "paragraphs": [
+          "1. 法国多城生活成本示威出现暴力冲突。法国17日多地举行反对生活成本上涨、公共服务恶化的示威。路透报道，大批参与者和平游行，但部分城市出现纵火、抢掠和袭警；内政部长估计约55万人参加，CGT工会估计80万人。总理勒科尔尼称约1200人被捕，总统马克龙承诺追究暴力行为；不同来源的人数估计不宜混写成唯一确定数字。 分析：回应经济诉求与依法处理暴力需要分别评价。",
+          "2. 欧洲外交人员报告在约旦河西岸遇袭。欧洲外交人员17日到访约旦河西岸泰贝村时报告遭以色列定居者袭击，以色列警方宣布调查，总理办公室呼吁慎下结论。分析：事件增加欧洲与以色列的外交摩擦，也凸显对平民及外交访问安全的保护问题。",
+          "3. 埃及总统称任期将在2030年结束。埃及总统塞西17日在军事学院毕业典礼上表示，自己的总统任期将在2030年结束，并提出培养未来领导人才的计划。分析：这一表态回应了任期延长疑虑，但未来权力交接仍取决于制度安排及实际政治进程。",
+          "4. 里斯本民众抗议住房与生活成本。葡萄牙里斯本17日有数万人游行，抗议生活成本上涨和住房负担加重，要求政府采取措施；路透社现场采访显示租金与购房开支成为焦点。分析：住房可负担性正把经济压力转化为政治压力，政策落实将受到更密切审视。",
+          "5. 沙特主导联军称拦截四架无人机。沙特主导联军17日宣布，在利雅得、东部及南部地区拦截并摧毁四架无人机，多家地区媒体转述这一军方通报。分析：袭击风险向多个地区扩散，但拦截数量属于交战方说法，不宜据此推定全部袭击来源或战果。"
+        ],
+        "sources": [
+          {
+            "label": "1. 法国多城生活成本示威出现暴力冲突",
             "url": "https://www.aol.ca/articles/students-trade-unions-yellow-vests-050603000.html"
+          },
+          {
+            "label": "2. 欧洲外交人员报告在约旦河西岸遇袭",
+            "url": "https://www.anadoluajansi.gov.tr/fr/monde/des-colons-isra%C3%A9liens-attaquent-une-d%C3%A9l%C3%A9gation-diplomatique-europ%C3%A9enne-en-cisjordanie-occup%C3%A9e/4092112"
+          },
+          {
+            "label": "3. 埃及总统称任期将在2030年结束",
+            "url": "https://www.streetinsider.com/Reuters/Egypts%2BSisi%2Bsays%2Bhis%2Bpresidency%2Bwill%2Bend%2Bin%2B2030/27199152.html"
+          },
+          {
+            "label": "4. 里斯本民众抗议住房与生活成本",
+            "url": "https://www.reutersconnect.com/collection/tens-of-thousands-march-in-lisbon-over-housing-and-living-costs/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMTA1MTE3MTAyMDI2UlAx"
+          },
+          {
+            "label": "5. 沙特主导联军称拦截四架无人机",
+            "url": "https://sabq.org/en/article/czqt66t"
+          },
+          {
+            "label": "欧洲外交人员报告在约旦河西岸遇袭：交叉核对",
+            "url": "https://www.cbsnews.com/news/european-diplomats-attacked-west-bank/"
+          },
+          {
+            "label": "埃及总统称任期将在2030年结束：交叉核对",
+            "url": "https://www.egypttoday.com/Article/1/150103/Egypt-s-El-Sis-asks-for-Parliament%E2%80%99s-approval-to-defend"
+          },
+          {
+            "label": "沙特主导联军称拦截四架无人机：交叉核对",
+            "url": "https://en.royanews.com/4-drones-intercepted-and-destroyed-over-Riyadh-and-Mina/"
           }
         ]
       }
@@ -414,73 +576,203 @@
     "title": "2026-10-19｜24 小时新闻简报",
     "subtitle": "北京时间中午截点的过去24小时新闻补档",
     "category": "新闻回顾",
-    "readingMinutes": 4,
-    "summary": "Anthropic拟设公益股权基金，微软被报道退出英国单一数据中心协议；印度开盘平淡，伊朗重申有条件重开霍尔木兹海峡的方案。",
+    "readingMinutes": 15,
+    "summary": "按原始24小时窗口补充AI、商业、股票、中国政治和国际政治五栏，逐项列出事实、来源与简短分析，区分已公布结果、条件性计划和旧背景。",
     "sections": [
       {
         "heading": "回顾范围与补发说明",
         "paragraphs": [
           "本篇为历史新闻补档，回顾范围为北京时间 2026-10-18 12:00 至 2026-10-19 12:00（UTC 10月18日04:00至19日04:00），共24小时。按该窗口内已公开的消息整理；窗口前的必要背景另行说明，不混入截止后的进展。",
-          "本期聚焦“宣布之后还有哪些条件”：公益承诺仍待股东批准，数据中心客户变动仍有待企业解释，海峡重开则取决于尚未谈妥的政治条件。股票采用截止前能够核验的盘中快照。"
+          "本期聚焦“宣布之后还有哪些条件”：公益承诺仍待股东批准，数据中心客户变动仍有待企业解释，海峡重开则取决于尚未谈妥的政治条件。股票采用截止前能够核验的盘中快照。",
+          "实际补充时间：北京时间 2026-10-21 14:21。保留原始回顾日期、24小时窗口、首发时间与文章地址，不把补充当天的新闻倒填。本栏记录五个独立交易市场10月18日的实际收盘，而非同一事件的重复拆分。美国及中国内地当日为周末休市；指数单位均为点，不是货币金额。对应市场货币为沙特里亚尔、卡塔尔里亚尔、埃及镑、巴林第纳尔和阿曼里亚尔；不提供个性化交易建议。"
         ]
       },
       {
-        "heading": "AI｜Anthropic拟向公益基金配置5%股权",
+        "heading": "AI｜模型、工具与产业新进展",
         "paragraphs": [
-          "Anthropic于18日宣布，拟将5%股份配置给新设公益基金，前提是获得股东批准。公司价值较基准每增加50%，董事会可酌情再增加2%股份；相关基准和治理细节尚待披露。基金被设计为全资有限责任公司，可探索公益捐赠或面向特定人群的直接分配；这不是已经向公众发放的现金补贴。"
+          "1. Anthropic拟向公益基金配置5%股权。Anthropic于18日宣布，拟将5%股份配置给新设公益基金，前提是获得股东批准。公司价值较基准每增加50%，董事会可酌情再增加2%股份；相关基准和治理细节尚待披露。基金被设计为全资有限责任公司，可探索公益捐赠或面向特定人群的直接分配；这不是已经向公众发放的现金补贴。",
+          "2. 桌面线程支持编辑早前消息。OpenAI的Codex负责人宣布，桌面应用现可编辑线程内较早的消息，回应用户长期需求。分析：这能减少因修正提示而重开对话的成本，但公告未说明适用套餐、后续分支处理或文件变更是否回滚。",
+          "3. T3开发者披露代理性能优化进展。T3开发者Julius披露，代理在30小时内合并近400项网页性能改动，并称渲染次数和CPU开销下降。分析：这是持续代理辅助开发的实践案例，但未公布测试细节，不能据此推导普遍生产率或代码质量提升。",
+          "4. SGLang发布0.5.22推理框架。SGLang发布0.5.22，增加多款模型支持、模型快速加载器及Apple Silicon标准PyTorch后端，并改进长上下文服务。分析：这扩大了开源模型的部署选择，性能倍数仅适用于发布说明中的测试条件。",
+          "5. vLLM发布0.32.0推理框架。vLLM发布0.32.0版本，新增通用工具及推理解析器、更多低精度KV缓存支持，并改善多进程服务调度。分析：此类底层更新可降低模型接入和内存成本，但具体吞吐收益取决于模型、硬件与请求负载。"
         ],
         "sources": [
           {
-            "label": "Anthropic：公益基金公告",
+            "label": "1. Anthropic拟向公益基金配置5%股权",
             "url": "https://www.anthropic.com/news/public-benefit-fund"
+          },
+          {
+            "label": "2. 桌面线程支持编辑早前消息",
+            "url": "https://x.com/thsottiaux/status/2111990254408434095"
+          },
+          {
+            "label": "3. T3开发者披露代理性能优化进展",
+            "url": "https://x.com/jullerino/status/2111698488753078321"
+          },
+          {
+            "label": "4. SGLang发布0.5.22推理框架",
+            "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.22"
+          },
+          {
+            "label": "5. vLLM发布0.32.0推理框架",
+            "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
           }
         ]
       },
       {
-        "heading": "商业｜微软被报道退出Nscale英国单一站点协议",
+        "heading": "商业｜宏观、产业与公司公告",
         "paragraphs": [
-          "路透18日援引《每日电讯报》称，微软近期终止了与Nscale在英国埃塞克斯郡Loughton数据中心有关的协议。微软和Anthropic是Nscale招股材料中的主要客户，项目变动因此受到关注。所用18日早间版本尚无两家公司即时回应，也未确认退出原因；不能据此写成微软终止全部Nscale合作或全面收缩AI投资。"
+          "1. 微软被报道退出Nscale英国单一站点协议。路透18日援引《每日电讯报》称，微软近期终止了与Nscale在英国埃塞克斯郡Loughton数据中心有关的协议。微软和Anthropic是Nscale招股材料中的主要客户，项目变动因此受到关注。所用18日早间版本尚无两家公司即时回应，也未确认退出原因；不能据此写成微软终止全部Nscale合作或全面收缩AI投资。",
+          "2. Lundbeck宣布董事长交接计划。Lundbeck宣布现董事长拟于2027年股东大会卸任，计划由前诺和诺德CEO约根森接任，11月先任观察员。分析：交接为增长阶段引入行业经验，但正式选举仍待股东批准，并非当日即完成任命。",
+          "3. NADEC季度净利受成本挤压。沙特食品企业NADEC公布第三季度营收9.097亿里亚尔、同比增长7.84%，净利3040万、同比下降72.53%。分析：收入增长未转化为利润增长，公司所述饲料和运输成本压力显示供应链扰动的经营影响。",
+          "4. 迪拜披露公共空间建设进度。迪拜市政府宣布2026年已完成逾107项公共空间工程，总值16亿迪拉姆，并形成逾100项中小企业投资机会。分析：公共设施改善可带动社区商业，但这是累计进度披露，不能写成全部项目当天完工。",
+          "5. DCO开放第二届数字繁荣奖申请。数字合作组织DCO启动第二届数字繁荣奖申请，覆盖三大支柱和七个类别，面向公共、私营及社会组织。分析：评选强调可衡量经济社会成效，可能扩大项目合作机会，但获奖与资金支持并非自动保证。"
         ],
         "sources": [
           {
-            "label": "路透／Investing：微软与Nscale项目报道",
+            "label": "1. 微软被报道退出Nscale英国单一站点协议",
             "url": "https://www.investing.com/news/stock-market-news/microsoft-pulls-out-of-uk-data-center-deal-with-nscale-telegraph-reports-4955864"
+          },
+          {
+            "label": "2. Lundbeck宣布董事长交接计划",
+            "url": "https://www.prnewswire.co.uk/news-releases/regulatory-news/changes-to-the-board-of-directors-of-h-lundbeck-as-302911999.html"
+          },
+          {
+            "label": "3. NADEC季度净利受成本挤压",
+            "url": "https://financialfilings.com/filings/national-agricultural-development-co/earnings-release/2026/73968973/"
+          },
+          {
+            "label": "4. 迪拜披露公共空间建设进度",
+            "url": "https://x.com/DMunicipality/status/2111784021323825315"
+          },
+          {
+            "label": "5. DCO开放第二届数字繁荣奖申请",
+            "url": "https://dco.org/media/dco-launches-second-edition-of-digital-prosperity-awards/"
           }
         ]
       },
       {
-        "heading": "股票｜印度周一开盘平淡，尚非全天结果",
+        "heading": "股票｜窗口内的市场与上市公司动态",
         "paragraphs": [
-          "印度市场19日开盘后，路透在当地09:18记录到Nifty 50跌0.02%、BSE Sensex跌0.05%；对应北京时间11:48，落在本期截止前。报道将谨慎情绪与银行财报消化和较高油价联系起来，16个主要板块中仍有11个上涨。这里使用的是印度NSE与BSE市场盘中指数变化，不能替代收盘数据。"
+          "1. 印度周一开盘平淡，尚非全天结果。印度市场19日开盘后，路透在当地09:18记录到Nifty 50跌0.02%、BSE Sensex跌0.05%；对应北京时间11:48，落在本期截止前。报道将谨慎情绪与银行财报消化和较高油价联系起来，16个主要板块中仍有11个上涨。这里使用的是印度NSE与BSE市场盘中指数变化，不能替代收盘数据。",
+          "2. 沙特市场18日收盘上涨。沙特主要股指10月18日收盘上涨0.8%至10190点，沙特阿美上涨2.1%。分析：能源权重股有时会受益于油价上升，但这不代表地区风险消失。",
+          "3. 卡塔尔市场18日降至多年低位。卡塔尔股指10月18日收盘下跌2%至8634点，为2020年4月以来最低；工业与银行股承压。分析：国家与行业权重差异会使邻近市场出现相反走势。",
+          "4. 埃及市场18日明显下跌。埃及蓝筹股指10月18日收盘下跌2.6%至50896点，路透将地区紧张局势列为背景。分析：这一交易日反映的是风险重新定价，不足以单独判定长期企业盈利变化。",
+          "5. 巴林市场18日收低。巴林股指10月18日收盘下跌0.5%至1899点。分析：与沙特当日上涨相比，海湾市场并非同涨同跌；这里只报告实际指数表现，不补造未经核准的资金流向。",
+          "6. 阿曼市场18日小幅下跌。阿曼股指10月18日收盘下跌0.3%至7656点。分析：小幅指数变动不意味着所有个股走势一致，且不能把该市场周日交易与当日休市的美股作实时涨跌比较。"
         ],
         "sources": [
           {
-            "label": "路透／MarketScreener：印度19日开盘",
+            "label": "1. 印度周一开盘平淡，尚非全天结果",
             "url": "https://in.marketscreener.com/news/indian-shares-muted-as-investors-assess-key-earnings-against-elevated-oil-prices-ce785cdad089f525"
+          },
+          {
+            "label": "2. 沙特市场18日收盘上涨",
+            "url": "https://uk.marketscreener.com/news/oil-lifts-saudi-bourse-egypt-tumbles-on-regional-tensions-ce785cdad18af32d"
+          },
+          {
+            "label": "3. 卡塔尔市场18日降至多年低位",
+            "url": "https://uk.marketscreener.com/news/oil-lifts-saudi-bourse-egypt-tumbles-on-regional-tensions-ce785cdad18af32d"
+          },
+          {
+            "label": "4. 埃及市场18日明显下跌",
+            "url": "https://uk.marketscreener.com/news/oil-lifts-saudi-bourse-egypt-tumbles-on-regional-tensions-ce785cdad18af32d"
+          },
+          {
+            "label": "5. 巴林市场18日收低",
+            "url": "https://uk.marketscreener.com/news/oil-lifts-saudi-bourse-egypt-tumbles-on-regional-tensions-ce785cdad18af32d"
+          },
+          {
+            "label": "6. 阿曼市场18日小幅下跌",
+            "url": "https://uk.marketscreener.com/news/oil-lifts-saudi-bourse-egypt-tumbles-on-regional-tensions-ce785cdad18af32d"
           }
         ]
       },
       {
-        "heading": "中国政治｜何立峰会见中投公司国际咨询委员会委员",
+        "heading": "中国政治｜政策、监管与外交进展",
         "paragraphs": [
-          "何立峰18日晚在北京会见中投公司国际咨询委员会委员，谈及扩大高水平对外开放和深化金融体制改革，并希望委员支持中外交流合作。新华社报道，委员们表达了对中国经济和金融市场前景的信心。这是政策方向与交流层面的消息，通稿没有披露新一轮刺激计划、资金规模或实施时间表。"
+          "1. 九部门公开科技兴商意见。商务部等九部门19日上午公开科技兴商意见，推动人工智能、物联网和数字孪生等应用于商品供给、服务消费及商贸流通。文件成文于13日。分析：此次公开提供了企业可据以跟进的政策框架，不能把成文日误写为发布日期。",
+          "2. 16部门部署优化消费环境月。市场监管总局等16部门19日公开通知，拟于11月开展全国优化消费环境月，主题为放心消费、共同参与，动员各方参与消费环境治理。分析：政策着眼消费信任和维权环境，效果仍要看后续执法与经营主体落实。",
+          "3. 何立峰会见中投国际顾问。何立峰18日晚会见中投公司国际咨询委员会委员，表示十五五时期将扩大高水平对外开放、深化金融体制改革，并希望委员为改革开放和中投发展建言。分析：这是对国际投资界的政策沟通，不宜写成新的投资承诺或具体放宽措施。 何立峰18日晚在北京会见中投公司国际咨询委员会委员，谈及扩大高水平对外开放和深化金融体制改革，并希望委员支持中外交流合作。新华社报道，委员们表达了对中国经济和金融市场前景的信心。这是政策方向与交流层面的消息，通稿没有披露新一轮刺激计划、资金规模或实施时间表。",
+          "4. 中塔总理会谈并见证签署文件。李强18日下午在杜尚别与塔吉克斯坦总理拉苏尔佐达会谈，讨论贸易投资、清洁能源、绿色矿产和人工智能合作，并见证基础设施、教育、反腐及标准化文件签署。分析：合作由政治表态进一步进入具体领域的制度安排。",
+          "5. 传统医药大会发布药用植物北京倡议。2026世界传统医药大会18日下午在北京闭幕，发布药用植物资源保护与可持续利用北京倡议，强调科研共享、生态保护、质量保障及传统知识权益。分析：国际合作框架有助于统筹资源利用与保护，但倡议并非强制法规。"
         ],
         "sources": [
           {
-            "label": "新华社：何立峰会见国际咨询委员会委员",
-            "url": "https://www.news.cn/politics/leaders/20261018/c14f340c2a7b4c97937ef7ffccbb6e60/c.html"
+            "label": "1. 九部门公开科技兴商意见",
+            "url": "https://www.mofcom.gov.cn/zcfb/zc/art/2026/art_202618c40d1943e9abfed97cef83e671.html"
+          },
+          {
+            "label": "2. 16部门部署优化消费环境月",
+            "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/zfjcs/art/2026/art_3f2d05afb10741d9abf50be01cbd3326.html"
+          },
+          {
+            "label": "3. 何立峰会见中投国际顾问",
+            "url": "https://www2.xinhuanet.com/politics/20261018/6fc5e50a32ca4142a47a5411b263315e/c.html"
+          },
+          {
+            "label": "4. 中塔总理会谈并见证签署文件",
+            "url": "https://politics.people.com.cn/n1/2026/1018/c1024-40816923.html"
+          },
+          {
+            "label": "5. 传统医药大会发布药用植物北京倡议",
+            "url": "https://www.beijing.gov.cn/gongkai/ldhd/202610/t20261019_4908181.html"
           }
         ]
       },
       {
-        "heading": "国际政治｜伊朗重申有条件重开霍尔木兹海峡的方案",
+        "heading": "国际政治｜合作、外交与公共事件",
         "paragraphs": [
-          "伊朗外长阿拉格齐18日表示，向美国提出的海峡重开方案仍在桌面上。路透列出的条件包括解除对伊朗港口封锁、解除石油出口制裁及结束区域敌对行动；美方则要求从一开始讨论伊朗核计划。他关于数日内重开的说法以美国接受条件为前提，不代表海峡已经恢复通航，也不是双方确认的执行日程。"
+          "1. 马克龙全国讲话回应示威冲突。马克龙18日晚发表全国电视讲话，谴责前一日示威中的纵火和抢劫，要求依法追责，并宣布由总理组织危机协调工作。分析：法国政府既面临公共安全压力，也须回应生活成本与公共服务诉求，不能将所有示威者等同暴力人员。",
+          "2. 伊朗称正审议美方通航方案回应。伊朗外长阿拉格齐18日在巴格达表示，重开霍尔木兹海峡的七天方案仍有效，伊方正在审议美国回应，并把通航与美方接受条件相联系。分析：这确认沟通仍在继续，却不意味着海峡已恢复正常通行或双方已达成停火。 伊朗外长阿拉格齐18日表示，向美国提出的海峡重开方案仍在桌面上。路透列出的条件包括解除对伊朗港口封锁、解除石油出口制裁及结束区域敌对行动；美方则要求从一开始讨论伊朗核计划。他关于数日内重开的说法以美国接受条件为前提，不代表海峡已经恢复通航，也不是双方确认的执行日程。",
+          "3. 埃及推迟对沙特军事支持授权表决。埃及议会18日就向沙特提供军事支持举行紧急讨论，随后将授权表决推迟，并安排次日继续审议；美联社报道国家防务委员会已支持相关协助。分析：行政层面同意不等于议会批准，更不能直接写成埃军已经部署。",
+          "4. 泽连斯基与美国特使通话。乌克兰总统府18日公布，泽连斯基与威特科夫、库什纳通话，讨论乌美团队在佛罗里达会晤结果、后续外交步骤及防空需求。分析：双方仍保留高层沟通渠道，但公开内容不足以证明在制裁或停火条件上取得突破。",
+          "5. 特朗普支持内塔尼亚胡连任。特朗普18日公开支持内塔尼亚胡在以色列即将举行的选举中连任，后者随后表达感谢；Axios报道背书发生在投票前九天。分析：美方领导人表态可能影响竞选叙事，但是否改变席位分布仍取决于以色列选民。"
         ],
         "sources": [
+          {
+            "label": "1. 马克龙全国讲话回应示威冲突",
+            "url": "https://www.vanityfair.com/story/emmanuel-macron-france-october-17-protests-paris"
+          },
+          {
+            "label": "2. 伊朗称正审议美方通航方案回应",
+            "url": "https://news.bjd.com.cn/2026/10/18/11999658.shtml"
+          },
+          {
+            "label": "3. 埃及推迟对沙特军事支持授权表决",
+            "url": "https://www.nampa.org/text/23042898"
+          },
+          {
+            "label": "4. 泽连斯基与美国特使通话",
+            "url": "https://www.president.gov.ua/en/news/prezident-proviv-rozmovu-z-predstavnikami-prezidenta-ssha-106949"
+          },
+          {
+            "label": "5. 特朗普支持内塔尼亚胡连任",
+            "url": "https://www.axios.com/2026/10/18/trump-endorses-netanyahu-israel-election-iran"
+          },
+          {
+            "label": "马克龙全国讲话回应示威冲突：交叉核对",
+            "url": "https://lapresse.us/world/2026/10/18/protests-in-france-macron-nothing-justifies-or-explains-what-happened/"
+          },
+          {
+            "label": "伊朗称正审议美方通航方案回应：交叉核对",
+            "url": "https://english.news.cn/20261018/05b08200341840dd9b86a8be30f9a6f6/c.html"
+          },
           {
             "label": "路透／MarketScreener：伊朗重申海峡提案",
             "url": "https://www.marketscreener.com/news/iran-urges-us-to-accept-proposal-to-reopen-strait-of-hormuz-ce785cdad18bf126"
+          },
+          {
+            "label": "埃及推迟对沙特军事支持授权表决：交叉核对",
+            "url": "https://apnews.com/article/f7d499cb13525df2bc7eb318e0fc1404"
+          },
+          {
+            "label": "泽连斯基与美国特使通话：交叉核对",
+            "url": "https://www.channelnewsasia.com/world/zelenskyy-speaks-us-envoys-amid-trump-spat-6469886"
+          },
+          {
+            "label": "特朗普支持内塔尼亚胡连任：交叉核对",
+            "url": "https://www.cbsnews.com/news/trump-endorses-israel-prime-minister-benjamin-netanyahu-reelection/"
           }
         ]
       }
