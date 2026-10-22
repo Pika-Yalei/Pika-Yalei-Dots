@@ -2175,5 +2175,307 @@
       }
     ],
     "closing": "同一时间窗口，不同市场与政策进度：先核对日期、来源和统计口径，再讨论影响。本文不提供个性化买卖建议或收益承诺。"
+  },
+  {
+    "slug": "news-2026-10-22",
+    "date": "2026-10-22",
+    "title": "2026-10-22｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-21 10:22 至 2026-10-22 10:22",
+    "category": "新闻回顾",
+    "readingMinutes": 20,
+    "summary": "五个固定栏目各五项，共25项独立进展：AI发布与治理、企业财报、五地股市收盘、中国政策与外交成果，以及国际公共事件。",
+    "publishedAt": "2026-10-22T02:32:16Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-21T02:22:00Z",
+      "end": "2026-10-22T02:22:00Z"
+    },
+    "sections": [
+      {
+        "heading": "回顾范围与核验口径",
+        "paragraphs": [
+          "新闻窗口为北京时间2026-10-21 10:22至2026-10-22 10:22，共24小时。五个固定栏目各5项，共25项独立新闻；按事件发生或实质新增进展归入窗口，不按网页刚更新就视作新事件。实际发布时间见页首。",
+          "公司财报是本窗口新公开的季度数据，不把季度经营活动本身算作当天发生；外交稿区分会谈、正式成果公开和单方表态。每条“分析”是编辑判断，不是来源原话。股票采用10月21日各市场当地交易日收盘，指数点位不是货币金额，不提供个性化买卖建议。",
+          "来源标签的数字对应本栏新闻编号；同一事件的多个来源用于交叉核对，不额外计数。部分一手公告只披露日期，正文保留时间证据精度；日经官方页面的日期参数异常已明示。"
+        ]
+      },
+      {
+        "heading": "AI｜模型、治理与基础设施",
+        "paragraphs": [
+          "1. OpenAI 模型进入 Google Cloud 私有预览。两家公司10月21日宣布，部分企业客户可使用 GPT-6 Astra、GPT-6.1 Sol 和 GPT-6 Luna，并通过 Google Cloud Marketplace 结算；Axios 当日12:00 UTC已报道，具体上线分钟未披露。分析：统一采购可降低多模型集成成本，但私有预览不等于全面开放，零数据保留选项和 Confidential Compute 仍是后续能力。",
+          "2. PHP 正式发布关键安全补丁。10月21日14:00 UTC的计划发布时点之后，PHP 下载页及基金会公告确认更新发布。OpenAI 表示，Calif 使用 GPT-5.6 Sol 发现其中一个问题，Wiz 也独立报告了相关问题。分析：窗内新增是补丁落地，而非此前的漏洞发现；AI 辅助安全研究仍需维护者协调修复与用户部署，本文不涉及攻击复现。",
+          "3. NVIDIA 在柏林宣布 AI 供应链扩产计划。10月21日 GTC Berlin 公告涉及基板、先进封装、测试及光引擎产能；其中向 KYEC 提供11亿美元产能预付款，并提出未来三年基板产能增至2.5倍的目标。分析：AI 供给瓶颈已延伸至制造配套，但计划中的2027—2028年增量不能写成当前产能已增加；此前签署的 IBIDEN 协议不另算当日新事件。",
+          "4. Anthropic 宣布 Christopher Stubbs 加入长期利益信托。公司10月21日公告称，这位哈佛物理学家将为 Long-Term Benefit Trust 带来科学研究与可复现性经验；Fortune 当日16:30 UTC已报道。分析：增加科学界治理视角不等于监督效果已经得到证明；这里记录的是任命公告，并非推定某个精确就任时刻。",
+          "5. ChatGPT 广告新增覆盖26国。OpenAI 10月21日宣布 ChatGPT Ads 覆盖扩至89国，并称累计超过10万家广告主已投放；Free 和 Go 可显示广告，Plus、Pro、Enterprise 保持无广告。Reuters 于13:05 UTC报道扩张。分析：覆盖扩大提供新的商业化空间，但累计投放广告主不是当前活跃广告主，也不能直接换算为新增收入。"
+        ],
+        "sources": [
+          {
+            "label": "1. Google Cloud 公告",
+            "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers"
+          },
+          {
+            "label": "1. OpenAI 公告",
+            "url": "https://openai.com/index/openai-models-google-cloud/"
+          },
+          {
+            "label": "1. Axios 当日报道",
+            "url": "https://www.axios.com/2026/10/21/openai-google-cloud-ai-models"
+          },
+          {
+            "label": "2. PHP 基金会发布说明",
+            "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/"
+          },
+          {
+            "label": "2. PHP 下载页",
+            "url": "https://www.php.net/downloads.php"
+          },
+          {
+            "label": "2. 协调披露说明",
+            "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/"
+          },
+          {
+            "label": "2. 发布时点预告",
+            "url": "https://www.drupal.org/psa-2026-10-20"
+          },
+          {
+            "label": "3. NVIDIA 原始公告",
+            "url": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout/"
+          },
+          {
+            "label": "3. GTC 柏林当日议程",
+            "url": "https://www.nvidia.com/en-eu/gtc/academic-experience/"
+          },
+          {
+            "label": "4. Anthropic 任命公告",
+            "url": "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust"
+          },
+          {
+            "label": "4. Fortune 交叉核对",
+            "url": "https://fortune.com/2026/10/21/anthropic-adds-harvard-astrophysicist-to-the-trust-that-controls-its-board/"
+          },
+          {
+            "label": "5. OpenAI 扩张公告",
+            "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries/"
+          },
+          {
+            "label": "5. Reuters 交叉核对",
+            "url": "https://www.marketscreener.com/news/openai-expands-chatgpt-ads-to-26-more-countries-in-bid-to-boost-revenue-ce785cd9d88ff12d"
+          }
+        ]
+      },
+      {
+        "heading": "商业｜五家公司公布业绩",
+        "paragraphs": [
+          "1. CME 第三季度收入创同期纪录。10月21日11:00 UTC发布的财报显示，收入约17亿美元、净利润约10亿美元，日均成交量2940万份合约，调整后每股收益3.02美元。分析：交易活跃反映风险管理需求，但交易所收入增长不等于实体经济同步加速。",
+          "2. Elevance Health 上调全年指引。10月21日10:00 UTC发布的第三季度结果显示营业收入504亿美元、调整后摊薄每股收益6.99美元；全年调整后每股收益指引提高至至少29美元，经营现金流至少65亿美元。分析：管理层预期改善，但当季每股收益包含1.85美元净非经营收益，不能把全部增量都归入主营业务。",
+          "3. Thermo Fisher 第三季度收入增长9%。10月21日10:00 UTC披露收入121.4亿美元，有机增长6%；GAAP 每股收益4.64美元，调整后每股收益6.68美元、同比增长15%。分析：科研工具和服务需求表现改善，但有机增长、收购贡献及两种利润口径需要分开看。",
+          "4. CACI 上调2027财年展望。10月21日20:15 UTC公布的2027财年第一季度收入约24.75亿美元、同比增长8.2%，合同订单48亿美元，订单收入比2倍。分析：订单增强收入可见度，但有机增长仅2.1%，自由现金流同比下降6.6%，总收入增速并不完整代表增长质量。计划10月22日举行的电话会议尚未落入本窗口。",
+          "5. Molina 利润下降但重申全年指引。10月21日公布的第三季度保费收入104.57亿美元，同比下降约4%，GAAP 净利润3800万美元，调整后每股收益0.89美元；公司重申全年至少5.25美元的调整后每股收益指引。20:17 UTC的转载确认财报已公布，并非公司精确发布时间。分析：医疗费用率升至92.9%，维持指引不能解释为盈利压力消失。"
+        ],
+        "sources": [
+          {
+            "label": "1. CME 财报发布稿",
+            "url": "https://www.prnewswire.com/news-releases/cme-group-inc-reports-highest-q3-revenue-on-record-for-q3-2026-302915184.html"
+          },
+          {
+            "label": "1. 公司财报文件",
+            "url": "https://investor.cmegroup.com/static-files/24c9441a-4542-4f83-803a-46fa149de4fb"
+          },
+          {
+            "label": "2. SEC 原始财报",
+            "url": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000068/a3q2026elvearningsrelease.htm"
+          },
+          {
+            "label": "2. Business Wire 发布时点",
+            "url": "https://markets.financialcontent.com/spoke/article/bizwire-2026-10-21-elevance-health-reports-third-quarter-2026-results-raises-full-year-guidance"
+          },
+          {
+            "label": "3. Thermo Fisher 原始财报",
+            "url": "https://ir.thermofisher.com/investors/news-events/news/news-details/2026/Thermo-Fisher-Scientific-Reports-Third-Quarter-2026-Results/default.aspx"
+          },
+          {
+            "label": "3. Business Wire 时点",
+            "url": "https://www.streetinsider.com/Business%2BWire/Thermo%2BFisher%2BScientific%2BReports%2BThird%2BQuarter%2B2026%2BResults/27212279.html"
+          },
+          {
+            "label": "4. CACI 财报发布稿",
+            "url": "https://www.prnewswire.com/news-releases/caci-reports-results-for-its-fiscal-2027-first-quarter-302915933.html"
+          },
+          {
+            "label": "4. CACI 公司公告",
+            "url": "https://investor.caci.com/2026-10-21-CACI-Reports-Results-for-Its-Fiscal-2027-First-Quarter"
+          },
+          {
+            "label": "5. Molina 公司财报",
+            "url": "https://molinahealthcare.gcs-web.com/news-releases/news-release-details/molina-healthcare-reports-third-quarter-2026-financial-results"
+          },
+          {
+            "label": "5. Business Wire 转载核对",
+            "url": "https://www.marketscreener.com/news/molina-healthcare-reports-third-quarter-2026-financial-results-ce785cd9dd8ef722"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场｜五地10月21日收盘",
+        "paragraphs": [
+          "1. A股收跌，创业板弱于大盘。中国内地10月21日交易日15:00北京时间收盘，上证综指3713.03点、跌0.60%，深证成指11704.35点、跌0.82%，创业板指2694.71点、跌1.62%。股票交易币种为人民币，指数单位为点。分析：成长板块跌幅较大体现当日风险偏好分化，不代表后续必然延续。",
+          "2. 港股恒指跌0.90%。香港10月21日交易日收盘，恒指23651.87点，恒生科技指数3994.77点、跌1.26%，主板全日成交1765.97亿港元；新华社17:17北京时间发稿确认。指数单位为点，成交币种为港元。分析：科技板块相对弱势是当日结构特征，不能据此推断长期价值。",
+          "3. 日经225反弹0.85%。日本10月21日交易日收盘64621.24点，上涨545.82点；官方日度摘要显示152只成分股上涨、71只下跌、2只持平。股票交易币种为日元，指数为点。分析：反弹有一定广度，但收盘低于盘中高位，不能把单日上涨解读为风险消失。官方可读摘要页面参数与正文日期不一致，正文明确为10月21日，另以固定报道交叉核对。",
+          "4. 美股三大指数收高。美国10月21日16:00 EDT（北京时间22日04:00）常规交易收盘，道指52856.09点、涨0.69%，标普500为7757.17点、涨0.58%，纳指26702.86点、涨1.05%。Reuters 晚间更新确认，未混入盘后报价；股票交易币种美元，指数为点。分析：AI相关业绩提供支撑，但单日反弹无法消除盈利兑现与估值风险。",
+          "5. 欧洲STOXX600收涨0.92%。10月21日欧洲交易日收盘涨幅采用 Reuters 当日22:04 UTC最终更新，不采用上午盘中稿或较早不同口径的数字。指数为点位变化百分比，成分涉及欧元、英镑等多币种股票，不能把整个市场都标成欧元交易。分析：企业业绩支撑与法国政治、财政不确定性并存。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社收盘数据",
+            "url": "https://english.news.cn/20261021/191283cfa334432a8b185a400e216636/c.html"
+          },
+          {
+            "label": "1. 21世纪经济报道核对",
+            "url": "https://m.21jingji.com/article/20261021/herald/d361add138b4c3bf8275c542bea38dfe.html"
+          },
+          {
+            "label": "2. 新华社港股收盘",
+            "url": "https://www.xinhuanet.com/gangao/20261021/296ceda3d3e541d9b4e96f665c0ffae7/c.html"
+          },
+          {
+            "label": "2. 每日经济新闻核对",
+            "url": "https://www.nbd.com.cn/articles/2026-10-21/4611271.html"
+          },
+          {
+            "label": "3. 日本当日收盘报道",
+            "url": "https://newsonjapan.com/article/151110.php"
+          },
+          {
+            "label": "3. 日经官方摘要（正文日期为10月21日）",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=20260929&idx=nk225"
+          },
+          {
+            "label": "4. Reuters 全球市场收盘综述",
+            "url": "https://www.marketscreener.com/news/stocks-rise-on-ai-led-earnings-france-s-10-year-bond-yield-hits-5--ce785cd9dc8df722"
+          },
+          {
+            "label": "5. Reuters 最终收盘数据",
+            "url": "https://www.marketscreener.com/news/stocks-rise-on-ai-led-earnings-france-s-10-year-bond-yield-hits-5--ce785cd9dc8df722"
+          },
+          {
+            "label": "5. Reuters 当日盘中背景（非收盘）",
+            "url": "https://uk.marketscreener.com/news/european-shares-edge-higher-as-strong-earnings-offset-french-unrest-worries-ce785cd8d088f020"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策｜正式文件与新增外交成果",
+        "paragraphs": [
+          "1. 科技创新与产业创新融合意见对外发布。10月21日公开的中办、国办意见部署企业主导的产学研协同、科技金融、知识产权及激励评价等工作；新华社官方转载于北京时间18:27确认当日对外发布。分析：这是正式政策方向而非征求意见稿，但具体执行仍需配套，不能把发布等同于全部措施已落地。",
+          "2. 多部门解读“十五五”应急体系建设。10月21日北京时间16:00国新办发布会介绍源头风险防范、灾害风险评估等安排，强调事前预防。分析：窗内进展是政策解读与实施部署，规划此前已印发，不能称当天新出台；效果有赖地方落实与持续资源投入。",
+          "3. APEC财长会闭幕并发布数字基础设施融资政策声明。10月21日在香港举行的第33届财长会核准联合声明及相关政策声明，强调宏观协调、普惠金融和私人资本参与；闭幕后发布会约北京时间11:45举行，处于窗口内。分析：成果提供区域合作方向，不意味着各经济体已实施统一财政政策。",
+          "4. 中俄总理举行定期会晤并签署联合公报。10月21日圣彼得堡当地上午，李强与米舒斯京主持第三十一次定期会晤，涉及经贸、能源、互联互通及新兴技术；联合公报于北京时间22日01:12公开。分析：应把合作目标与实际完成的项目区分，不能将公报写成所有交易已落地，同日下午其他会见不拆成额外条目。",
+          "5. 中吉公开红海航道安全联合公报。外交部10月21日北京时间23:16披露当日会谈的新成果，随后公开的完整公报呼吁尊重商船航行权利、加强反海盗合作、通过外交对话避免冲突外溢，并披露全球安全倡议合作备忘录。分析：本条新增事件是正式成果公开；会见与签署具体钟点未披露，不把发稿时刻当会谈时刻，也不把公报等同于联合行动已实施。"
+        ],
+        "sources": [
+          {
+            "label": "1. 科技部正式文件",
+            "url": "https://www.most.gov.cn/xxgk/xinxifenlei/fdzdgknr/fgzc/gfxwj/gfxwj2026/202610/t20261021_197540.html"
+          },
+          {
+            "label": "1. 最高法转载新华社发布消息",
+            "url": "https://www.court.gov.cn/zixun/xiangqing/514831.html"
+          },
+          {
+            "label": "2. 新华社发布会报道",
+            "url": "https://www2.xinhuanet.com/politics/20261021/d6c1cf1bf34e481584149f1707ef8319/c.html"
+          },
+          {
+            "label": "2. 发布会时刻旁证",
+            "url": "https://www.bjnews.com.cn/detail/1792548035129848.html"
+          },
+          {
+            "label": "3. 财政部闭幕发布会实录",
+            "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202610/t20261021_4003206.htm"
+          },
+          {
+            "label": "3. 财政部会议成果",
+            "url": "https://www.mof.gov.cn/zhengwuxinxi/tupianxinwen1/202610/t20261021_4003164.htm"
+          },
+          {
+            "label": "3. Reuters 交叉核对",
+            "url": "https://theprint.in/world/apec-finance-ministers-agree-to-boost-policy-coordination-chinas-lan-says/3077423/"
+          },
+          {
+            "label": "4. 人民日报会晤报道",
+            "url": "https://politics.people.com.cn/n1/2026/1022/c1024-40819180.html"
+          },
+          {
+            "label": "4. 新华社联合公报全文",
+            "url": "https://www.xinhuanet.com/20261022/176ddd701a8e471cbce14b1a55c0fc8a/c.html"
+          },
+          {
+            "label": "5. 外交部当日成果公告",
+            "url": "https://www.mfa.gov.cn/web/wjdt_674879/gjldrhd_674881/202610/t20261021_12044699.shtml"
+          },
+          {
+            "label": "5. 新华社联合公报全文转载",
+            "url": "https://politics.people.com.cn/n1/2026/1022/c1001-40819147.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件｜会谈、制裁及公共数据",
+        "paragraphs": [
+          "1. 俄方称准备11月恢复三方会谈。10月21日普京与美方特使威特科夫在圣彼得堡会谈后，乌沙科夫转述俄方愿在11月中旬恢复俄美乌三方接触；新华社北京时间22日00:07报道这一进展。分析：这是俄方意愿及外交进程更新，具体安排仍未确定，没有证据证明已达成停火协议。",
+          "2. 美国财政部公布涉伊朗航运网络制裁。10月21日正式公告将包括 Karnakis and Karnakis 律师事务所在内的有关网络纳入制裁，称其协助伊朗航运活动；OFAC 同日名单更新提供对应记录。分析：相关服务商面临更高合规风险，但“协助规避制裁”等是美方认定，本文不把它当作独立司法裁判。",
+          "3. 格鲁吉亚宪法法院开始反对党禁令案听证。10月21日当地12:00在巴统开庭，Civil.ge 实时报道记录了回避、分案和传唤证人等动议的处理；案件寻求取缔五个主要反对党。分析：法院已开始程序审理，但尚不能写成已裁定取缔，案件对政治竞争的实际后果仍待后续裁决。",
+          "4. Brad Lander 在西岸被拘后获释。10月21日，这位美国国会候选人与志愿者协助巴勒斯坦农民采摘橄榄时被以色列部队拘留，随后获释；以军称该区域活动需要事先协调，参与者对理由有异议。分析：这凸显收获季当地人员安全和冲突风险，不能停留在较早“仍被拘”的状态，也不扩写未经核实的犯罪指控。",
+          "5. 英国正式公布9月通胀数据。ONS于10月21日英国时间07:00（06:00 UTC）发布，9月CPI同比3.5%，高于8月3.1%，环比上涨0.4%，交通及汽车燃料是同比增幅上升的重要因素。分析：新增事件是当日统计数据公开，不是把9月经济活动写作当日事件；通胀变化增加政策权衡，但不等于央行已改变利率。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社会后进展转载",
+            "url": "https://www.thepaper.cn/newsDetail_forward_34303887"
+          },
+          {
+            "label": "1. CNN 交叉核对",
+            "url": "https://www.kq2.com/cnn/cnn-world/2026/10/21/us-envoy-witkoff-lands-in-russia-for-talks-with-putin/"
+          },
+          {
+            "label": "2. 美国财政部正式公告",
+            "url": "https://home.treasury.gov/news/press-releases/sb0664"
+          },
+          {
+            "label": "2. OFAC 名单更新入口",
+            "url": "https://ofac.treasury.gov/recent-actions/sanctions-list-updates"
+          },
+          {
+            "label": "3. Civil.ge 当日现场记录",
+            "url": "https://civil.ge/archives/755399"
+          },
+          {
+            "label": "3. 宪法法院原始文件",
+            "url": "https://www.constcourt.ge/ka/judicial-acts?legal=20319"
+          },
+          {
+            "label": "3. Reuters 报道转载",
+            "url": "https://www.aol.com/articles/georgian-court-begins-hearing-lawsuit-122230000.html"
+          },
+          {
+            "label": "4. JTA 报道及以军回应",
+            "url": "https://www.jta.org/2026/10/21/israel/idf-detains-ny-democrat-brad-lander-and-dozens-of-activists-during-west-bank-harvest-trip"
+          },
+          {
+            "label": "4. NPR附属站获释更新",
+            "url": "https://www.wvia.org/news/2026-10-21/israel-frees-dozens-of-americans-including-u-s-congress-nominee-after-west-bank-detention"
+          },
+          {
+            "label": "5. ONS 预定与正式发布入口",
+            "url": "https://www.ons.gov.uk/releases/consumerpriceinflationukseptember2026"
+          },
+          {
+            "label": "5. ONS 固定期统计公报",
+            "url": "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/september2026/pdf"
+          }
+        ]
+      }
+    ],
+    "closing": "以公开材料核对事实，以明确时点界定新增；对计划、预测和单方说法保留必要距离。"
   }
 ]
