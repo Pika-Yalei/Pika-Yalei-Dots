@@ -42,6 +42,16 @@ test('built pages expose their own canonical address and 404 stays noindex', asy
       assert.equal([...html.matchAll(/rel="canonical"/g)].length, 1);
       assert.doesNotMatch(html, /name="robots" content="noindex"/);
     }
+    for (const post of posts) {
+      const html = await readFile(join(temp, 'dist/notes', post.slug, 'index.html'), 'utf8');
+      assert.match(html, /itemscope itemtype="https:\/\/schema.org\/Article"/);
+      assert.match(html, /itemprop="headline"/);
+      if (post.publishedAt) {
+        assert.ok(html.includes(`<meta itemprop="datePublished" content="${post.publishedAt}">`));
+        assert.ok(html.includes(`<meta property="article:published_time" content="${post.publishedAt}">`));
+      } else assert.doesNotMatch(html, /datePublished|article:published_time/);
+      assert.doesNotMatch(html, /dateModified|article:modified_time/);
+    }
     const missing = await readFile(join(temp, 'dist/404.html'), 'utf8');
     assert.match(missing, /<meta name="color-scheme" content="light dark">/);
     assert.match(missing, /name="robots" content="noindex"/);
@@ -49,4 +59,18 @@ test('built pages expose their own canonical address and 404 stays noindex', asy
   } finally {
     await rm(temp, {recursive:true, force:true});
   }
+});
+
+test('article metadata uses actual publication, never review date or an invented modification time', () => {
+  const post = {slug:'example', date:'2026-10-14', publishedAt:'2026-10-20T06:00:00Z', category:'新闻 <回顾>'};
+  const html = renderMetadata({title:'x', description:'x', pagePath:'/notes/example/', post});
+  assert.match(html, /article:published_time" content="2026-10-20T06:00:00Z"/);
+  assert.match(html, /article:section" content="新闻 &lt;回顾&gt;"/);
+  assert.doesNotMatch(html, /2026-10-14|modified_time/);
+  assert.doesNotMatch(renderMetadata({title:'x', description:'x', pagePath:'/notes/example/', post:{...post,publishedAt:undefined}}), /published_time/);
+  for (const publishedAt of ['2026-02-30T00:00:00Z', 'invalid', '2026-01-01']) {
+    assert.throws(() => renderMetadata({title:'x', description:'x', pagePath:'/notes/example/', post:{...post,publishedAt}}));
+  }
+  assert.throws(() => renderMetadata({title:'x', description:'x', pagePath:'/about/', post}));
+  assert.throws(() => renderMetadata({title:'x', description:'x', pagePath:'/notes/other/', post}));
 });

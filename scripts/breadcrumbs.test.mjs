@@ -72,7 +72,7 @@ test('built category and article trails follow the hierarchy and resolve even wi
       assert.equal([...trail.matchAll(/<li>/g)].length, count);
       assert.deepEqual([...trail.matchAll(/href="([^"]+)"/g)].map(match => match[1]), expectedLinks);
       assert.equal([...trail.matchAll(/aria-current="page"/g)].length, 1);
-      assert.ok(html.indexOf(trail) < html.indexOf('<h1>'));
+      assert.ok(html.indexOf(trail) < html.search(/<h1(?:\s|>)/));
       assert.doesNotMatch(trail, /<标题>|<分类>/);
       if (count > 2) assert.match(trail, /\.\.\/&lt;分类&gt; &amp; &quot;方法&quot;/);
       if (count === 4) assert.match(trail, /<span aria-current="page">(?:&lt;标题&gt; &amp; &quot;长文&quot;){30}<\/span>/);
