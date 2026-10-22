@@ -1,3 +1,4 @@
+import { collectSources, paginateSources } from './source-index.mjs';
 import { pageCount } from './pagination.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -12,7 +13,7 @@ import { categoryPath, groupCategories } from './categories.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 
 test('sitemap is deterministic, absolute and excludes non-content paths', () => {
-  const posts = [{slug:'z-last', category:'中文'}, {slug:'a-first', category:'<tag> & ?'}];
+  const posts = [{slug:'z-last', date:'2026-10-21', sections:[], category:'中文'}, {slug:'a-first', date:'2026-10-21', sections:[], category:'<tag> & ?'}];
   const xml = renderSitemap(posts);
   assert.match(xml, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(xml, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
@@ -36,7 +37,7 @@ test('build publishes a sitemap whose unique links all resolve, including empty 
       const xml = await readFile(path.join(temp,'dist/sitemap.xml'),'utf8');
       assert.equal(xml,renderSitemap(input));
       const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+pageCount(input)+5);
+      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+pageCount(input)+paginateSources(collectSources(input)).length+4);
       for (const value of urls) {
         const url = new URL(value);
         assert.equal(url.origin,siteUrl);
