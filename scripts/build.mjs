@@ -1,3 +1,4 @@
+import { renderTopics, renderTopicNavigation } from './topics.mjs';
 import { readingTimeText, readingTimeExplanation } from './reading-time.mjs';
 import { collectSources, paginateSources, renderSourcePage } from './source-index.mjs';
 import { articleDisclosure, publicationText, renderSourceLinks } from './article-content.mjs';
@@ -59,7 +60,7 @@ ${category ? `<link rel="alternate" type="application/rss+xml" title="${escape(`
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main" tabindex="-1">${content}</main>
-<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
+<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
 </html>\n`;
@@ -102,11 +103,13 @@ for (const page of sourcePages) {
   const description = `查看公开手记实际引用的来源及对应章节，第 ${page.number} 页，共 ${page.total} 页。`;
   await writeFile(path.join(dir, 'index.html'), layout(title, description, renderSourcePage(page), '', page.path));
 }
+await mkdir(path.join(out, 'topics'), {recursive:true});
+await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨日期浏览 AI、商业、股票市场、中国政策与国际新闻的原文章节。', renderTopics(posts), '', '/topics/'));
 for (const [index, post] of posts.entries()) {
   const sections = sectionAnchors(post.sections);
   const dir = path.join(out,'notes',post.slug);
   await mkdir(dir,{recursive:true});
-  await writeFile(path.join(dir,'index.html'),layout(post.title,post.summary,`<article class="article-shell" itemscope itemtype="https://schema.org/Article">${renderBreadcrumbs([{label:'首页', href:'/'}, {label:'分类', href:'/categories/'}, {label:post.category, href:categoryPath(post.category)}, {label:post.title}])}<header class="article-header" id="article-top" tabindex="-1"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${readingTimeText(post)}</span></div><h1 itemprop="headline">${escape(post.title)}</h1><p class="article-subtitle" itemprop="description">${escape(post.subtitle)}</p></header>${post.publishedAt ? `<meta itemprop="datePublished" content="${post.publishedAt}"><p class="article-publication">${escape(publicationText(post))}</p>` : ''}<p class="article-disclosure">${readingTimeExplanation}</p>${renderContents(sections)}<div class="prose">${sections.map(section=>`<section><h2 id="${section.id}" tabindex="-1">${escape(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${escape(p)}</p>`).join('')}${renderSourceLinks(section.sources, escape)}</section>`).join('')}</div><div class="closing-note">${escape(post.closing)}</div><p class="article-disclosure">${escape(articleDisclosure)}</p>${renderPrintSource(post.slug)}<div class="article-return"><a class="back-link bottom-back" href="/">← 回到手记归档</a><a class="back-link bottom-back" href="#article-top">回到篇首 ↑</a></div>${renderAdjacent(posts, index)}${renderRelatedNotes(posts, post)}</article>`, '', link(post), null, post));
+  await writeFile(path.join(dir,'index.html'),layout(post.title,post.summary,`<article class="article-shell" itemscope itemtype="https://schema.org/Article">${renderBreadcrumbs([{label:'首页', href:'/'}, {label:'分类', href:'/categories/'}, {label:post.category, href:categoryPath(post.category)}, {label:post.title}])}<header class="article-header" id="article-top" tabindex="-1"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${readingTimeText(post)}</span></div><h1 itemprop="headline">${escape(post.title)}</h1><p class="article-subtitle" itemprop="description">${escape(post.subtitle)}</p></header>${post.publishedAt ? `<meta itemprop="datePublished" content="${post.publishedAt}"><p class="article-publication">${escape(publicationText(post))}</p>` : ''}<p class="article-disclosure">${readingTimeExplanation}</p>${renderContents(sections)}${renderTopicNavigation(post)}<div class="prose">${sections.map(section=>`<section><h2 id="${section.id}" tabindex="-1">${escape(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${escape(p)}</p>`).join('')}${renderSourceLinks(section.sources, escape)}</section>`).join('')}</div><div class="closing-note">${escape(post.closing)}</div><p class="article-disclosure">${escape(articleDisclosure)}</p>${renderPrintSource(post.slug)}<div class="article-return"><a class="back-link bottom-back" href="/">← 回到手记归档</a><a class="back-link bottom-back" href="#article-top">回到篇首 ↑</a></div>${renderAdjacent(posts, index)}${renderRelatedNotes(posts, post)}</article>`, '', link(post), null, post));
 }
 await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',renderNotFound(posts)));
 await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
@@ -114,5 +117,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + categories.length + indexPages.length + sourcePages.length + 5} HTML pages in dist/`);
+console.log(`Built ${posts.length + categories.length + indexPages.length + sourcePages.length + 6} HTML pages in dist/`);
 

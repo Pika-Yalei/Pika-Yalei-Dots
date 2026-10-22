@@ -59,6 +59,9 @@
   :root{color-scheme:dark;--paper:#1c211c;--ink:#e6eadf;--muted:#b4bdae;--line:#65715e;--green:#b9d399;--wash:#2b3427;--selection:#bfd79f;--selection-ink:#1c211c;--note-muted:#bdcbb1;--note-rule:#9eae8c;--index:#b0bea2;--separator:#b4bdae}
 }
 
+/* Static cross-date news navigation shares the archive reading layout. */
+.topic-section{margin:36px 0}.topic-section h2{font-family:var(--serif);overflow-wrap:anywhere;scroll-margin-top:24px}.topic-section h2:focus{outline:2px solid currentColor;outline-offset:7px}.article-topics{margin:0 0 32px;line-height:1.9;overflow-wrap:anywhere}.article-topics a{display:inline-block;padding:4px 0;text-decoration:underline}
+
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 @media print{
   @page{margin:18mm}
@@ -67,7 +70,7 @@
   html{scroll-behavior:auto}
   body{background:white;color:black}
   .site-wrap{max-width:none;padding:0}
-  .breadcrumbs,.site-header,.skip,.back-link,.article-contents,.article-return,.article-neighbors,.margin-note,.home-aside{display:none}
+  .article-topics,.breadcrumbs,.site-header,.skip,.back-link,.article-contents,.article-return,.article-neighbors,.margin-note,.home-aside{display:none}
   .site-footer{display:block;color:black}
   .site-footer>span{display:block}
   .article-shell{padding:0;max-width:none;overflow-wrap:anywhere}
@@ -83,7 +86,7 @@
   .entry,.archive-list li,.entry h2 a{display:block}
   .category-list a{display:block}.category-count{margin-left:1em}
   .entry-index,.entry-arrow{display:none}
-  #main:focus,.prose h2[id]:focus,.archive-month h3[id]:focus,#article-top:focus{outline:none}
+  .topic-section h2:focus,#main:focus,.prose h2[id]:focus,.archive-month h3[id]:focus,#article-top:focus{outline:none}
 }
 
 /* Respect the user's high-contrast palette; outlines never change box geometry. */
