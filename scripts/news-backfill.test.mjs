@@ -71,7 +71,7 @@ test('complete rebuild removes old paths and publishes citations, dates and repl
     const json=JSON.parse(await read('feed.json'));
     for(const post of posts){
       const html=await read(`notes/${post.slug}/index.html`);
-      assert.ok(html.includes(`<h1>${post.title}</h1>`));
+      assert.ok(html.includes(`<h1 itemprop="headline">${post.title}</h1>`));
       if (post.publicationKind !== 'original') assert.ok(html.includes('这是事后整理，不是当日即时刊发。'));
       assert.ok(html.includes(`回顾日期：${post.date}`));
       const item=json.items.find(item=>item.id===`${siteUrl}/notes/${post.slug}/`);

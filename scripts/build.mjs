@@ -34,7 +34,7 @@ const categories = groupCategories(posts);
 const indexPages = paginatePosts(posts);
 const date = value => value.replaceAll('-', '.');
 const link = post => `/notes/${post.slug}/`;
-function layout(title, description, content, active = '', pagePath = null, category = null) {
+function layout(title, description, content, active = '', pagePath = null, category = null, post = null) {
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -42,7 +42,7 @@ function layout(title, description, content, active = '', pagePath = null, categ
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="${escape(description)}">
 <meta name="color-scheme" content="light dark">
-${renderMetadata({title, description, pagePath})}
+${renderMetadata({title, description, pagePath, post})}
 <title>${escape(title)} · 韩立的工作手记</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/${stylesheetName}">
@@ -99,7 +99,7 @@ for (const [index, post] of posts.entries()) {
   const sections = sectionAnchors(post.sections);
   const dir = path.join(out,'notes',post.slug);
   await mkdir(dir,{recursive:true});
-  await writeFile(path.join(dir,'index.html'),layout(post.title,post.summary,`<article class="article-shell">${renderBreadcrumbs([{label:'首页', href:'/'}, {label:'分类', href:'/categories/'}, {label:post.category, href:categoryPath(post.category)}, {label:post.title}])}<header class="article-header" id="article-top" tabindex="-1"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${post.readingMinutes} 分钟阅读</span></div><h1>${escape(post.title)}</h1><p class="article-subtitle">${escape(post.subtitle)}</p></header>${post.publishedAt ? `<p class="article-publication">${escape(publicationText(post))}</p>` : ''}${renderContents(sections)}<div class="prose">${sections.map(section=>`<section><h2 id="${section.id}" tabindex="-1">${escape(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${escape(p)}</p>`).join('')}${renderSourceLinks(section.sources, escape)}</section>`).join('')}</div><div class="closing-note">${escape(post.closing)}</div><p class="article-disclosure">${escape(articleDisclosure)}</p>${renderPrintSource(post.slug)}<div class="article-return"><a class="back-link bottom-back" href="/">← 回到手记归档</a><a class="back-link bottom-back" href="#article-top">回到篇首 ↑</a></div>${renderAdjacent(posts, index)}${renderRelatedNotes(posts, post)}</article>`, '', link(post)));
+  await writeFile(path.join(dir,'index.html'),layout(post.title,post.summary,`<article class="article-shell" itemscope itemtype="https://schema.org/Article">${renderBreadcrumbs([{label:'首页', href:'/'}, {label:'分类', href:'/categories/'}, {label:post.category, href:categoryPath(post.category)}, {label:post.title}])}<header class="article-header" id="article-top" tabindex="-1"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${post.readingMinutes} 分钟阅读</span></div><h1 itemprop="headline">${escape(post.title)}</h1><p class="article-subtitle" itemprop="description">${escape(post.subtitle)}</p></header>${post.publishedAt ? `<meta itemprop="datePublished" content="${post.publishedAt}"><p class="article-publication">${escape(publicationText(post))}</p>` : ''}${renderContents(sections)}<div class="prose">${sections.map(section=>`<section><h2 id="${section.id}" tabindex="-1">${escape(section.heading)}</h2>${section.paragraphs.map(p=>`<p>${escape(p)}</p>`).join('')}${renderSourceLinks(section.sources, escape)}</section>`).join('')}</div><div class="closing-note">${escape(post.closing)}</div><p class="article-disclosure">${escape(articleDisclosure)}</p>${renderPrintSource(post.slug)}<div class="article-return"><a class="back-link bottom-back" href="/">← 回到手记归档</a><a class="back-link bottom-back" href="#article-top">回到篇首 ↑</a></div>${renderAdjacent(posts, index)}${renderRelatedNotes(posts, post)}</article>`, '', link(post), null, post));
 }
 await writeFile(path.join(out,'404.html'),layout('没有找到这一页','这一页暂时不在手记里。',renderNotFound(posts)));
 await writeFile(path.join(out, 'feed.xml'), renderFeed(posts));
