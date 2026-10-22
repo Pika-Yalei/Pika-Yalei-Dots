@@ -1,3 +1,4 @@
+import { collectSources, paginateSources } from './source-index.mjs';
 import { pageCount } from './pagination.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -20,7 +21,7 @@ const all = await files(dist);
 const pages = all.filter(f=>f.endsWith('.html'));
 test('build generates every public page and a real 404 page', async () => {
   const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
-  assert.equal(pages.length, posts.length + groupCategories(posts).length + pageCount(posts) + 6);
+  assert.equal(pages.length, posts.length + groupCategories(posts).length + pageCount(posts) + paginateSources(collectSources(posts)).length + 5);
   for (const file of ['index.html','about/index.html','archive/index.html','categories/index.html','404.html', ...groupCategories(posts).map(category => `${category.path.slice(1)}index.html`), ...posts.map(p => `notes/${p.slug}/index.html`)]) {
     assert.ok(all.includes(path.join(dist,file)));
   }

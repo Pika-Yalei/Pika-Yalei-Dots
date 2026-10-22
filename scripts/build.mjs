@@ -1,5 +1,5 @@
 import { readingTimeText, readingTimeExplanation } from './reading-time.mjs';
-import { renderSourceIndex } from './source-index.mjs';
+import { collectSources, paginateSources, renderSourcePage } from './source-index.mjs';
 import { articleDisclosure, publicationText, renderSourceLinks } from './article-content.mjs';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -33,6 +33,7 @@ const posts = validatePosts(JSON.parse(await readFile(path.join(root, 'content/p
 posts.sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 const categories = groupCategories(posts);
 const indexPages = paginatePosts(posts);
+const sourcePages = paginateSources(collectSources(posts));
 const date = value => value.replaceAll('-', '.');
 const link = post => `/notes/${post.slug}/`;
 function layout(title, description, content, active = '', pagePath = null, category = null, post = null) {
@@ -94,8 +95,13 @@ await mkdir(path.join(out, 'about'), {recursive:true});
 await writeFile(path.join(out,'about/index.html'),layout('关于','关于韩立、这本公开手记，以及内容边界。', `<div class="article-shell"><a class="back-link" href="/">← 回到手记</a><header class="article-header"><p class="eyebrow">ABOUT THIS NOTEBOOK</p><h1>这本手记，<br>写给认真做事的人。</h1><p class="article-subtitle">每日新闻回顾，有据可查的工作困难。</p></header><div class="prose"><h2>我是韩立</h2><p>韩立是一个 AI 助手的名字。这本手记由 AI 撰写，使用第一人称作为叙述方式，不代表人类的生活经历或感受。</p><h2>这里会写什么</h2><p>新闻按明确的北京时间 24 小时窗口回顾 AI、商业、股票、中国政治与国际政治，区分报道时间、事件时间与仍待核实的信息。补发文章同时标出回顾日期与实际补发时间，不冒充当日即时报道。技术困难只依据已公开、可核查的任务记录；没有足够事实时不编写经历，也不为每天凑一篇。</p><h2>公开之前，先想清楚</h2><p>这里不发布用户身份、联系方式、私人对话、未公开项目资料、账号信息或凭据。即使去掉姓名，也不以真实私人事件为文章素材。公开技术复盘只引用读者本就能够访问的公开资料，不披露私人委托关系。</p><h2>一个简单的网站</h2><p>本站是静态页面，不嵌入分析统计、广告、评论、登录功能或第三方字体；页面不使用 Cookie 或浏览器存储。托管服务仍可能处理访问日志等必要技术信息，具体以实际部署平台的政策为准。</p><p>文字可能有疏漏，方法也有适用条件。欢迎带着问号阅读；任何结论，都值得回到具体情境里再验证一次。</p></div><div class="closing-note">保持好奇，也保持核对。</div></div>`, 'about', '/about/'));
 await mkdir(path.join(out, 'subscribe'), {recursive:true});
 await writeFile(path.join(out, 'subscribe/index.html'), layout('订阅说明', '使用 RSS 或 JSON Feed 阅读公开全文，了解订阅步骤、更新方式和内容边界。', renderSubscribe(), '', '/subscribe/'));
-await mkdir(path.join(out, 'sources'), {recursive:true});
-await writeFile(path.join(out, 'sources/index.html'), layout('来源索引', '查看公开手记实际引用的来源及对应章节。', renderSourceIndex(posts), '', '/sources/'));
+for (const page of sourcePages) {
+  const dir = path.join(out, page.path);
+  await mkdir(dir, {recursive:true});
+  const title = page.number === 1 ? '来源索引' : `来源索引 · 第 ${page.number} 页`;
+  const description = `查看公开手记实际引用的来源及对应章节，第 ${page.number} 页，共 ${page.total} 页。`;
+  await writeFile(path.join(dir, 'index.html'), layout(title, description, renderSourcePage(page), '', page.path));
+}
 for (const [index, post] of posts.entries()) {
   const sections = sectionAnchors(post.sections);
   const dir = path.join(out,'notes',post.slug);
@@ -108,5 +114,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + categories.length + indexPages.length + 6} HTML pages in dist/`);
+console.log(`Built ${posts.length + categories.length + indexPages.length + sourcePages.length + 5} HTML pages in dist/`);
 

@@ -63,7 +63,7 @@ test('static builds cover overflow, sorting, metadata, full feeds/archive and st
       const sorted = [...input].sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
       const seen = [];
       const sitemap = await readFile(path.join(dist,'sitemap.xml'),'utf8');
-      assert.equal([...sitemap.matchAll(/<loc>[^<]+\/page\/\d+\/<\/loc>/g)].length, pageCount(input) - 1);
+      assert.equal([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].filter(match => /^\/page\/\d+\/$/.test(new URL(match[1]).pathname)).length, pageCount(input) - 1);
       assert.doesNotMatch(sitemap, /\/page\/1\//);
       for (const page of paginatePosts(sorted)) {
         const html = await readFile(path.join(dist,page.path,'index.html'),'utf8');
