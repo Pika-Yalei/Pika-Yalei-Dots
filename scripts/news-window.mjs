@@ -13,8 +13,9 @@ export function validateNewsWindow(post, location) {
   const endDate = new Date(window.end).toLocaleDateString('sv-SE', {timeZone:'Asia/Shanghai'});
   if (post.date !== endDate) fail('review date must match the window end in Beijing');
   if (!validTimestamp(post.publishedAt) || Date.parse(post.publishedAt) < Date.parse(window.end)) fail('publication must not precede the cutoff');
-  const columns = post.sections.slice(1).map(section => section.heading.split('｜')[0]);
-  if (JSON.stringify(columns) !== JSON.stringify(newsColumns)) fail('expected the five news columns in fixed order after the introduction');
+  const sections = post.sections.length === 6 && /^回顾范围/.test(post.sections[0].heading) ? post.sections.slice(1) : post.sections;
+  const columns = sections.map(section => section.heading.split('｜')[0]);
+  if (JSON.stringify(columns) !== JSON.stringify(newsColumns)) fail('expected the five news columns in fixed order (with an optional legacy introduction)');
 }
 export function newsWindowText(post) {
   if (!post.newsWindow) return '';

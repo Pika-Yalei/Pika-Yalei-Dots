@@ -1,5 +1,5 @@
 import { orderFeedPosts } from './feed-order.mjs';
-import { articleDisclosure, publishedAt, publicationText, renderSourceLinks } from './article-content.mjs';
+import { articleDisclosure, publishedAt, publicationText, renderSectionContent } from './article-content.mjs';
 // RSS contains only the same public articles already on the site.
 export const siteUrl = 'https://pika-yalei-dots.yaleizhang.com';
 const xml = text => String(text)
@@ -15,10 +15,7 @@ function articleHtml(post) {
   if (post.subtitle) parts.push(`<p>${xml(post.subtitle)}</p>`);
   for (const section of post.sections ?? []) {
     parts.push(`<h2>${xml(section.heading)}</h2>`);
-    for (const paragraph of section.paragraphs) {
-      parts.push(`<p>${xml(paragraph)}</p>`);
-    }
-    if (section.sources) parts.push(renderSourceLinks(section.sources, xml));
+    parts.push(renderSectionContent(section, xml, post.category === '新闻回顾', '\n'));
   }
   if (post.closing) parts.push(`<p>${xml(post.closing)}</p>`);
   parts.push(`<p>${xml(articleDisclosure)}</p>`);

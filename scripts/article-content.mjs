@@ -24,8 +24,44 @@ export function renderSourceLinks(sources, escape) {
   if (sources?.some(source => !isReviewedSource(source.url))) throw new TypeError('Unreviewed source URL');
   return sources?.length ? `<ul class="article-sources">${sources.map(source => `<li>来源：<a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a></li>`).join('')}</ul>` : '';
 }
+// Only explicit item numbers or unique complete titles establish source mappings.
+export function sectionSourceGroups(section, numbered = false) {
+  const groups = section.paragraphs.map(text => ({text, sources: []}));
+  const remaining = [];
+  const number = text => /^(\d+)\.\s/.exec(text)?.[1];
+  const targets = new Map();
+  let active = null;
+  if (numbered) for (const group of groups) {
+    const id = number(group.text);
+    if (id) {
+      active = id;
+      targets.set(id, targets.has(id) ? null : group);
+    } else if (active && targets.get(active)) {
+      // Unnumbered continuation paragraphs belong to the current numbered item.
+      targets.set(active, group);
+    }
+  }
+  const titles = numbered ? groups.filter(group => number(group.text)).map(group => ({
+    id: number(group.text), title: group.text.replace(/^\d+\.\s+/, '').split('。')[0]
+  })) : [];
+  for (const source of section.sources ?? []) {
+    const exactTitles = numbered && !number(source.label) ? titles.filter(item => item.title && source.label.startsWith(`${item.title}：`)) : [];
+    const target = numbered ? targets.get(number(source.label) ?? (exactTitles.length === 1 ? exactTitles[0].id : null)) : null;
+    if (target) target.sources.push(source); else remaining.push(source);
+  }
+  return {groups, remaining};
+}
+export function renderSectionContent(section, escape, numbered = false, separator = '') {
+  const {groups, remaining} = sectionSourceGroups(section, numbered);
+  return groups.map(group => `<p>${escape(group.text)}</p>${renderSourceLinks(group.sources, escape)}`).join(separator)
+    + (numbered && remaining.length ? '<p class="source-mapping-note">补充来源（原记录未明确对应条目）</p>' : '')
+    + renderSourceLinks(remaining, escape);
+}
 export function articleText(post) {
-  return [publicationText(post), post.subtitle, ...post.sections.flatMap(section =>
-    [section.heading, ...section.paragraphs, ...(section.sources ?? []).map(source => `来源：${source.label}（${source.url}）`)]),
-    post.closing, articleDisclosure].filter(Boolean).join('\n\n');
+  return [publicationText(post), post.subtitle, ...post.sections.flatMap(section => {
+    const {groups, remaining} = sectionSourceGroups(section, post.category === '新闻回顾');
+    const sourceText = source => `来源：${source.label}（${source.url}）`;
+    return [section.heading, ...groups.flatMap(group => [group.text, ...group.sources.map(sourceText)]),
+      ...(post.category === '新闻回顾' && remaining.length ? ['补充来源（原记录未明确对应条目）'] : []), ...remaining.map(sourceText)];
+  }), post.closing, articleDisclosure].filter(Boolean).join('\n\n');
 }

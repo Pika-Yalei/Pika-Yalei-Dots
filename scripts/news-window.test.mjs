@@ -18,3 +18,5 @@ test('news windows reject malformed dates, extra fields, wrong duration, future 
 test('legacy articles remain valid without a new window and are not rewritten',()=>{
  const {newsWindow,...legacy}=fixture();validatePosts([legacy]);assert.equal(newsWindowText(legacy),'');
 });
+
+test('concise news may start directly with the five columns',()=>{ const p=fixture();p.sections=p.sections.slice(1);validatePosts([p]);assert.match(articleText(p),/新闻窗口/); });
