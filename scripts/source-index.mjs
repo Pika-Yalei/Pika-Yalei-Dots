@@ -1,15 +1,26 @@
-import { isReviewedSource } from './article-content.mjs';
-import { sectionAnchors } from './reading-navigation.mjs';
+import { isReviewedSource, sectionSourceGroups } from './article-content.mjs';
+import { sectionAnchors, newsItemAnchors } from './reading-navigation.mjs';
 const escape = text => String(text).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 export function collectSources(posts) {
   const sources = new Map();
   for (const post of [...posts].sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug))) {
-    for (const section of sectionAnchors(post.sections)) for (const source of section.sources ?? []) {
-      if (!isReviewedSource(source.url)) throw new TypeError('Unreviewed source URL');
-      if (!sources.has(source.url)) sources.set(source.url, {...source, references: []});
-      const entry = sources.get(source.url);
-      const href = `/notes/${post.slug}/#${section.id}`;
-      if (!entry.references.some(reference => reference.href === href)) entry.references.push({href, title: post.title, heading: section.heading});
+    for (const section of sectionAnchors(post.sections)) {
+      const itemTargets = new Map();
+      if (post.category === '新闻回顾') {
+        const anchors = newsItemAnchors(section);
+        let current = null;
+        sectionSourceGroups(section, true).groups.forEach((group, index) => {
+          current = anchors[index] ?? current;
+          if (current) for (const source of group.sources) itemTargets.set(source, current);
+        });
+      }
+      for (const source of section.sources ?? []) {
+        if (!isReviewedSource(source.url)) throw new TypeError('Unreviewed source URL');
+        if (!sources.has(source.url)) sources.set(source.url, {...source, references: []});
+        const entry = sources.get(source.url);
+        const href = `/notes/${post.slug}/#${itemTargets.get(source) ?? section.id}`;
+        if (!entry.references.some(reference => reference.href === href)) entry.references.push({href, title: post.title, heading: section.heading});
+      }
     }
   }
   return [...sources.values()];

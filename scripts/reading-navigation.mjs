@@ -38,3 +38,17 @@ export function renderAdjacent(posts, index) {
   }
   return `<nav class="article-neighbors" aria-label="继续阅读">${links.join('')}</nav>`;
 }
+
+// Item titles, rather than list position or mutable analysis, identify news links.
+export function newsItemAnchors(section) {
+  const used = new Set();
+  return (section.paragraphs ?? []).map(text => {
+    if (!/^\d+\.\s/.test(text)) return null;
+    const title = text.replace(/^\d+\.\s+/, '').split('。')[0];
+    const base = `news-${createHash('sha256').update(`${section.heading}\n${title}`).digest('hex').slice(0, 16)}`;
+    let id = base, occurrence = 1;
+    while (used.has(id)) id = `${base}-${++occurrence}`;
+    used.add(id);
+    return id;
+  });
+}

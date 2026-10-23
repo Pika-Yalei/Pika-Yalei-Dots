@@ -1,3 +1,4 @@
+import { newsItemAnchors } from './reading-navigation.mjs';
 import { newsWindowText } from './news-window.mjs';
 import { readFileSync } from 'node:fs';
 
@@ -53,7 +54,11 @@ export function sectionSourceGroups(section, numbered = false) {
 }
 export function renderSectionContent(section, escape, numbered = false, separator = '') {
   const {groups, remaining} = sectionSourceGroups(section, numbered);
-  return groups.map(group => `<p>${escape(group.text)}</p>${renderSourceLinks(group.sources, escape)}`).join(separator)
+  const anchors = numbered && section.id ? newsItemAnchors(section) : [];
+  return groups.map((group, index) => {
+    const content = `<p>${escape(group.text)}</p>${renderSourceLinks(group.sources, escape)}`;
+    return anchors[index] ? `<div class="news-item" id="${anchors[index]}" tabindex="-1">${content}<a class="news-permalink" href="#${anchors[index]}" aria-label="本条新闻链接：${escape(group.text.replace(/^\d+\.\s+/, '').split('。')[0])}">本条链接</a></div>` : content;
+  }).join(separator)
     + (numbered && remaining.length ? '<p class="source-mapping-note">补充来源（原记录未明确对应条目）</p>' : '')
     + renderSourceLinks(remaining, escape);
 }
