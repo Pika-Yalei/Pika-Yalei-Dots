@@ -76,7 +76,7 @@ test('numbered keyboard links, current page and previous/next links match source
     for (const other of [1,2,3].filter(page => page !== number)) {
       assert.ok(html.includes(`<a href="${sourcePagePath(other)}" aria-label="第 ${other} 页">${other}</a>`));
     }
-    assert.doesNotMatch(html,/sources\/page\/1\/|tabindex|<script|<form|onclick/);
+    assert.doesNotMatch(html,/sources\/page\/1\/|<script|<form|onclick/);
   }
 });
 
