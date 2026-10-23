@@ -82,7 +82,7 @@
 }
 
 /* Native disclosure keeps the growing source website index compact without scripts. */
-.source-domains{border:1px solid var(--line);padding:12px 16px;margin:24px 0;overflow-wrap:anywhere}.source-domains summary{cursor:pointer;min-height:44px;padding:10px 0}.source-domains summary:focus-visible,.source-entry:focus{outline:2px solid var(--green);outline-offset:7px}.source-domains ul{columns:2;column-gap:32px;padding-left:20px}.source-domains li{break-inside:avoid}.source-domains a{display:inline-block;min-height:44px;padding:8px 0}.source-entry{scroll-margin-top:24px}
+.source-domains{border:1px solid var(--line);padding:12px 16px;margin:24px 0;overflow-wrap:anywhere}.source-domains summary{cursor:pointer;min-height:44px;padding:10px 0}.source-domains summary:focus-visible,.source-entry:focus{outline:2px solid var(--green);outline-offset:7px}.source-domains ul{columns:2;column-gap:32px;padding-left:20px}.source-domains li{break-inside:avoid}.source-domains a{display:inline-block;min-width:44px;min-height:44px;max-width:100%;padding:8px 0}.source-entry{scroll-margin-top:24px}
 @media(max-width:43.75em){.source-domains ul{columns:1}}
 
 /* Printed copies keep authorship and flow naturally across page boundaries. */
