@@ -64,6 +64,22 @@
 
 /* Deep links focus an individual news item without changing historical text. */
 .news-item{scroll-margin-top:24px}.news-item:focus{outline:2px solid var(--green);outline-offset:7px}.news-permalink{display:inline-block;font-size:0.75rem;color:var(--muted);padding:6px 0;margin-bottom:8px}
+/* Discrete controls need a finger-sized hit area, not just a text-sized one.
+   In-flow boxes reserve their space (no overlapping pseudo-element hit areas).
+   Keep prose citations inline, and leave the printed reading layout untouched. */
+@media screen{
+  :is(.news-permalink,.site-header nav a,.read-link,.back-link,.home-aside a,.site-footer a,.entry-meta a,.breadcrumbs a,.article-contents a,.article-topics a,.pagination a,.archive-list a,.article-neighbors a,.related-notes li>a){
+    display:inline-block;
+    min-width:44px;
+    min-height:44px;
+    max-width:100%;
+    padding:0.625rem 0.25rem;
+    vertical-align:middle;
+    overflow-wrap:anywhere;
+  }
+  .site-header nav{column-gap:12px}
+  .site-footer a{line-height:1.8}
+}
 
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 @media print{
