@@ -1,3 +1,4 @@
+import { renderCacheHeaders } from './cache-headers.mjs';
 import { renderTopics, renderTopicNavigation } from './topics.mjs';
 import { readingTimeText, readingTimeExplanation } from './reading-time.mjs';
 import { collectSources, paginateSources, renderSourcePage } from './source-index.mjs';
@@ -67,7 +68,7 @@ ${category ? `<link rel="alternate" type="application/rss+xml" title="${escape(`
 }
 await buildDirectory(path.join(root, 'dist'), async out => {
 for (const [name, bytes] of publicAssets) {
-  await writeFile(path.join(out, name), bytes);
+  await writeFile(path.join(out, name), name === '_headers' ? renderCacheHeaders(bytes.toString('utf8'), stylesheetName) : bytes);
 }
 await writeFile(path.join(out, stylesheetName), stylesheet);
 for (const page of indexPages) {

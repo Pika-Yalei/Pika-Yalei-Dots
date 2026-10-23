@@ -1,3 +1,4 @@
+import { renderCacheHeaders } from './cache-headers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { cp, mkdtemp, mkdir, readFile, readdir, rename, rm, symlink, writeFile } from 'node:fs/promises';
@@ -29,11 +30,13 @@ async function fixture(t) {
   return { temp, build, previous: await snapshot(path.join(temp, 'dist')) };
 }
 
-test('reviewed assets are copied byte-for-byte and the stylesheet hash is retained', async (t) => {
+test('reviewed assets retain their bytes and headers append only generated cache rules', async (t) => {
   const { temp, previous } = await fixture(t);
   assert.deepEqual(PUBLIC_ASSETS, ['_headers', 'favicon.svg', 'style.css']);
   for (const name of PUBLIC_ASSETS) {
-    assert.deepEqual(previous[name], await readFile(path.join(temp, 'public', name)));
+    const original = await readFile(path.join(temp, 'public', name));
+    const fingerprint = Object.keys(previous).find(name => /^style\.[0-9a-f]{16}\.css$/.test(name));
+    assert.deepEqual(previous[name], name === '_headers' ? Buffer.from(renderCacheHeaders(original.toString('utf8'), fingerprint)) : original);
   }
   const hashed = Object.keys(previous).filter(name => /^style\.[0-9a-f]{16}\.css$/.test(name));
   assert.equal(hashed.length, 1);
