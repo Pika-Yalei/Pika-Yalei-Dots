@@ -62,8 +62,12 @@
 /* Static cross-date news navigation shares the archive reading layout. */
 .topic-section{margin:36px 0}.topic-section h2{font-family:var(--serif);overflow-wrap:anywhere;scroll-margin-top:24px}.topic-section h2:focus{outline:2px solid currentColor;outline-offset:7px}.article-topics{margin:0 0 32px;line-height:1.9;overflow-wrap:anywhere}.article-topics a{display:inline-block;padding:4px 0;text-decoration:underline}
 
+/* Deep links focus an individual news item without changing historical text. */
+.news-item{scroll-margin-top:24px}.news-item:focus{outline:2px solid var(--green);outline-offset:7px}.news-permalink{display:inline-block;font-size:0.75rem;color:var(--muted);padding:6px 0;margin-bottom:8px}
+
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 @media print{
+  .news-permalink{display:none}.news-item:focus{outline:none}
   @page{margin:18mm}
   .pagination{display:none}
   :root{color-scheme:light;--paper:#fff;--wash:#fff;--selection:#ddd;--selection-ink:#000;--note-muted:#333;--note-rule:#222;--index:#333;--separator:#333;--ink:#000;--muted:#333;--green:#222;--line:#aaa}
