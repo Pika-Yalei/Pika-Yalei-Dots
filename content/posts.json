@@ -2703,5 +2703,223 @@
       }
     ],
     "closing": "事实与分析分开阅读；计划、咨询与非约束性决议，不等同于已经实施。"
+  },
+  {
+    "slug": "news-2026-10-24",
+    "date": "2026-10-24",
+    "title": "2026-10-24｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-23 10:25 至 2026-10-24 10:25",
+    "category": "新闻回顾",
+    "readingMinutes": 18,
+    "summary": "五个栏目各五条：AI模型与基础设施、企业季度经营、五地股市收盘、中国政策与应急进展，以及国际外交和人道主义援助。",
+    "publishedAt": "2026-10-24T02:38:48Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-23T02:25:00Z",
+      "end": "2026-10-24T02:25:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Kimi K3.1 Pro 上线，完整权重仍待发布。月之暗面10月23日推出 Kimi K3.1 Pro 及 Highspeed 版本，官方称支持100万 token 上下文，已在 Kimi、Kimi Work、Kimi Code 和 API 提供。Highspeed 的约2至3倍速度是厂商声明；完整模型权重计划11月4日前发布，不能把在线可用写成权重已经开放。分析：长上下文与更快交互为复杂编码任务提供新选项，实际效果与成本仍需逐任务测试。",
+          "2. OpenAI 新披露前沿训练环境的隔离与持续测试方案。OpenAI 在10月23日发布的技术说明中表示，前沿模型训练采用不连接实时互联网的环境，并将高算力安全测试纳入训练安全评估。文中9月的内部事件及10月1日恢复训练属于此次披露的历史背景，并非当天发生；研究环境也不同于已发布产品的使用环境。分析：模型能力增强提高了隔离、监控与持续验证的要求，单一措施不能代表整体安全保证。",
+          "3. Bevo Lab 启动，将体育数据与 AI 研究连接起来。德克萨斯大学体育部门与 McCombs 商学院于10月23日美东时间09:00宣布 Bevo Lab 启动，合作方包括 Dell、Google Cloud 和 SHI。平台从美式足球开始整合比赛影像与可穿戴设备等数据，计划扩展至21支校队；首年计划让最多40名学生研究者参与。分析：这是 AI 进入专业数据工作流的应用案例，合作方声称的效率收益仍需与独立测量区分。",
+          "4. Tempus 披露与 BMS 的合作扩展，Pathos 同日宣布 AI 药物研发合作。Tempus 于10月23日公告扩大与 Bristol Myers Squibb 的战略合作；Pathos 同日宣布与 BMS、Tempus 开展数据和 AI 工具合作，首先面向阿尔茨海默病及其他神经系统疾病。本条记录当日公开披露，不把较早签署的协议写成当天签约。分析：AI 药物研发的商业合作正围绕数据与研究工具展开，但合作公告不等于药物有效性或临床成功已获证明。",
+          "5. AAIF 公布首届技术卓越奖，表彰开放智能体基础设施贡献。Agentic AI Foundation 于10月23日在圣何塞 AGNTCon 与 MCPCon 公布首届技术卓越奖。Nate Barbettini 与 Marcelo Trylesinski 获技术贡献奖，Den Delimarsky 获首届 Keystone Award；基金会说明其贡献涉及 MCP 授权、Python SDK 及协议维护。分析：开放智能体生态也依赖协议维护、授权设计与社区建设；获奖本身不等于产品安全认证。"
+        ],
+        "sources": [
+          {
+            "label": "1. Kimi 官方技术说明",
+            "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+          },
+          {
+            "label": "1. Kimi Code 10月23日更新记录",
+            "url": "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html"
+          },
+          {
+            "label": "2. OpenAI 当日技术说明",
+            "url": "https://openai.com/index/securing-our-frontier-model-training-environment/"
+          },
+          {
+            "label": "3. Google Cloud 发布的合作公告",
+            "url": "https://www.googlecloudpresscorner.com/2026-10-23-Texas-Athletics-and-the-McCombs-School-of-Business-Launch-New-Bevo-Lab,-Bringing-Together-Sports,-AI,-and-Analytics"
+          },
+          {
+            "label": "3. 带发布时间的原始新闻稿",
+            "url": "https://www.prnewswire.com/news-releases/texas-athletics-and-mccombs-school-of-business-launch-new-bevo-lab-bringing-together-sports-ai-and-analytics-302917606.html"
+          },
+          {
+            "label": "4. Tempus 官方合作公告",
+            "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-expands-strategic-collaboration-bristol-myers-squibb-0"
+          },
+          {
+            "label": "4. Reuters 当日报道",
+            "url": "https://www.channelnewsasia.com/business/pathos-ai-teams-up-bristol-myers-and-tempus-ai-advance-drug-development-6486661"
+          },
+          {
+            "label": "5. AAIF 官方获奖公告",
+            "url": "https://aaif.io/blog/winners-of-the-first-aaif-annual-technical-excellence-awards"
+          },
+          {
+            "label": "5. 大会10月23日上午颁奖议程",
+            "url": "https://events.linuxfoundation.org/agntcon-mcpcon-north-america/program/schedule/?id=1362632"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. American Express 公布三季度收入增长9%。公司10月23日发布季度结果，收入200.62亿美元，同比增长9%；调整后每股收益4.68美元，同比增长13%。全年 GAAP 每股收益指引为18.30至18.60美元，调整后口径为17.60至17.90美元。分析：股权出售等一次性因素影响 GAAP 结果，评价经营增长时不应混用两种利润口径。",
+          "2. SLB 三季度收入增长，调整后每股收益同比下降。SLB 于10月23日美东时间07:00公布三季度收入94.5亿美元，同比增长6%；调整后每股收益0.64美元，同比下降7%、环比增长16%；自由现金流8.28亿美元。分析：收入增长与每股盈利变化方向不同，不能只用营收增速判断盈利质量。",
+          "3. Autoliv 调整全年利润率预期。Autoliv 于10月23日欧洲中部夏令时间12:00公布三季度销售额26.93亿美元，同比下降0.5%，有机销售下降1.1%；调整后营业利润率为9.7%。公司把全年调整后营业利润率预期从10.5%至11%改为约10.5%。分析：最新指引收窄至此前区间下沿，表明销售与利润率仍面临压力，指引不是最终业绩。",
+          "4. Eni 上调回购安排并计划特别股息。Eni 于10月23日欧洲中部夏令时间07:29公布三季度结果，调整后净利润28亿欧元，较上年同期超过翻倍；全年股份回购规模提高至38亿欧元，并计划在12月支付每股0.46欧元特别股息。分析：盈利和股东回报安排同步提高，但计划付款不能表述为投资者已经收到款项。",
+          "5. Infosys 公布季度结果并更新全年增长指引。Infosys 于10月23日公布2027财年第二季度结果，收入51.45亿美元；按固定汇率计，同比增长1.5%、环比增长1.2%。大型合同总价值52亿美元，全年固定汇率收入增长指引调整为1%至2%，营业利润率指引仍为20%至22%。分析：合同总价值为未来业务提供参考，不等同于当季已经确认的收入。"
+        ],
+        "sources": [
+          {
+            "label": "1. American Express 官方季度结果",
+            "url": "https://www.americanexpress.com/en-us/newsroom/articles/financial-news/american-express-third-quarter-2026-financial-results.html"
+          },
+          {
+            "label": "1. 公司原始新闻稿可读转载",
+            "url": "https://www.marketscreener.com/news/american-express-third-quarter-2026-press-release-ce785cdfd888f227"
+          },
+          {
+            "label": "2. SLB 官方季度结果",
+            "url": "https://investorcenter.slb.com/news-releases/news-release-details/slb-announces-third-quarter-2026-results"
+          },
+          {
+            "label": "3. Autoliv 官方财报",
+            "url": "https://www.autoliv.com/press/financial-report-july-september-2026-2491834"
+          },
+          {
+            "label": "4. Eni 官方三季度结果",
+            "url": "https://www.eni.com/en-IT/media/press-release/2026/10/2026-third-quarter-results.html"
+          },
+          {
+            "label": "5. Infosys 官方季度结果入口",
+            "url": "https://www.infosys.com/investors/reports-filings/quarterly-results/2026-2027/q2.html"
+          },
+          {
+            "label": "5. Infosys 官方美元财报新闻稿（全文）",
+            "url": "https://www.infosys.com/investors/reports-filings/quarterly-results/2026-2027/q2/documents/ifrs-usd-press-release.pdf"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美股三大指数10月23日收跌。美国当地10月23日收盘，道琼斯工业平均指数报52215.16点，下跌1.23%；标普500报7623.68点，下跌0.52%；纳斯达克综合指数报25955.34点，下跌0.21%。美国股票通常以美元交易，以上指数数值以点计。分析：各指数跌幅不同，单一指数不能代表所有行业；单日波动不构成后续走势判断。",
+          "2. 欧洲 STOXX 600 周五下跌。欧洲当地10月23日收盘，STOXX Europe 600 报635.77点，下跌0.31%，全周约下跌1.4%。该指数覆盖多个市场，成分股交易币种包括欧元、英镑与瑞士法郎，指数本身以点计。分析：周度与单日表现都为负，但不能仅凭这一结果推断各国、各行业承受相同压力。",
+          "3. 日经225收于62693.16点。日经指数官方页面标注的日本当地10月23日收盘值为62693.16点，较前一交易日下降214.68点、跌幅0.34%。日本股票以日元交易，指数以点计。分析：本条采用指数公司明确标注的收盘数据，不把盘中报价或其他时点的涨跌幅混作最终结果。",
+          "4. A股上证指数10月23日回升。中国内地10月23日15:00收盘，上证指数报3690.48点，上涨0.89%。A股以人民币交易，指数以点计。分析：综合指数回升不意味着每个行业或每只股票同步上涨，也不能由收盘结果断言某类资金是上涨原因。",
+          "5. 印度主要股指连续第四个交易日下跌。印度当地10月23日收盘，Nifty 50 报22600点，下跌0.39%；Sensex 报73123.83点，下跌0.17%。印度股票以卢比交易，指数以点计。分析：油价上涨可能增加石油进口经济体的成本压力，但这不是对未来股价或汇率的预测。"
+        ],
+        "sources": [
+          {
+            "label": "1. Reuters 10月23日美东17:40全球收盘综述",
+            "url": "https://www.marketscreener.com/news/stocks-fall-but-tech-shares-steady-after-selloff-oil-hits-highest-in-nearly-six-months-ce785cdfdc8ff02c"
+          },
+          {
+            "label": "2. Reuters 当日全球市场综述",
+            "url": "https://www.marketscreener.com/news/stocks-fall-but-tech-shares-steady-after-selloff-oil-hits-highest-in-nearly-six-months-ce785cdfdc8ff02c"
+          },
+          {
+            "label": "3. 日经指数官方收盘数据",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/"
+          },
+          {
+            "label": "4. 金融界上证指数当日收盘数据",
+            "url": "https://summary.jrj.com.cn/stock/sh/000001"
+          },
+          {
+            "label": "5. 印度公共广播当日收盘报道",
+            "url": "https://newsonair.gov.in/domestic-markets-end-low-for-fourth-consecutive-session/"
+          },
+          {
+            "label": "5. Reuters 当日印度市场报道",
+            "url": "https://www.brecorder.com/news/40445622/surging-oil-prices-drag-indian-shares-to-weekly-losses"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 国务院常务会议研究人口发展与公共服务工作。10月23日召开的国务院常务会议研究相关工作，提出完善家庭支持、加强技能培训，并推动公共服务适应常住人口变化。新华社于北京时间19:41发布会议消息。分析：人口政策与公共服务供给相联系，具体项目、预算与实施安排仍需看后续正式措施。",
+          "2. 就业友好型人工智能政策措施对外披露。新华社10月23日17:02报道，有关部门日前印发相关政策，围绕新职业、技能培训、就业风险应对、岗位转换和劳动者权益等提出六方面18项任务。本条记录当日新披露，不将“日前印发”改写为当天签发。分析：政策关注技术应用与就业转型同步推进，具体落地效果仍需持续观察。",
+          "3. 国家防总针对江苏启动防汛防台风四级应急响应。应急管理部10月23日20:49通报，国家防总于当日19:00针对江苏启动响应，应对台风“蔷琵”与冷空气共同影响下的风雨风险。预报中的风雨不等于已经发生的灾害损失。分析：应急响应意味着提前加强防范和协调，实际影响应以当地后续预警与实况为准。",
+          "4. 西藏巴青地震救灾响应升级并追加救灾物资。应急管理部10月23日16:34通报，国家救灾应急响应提升至三级，并追加调拨5000件救灾物资、派出联合工作组。本条新进展是响应升级和追加支援，地震发生及先前响应属于背景；调拨不等于所有物资已送达。分析：响应升级有助于跨部门资源协调，救援成效仍应以现场后续通报为准。",
+          "5. 中国发布外空治理立场文件。外交部10月23日21:23公布有关外空治理的立场，涉及和平利用外空、风险通报、商业航天、空间交通与碎片治理合作等方向。这是政策立场，不是已经生效的国际条约。分析：商业航天活动增加使交通协调与风险管理更受关注，原则表述仍需转化为具体国际合作安排。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社国务院常务会议消息",
+            "url": "https://www2.xinhuanet.com/politics/20261023/ffcb0f60d71f46bc9b70ce4e3e0233ae/c.html"
+          },
+          {
+            "label": "2. 新华社政策报道",
+            "url": "https://www3.xinhuanet.com/politics/20261023/f21a5777774749daa0eed451c81f4002/c.html"
+          },
+          {
+            "label": "3. 应急管理部官方通报",
+            "url": "https://www.mem.gov.cn/xw/yjglbgzdt/202610/t20261023_736832.shtml"
+          },
+          {
+            "label": "4. 应急管理部救灾进展通报",
+            "url": "https://www.mem.gov.cn/xw/yjglbgzdt/202610/t20261023_736812.shtml"
+          },
+          {
+            "label": "5. 外交部官方立场文件",
+            "url": "https://www.mfa.gov.cn/zyxw/202610/t20261023_12046095.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 欧盟委员会追加也门人道主义援助。欧委会10月23日宣布增加2250万欧元，也门当年相关援助总额由8750万欧元增至1.1亿欧元，支持人道主义机构、必要物资与应急准备。官方页面仅提供发布日期；承诺援助不等于已经全部交付。分析：新增资金可扩充救助资源，但覆盖能力仍受当地准入和安全条件影响。",
+          "2. 多方就苏丹饥荒风险发表联合声明。英国及多个合作方10月23日发布部长级联合声明，呼吁扩大跨境和跨前线人道主义准入、增加救助资金。官方页面仅提供日期。本条是对饥荒风险的共同表态，不等于新的饥荒确认，也不是停火协议。分析：声明有助于集中外交与援助注意力，能否改善准入仍取决于相关方实际行动。",
+          "3. 第九届伊斯坦布尔调解会议开幕。会议于10月23日在伊斯坦布尔开幕，土耳其外长菲丹出席，讨论预防性外交、调解及国际合作。官方议程将开幕安排在当地10:00，即北京时间15:00。分析：会议提供协调经验与接触的平台，但召开会议本身不代表具体冲突已获解决。",
+          "4. 联合国消除对妇女歧视委员会发布第41号一般性建议。委员会于10月23日在日内瓦与缔约国举行非正式会议，并公开推出有关消除性别定型观念及其背后不平等权力关系的第41号一般性建议。官方会议纪要确认该发布活动当天举行；建议旨在指导公约落实，不等于各国国内法律已同步改变。分析：后续重点是各国如何把指导转化为法律、政策和制度实践，而非仅停留在原则表态。",
+          "5. 英国王室宣布教宗接受温莎圣乔治礼拜堂荣誉称号。英国王室10月23日公告，教宗良十四世已接受圣乔治教士团（College of St George）的 Papal Confrater 荣誉称号。查尔斯三世于2025年在罗马获得相应荣誉属于背景，不是当天新访。分析：这一象征性交流体现两教会推进友好关系的意愿，不代表教义分歧或机构区隔已经消失。"
+        ],
+        "sources": [
+          {
+            "label": "1. 欧盟委员会官方公告",
+            "url": "https://civil-protection-humanitarian-aid.ec.europa.eu/news-stories/news/eu-announces-additional-eur225-million-reinforce-humanitarian-assistance-yemen-2026-10-23_en"
+          },
+          {
+            "label": "2. 英国政府联合声明",
+            "url": "https://www.gov.uk/government/news/joint-ministerial-statement-on-the-risk-of-famine-in-sudan"
+          },
+          {
+            "label": "2. 芬兰外交部同一联合声明",
+            "url": "https://um.fi/current-affairs?contentid=334348&contentlan=2&culture=en-US&nodeid=15145"
+          },
+          {
+            "label": "3. 土耳其外交部会议记录",
+            "url": "https://www.mfa.gov.tr/9-istanbul-arabuluculuk-konferansi--23-24-ekim-2026--istanbul.en.mfa"
+          },
+          {
+            "label": "3. 官方会议议程",
+            "url": "https://istanbulmediation.org/istanbul-arabuluculuk-konferansi-9-programme.html"
+          },
+          {
+            "label": "4. 联合国日内瓦办事处10月23日会议纪要（全文）",
+            "url": "https://www.ungeneva.org/en/news-media/meeting-summary/2026/10/committee-elimination-discrimination-against-women-holds-meeting"
+          },
+          {
+            "label": "5. 英国王室10月23日官方公告（全文）",
+            "url": "https://www.royal.uk/news-and-activity/2026-10-23/pope-leo-xiv-accepts-honorary-title-at-st-georges-chapel-windsor"
+          },
+          {
+            "label": "5. 圣公会新闻机构同日14:14消息",
+            "url": "https://www.anglicannews.org/news/2026/10/pope-leo-xiv-accepts-honorary-title-at-st-george%E2%80%99s-chapel,-windsor.aspx"
+          }
+        ]
+      }
+    ],
+    "closing": "事实与分析分开阅读；计划、声明与政策立场，不等于已经实施。股票市场部分均为当地10月23日收盘，不是10月24日新行情。"
   }
 ]
