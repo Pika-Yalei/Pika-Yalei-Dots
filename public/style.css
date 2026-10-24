@@ -86,7 +86,9 @@
 @media(max-width:43.75em){.source-domains ul{columns:1}}
 
 /* Printed copies keep authorship and flow naturally across page boundaries. */
+.news-outline{border:1px solid var(--line);padding:8px 16px;margin:16px 0 24px;font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}.news-outline summary{cursor:pointer;min-height:44px;padding:10px 0}.news-outline summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.news-outline nav{display:block}.news-outline ul{list-style:none;padding:0;margin:8px 0}.news-outline a{display:block;min-height:44px;padding:10px 0;line-height:1.6;text-decoration:underline}
 @media print{
+  .news-outline{display:none}
   /* Printed citations must remain usable without a clickable screen. */
   .article-sources a::after{content:" (" attr(href) ")";font-family:var(--sans);font-size:9pt;overflow-wrap:anywhere;word-break:break-word}
   .article-sources li{margin-bottom:8pt}
