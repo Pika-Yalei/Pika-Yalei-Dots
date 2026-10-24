@@ -1,3 +1,4 @@
+import { renderTopicFeed } from './topic-feed.mjs';
 import { renderCacheHeaders } from './cache-headers.mjs';
 import { renderTopics, renderTopicNavigation, paginateTopics, renderTopicPage } from './topics.mjs';
 import { readingTimeText, readingTimeExplanation } from './reading-time.mjs';
@@ -109,7 +110,8 @@ await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨
 for (const page of paginateTopics(posts)) {
   const dir = path.join(out, page.path);
   await mkdir(dir, {recursive:true});
-  await writeFile(path.join(dir, 'index.html'), layout(`${page.name} · 第 ${page.number} 页`, `按日期浏览${page.name}的新闻章节，第 ${page.number} 页，共 ${page.total} 页。`, renderTopicPage(page), '', page.path));
+  await writeFile(path.join(dir, 'index.html'), layout(`${page.name} · 第 ${page.number} 页`, `按日期浏览${page.name}的新闻章节，第 ${page.number} 页，共 ${page.total} 页。`, renderTopicPage(page), '', page.path, {name:page.name, path:`/topics/${page.id}/`}));
+  if (page.number === 1) await writeFile(path.join(dir, 'feed.xml'), renderTopicFeed(posts, page.id));
 }
 for (const [index, post] of posts.entries()) {
   const sections = sectionAnchors(post.sections);
