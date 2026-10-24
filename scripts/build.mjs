@@ -1,5 +1,5 @@
 import { renderCacheHeaders } from './cache-headers.mjs';
-import { renderTopics, renderTopicNavigation } from './topics.mjs';
+import { renderTopics, renderTopicNavigation, paginateTopics, renderTopicPage } from './topics.mjs';
 import { readingTimeText, readingTimeExplanation } from './reading-time.mjs';
 import { collectSources, paginateSources, renderSourcePage } from './source-index.mjs';
 import { articleDisclosure, publicationText, renderSectionContent } from './article-content.mjs';
@@ -106,6 +106,11 @@ for (const page of sourcePages) {
 }
 await mkdir(path.join(out, 'topics'), {recursive:true});
 await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨日期浏览 AI、商业、股票市场、中国政策与国际新闻的原文章节。', renderTopics(posts), '', '/topics/'));
+for (const page of paginateTopics(posts)) {
+  const dir = path.join(out, page.path);
+  await mkdir(dir, {recursive:true});
+  await writeFile(path.join(dir, 'index.html'), layout(`${page.name} · 第 ${page.number} 页`, `按日期浏览${page.name}的新闻章节，第 ${page.number} 页，共 ${page.total} 页。`, renderTopicPage(page), '', page.path));
+}
 for (const [index, post] of posts.entries()) {
   const sections = sectionAnchors(post.sections);
   const dir = path.join(out,'notes',post.slug);
@@ -118,5 +123,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + categories.length + indexPages.length + sourcePages.length + 6} HTML pages in dist/`);
+console.log(`Built ${posts.length + categories.length + indexPages.length + sourcePages.length + paginateTopics(posts).length + 6} HTML pages in dist/`);
 
