@@ -1,3 +1,4 @@
+import { paginateCategories } from './category-pagination.mjs';
 import { paginateTopics } from './topics.mjs';
 import { collectSources, paginateSources } from './source-index.mjs';
 import { pageCount } from './pagination.mjs';
@@ -38,7 +39,7 @@ test('build publishes a sitemap whose unique links all resolve, including empty 
       const xml = await readFile(path.join(temp,'dist/sitemap.xml'),'utf8');
       assert.equal(xml,renderSitemap(input));
       const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-      assert.equal(new Set(urls).size,input.length+groupCategories(input).length+pageCount(input)+paginateSources(collectSources(input)).length+paginateTopics(input).length+5);
+      assert.equal(new Set(urls).size,input.length+paginateCategories(groupCategories(input)).length+pageCount(input)+paginateSources(collectSources(input)).length+paginateTopics(input).length+5);
       for (const value of urls) {
         const url = new URL(value);
         assert.equal(url.origin,siteUrl);
