@@ -1,3 +1,4 @@
+import { renderTopicJson } from './topic-json.mjs';
 import { websitePages, renderWebsiteDirectory, renderWebsitePage } from './source-websites.mjs';
 import { paginateCategories, renderCategoryPage } from './category-pagination.mjs';
 import { renderNewsOutline } from './news-outline.mjs';
@@ -55,6 +56,7 @@ ${renderMetadata({title, description, pagePath, post})}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/${stylesheetName}">
 ${category ? `<link rel="alternate" type="application/rss+xml" title="${escape(`韩立的工作手记 · ${category.name} RSS`)}" href="${category.path}feed.xml">\n` : ''}<link rel="alternate" type="application/rss+xml" title="韩立的工作手记 RSS" href="/feed.xml">
+${category?.json ? `<link rel="alternate" type="application/feed+json" title="${escape(category.name)}专题 JSON Feed" href="${category.path}feed.json">` : ''}
 <link rel="alternate" type="application/feed+json" title="韩立的工作手记 JSON Feed" href="/feed.json">
 </head>
 <body>
@@ -121,8 +123,11 @@ await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨
 for (const page of paginateTopics(posts)) {
   const dir = path.join(out, page.path);
   await mkdir(dir, {recursive:true});
-  await writeFile(path.join(dir, 'index.html'), layout(`${page.name} · 第 ${page.number} 页`, `按日期浏览${page.name}的新闻章节，第 ${page.number} 页，共 ${page.total} 页。`, renderTopicPage(page), '', page.path, {name:page.name, path:`/topics/${page.id}/`}));
-  if (page.number === 1) await writeFile(path.join(dir, 'feed.xml'), renderTopicFeed(posts, page.id));
+  await writeFile(path.join(dir, 'index.html'), layout(`${page.name} · 第 ${page.number} 页`, `按日期浏览${page.name}的新闻章节，第 ${page.number} 页，共 ${page.total} 页。`, renderTopicPage(page), '', page.path, {name:page.name, path:`/topics/${page.id}/`, json:true}));
+  if (page.number === 1) {
+    await writeFile(path.join(dir, 'feed.xml'), renderTopicFeed(posts, page.id));
+    await writeFile(path.join(dir, 'feed.json'), renderTopicJson(posts, page.id));
+  }
 }
 for (const [index, post] of posts.entries()) {
   const sections = sectionAnchors(post.sections);

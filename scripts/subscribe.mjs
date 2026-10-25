@@ -8,6 +8,8 @@ export function renderSubscribe() {
 <p>RSS 和 JSON Feed 都包含本站全部公开文章的全文、摘要、分类、发布日期和永久链接。RSS 提供 HTML 全文，JSON Feed 1.1 提供纯文本全文；任选阅读器支持的一种即可，无需重复订阅。</p>
 <p>RSS 地址：<a href="${siteUrl}/feed.xml">${siteUrl}/feed.xml</a></p>
 <p>JSON Feed 地址：<a href="${siteUrl}/feed.json">${siteUrl}/feed.json</a></p>
+<h2>只订阅一个新闻栏目</h2>
+<p>在<a href="/topics/">新闻专题</a>选择栏目，再选择该专题的 RSS 或 JSON Feed。专题订阅只包含对应章节及其来源，不重复推送其他栏目；两种格式任选其一。</p>
 <h2>怎样添加到阅读器</h2>
 <ol><li>复制上方 RSS 地址；如果阅读器支持 JSON Feed，也可以复制对应地址。</li><li>打开自己的阅读器，找到“添加订阅”或“添加订阅源”，粘贴完整地址。</li><li>确认订阅后，在阅读器里查看文章。直接打开链接时看到 XML 或 JSON 文本是正常的，它们是供阅读器读取的订阅源。</li></ol>
 <h2>更新怎样到达</h2>
