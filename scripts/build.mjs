@@ -1,3 +1,4 @@
+import { headlinePages, renderHeadlines } from './headlines.mjs';
 import { renderTopicJson } from './topic-json.mjs';
 import { websitePages, renderWebsiteDirectory, renderWebsitePage } from './source-websites.mjs';
 import { paginateCategories, renderCategoryPage } from './category-pagination.mjs';
@@ -67,7 +68,7 @@ ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main" tabindex="-1">${content}</main>
-<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
+<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="/headlines/">新闻条目</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
 </html>\n`;
@@ -118,6 +119,11 @@ for (const page of websites) {
   await mkdir(dir, {recursive:true});
   await writeFile(path.join(dir, 'index.html'), layout(`${page.host} · 第 ${page.number} 页`, `浏览 ${page.host} 的 ${page.count} 个引用来源。`, renderWebsitePage(page), '', page.path));
 }
+for (const page of headlinePages(posts)) {
+  const dir=path.join(out,page.path);
+  await mkdir(dir,{recursive:true});
+  await writeFile(path.join(dir,'index.html'),layout(`新闻条目 · 第 ${page.number} 页`, '按回顾日期浏览新闻标题，直接跳转原文条目与来源。',renderHeadlines(page),'',page.path));
+}
 await mkdir(path.join(out, 'topics'), {recursive:true});
 await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨日期浏览 AI、商业、股票市场、中国政策与国际新闻的原文章节。', renderTopics(posts), '', '/topics/'));
 for (const page of paginateTopics(posts)) {
@@ -141,5 +147,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + 7} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + headlinePages(posts).length + 7} HTML pages in dist/`);
 

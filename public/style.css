@@ -142,3 +142,5 @@
 .related-notes li p { margin-block: .4rem; line-height: 1.7; }
 
 .article-publication{color:var(--muted);font-size:0.875rem;line-height:1.9;overflow-wrap:anywhere}.article-sources{padding-left:1.5em;font-size:0.875rem;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}.article-sources a{color:var(--green)}
+
+.headline-context{font-family:var(--sans);font-size:.75rem;color:var(--muted);line-height:1.8;margin:0.25rem 0 0;overflow-wrap:anywhere}
