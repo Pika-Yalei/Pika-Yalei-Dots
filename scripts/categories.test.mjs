@@ -1,3 +1,4 @@
+import { websitePages } from './source-websites.mjs';
 import { paginateTopics } from './topics.mjs';
 import { collectSources, paginateSources } from './source-index.mjs';
 import { pageCount, paginatePosts } from './pagination.mjs';
@@ -98,7 +99,7 @@ test('static category pages link each group, preserve exact labels and clean up 
       return execFileSync(process.execPath, ['scripts/build.mjs'], {cwd:temp, stdio:'pipe'}).toString();
     };
     const categories = groupCategories(posts);
-    assert.match(await build(posts), new RegExp(`Built ${posts.length + categories.length + pageCount(posts) + paginateSources(collectSources(posts)).length + paginateTopics(posts).length + 6} HTML pages`));
+    assert.match(await build(posts), new RegExp(`Built ${posts.length + categories.length + pageCount(posts) + paginateSources(collectSources(posts)).length + paginateTopics(posts).length + websitePages(posts).length + 7} HTML pages`));
     const index = await readFile(path.join(dist, 'categories/index.html'), 'utf8');
     const home = (await Promise.all(paginatePosts(posts).map(page => readFile(path.join(dist, page.path, 'index.html'), 'utf8')))).join('\n');
     const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
