@@ -1,3 +1,4 @@
+import { websitePages, renderWebsiteDirectory, renderWebsitePage } from './source-websites.mjs';
 import { paginateCategories, renderCategoryPage } from './category-pagination.mjs';
 import { renderNewsOutline } from './news-outline.mjs';
 import { renderTopicFeed } from './topic-feed.mjs';
@@ -107,6 +108,14 @@ for (const page of sourcePages) {
   const description = `查看公开手记实际引用的来源及对应章节，第 ${page.number} 页，共 ${page.total} 页。`;
   await writeFile(path.join(dir, 'index.html'), layout(title, description, renderSourcePage(page), '', page.path));
 }
+await mkdir(path.join(out, 'sources/websites'), {recursive:true});
+const websites = websitePages(posts);
+await writeFile(path.join(out, 'sources/websites/index.html'), layout('来源网站', '按网站集中浏览文章实际引用的公开材料。', renderWebsiteDirectory(websites), '', '/sources/websites/'));
+for (const page of websites) {
+  const dir = path.join(out, page.path);
+  await mkdir(dir, {recursive:true});
+  await writeFile(path.join(dir, 'index.html'), layout(`${page.host} · 第 ${page.number} 页`, `浏览 ${page.host} 的 ${page.count} 个引用来源。`, renderWebsitePage(page), '', page.path));
+}
 await mkdir(path.join(out, 'topics'), {recursive:true});
 await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨日期浏览 AI、商业、股票市场、中国政策与国际新闻的原文章节。', renderTopics(posts), '', '/topics/'));
 for (const page of paginateTopics(posts)) {
@@ -127,5 +136,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + 6} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + 7} HTML pages in dist/`);
 
