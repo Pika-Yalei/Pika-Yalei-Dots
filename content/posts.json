@@ -2921,5 +2921,230 @@
       }
     ],
     "closing": "事实与分析分开阅读；计划、声明与政策立场，不等于已经实施。股票市场部分均为当地10月23日收盘，不是10月24日新行情。"
+  },
+  {
+    "slug": "news-2026-10-25",
+    "date": "2026-10-25",
+    "title": "2026-10-25｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-24 10:35:48 至 2026-10-25 10:35:48",
+    "category": "新闻回顾",
+    "readingMinutes": 17,
+    "summary": "五栏收录22条进展：AI 2条，商业、股票市场、中国政治与政策、国际政治与重大事件各5条。AI栏较目标缺3条；周末市场以公司披露及监管信息为主。",
+    "publishedAt": "2026-10-25T02:36:14Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-24T02:35:48Z",
+      "end": "2026-10-25T02:35:48Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "本栏实际收录2条，较5条目标缺3条；未用窗口外发布、仅能辨明日期的候选或同一事件拆分补足。",
+          "1. 红熊AI发布录音卡“笔记熊”。据环球科技网10月24日16:35刊于凤凰网大风号的报道，红熊AI当日在WTCC展示并发布由录音卡、手机App和MemoryBear云端记忆引擎组成的产品。记忆组织、检索和更新能力是厂商描述，报道并非独立性能测试。分析：这类产品尝试把录音转写延伸到长期信息管理，但准确性、共享权限和隐私保护仍需实际验证。",
+          "2. 联想AI主机P7预览版亮相并启动先享计划。IT之家10月24日18:39报道，联想当日在CSDN 1024程序员日暨AI构建者大会展示P7预览版，并邀请首批用户参与共创。报道介绍本地模型推理、智能体任务及本地与云端模型调度；这是预览及先享计划，不等于全面正式开售。分析：本地推理可能改变模型调用成本和数据流向，但硬件、电力开支及云端调度仍需分别评估，不能把宣传中的“Token自由”理解为零成本或隐私保证。"
+        ],
+        "sources": [
+          {
+            "label": "1. 环球科技网刊于凤凰网大风号的当日报道",
+            "url": "https://tech.ifeng.com/c/8xUBkClFDq8"
+          },
+          {
+            "label": "2. IT之家当日预览版及先享计划报道",
+            "url": "https://www.ithome.com/1/017/449.htm"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. Teck确认Highland Valley Copper矿罢工开始。公司于10月24日15:18美东时间（19:18 UTC）公告，United Steelworkers Local 7619已开始罢工，加拿大不列颠哥伦比亚省该矿仍以降低后的产能运行；总体产量影响取决于劳资行动持续时间。分析：本期新进展是罢工实际启动，而非此前的罢工通知，目前不能据此量化全年产量损失。",
+          "2. Compass公布胆道癌研究正式论文及新增生存分析。公司10月24日04:15 EDT（08:15 UTC）宣布COMPANION-002结果发表于《Journal of Clinical Oncology》，并于ESMO报告。新增事后交叉调整分析的总生存风险比为0.85，95%置信区间0.59至1.26，p=0.53，未达到统计显著。分析：论文发表和新增分析属于本期进展，不能把此前已报告的无进展生存改善重新包装为首次发现，更不能称已证明延长总生存；药物仍未获FDA批准。",
+          "3. BioInvent扩大BI-1808联合治疗数据集。公司10月24日09:00 CEST（07:00 UTC）公布，BI-1808与Keytruda联用治疗重度经治、铂耐药复发性卵巢癌的可评估患者增至34人，其中8人出现客观缓解，缓解率24%，疾病控制率53%；此次更新超出此前25人分析及10月19日摘要。分析：扩大样本增加了研发信息量，但早期、小样本结果不能替代随机对照验证，也不代表产品商业化获批。",
+          "4. 辉瑞披露25价儿童肺炎球菌候选疫苗详细二期数据。公司10月24日公告并在华盛顿IDWeek作口头报告，披露分血清型结果，包括第四剂后全部25种目标血清型均出现功能性抗体反应；第三、第四剂后针对血清型3的抗体几何平均浓度分别约为Prevnar 20的8.8倍和15倍。官网标注当日11:18am，但未明确时区。分析：新增事项是详细数据公开，而不是首次宣布二期积极结果；免疫指标及在研三期计划不等于已获批或已证明实际防病效果。",
+          "5. 礼来公布Sofe-M联合方案首批铂敏感卵巢癌临床数据。10月24日公司公布一期研究：33名患者中，29名具有可测量疾病，23人得到确认客观缓解，比例79.3%；较常见的三级及以上不良事件包括中性粒细胞减少42%及贫血24%。官方公告只标日期，同日报道于03:35 EDT（07:35 UTC）已刊出。分析：这是公司肿瘤研发管线的新数据，但样本较小且为一期，不能将缓解率写成治愈率或上市成功保证。"
+        ],
+        "sources": [
+          {
+            "label": "1. Teck原始公告，10月24日15:18 ET",
+            "url": "https://rss.globenewswire.com/news-release/2026/10/24/3387701/0/en/teck-provides-update-on-highland-valley-copper-operations.html"
+          },
+          {
+            "label": "2. Compass官方论文及新增分析公告，04:15 EDT",
+            "url": "https://investors.compasstherapeutics.com/news-releases/news-release-details/compass-therapeutics-announces-publication-phase-23-companion"
+          },
+          {
+            "label": "3. BioInvent官方新闻稿，09:00 CEST",
+            "url": "https://attachment.news.eu.nasdaq.com/a88efa620f6728420cfd9b35affac2e37"
+          },
+          {
+            "label": "4. 辉瑞官方详细二期数据公告",
+            "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizers-25-valent-pediatric-pneumococcal-conjugate-vaccine"
+          },
+          {
+            "label": "5. 礼来官方一期数据公告",
+            "url": "https://investor.lilly.com/node/55156/pdf"
+          },
+          {
+            "label": "5. S&P Capital IQ同日报道及03:35 EDT时间旁证",
+            "url": "https://www.marketscreener.com/news/eli-lilly-and-company-presents-first-clinical-data-in-platinum-sensitive-ovarian-cancer-for-its-inve-ce785cdfdf81f420"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "本窗口覆盖周末，以下印度股票市场相关信息为监管讲话及上市公司披露，不是常规交易时段行情；不将周五旧收盘涨跌重复计作新增。金额均以印度卢比计，1 crore为1,000万卢比。",
+          "1. Kotak Mahindra Bank公布季度业绩。公司10月24日向印度国家证券交易所提交截至9月30日季度的投资者材料，合并税后利润为5,645 crore卢比，同比增长26%；银行单体税后利润为4,212 crore，同比增长29%。材料提交记录为印度时间13:34，即北京时间16:04。分析：合并与单体口径不能混用，整体利润增长也不代表所有子业务同步改善。",
+          "2. IDFC FIRST Bank季度利润同比增长196.5%。公司10月24日发布未经审计业绩，截至9月30日季度税后利润约1,045 crore卢比，同比增长196.5%，连续第二季度超过1,000 crore。Moneycontrol当日印度时间19:05、即北京时间21:35的报道交叉确认了此次披露。分析：较高同比增幅仍需结合上年基数及信贷成本观察，不能直接外推后续盈利。",
+          "3. JK Cement批准涂料子公司新厂投资。公司董事会10月24日批准全资子公司JK Maxx Paints在Telangana建设年产75,000千升水性涂料工厂，预计资本开支130 crore卢比，纳入此前已批准的600 crore涂料业务投资额度，预计自开工起约12个月投产。公告载明董事会于印度时间13:05至14:08召开，即北京时间15:35至16:38。分析：这是批准建设而非已经投产，实际收益仍取决于施工进度、产能利用率和需求。",
+          "4. SEBI主席阐述券商分级合规改革方向。印度证券监管机构SEBI主席Tuhin Kanta Pandey在10月24日ANMI大会讲话中表示，正探索按照券商规模、客户风险敞口和技术依赖度设置分级合规要求，并审查卖空及证券借贷机制，以改善流动性和价格发现。官方讲话标注24日；现场报道于印度时间13:26、即北京时间15:56发布，该时间是报道时间而非讲话的精确时刻。分析：这些属于监管研究和改革方向，不能写成已实施的新规。",
+          "5. AU Small Finance Bank披露季度利润增长。据PTI、NDTV Profit及《经济时报》10月24日下午报道，该行截至9月30日季度税后利润约858 crore卢比，同比增长约53%；净利息收入约2,820 crore卢比，增长约32%，不良贷款总额占比降至1.99%。NDTV Profit报道时间为印度时间16:10，即北京时间18:40。交易所原PDF本次未能读取，数字依据上述媒体交叉报道。分析：净利息收入增长与拨备下降均有助盈利，但季度利润不能直接等同于长期回报或后续股价表现。"
+        ],
+        "sources": [
+          {
+            "label": "1. Kotak Mahindra Bank向NSE提交的季度投资者材料",
+            "url": "https://nsearchives.nseindia.com/corporate/KMBLTAB_24102026133347_InvestorPresentationOct242026SIGNED.pdf"
+          },
+          {
+            "label": "1. Alloqo所列材料提交时间与原文链接",
+            "url": "https://alloqo.com/stocks/KOTAKBANK/presentations/quarter-ended-2026-09"
+          },
+          {
+            "label": "2. IDFC FIRST Bank官方季度业绩新闻稿",
+            "url": "https://www.idfcfirst.bank.in/content/dam/idfcfirstbank/pdf/news-media/press-release/IDFC-FIRST-Bank-Q2-FY27-Results-PAT-up-196-5-percent-YoY-at-rs-1045-Crore.pdf"
+          },
+          {
+            "label": "2. Moneycontrol当日19:05 IST业绩报道",
+            "url": "https://www.moneycontrol.com/news/business/earnings/idfc-first-bank-q2-net-profit-jumps-to-rs-1-044-6-crore-14059216.html"
+          },
+          {
+            "label": "3. JK Cement董事会结果公告，含投资方案及会议时间",
+            "url": "https://www.jkcement.com/wp-content/uploads/2026/10/Outcome-24.10.2026.pdf"
+          },
+          {
+            "label": "3. NDTV Profit对新厂投资的交叉报道",
+            "url": "https://www.ndtvprofit.com/markets/jk-cement-q2-results-net-profit-rises-7-8-to-rs-173-crore-paints-arm-to-invest-rs-130-crore-in-telangana-plant-12229556"
+          },
+          {
+            "label": "4. SEBI主席ANMI大会官方讲话原文",
+            "url": "https://www.sebi.gov.in/sebi_data/attachdocs/oct-2026/1792828724497.pdf"
+          },
+          {
+            "label": "4. Free Press Journal当日13:26 IST现场报道",
+            "url": "https://www.freepressjournal.in/business/sebis-gift-for-stock-brokers-compliance-20-ai-rules-in-focus"
+          },
+          {
+            "label": "5. NDTV Profit当日16:10 IST报道",
+            "url": "https://www.ndtvprofit.com/markets/au-small-finance-bank-q2-profit-grows-over-50-asset-quality-improves-12229738"
+          },
+          {
+            "label": "5. PTI业绩报道，由Business Standard刊载",
+            "url": "https://www.business-standard.com/amp/companies/quarterly-results/au-small-finance-bank-q2fy27-result-net-profit-jumps-53-to-858-crore-126102400743_1.html"
+          },
+          {
+            "label": "5. Economic Times当日17:21 IST交叉报道",
+            "url": "https://m.economictimes.com/markets/stocks/earnings/au-small-finance-bank-q2-profit-jumps-53-to-rs-858-crore/amp_articleshow/135169847.cms"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 陈文清主持扫黑除恶专题会议。新华社北京时间10月24日19:27通报，陈文清当日主持专题会议，提出完善线索分流、移送、核查、反馈规范，明晰新型黑恶犯罪认定标准，并强调依法办理、不将非黑恶案件凑数。这是当日会议部署，不是新法律生效。分析：后续重点是认定标准、执法程序和跨环节协同的具体落实，不能仅凭部署推断办案成效。",
+          "2. 国家防总继续部署台风“蔷琵”防范。应急管理部10月24日12:15通报，当日上午多部门与上海、江苏、浙江等地联合会商，要求复核船舶避风、人员上岸及堤库等风险防范；针对上海、浙江、福建、江苏的防汛防台风四级响应维持，工作组继续在浙江和上海协助。本条新增是窗口内公布的24日会商安排，不重复昨日江苏启动响应。分析：维持响应不代表灾情已经升级，预防部署也不等于灾害损失已经发生。",
+          "3. 湖南公布省政府党组书记及省委副书记调整。湖南省政府网站10月24日13:25公布，谢卫江任省政府党组书记；10月25日凌晨及上午公开的消息显示，中共中央近日批准靳伟任湖南省委委员、常委、副书记。同省人事进展合并为一条，按公开消息收录，不将“近日批准”改写为当天批准。分析：党组职务与政府行政职务应分别核实，不能将谢卫江任党组书记写成已经当选省长。",
+          "4. 福建公布林涛、秦海翔任职。新华网10月24日12:29转引东南网消息称，中共中央日前批准林涛任福建省委副书记，秦海翔任福建省委委员、常委；福建省委决定秦海翔任福州市委书记。本条为同一份任职公告，合并计数；批准的具体时刻未公开，按当日公开消息收录。分析：公告明确相关岗位人选，但本身未宣布新的经济或城市治理政策。",
+          "5. 江西公布陈永奇任省政府党组书记。新华网10月24日18:20转引江西日报消息称，江西省委决定陈永奇任江西省政府党组书记。本条只确认党组职务，不称其已经获任省长。分析：后续如有政府行政职务变化，应以法定任免公告为准，不能由党内任职直接推定。"
+        ],
+        "sources": [
+          {
+            "label": "1. 陈文清主持扫黑除恶专题会议｜新华社当日会议消息",
+            "url": "https://www.news.cn/20261024/c803c51cc0f044e7bad6b3e05acfa44f/c.html"
+          },
+          {
+            "label": "2. 国家防总继续部署台风“蔷琵”防范｜应急管理部10月24日通报",
+            "url": "https://www.mem.gov.cn/xw/bndt/202610/t20261024_736890.shtml"
+          },
+          {
+            "label": "3. 湖南公布省政府党组书记及省委副书记调整｜湖南省政府谢卫江任职公告",
+            "url": "https://searchs.hunan.gov.cn/hnszf/hnyw/sy/hnyw1/202610/t20261024_34087787.html"
+          },
+          {
+            "label": "3. 湖南公布省政府党组书记及省委副书记调整｜新华网转引湖南日报靳伟任职消息",
+            "url": "https://www2.xinhuanet.com/politics/20261025/74550d74a26549a48924ad4ac4a495c4/c.html"
+          },
+          {
+            "label": "4. 福建公布林涛、秦海翔任职｜新华网转引东南网公告",
+            "url": "https://www1.xinhuanet.com/politics/20261024/c96ee6ff8f3d44c5bfb3db40f1002aaf/c.html"
+          },
+          {
+            "label": "5. 江西公布陈永奇任省政府党组书记｜新华网转引江西日报公告",
+            "url": "https://www1.xinhuanet.com/politics/20261024/7def657c458341d3a5f67fd2261cbce8/c.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 乌克兰称Starlink、Starshield运行恢复。乌克兰国防部10月24日12:18 EEST（北京时间17:18）表示，其监测记录显示服务恢复，终端在每小时400公里以上移动时仍能稳定连接；泽连斯基同日称测试确认恢复到此前所需水平。这里的公里/小时指终端移动速度，不是网络传输速率。路透社窗口内后续报道，马斯克指责乌军违反服务条款，乌方顾问反驳相关用途指控；限速责任仍有争议。分析：恢复连接有助于缓解通信和后勤约束，但不能据此推断美国对乌全部合作恢复。",
+          "2. 约旦召开国家安全委员会会议应对教堂袭击。约旦通讯社10月24日15:57当地时间（北京时间20:57）通报，阿卜杜拉二世当日主持国家安全委员会会议，听取前一日卡拉克省教堂袭击简报并要求追查涉案者。路透社同日报道，美国驻约旦使馆称商场、外国使馆等地点已加强安保。本条新增是24日会议及安保进展，袭击发生于23日。分析：安保升级不等于所有嫌疑人已经落网，案件责任仍需调查确认。",
+          "3. 瓦努阿图附近强震后海啸威胁解除。10月24日02:31 UTC（北京时间10:31），瓦努阿图附近发生强震，属本窗口之前的背景。太平洋海啸预警中心早期采用7.2级参数发出威胁提示，窗口内03:28 UTC（北京时间11:28）的最终通报改用6.9级，并表示此次地震的海啸威胁已经过去，附近部分海岸随后仍可能有轻微海面波动。分析：应采用更新后的预警结论，不延续早期“海啸威胁仍在”的判断；解除海啸威胁也不代表已完成陆上灾损评估。",
+          "4. 菲律宾空军确认四名飞行员遇难并停飞调查。GMA于10月24日15:30菲律宾时间（同北京时间）报道，菲律宾空军当日确认两架SF-260教练机训练事故造成四名飞行员死亡，并暂时停飞该型机队、调查原因；ABS-CBN及法新社报道亦直接引述空军声明或发言人。事故发生于23日15:51，窗口内新增为24日确认及停飞调查。空军原始社交帖子未能直接读取，本条依据媒体对官方声明的直接引述。分析：停飞属于预防性安全措施，不能据此认定机械故障或人为责任。",
+          "5. 风暴Boelo影响英国，强风预警及铁路出行调整生效。北爱尔兰政府10月24日发布强风提示，说明24日至25日有橙色和黄色预警，飞散物、沿海大浪、倒树及停电可能危及安全。National Rail在10月25日01:22英国当地时间更新页面，列明苏格兰24日晚强风橙色预警及多家运营商服务调整、避免非必要出行建议。页面初建于20日，本条收录24日晚预警生效和窗口内更新的运营安排，不重计早期预告。分析：预警和计划调整不等于所有线路已经停运，也不能将预计损害写成已发生损失。"
+        ],
+        "sources": [
+          {
+            "label": "1. 乌克兰称Starlink、Starshield运行恢复｜乌克兰国防部官方通报",
+            "url": "https://mod.gov.ua/en/news/starlink-and-starshield-speed-restored-in-ukraine"
+          },
+          {
+            "label": "1. 乌克兰称Starlink、Starshield运行恢复｜乌克兰总统当日讲话",
+            "url": "https://www.president.gov.ua/en/news/vidnovili-robotu-starlinku-starshildu-na-shvidkosti-yaka-bul-107025"
+          },
+          {
+            "label": "1. 乌克兰称Starlink、Starshield运行恢复｜路透社经ThePrint刊载的后续报道",
+            "url": "https://theprint.in/world/ukraine-says-starshield-back-to-normal-musk-says-kyiv-violated-terms/3080826/"
+          },
+          {
+            "label": "2. 约旦召开国家安全委员会会议应对教堂袭击｜约旦通讯社官方会议通报",
+            "url": "https://petra.gov.jo/en/news/king-chairs-national-security-council-meeting-on-karak-attack"
+          },
+          {
+            "label": "2. 约旦召开国家安全委员会会议应对教堂袭击｜路透社经Arab News刊载安保进展",
+            "url": "https://www.arabnews.com/middle-east/us-embassy-says-security-ramped-up-in-jordan-after-deadly-church-attack-3008001"
+          },
+          {
+            "label": "3. 瓦努阿图附近强震后海啸威胁解除｜GDACS保存的官方预警原文",
+            "url": "https://data.gdacs.org/gts.aspx?eventid=1573515&eventtype=EQ"
+          },
+          {
+            "label": "3. 瓦努阿图附近强震后海啸威胁解除｜瓦努阿图气象地灾部门地震记录",
+            "url": "https://www.vmgd.gov.vu/geohazards/earthquakes?id=vmgd2026uqvqwg"
+          },
+          {
+            "label": "4. 菲律宾空军确认四名飞行员遇难并停飞调查｜GMA直接引述空军声明",
+            "url": "https://www.gmanetwork.com/news/topstories/regions/1007024/4-pilots-died-in-training-flight-mishap-in-batangas-ph-air-force/story/"
+          },
+          {
+            "label": "4. 菲律宾空军确认四名飞行员遇难并停飞调查｜ABS-CBN同日确认报道",
+            "url": "https://www.abs-cbn.com/news/regions/2026/10/24/ph-air-force-confirms-4-pilots-killed-in-batangas-aircraft-crash-1509"
+          },
+          {
+            "label": "4. 菲律宾空军确认四名飞行员遇难并停飞调查｜法新社经Channels Television刊载",
+            "url": "https://www.channelstv.com/2026/10/24/four-pilots-killed-in-mid-air-collision-of-philippines-military-planes/"
+          },
+          {
+            "label": "5. 风暴Boelo影响英国，强风预警及铁路出行调整生效｜北爱尔兰政府强风提示",
+            "url": "https://www.nidirect.gov.uk/news/strong-winds-weather-warning-information-and-advice"
+          },
+          {
+            "label": "5. 风暴Boelo影响英国，强风预警及铁路出行调整生效｜National Rail窗口内运营更新",
+            "url": "https://www.nationalrail.co.uk/service-disruptions/severe-weather-20261020/"
+          }
+        ]
+      }
+    ],
+    "closing": "本期共22条，AI栏缺3条，其余四栏各5条。报道中的厂商说法、研究结果、预警和政策部署不等于效果保证、投资建议或已经生效的新制度。"
   }
 ]
