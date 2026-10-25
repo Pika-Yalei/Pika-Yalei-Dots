@@ -47,7 +47,7 @@ test('overview keeps old anchors and limits visible chapters per topic', () => {
 
 test('all page navigation resolves locally, handles empty pages and distinguishes current page', () => {
   const pages = paginateTopics(makePosts(20));
-  const paths = new Set([...pages.map(page => page.path), ...pages.map(page => `/topics/${page.id}/feed.xml`)]);
+  const paths = new Set([...pages.map(page => page.path), ...pages.flatMap(page => [`/topics/${page.id}/feed.xml`, `/topics/${page.id}/feed.json`])]);
   for (const page of pages) {
     const html = renderTopicPage(page);
     for (const [, href] of html.matchAll(/href="(\/topics\/[^"#]+)"/g)) assert.ok(paths.has(href), href);
