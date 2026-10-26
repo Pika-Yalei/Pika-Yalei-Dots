@@ -1,3 +1,4 @@
+import { paginateMonthArchive, renderMonthArchive } from './month-archive.mjs';
 import { renderPlainText } from './plain-text.mjs';
 import { allHeadlinePages, renderHeadlines } from './headlines.mjs';
 import { renderTopicJson } from './topic-json.mjs';
@@ -93,6 +94,11 @@ ${page.number === 1 ? `
 }
 await mkdir(path.join(out, 'archive'), {recursive:true});
 await writeFile(path.join(out, 'archive/index.html'), layout('归档', '按年份和月份浏览所有公开手记。', renderArchive(posts), 'archive', '/archive/'));
+for (const page of paginateMonthArchive(posts)) {
+  const dir = path.join(out,page.path);
+  await mkdir(dir,{recursive:true});
+  await writeFile(path.join(dir,'index.html'),layout(`${page.month} 归档 · 第 ${page.number} 页`, `浏览 ${page.month} 的 ${page.count} 篇公开手记，第 ${page.number} / ${page.total} 页。`,renderMonthArchive(page),'',page.path));
+}
 await mkdir(path.join(out, 'categories'), {recursive:true});
 await writeFile(path.join(out, 'categories/index.html'), layout('分类', '按分类浏览公开手记，寻找同一主题下的文章。', renderCategories(categories), 'categories', '/categories/'));
 for (const category of paginateCategories(categories)) {
@@ -153,5 +159,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 6} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 6} HTML pages in dist/`);
 
