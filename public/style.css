@@ -88,6 +88,7 @@
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 .news-outline{border:1px solid var(--line);padding:8px 16px;margin:16px 0 24px;font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}.news-outline summary{cursor:pointer;min-height:44px;padding:10px 0}.news-outline summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.news-outline nav{display:block}.news-outline ul{list-style:none;padding:0;margin:8px 0}.news-outline a{display:block;min-height:44px;padding:10px 0;line-height:1.6;text-decoration:underline}
 @media print{
+  .article-download{display:none}
   .news-outline{display:none}
   /* Printed citations must remain usable without a clickable screen. */
   .article-sources a::after{content:" (" attr(href) ")";font-family:var(--sans);font-size:9pt;overflow-wrap:anywhere;word-break:break-word}
@@ -144,3 +145,5 @@
 .article-publication{color:var(--muted);font-size:0.875rem;line-height:1.9;overflow-wrap:anywhere}.article-sources{padding-left:1.5em;font-size:0.875rem;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}.article-sources a{color:var(--green)}
 
 .headline-context{font-family:var(--sans);font-size:.75rem;color:var(--muted);line-height:1.8;margin:0.25rem 0 0;overflow-wrap:anywhere}
+
+.article-download a{display:inline-block;min-height:44px;padding:10px 0;text-decoration:underline;overflow-wrap:anywhere}
