@@ -1,7 +1,7 @@
 import { renderPlainText } from './plain-text.mjs';
 import { headlinePages, renderHeadlines } from './headlines.mjs';
 import { renderTopicJson } from './topic-json.mjs';
-import { websitePages, renderWebsiteDirectory, renderWebsitePage } from './source-websites.mjs';
+import { paginateWebsiteDirectory, websitePages, renderWebsiteDirectory, renderWebsitePage } from './source-websites.mjs';
 import { paginateCategories, renderCategoryPage } from './category-pagination.mjs';
 import { renderNewsOutline } from './news-outline.mjs';
 import { renderTopicFeed } from './topic-feed.mjs';
@@ -112,9 +112,13 @@ for (const page of sourcePages) {
   const description = `查看公开手记实际引用的来源及对应章节，第 ${page.number} 页，共 ${page.total} 页。`;
   await writeFile(path.join(dir, 'index.html'), layout(title, description, renderSourcePage(page), '', page.path));
 }
-await mkdir(path.join(out, 'sources/websites'), {recursive:true});
 const websites = websitePages(posts);
-await writeFile(path.join(out, 'sources/websites/index.html'), layout('来源网站', '按网站集中浏览文章实际引用的公开材料。', renderWebsiteDirectory(websites), '', '/sources/websites/'));
+const websiteDirectory = paginateWebsiteDirectory(websites);
+for (const page of websiteDirectory) {
+  const dir = path.join(out, page.path);
+  await mkdir(dir, {recursive:true});
+  await writeFile(path.join(dir, 'index.html'), layout(`来源网站${page.number > 1 ? ` · 第 ${page.number} 页` : ''}`, `按网站集中浏览文章实际引用的公开材料，第 ${page.number} / ${page.total} 页。`, renderWebsiteDirectory(page), '', page.path));
+}
 for (const page of websites) {
   const dir = path.join(out, page.path);
   await mkdir(dir, {recursive:true});
@@ -149,5 +153,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + headlinePages(posts).length + 7} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + headlinePages(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 6} HTML pages in dist/`);
 

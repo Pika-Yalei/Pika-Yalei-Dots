@@ -14,8 +14,23 @@ export function websitePages(posts) {
   return Array.from({length:total},(_,i)=>({host,base,number:i+1,total,count:sources.length,offset:i*30,path:i?`${base}page/${i+1}/`:base,sources:sources.slice(i*30,(i+1)*30)}));
  });
 }
-export function renderWebsiteDirectory(pages) {
- return `<div class="article-shell"><header class="article-header"><h1>按来源网站浏览</h1><p class="article-subtitle">只列出手记实际引用的材料，不代表对网站全部内容的背书。</p></header><ul class="category-list">${pages.filter(p=>p.number===1).map(p=>`<li><a href="${p.path}"><span>${escape(p.host)}</span><span class="category-count">${p.count} 个来源</span></a></li>`).join('')}</ul>${pages.length?'':'<p>尚无引用来源。</p>'}<p><a href="/sources/">返回全部来源</a></p></div>`;
+export const websiteDirectoryPageSize = 30;
+export function websiteDirectoryPath(number) {
+ if (!Number.isSafeInteger(number) || number < 1) throw new RangeError('Invalid website directory page number');
+ return number === 1 ? '/sources/websites/' : `/sources/websites/page/${number}/`;
+}
+export function paginateWebsiteDirectory(pages) {
+ const websites = pages.filter(page => page.number === 1).sort((a,b) => a.host.localeCompare(b.host));
+ const total = Math.max(1, Math.ceil(websites.length / websiteDirectoryPageSize));
+ return Array.from({length:total}, (_,index) => ({
+  number:index+1, total, count:websites.length, offset:index*websiteDirectoryPageSize,
+  path:websiteDirectoryPath(index+1),
+  websites:websites.slice(index*websiteDirectoryPageSize,(index+1)*websiteDirectoryPageSize)
+ }));
+}
+export function renderWebsiteDirectory(page) {
+ const navigation = page.total > 1 ? `<nav class="pagination" aria-label="来源网站目录分页">${page.number > 1 ? `<a href="${websiteDirectoryPath(page.number-1)}" rel="prev">← 上一页</a>` : ''}<span aria-current="page">第 ${page.number} / ${page.total} 页</span>${page.number < page.total ? `<a href="${websiteDirectoryPath(page.number+1)}" rel="next">下一页 →</a>` : ''}</nav>` : '';
+ return `<div class="article-shell"><header class="article-header"><h1>按来源网站浏览${page.number > 1 ? ` · 第 ${page.number} 页` : ''}</h1><p class="article-subtitle">只列出手记实际引用的材料，不代表对网站全部内容的背书。</p><p class="page-range">共 ${page.count} 个网站 · 显示第 ${page.count ? page.offset+1 : 0}–${page.offset+page.websites.length} 个</p></header><ul class="category-list">${page.websites.map(p=>`<li><a href="${escape(p.path)}"><span>${escape(p.host)}</span><span class="category-count">${p.count} 个来源</span></a></li>`).join('')}</ul>${page.count?'':'<p>尚无引用来源。</p>'}${navigation}<p><a href="/sources/">返回全部来源</a></p></div>`;
 }
 export function renderWebsitePage(page) {
  const href=n=>n===1?page.base:`${page.base}page/${n}/`;
