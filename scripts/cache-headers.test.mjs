@@ -15,7 +15,7 @@ test('only an exact fingerprinted asset receives immutable caching',()=>{
 });
 test('canonical article, directory and feed URLs revalidate without disabling storage',()=>{
  const headers=renderCacheHeaders(base,name);
- for(const route of ['/','/notes/*','/sources/*','/topics/*','/feed.xml','/feed.json','/style.css']) assert.ok(headers.includes(`${route}\n  Cache-Control: public, max-age=0, must-revalidate`));
+ for(const route of ['/','/notes/*','/sources/*','/topics/*','/headlines/*','/feed.xml','/feed.json','/style.css']) assert.ok(headers.includes(`${route}\n  Cache-Control: public, max-age=0, must-revalidate`));
  assert.doesNotMatch(headers,/no-store/);
  assert.ok(headers.split('\n').filter(line=>line.startsWith('/')).length<100);
 });

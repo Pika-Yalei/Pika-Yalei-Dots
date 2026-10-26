@@ -1,5 +1,5 @@
 import { renderPlainText } from './plain-text.mjs';
-import { headlinePages, renderHeadlines } from './headlines.mjs';
+import { allHeadlinePages, renderHeadlines } from './headlines.mjs';
 import { renderTopicJson } from './topic-json.mjs';
 import { paginateWebsiteDirectory, websitePages, renderWebsiteDirectory, renderWebsitePage } from './source-websites.mjs';
 import { paginateCategories, renderCategoryPage } from './category-pagination.mjs';
@@ -124,10 +124,10 @@ for (const page of websites) {
   await mkdir(dir, {recursive:true});
   await writeFile(path.join(dir, 'index.html'), layout(`${page.host} · 第 ${page.number} 页`, `浏览 ${page.host} 的 ${page.count} 个引用来源。`, renderWebsitePage(page), '', page.path));
 }
-for (const page of headlinePages(posts)) {
+for (const page of allHeadlinePages(posts)) {
   const dir=path.join(out,page.path);
   await mkdir(dir,{recursive:true});
-  await writeFile(path.join(dir,'index.html'),layout(`新闻条目 · 第 ${page.number} 页`, '按回顾日期浏览新闻标题，直接跳转原文条目与来源。',renderHeadlines(page),'',page.path));
+  await writeFile(path.join(dir,'index.html'),layout(`${page.name?`${page.name} · `:''}新闻条目 · 第 ${page.number} 页`, '按回顾日期浏览新闻标题，直接跳转原文条目与来源。',renderHeadlines(page),'',page.path));
 }
 await mkdir(path.join(out, 'topics'), {recursive:true});
 await writeFile(path.join(out, 'topics/index.html'), layout('新闻专题', '跨日期浏览 AI、商业、股票市场、中国政策与国际新闻的原文章节。', renderTopics(posts), '', '/topics/'));
@@ -153,5 +153,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + headlinePages(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 6} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 6} HTML pages in dist/`);
 
