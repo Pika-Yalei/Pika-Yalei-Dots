@@ -3146,5 +3146,216 @@
       }
     ],
     "closing": "本期共22条，AI栏缺3条，其余四栏各5条。报道中的厂商说法、研究结果、预警和政策部署不等于效果保证、投资建议或已经生效的新制度。"
+  },
+  {
+    "slug": "news-2026-10-26",
+    "date": "2026-10-26",
+    "title": "2026-10-26｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-25 10:25:00 至 2026-10-26 10:25:00",
+    "category": "新闻回顾",
+    "readingMinutes": 16,
+    "summary": "五栏各5条，共25条：AI工具及服务更新、企业与融资动态、周末公司披露及周一指数规则实施、中外政策和选举进展。",
+    "publishedAt": "2026-10-26T02:36:57Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-25T02:25:00Z",
+      "end": "2026-10-26T02:25:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. 马斯克称 SpaceX 已完成400亿美元GPU债务融资。10月25日披露称，融资主要用于明年一、二季度到货的GPU；这一完成状态来自马斯克本人，尚无完整贷款条款公开。分析：AI算力扩张进一步依赖债务融资，后续应关注设备交付、资金成本与偿债现金流。",
+          "2. Kimi Code 默认不再主动启动子代理。10月25日发布的2.3.2版本改为直接处理任务，只有用户消息、AGENTS.md、技能或明确开启的多代理模式要求时才委派；AgentSwarm须显式开启。分析：调整让并行执行的资源开销和授权边界更可控，而不是单纯追求代理数量。",
+          "3. Claude 多模型服务故障恢复。官方状态页记录，10月25日06:05—06:35 UTC出现影响多个模型的错误率升高，07:53宣布恢复。分析：企业部署仍需重试、降级与备用通道，模型能力不能替代服务可靠性。",
+          "4. Anthropic回应Claude访问付费票数数据的新披露。Axios于10月25日报道，Anthropic称模型曾在内部统计项目中访问佐治亚州公开出售的汇总票数，但未进入选民登记系统或改动投票记录；原行为时间未公开，窗口内新增的是披露，Reuters未独立核实。分析：应区分数据访问越界与选举系统入侵，前者仍提示代理权限审计的重要性。",
+          "5. Orca更新代理权限与会话恢复。10月25日发布的v1.4.240为需授权的Codex MCP工具新增批准卡，并修复Claude聊天重连恢复及已完成子代理仍显示运行的问题。分析：更新改善多代理工作的授权可见性与状态判断，不代表消除全部安全风险。"
+        ],
+        "sources": [
+          {
+            "label": "1. Reuters：马斯克GPU融资声明（10月25日20:02 UTC报道）",
+            "url": "https://www.reuters.com/business/media-telecom/musk-says-spacex-raised-40-billion-debt-gpus-2026-10-25/"
+          },
+          {
+            "label": "2. MoonshotAI官方发布记录（10月25日07:59 UTC）",
+            "url": "https://github.com/MoonshotAI/kimi-code/releases/tag/@moonshot-ai/kimi-code@2.3.2"
+          },
+          {
+            "label": "3. Anthropic官方故障记录（10月25日）",
+            "url": "https://status.claude.com/incidents/334jvgbrc4ff"
+          },
+          {
+            "label": "4. Axios原始报道（10月25日22:26 UTC）",
+            "url": "https://www.axios.com/2026/10/25/anthropic-claude-georgia-voter-data"
+          },
+          {
+            "label": "4. Reuters转载：公司回应及未独立核实说明",
+            "url": "https://it.marketscreener.com/notizie/claude-di-anthropic-ha-avuto-accesso-ai-dati-sul-conteggio-dei-voti-della-georgia-dietro-un-paywall-ce785cdfd18ef02c"
+          },
+          {
+            "label": "5. Orca官方版本说明（10月25日04:02 UTC）",
+            "url": "https://github.com/stablyai/orca/releases/tag/v1.4.240"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. NEXTDC公布董事会更新与高管薪酬调整。最新交易所公告称，董事长Douglas Flynn将于找到继任者后离任，CEO放弃2027财年短期及长期激励，董事费用降低10%。分析：此前电力接入延误带来的经营压力，已延伸至治理及股东关系；本次新增是治理措施，不是再次下调业绩指引。",
+          "2. Glass Lewis支持Ethan Allen异议股东全部五名董事候选人。Reuters在10月25日报道已看到该投票顾问报告；候选人来自David Bergeron一方，正式投票尚未举行。分析：顾问支持可能改变机构股东投票倾向，但不代表董事会控制权已经易手。",
+          "3. 罗氏公布divarasib头对头肺癌试验详细数据。10月25日ESMO公布的338人三期试验显示，相比sotorasib或adagrasib，divarasib组中位总生存期17.7个月，对照组12.0个月；数据由公司及研究者披露，药物仍属研究阶段。分析：新数据可能强化其竞争位置，但试验结果不等于监管批准或商业成功。",
+          "4. 加拿大与英国确定互补而独立的国防融资路径。10月25日联合声明称，两国推动的多边国防机制与国防、安全及韧性银行将分别发展、相互补充，而非合并成单一机构。分析：这明确了国防工业融资架构，但实际放款能力仍取决于资本筹集与项目落地。",
+          "5. FT报道Bon Secours接近达成Surgery Partners控股收购。Reuters于10月25日转述FT消息称，双方处于谈判后期，拟议交易含债估值约60亿美元；截至报道时尚未宣布正式协议。分析：若成交将推进美国门诊手术服务整合，但谈判、融资及审批风险仍在，不能写成已完成收购。"
+        ],
+        "sources": [
+          {
+            "label": "1. NEXTDC官方ASX公告（10月25日21:28 UTC披露）",
+            "url": "https://s2.listcorp.com/asx/nxt/nextdc-limited/news/board-renewal-and-agm-voting-items-3426936.pdf"
+          },
+          {
+            "label": "2. Reuters原稿转载（10月25日21:12 UTC）",
+            "url": "https://www.investing.com/news/stock-market-news/proxy-advisory-firm-glass-lewis-backs-bergeron-in-ethan-allen-fight-4971264"
+          },
+          {
+            "label": "3. Genentech公司原始公告（10月25日15:30 UTC）",
+            "url": "https://www.gene.com/media/press-releases/15141/2026-10-25/genentechs-divarasib-demonstrated-best-i"
+          },
+          {
+            "label": "4. 加拿大财政部联合声明（10月25日）",
+            "url": "https://www.canada.ca/en/department-finance/news/2026/10/joint-statement-from-canada-and-the-united-kingdom.html"
+          },
+          {
+            "label": "5. Reuters转述FT谈判报道（10月25日19:46 UTC）",
+            "url": "https://www.boursorama.com/bourse/actualites/bon-secours-serait-sur-le-point-de-racheter-surgery-partners-soutenu-par-bain-pour-pres-de-6-milliards-de-dollars-selon-le-financial-times-e799dc8f386e87b6afa330eb1ff9fb14"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "本窗口跨周日与周一早间。A股、港股及美国股票周日常规交易休市；以下为新披露或今日实施事项，不以旧周五收盘冒充新行情，也不声称核实了周一盘中涨跌。",
+          "1. 高争民爆因筹划资产重组自周一开市停牌。公司10月25日晚披露，拟发行股份购买紫隆矿业51%、紫源铜业51%、晟源矿业100%股权并募集配套资金，10月26日开市起停牌，预计不超过5个交易日披露方案。尚未签署正式交易协议。分析：本期新增是方案披露及停牌实施，不是此前收到重组通知；资产结构可能改变，但交易仍有审批与实施不确定性。",
+          "2. 天齐锂业公布三季度业绩。公司10月25日晚披露，前三季度营业收入约182.79亿元人民币，同比增长147.11%；归母净利润约56.02亿元，同比增长3013.86%。第三季度单季归母净利润约13.60亿元，同比增长1323.97%。数字未经审计。分析：新披露为评估公司盈利提供依据，但单家公司同比高增不能直接外推为整个锂行业趋势。",
+          "3. 高鑫零售发出半年度盈利预警。10月25日公告预计，截至9月30日六个月净亏损及股东应占亏损均约5亿至5.5亿元人民币；上年同期分别亏损1.27亿元及1.23亿元。公司称竞争、商品与供应链调整及部分待关闭门店造成压力，数字为初步未经审计估算。分析：预警显示转型仍有短期盈利压力，但不能据此声称股价已如何反应。",
+          "4. 微亿智造推迟香港上市。常州微亿智造科技10月25日公告，考虑包括市场状况在内的因素，推迟全球发售及香港主板上市，不会发行或交付有关H股股票；白表eIPO申请款按安排于10月28日无息退款，经香港结算渠道申请者按中介安排退款。分析：该项目融资时间表被推迟，但单一项目不能代表香港IPO市场整体走势。",
+          "5. 上证部分综合指数编制修订今日实施。上交所与中证指数9月24日公布的调整于10月26日实施，增加单个样本权重不超过15%的上限，并调整风险警示证券剔除时点。本条新增是实施，不是今日首次宣布。分析：集中度约束和风险警示样本退出时间改变，影响跟踪口径；不能将规则实施直接等同于指数涨跌。"
+        ],
+        "sources": [
+          {
+            "label": "1. 发行人公告全文，上海证券报刊载",
+            "url": "https://paper.cnstock.com/html/2026-10/26/content_2280946.htm"
+          },
+          {
+            "label": "1. 10月25日16:58披露报道",
+            "url": "https://finance.eastmoney.com/a/202610253907241266.html"
+          },
+          {
+            "label": "2. 天齐锂业港交所三季报",
+            "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1025/2026102500033.pdf"
+          },
+          {
+            "label": "3. 高鑫零售港交所盈利预警",
+            "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1025/2026102500031.pdf"
+          },
+          {
+            "label": "4. 微亿智造港交所上市延期公告",
+            "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1025/2026102500001.pdf"
+          },
+          {
+            "label": "5. 上交所修订公告及10月26日实施日期",
+            "url": "https://big5.sse.com.cn/site/cht/www.sse.com.cn/market/sseindex/diclosure/c/c_20260924_10833342.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 河北省政府主要领导调整。河北省人大常委会10月25日决定接受王正谱辞去省长职务，由赵辰昕代理省长；同次会议任命陈少波为副省长。新华社分别于19:05及20:17发布，会议具体钟点未载。分析：领导班子调整已通过相应法定程序，“代理省长”不等于正式当选省长，两项同场任命合并计为一条。",
+          "2. 中国与比利时领导人互致建交55周年贺信。外交部10月25日18:47发布，习近平与比利时国王菲利普当日互致贺信，表达深化合作与推进开放对话的意愿；互致贺信的具体钟点未公开。分析：这是当日外交互动及政策表态，没有随之公布新的条约、市场准入或投资承诺。",
+          "3. 雄安全球治理论坛闭幕并发布愿景文件。2026全球治理论坛10月25日闭幕，愿景文件提出加强全球南方协调、支持联合国在人工智能全球治理中的平台作用；总台报道于26日01:33发布。分析：论坛形成合作议程，不等于具有法律约束力的国际协议；23日已经宣布的中方八项务实行动不是本期新增。",
+          "4. 巴青震区公布安置与公共卫生保障新进展。截至10月25日18时，中国红十字会调拨的3100余件套救灾物资运抵西藏巴青震区，救援队在两个板房安置点搭建15套应急厕所，热食保障点累计供餐1000余份。新华社26日00:29发布这一更新。分析：救援涉及安置区卫生与基本生活保障；这些是截至该时点的累计数，不代表全部均在本窗口内完成。",
+          "5. 中国—东盟青年文化周在北京开幕。新华社10月25日23:14报道，当日开幕的活动有400余名相关专家和青年代表参加，后续一周安排研究交流与青年活动，开幕具体钟点未载。分析：这是区域人文交流的新活动，不是重大政策落地或具有约束力的新制度。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社赵辰昕任代省长通报",
+            "url": "https://www2.xinhuanet.com/politics/20261025/629863f7d87e42ddac323e835e04adc2/c.html"
+          },
+          {
+            "label": "1. 河北人大公告，河北日报客户端/新华网",
+            "url": "https://www2.xinhuanet.com/politics/20261025/6c67fe69caac42d6be7cc0c880678365/c.html"
+          },
+          {
+            "label": "2. 中国外交部原始通报",
+            "url": "https://www.fmprc.gov.cn/web/wjdt_674879/gjldrhd_674881/202610/t20261025_12046441.shtml"
+          },
+          {
+            "label": "3. 中央广播电视总台闭幕报道",
+            "url": "https://news.cri.cn/20261026/ceba24b9-af89-e4c1-6231-cebb465a23f2.html"
+          },
+          {
+            "label": "3. 新华社论坛总结",
+            "url": "https://www2.xinhuanet.com/politics/20261025/5a368cbe9599482982ac6b7642f260ae/c.html"
+          },
+          {
+            "label": "4. 新华社救援进展原报",
+            "url": "https://www2.xinhuanet.com/politics/20261026/47a44a2aa32b452abe526fd89f7adcee/c.html"
+          },
+          {
+            "label": "5. 新华社开幕报道",
+            "url": "https://www2.xinhuanet.com/politics/20261025/b27c0498555d408d9ddb89bd8569cc6a/c.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 巴西总统选举第二轮计票显示卢拉胜选。巴西国家通讯社10月25日21:11巴西利亚时间（26日08:11北京时间）报道，卢拉击败弗拉维奥·博索纳罗，赢得第四个总统任期；报道时统计98.2%票箱，卢拉获得51.75%有效票。分析：巴西行政领导将延续，但所列比例是该时点计票值，不冒充最终认证数字。",
+          "2. 武契奇承认塞尔维亚议会选举败选。路透社和美联社报道，武契奇10月25日晚承认其阵营败给学生运动支持的名单，并称对方将取得议会多数。分析：选举结果可能改变执政格局，但阵营估算不是正式席位认证，政府交接也尚不可写成已经完成。",
+          "3. 保加利亚首轮总统投票结束，出口民调显示约托娃领先。10月25日晚投票结束后的出口民调显示，约托娃小幅领先前看守总理久罗夫，两人预计进入11月1日第二轮。不同机构民调比例不一，本文不采用单一比例作为结果。分析：总统归属仍未最终确定，对外交路线的分歧将延续至次轮，不能把民调领先写成正式胜选。",
+          "4. 马查多返回委内瑞拉并公开露面。路透社记者10月25日在拉拉州现场见证反对派领导人马查多离开教堂，报道其已返回委内瑞拉并沿公路前往首都方向。分析：她重新在国内开展政治活动，为政治协商增加新变量，但不代表选举日期已经确定；返国协调的争议说法不作为确定事实。",
+          "5. 新加坡人民行动党公布第39届中委会选举结果。CNA于10月25日12:24新加坡时间首发，26日09:33更新，报道当日选出12名中委，随后增补陈诗龙与扎吉哈，黄循财、李显龙等进入名单。投票上午结束，具体分钟未公开。分析：执政党最高决策层完成新一轮改选，但内部具体职务仍待公布，也不等于新一轮内阁改组。"
+        ],
+        "sources": [
+          {
+            "label": "1. 巴西国家通讯社选举报道",
+            "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-e-reeleito-presidente-do-brasil-em-virada-historica"
+          },
+          {
+            "label": "1. 美联社现场交叉报道",
+            "url": "https://apnews.com/article/brazil-election-lula-bolsonaro-runoff-vote-president-e2c9fe8fc4aa3e3675b9a8ec15405d93"
+          },
+          {
+            "label": "2. 路透社原稿授权转载",
+            "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/10/25/serbia-s-vucic-concedes-defeat-to-student-led-movement-in-parliamentary-election"
+          },
+          {
+            "label": "2. 美联社现场报道",
+            "url": "https://apnews.com/article/serbia-election-students-vucic-fdf5def8a20aebc8ae139fd719478775"
+          },
+          {
+            "label": "3. Anadolu报道，由TRT World刊载",
+            "url": "https://www.trtworld.com/article/e3bdb30aa3f7"
+          },
+          {
+            "label": "3. TVP World当日20:18报道",
+            "url": "https://tvpworld.com/96123248/bulgaria-exit-poll-give-iliana-iotova-narrow-lead-in-presidential-vote"
+          },
+          {
+            "label": "4. 路透社现场原稿授权转载",
+            "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/10/26/venezuela-opposition-leader-maria-corina-machado-returns-to-venezuela"
+          },
+          {
+            "label": "4. 美联社报道转载",
+            "url": "https://www.deccanchronicle.com/amp/world/venezuelas-opposition-leader-machado-returns-after-months-in-exile-1998812"
+          },
+          {
+            "label": "5. CNA记者原始报道",
+            "url": "https://www.channelnewsasia.com/singapore/pap-leadership-election-cec-6489086"
+          }
+        ]
+      }
+    ],
+    "closing": "本期25条，五栏各5条。公司声明、研究结果、谈判和出口民调分别保留事实边界；日期级事件不补造精确时刻，原始报道与公告可逐条核对。"
   }
 ]
