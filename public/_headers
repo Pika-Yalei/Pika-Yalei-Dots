@@ -25,3 +25,7 @@
 
 /topics/*/feed.json
   Content-Type: application/feed+json; charset=utf-8
+
+/notes/*/article.txt
+  Content-Type: text/plain; charset=utf-8
+  X-Content-Type-Options: nosniff
