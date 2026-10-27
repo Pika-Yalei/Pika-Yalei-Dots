@@ -1,0 +1,20 @@
+/* Browsers without :has retain the original readable article and browser zoom. */
+.reader-controls{display:none}
+@supports selector(:has(input:checked)){
+  .reader-controls{display:block;min-width:0;margin:0 0 24px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+  .reader-controls legend{padding:0 6px}
+  .reader-controls-options{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  .reader-controls label{display:flex;align-items:center;justify-content:center;gap:8px;min-width:64px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);touch-action:manipulation;cursor:pointer}
+  .reader-controls label:has(input:checked){border-color:var(--green);font-weight:600}
+  .reader-controls input{margin:0;accent-color:var(--green)}
+  .reader-controls label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
+  .reader-controls p{margin:10px 0 0;color:var(--muted);font-size:.75rem;line-height:1.7}
+}
+@media screen{
+  .article-reader:has(input[name="reader-size"][value="large"]:checked) .prose{font-size:1.25rem}
+  .article-reader:has(input[name="reader-size"][value="larger"]:checked) .prose{font-size:1.5rem}
+  .article-reader:has(input[name="reader-size"][value="large"]:checked) .prose h2{font-size:1.65rem}
+  .article-reader:has(input[name="reader-size"][value="larger"]:checked) .prose h2{font-size:2rem}
+}
+@media print{.reader-controls{display:none}}
+@media (forced-colors:active){.reader-controls label:has(input:checked){border-color:Highlight}.reader-controls label:has(input:focus-visible){outline-color:Highlight}}
