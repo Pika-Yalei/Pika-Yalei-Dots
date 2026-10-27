@@ -3,7 +3,7 @@ import { constants } from 'node:fs';
 import path from 'node:path';
 
 // Exact reviewed paths, not extensions: a stray private.css must not be published.
-export const PUBLIC_ASSETS = Object.freeze(['_headers', 'favicon.svg', 'style.css', 'reader-controls.css']);
+export const PUBLIC_ASSETS = Object.freeze(['_headers', 'favicon.svg', 'style.css', 'reader-controls.css', 'news-calendar.css']);
 
 export async function readPublicAssets(directory) {
   const invalid = (name, reason) => new Error(`Invalid public asset ${JSON.stringify(name)}: ${reason}`);
