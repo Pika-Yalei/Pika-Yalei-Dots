@@ -3357,5 +3357,219 @@
       }
     ],
     "closing": "本期25条，五栏各5条。公司声明、研究结果、谈判和出口民调分别保留事实边界；日期级事件不补造精确时刻，原始报道与公告可逐条核对。"
+  },
+  {
+    "slug": "news-2026-10-27",
+    "date": "2026-10-27",
+    "title": "2026-10-27｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-26 10:15:00 至 2026-10-27 10:15:00",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "五栏各5条，共25条：AI模型与科研公开、企业融资并购、主要市场收盘与交易所披露、中国政策以及国际公共事务新进展。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-26T02:15:00Z",
+      "end": "2026-10-27T02:15:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. OpenAI发布GPT-6.1 Terra。10月26日推出的模型面向视觉理解、电脑操作及日常工作，向ChatGPT Work和Codex的Plus、Pro、Enterprise、Edu用户开放，也提供API。标准API每百万输入词元1美元、输出词元5美元；性能提升为公司自测结果。分析：较低调用价格有利于高频工作流，但仍需按实际任务验证准确率和成本。",
+          "2. OpenAI公开新一组AI科研结果及学界协作安排。10月26日公布涉及调和分析、计算复杂性与量子场论的研究材料，部分自然语言证明和Lean形式化已公开，并邀请独立学者解释、检验结果。模型生成及形式化发生于此前，本期新增是公开发布与合作机制。分析：材料开放有助于独立审查，不能将公司宣称直接写成学界已完成验证的共识。",
+          "3. Google推出AI素养课程Polar Peaks。Google Research与斯坦福学习加速器10月26日发布AI Quests系列第三个互动任务，让11至14岁学生通过模拟神经元研究练习数据清理、模型测试及人工监督；同时推出教师培训模块，第三课专属模块计划下月上线。分析：课程把AI教育从使用工具推进到理解数据与验证过程。",
+          "4. Google Beam宣布扩展至20个USO地点。Google10月26日宣布与USO合作，把HP Dimension with Google Beam的三维视频通信扩展到全球20个地点，服务异地军人家庭；此前波兰与美国的试点是背景，不作为新事件。分析：这是AI三维通信的具体部署扩展，20处为宣布的覆盖安排，不等于全部已完成安装。",
+          "5. Google.org支持扩展AI农业公共网络。10月26日宣布提供250万美元，支持世界银行集团及国际金融公司扩展农业数字公共基础设施，并在印度试点基础上向拉美、东南亚及撒哈拉以南非洲多国推进AI赋能的农业开放网络。目标为2027年底帮助100万农户接入服务。分析：共享网络有望减少服务碎片化，但受益人数是目标而非已实现成果。"
+        ],
+        "sources": [
+          {
+            "label": "1. OpenAI模型发布公告",
+            "url": "https://openai.com/index/introducing-gpt-6-1-terra/"
+          },
+          {
+            "label": "2. OpenAI科研结果及公开协作说明（10月26日）",
+            "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/"
+          },
+          {
+            "label": "3. Google Research课程发布公告（10月26日）",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/"
+          },
+          {
+            "label": "4. Google Beam与USO部署公告（10月26日）",
+            "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-uso-docuseries-service-members/"
+          },
+          {
+            "label": "5. Google.org农业网络支持公告（10月26日）",
+            "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/digital-public-infrastructure-farmers/"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. Anthropic正式提交IPO注册文件。公司10月26日宣布向美国证监会提交S-1，拟以ANT为代码在纳斯达克全球精选市场上市；发行股数和价格区间尚未确定，注册文件尚未生效。分析：AI公司的融资与经营信息将接受更系统的公开市场审视，但提交申请不等于已经上市或完成融资。",
+          "2. Meta启动约350亿美元发行，并提出额外600亿美元融资计划。10月26日官方公告区分了已启动的约225亿美元普通股远期发行、约125亿美元可转换优先股存托股份发行，以及尚未签订协议的未来约600亿美元ATM发行计划。分析：AI资本开支融资来源进一步多元化，同时带来潜在股本稀释；不能将950亿美元计划总额写成已募资金额。",
+          "3. EQT与Range Resources签署全股票合并协议。10月26日公告规定，每股Range股票拟换取0.987股EQT股票，预计合并后的企业价值超过500亿美元；交易计划于2027年第一季度完成，仍须股东和监管批准。分析：交易将整合天然气资源与基础设施，但公司预期的协同收益尚待兑现。",
+          "4. Acuity拟以6.75亿美元收购Parameter Technologies。10月26日公司宣布达成最终协议，标的主营数据中心泄漏检测、环境与电池监测，计划于2027财年第二季度交割，仍受常规条件及反垄断审查等待期约束。分析：液冷数据中心的扩张正带动配套监测业务整合，不意味着本次收购已经完成。",
+          "5. RadNet拟收购ONRAD放射诊断服务平台。10月26日公告约定交割时支付3.5亿美元现金及500万股股票，另设最高2.1亿美元业绩对价；预计2027年初完成，仍须监管审查和其他条件。分析：交易将把影像中心运营与远程阅片、院内专业人员服务结合，实际整合效果仍待验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. Anthropic官方IPO公告（10月26日）",
+            "url": "https://www.anthropic.com/news/s1-sec"
+          },
+          {
+            "label": "2. Meta官方发行及融资计划公告（10月26日）",
+            "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Announces-Launch-of-Offering-of-Depositary-Shares-Representing-Series-A-Mandatory-Convertible-Preferred-Stock-and-Offering-of-Class-A-Common-Stock-in-Connection-with-Forward-Sale-Agreements/default.aspx"
+          },
+          {
+            "label": "3. EQT与Range联合原始公告（10月26日）",
+            "url": "https://ir.eqt.com/investor-relations/news/news-release-details/2026/EQT-Announces-Strategic-Acquisition-of-Range-Resources-Creating-Americas-Undisputed-Natural-Gas-Champion/default.aspx"
+          },
+          {
+            "label": "4. Acuity公司原始收购公告（10月26日）",
+            "url": "https://investors.acuityinc.com/news-releases/news-release-details/acuity-announces-agreement-acquire-parameter-technologies"
+          },
+          {
+            "label": "5. RadNet原始公告（10月26日16:01美国东部夏令时）",
+            "url": "https://www.globenewswire.com/news-release/2026/10/26/3388528/10985/en/radnet-inc-announces-agreement-to-acquire-onrad-inc.html"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美国三大股指周一收高。美国当地10月26日收盘，标普500涨0.7%至7676.77点，道指涨0.3%至52361.58点，纳斯达克综合指数涨0.8%至26169.38点。指数以点计，美国股票交易币种为美元。分析：当日反弹并不消除AI相关股票近期的波动，后续财报与利率决定仍可能改变市场定价。",
+          "2. A股收盘分化，沪指上涨而成长指数下跌。北京时间10月26日收盘，上证指数涨0.19%至3697.52点，深证成指跌1.19%至11534.38点，创业板指跌1.71%至2638.23点。指数以点计，A股交易币种为人民币。分析：指数间分化提示单看沪指不足以代表全市场表现，也不能据此推定所有行业同步改善。",
+          "3. 港股恒指与恒生科技指数走势分化。香港当地10月26日收盘，恒生指数涨0.51%至23211.81点，恒生科技指数跌0.36%至3857.53点。指数以点计，香港股票通常以港元交易。分析：综合指数与科技板块方向不同，说明市场内部表现并不一致，不能把恒指上涨概括为科技股全面反弹。",
+          "4. 巴西B3交易所触发熔断并暂停交易30分钟。B3于当地10月26日公告，现货及相关股票、指数、ETF期权等交易暂停30分钟，安排于当地10:30至10:35通过集合竞价恢复。该条为盘中交易机制事件，不采用来源间不一致的收盘点位；巴西股票交易币种为雷亚尔。分析：暂停机制为急跌期间提供报价调整时间，并不保证恢复交易后价格稳定。",
+          "5. 纳斯达克新公布10月中旬空头持仓数据。美国东部夏令时10月26日16:05公布，截至10月15日结算日，5544只证券的空头持仓合计约231.56亿股，前期为230.94亿股；按平均日成交量折算由2.49天增至2.93天。分析：这是本窗口的新披露、不是26日实时持仓；该比率同时受持仓与成交量影响，不能直接当作后市涨跌预测。"
+        ],
+        "sources": [
+          {
+            "label": "1. AP美国10月26日收盘统计（20:13 UTC发布）",
+            "url": "https://apnews.com/article/693ac6c4e67da0332045e66804780be7"
+          },
+          {
+            "label": "1. AP原稿授权转载",
+            "url": "https://www.seattlepi.com/business/how-major-us-stock-indexes-fared-monday-10-26-2026-a22495378"
+          },
+          {
+            "label": "2. 博时当日市场点评，界面刊载，数据截至10月26日",
+            "url": "https://m.jiemian.com/article/15240827.html"
+          },
+          {
+            "label": "2. 上证指数10月26日历史收盘数据",
+            "url": "https://cn.investing.com/indices/shanghai-composite-historical-data"
+          },
+          {
+            "label": "3. 10月26日港股收盘点评（17:02发布）",
+            "url": "https://finance.sina.com.cn/wm/2026-10-26/doc-iniwpwit5472486.shtml"
+          },
+          {
+            "label": "3. 凤凰财经当日收盘交叉报道（16:57更新）",
+            "url": "https://finance.ifeng.com/c/8xXXE3eEVjy"
+          },
+          {
+            "label": "4. B3交易所10月26日熔断原始公告",
+            "url": "https://www.b3.com.br/pt_br/noticias/b3-informa.htm"
+          },
+          {
+            "label": "5. Nasdaq原始空头持仓公告（10月26日16:05 EDT）",
+            "url": "https://www.nasdaq.com/press-release/nasdaq-announces-mid-month-open-short-interest-positions-nasdaq-stocks-settlement-2-1"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 二十届五中全会在北京开幕。新华社10月26日中午披露，全会当日上午开始举行，习近平代表中央政治局作工作报告，并就持之以恒推进全面从严治党有关重大问题的决定稿作说明。开幕具体时刻未公布，本期记录窗口内披露的会议实质进展。分析：议程进入全会审议阶段，决定稿不能写成已经通过的正式决定。",
+          "2. 国务院公布事业单位登记管理条例。10月26日公布的新条例共6章34条，将于12月1日起施行，规范登记管理程序、强化公益属性与监管责任，并要求依法及时公开有关信息。分析：事业单位及举办单位需按新制度准备衔接，公布不等于已经施行。",
+          "3. 二十届中央第八轮巡视公布完成进驻。新华社10月26日18:35披露，15个中央巡视组已进驻教育部和31所中管高校党组织，计划工作约两个月，受理信访截至12月21日。具体进驻日期仅表述为近日，本期新增是完成状态及安排的披露。分析：巡视进入现场监督阶段，不代表已发现或认定被巡视单位存在违法违纪问题。",
+          "4. 国管局发布2027年度中央行政事业单位通用资产配置计划编报通知。10月26日公布的通知要求机关本级和机关服务中心于11月30日前报送材料，资产需求优先通过存量调剂解决，并提出到2030年各部门年度公务用车采购总量中新能源汽车占比原则上不低于50%。分析：通知将资产配置与存量盘活、采购约束结合，目标年份不能误写为当年采购达标要求。",
+          "5. 生态环境部公布9月及前三季度空气质量数据。10月26日新发布的统计显示，1—9月全国339个地级及以上城市PM2.5平均浓度24.9微克/立方米，同比下降3.9%；但9月为19.0微克/立方米，同比上升18.8%。分析：累计改善与单月反弹并存，不能只摘取一种时间口径推断全年趋势；新增的是统计发布，非污染在当日发生。"
+        ],
+        "sources": [
+          {
+            "label": "1. 中国政府网转新华社：10月26日12:16发布",
+            "url": "https://english.www.gov.cn/news/202610/26/content_WS6aded439c6d00ca5f9a0df12.html"
+          },
+          {
+            "label": "2. 中国政府网转新华社：10月26日19:18发布",
+            "url": "https://english.www.gov.cn/policies/latestreleases/202610/26/content_WS6adf3723c6d00ca5f9a0df23.html"
+          },
+          {
+            "label": "3. 新华社通稿，人民网10月26日18:35刊载",
+            "url": "https://cpc.people.com.cn/n1/2026/1026/c64387-40821936.html"
+          },
+          {
+            "label": "4. 国管局原始通知：10月26日14:39发布",
+            "url": "https://www.ggj.gov.cn/tzgg/202610/t20261026_49867.htm"
+          },
+          {
+            "label": "5. 生态环境部原始统计：10月26日发布",
+            "url": "https://www.mee.gov.cn/ywdt/xwfb/202610/t20261026_1184641.shtml"
+          },
+          {
+            "label": "5. 中国环境报转载：10月26日17:17刊载",
+            "url": "https://finance.sina.com.cn/wm/2026-10-26/doc-iniwpwiq2522973.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 欧洲五国防长在巴黎发表联合声明。法国、德国、意大利、波兰和英国10月26日表示，将加强欧洲在北约内的责任、国防工业协作及对乌克兰的政治、军事和财政支持。分析：声明明确协调方向，但未给出新增援助总额或新的部队部署，不能将政策表态写成已经交付的援助。",
+          "2. 韩国总统就CPTPP加入前景作出新表态。李在明10月26日在农林渔畜业代表座谈会上称，韩国长期难以回避加入CPTPP，但谈判可能很长，任期内达成最终协议的可能性较低，并强调需准备配套措施。分析：表态同时反映出口利益与农业开放压力，并不意味着韩国已提交申请或获得成员资格。",
+          "3. 保加利亚官方计票确认总统选举进入次轮的方向。路透社10月26日报道，在95%票数完成统计时，约托娃得票34.6%，久罗夫32%，均未过半，将于11月1日进行第二轮。分析：相较前一期出口民调，本次新增是官方计票进展；比例仍是该报道时点的部分结果，不冒充最终认证值。",
+          "4. 尼日利亚将埃博拉患者转运至瑞士，接触者监测继续。尼日利亚卫生部长10月26日确认，患者及其丈夫当日离境接受后续医疗及监测；国家疾控中心仍在尼日利亚监测52名接触者。分析：跨境转运不等于疫情已经结束，感染来源仍在调查，不能把病情改善等同于失去传染性。",
+          "5. 安理会举行儿童与武装冲突议题会议。10月26日纽约会议上，联合国儿童基金会负责人呼吁加强监测、人道准入和保护资金，并重申自2005年以来联合国已核实超过43万起针对儿童的严重侵害。分析：本次新增是会议及行动呼吁；累计数字覆盖多年，不是24小时新增，也不代表会议通过了新的决议。"
+        ],
+        "sources": [
+          {
+            "label": "1. 英国国防部E5联合声明：10月26日",
+            "url": "https://www.gov.uk/government/news/e5-defence-ministers-statement-26-october-2026"
+          },
+          {
+            "label": "1. EFE巴黎现场报道：10月26日",
+            "url": "https://efe.com/euro-efe/2026-10-26/paises-europeos-mas-gasto-defensa-unidos-ataques-hibridos-rusos/"
+          },
+          {
+            "label": "2. 韩联社现场报道：10月26日17:03韩国时间",
+            "url": "https://en.yna.co.kr/view/AEN20261026006751315"
+          },
+          {
+            "label": "2. Reuters报道转载：10月26日06:00 UTC更新",
+            "url": "https://www.aol.com/articles/south-koreas-lee-says-unlikely-055238000.html"
+          },
+          {
+            "label": "3. Reuters原稿转载：10月26日03:52美国东部夏令时间",
+            "url": "https://www.streetinsider.com/Reuters/Bulgaria%2Bheads%2Bto%2Bpresidential%2Brunoff%2Bafter%2Bclose%2Bvote/27229666.html"
+          },
+          {
+            "label": "3. Sofia Globe交叉核对：10月26日部分官方计票",
+            "url": "https://sofiaglobe.com/2026/10/26/yotova-gyurov-to-face-off-in-bulgarian-presidential-election-run-off-partial-results/"
+          },
+          {
+            "label": "4. 尼日利亚国家电视台：10月26日11:02发布",
+            "url": "https://www.nta.ng/news/nigeria/nigeria-continues-ebola-response-as-patient-is-evacuated-to-switzerland"
+          },
+          {
+            "label": "4. Premium Times：卫生部长当日确认",
+            "url": "https://www.premiumtimesng.com/news/headlines/920285-updated-ebola-nigerias-index-patient-evacuated-to-switzerland-health-minister-confirms.html"
+          },
+          {
+            "label": "5. UNICEF执行主任10月26日安理会发言原文",
+            "url": "https://www.unicef.org/press-releases/30-years-protecting-children-affected-armed-conflict-commitment-impact"
+          },
+          {
+            "label": "5. 联合国媒体日程：10月26日纽约10:00会议",
+            "url": "https://static.un.org/en/media/accreditation/alert.shtml"
+          }
+        ]
+      }
+    ],
+    "closing": "本期收录25条独立进展，五栏各5条。统计基准、部分计票、未来融资与交易条件已分别标明；分析不构成投资建议。",
+    "publishedAt": "2026-10-27T02:18:28Z"
   }
 ]
