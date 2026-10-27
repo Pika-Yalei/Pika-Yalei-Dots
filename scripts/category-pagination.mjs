@@ -1,3 +1,4 @@
+import { renderPageWindow } from './page-window.mjs';
 import { renderCategory } from './categories.mjs';
 export const categoryPageSize = 6;
 export function paginateCategories(categories) {
@@ -13,7 +14,7 @@ export function paginateCategories(categories) {
 }
 export function renderCategoryPage(page) {
   const href = number => number === 1 ? page.categoryPath : `${page.categoryPath}page/${number}/`;
-  const navigation = page.total > 1 ? `<nav class="pagination" aria-label="分类分页">${page.number > 1 ? `<a href="${href(page.number - 1)}" rel="prev">← 上一页</a>` : ''}<span aria-current="page">第 ${page.number} / ${page.total} 页</span>${page.number < page.total ? `<a href="${href(page.number + 1)}" rel="next">下一页 →</a>` : ''}<a href="/archive/">查看全部归档</a></nav>` : '';
+  const navigation = page.total > 1 ? `<nav class="pagination" aria-label="分类分页">${page.number > 1 ? `<a href="${href(page.number - 1)}" rel="prev">← 上一页</a>` : ''}${renderPageWindow(page.number,page.total,href)}${page.number < page.total ? `<a href="${href(page.number + 1)}" rel="next">下一页 →</a>` : ''}<a href="/archive/">查看全部归档</a></nav>` : '';
   return renderCategory({...page, path: page.categoryPath})
     .replace('</h1>', `${page.number > 1 ? ` · 第 ${page.number} 页` : ''}</h1>`)
     .replace(`共 ${page.posts.length} 篇手记`, `共 ${page.count} 篇手记`)

@@ -1,3 +1,4 @@
+import { renderPageWindow } from './page-window.mjs';
 const escape = text => String(text).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 export const monthPageSize = 6;
 export function monthArchivePath(month, number = 1) {
@@ -21,6 +22,6 @@ export function paginateMonthArchive(posts) {
   });
 }
 export function renderMonthArchive(page) {
-  const navigation = page.total > 1 ? `<nav class="pagination" aria-label="月份归档分页">${page.number > 1 ? `<a href="${monthArchivePath(page.month,page.number-1)}" rel="prev">← 上一页</a>` : ''}<span aria-current="page">第 ${page.number} / ${page.total} 页</span>${page.number < page.total ? `<a href="${monthArchivePath(page.month,page.number+1)}" rel="next">下一页 →</a>` : ''}</nav>` : '';
+  const navigation = page.total > 1 ? `<nav class="pagination" aria-label="月份归档分页">${page.number > 1 ? `<a href="${monthArchivePath(page.month,page.number-1)}" rel="prev">← 上一页</a>` : ''}${renderPageWindow(page.number,page.total,number=>monthArchivePath(page.month,number))}${page.number < page.total ? `<a href="${monthArchivePath(page.month,page.number+1)}" rel="next">下一页 →</a>` : ''}</nav>` : '';
   return `<div class="article-shell archive-shell"><header class="article-header"><h1>${escape(page.month)} 手记归档${page.number > 1 ? ` · 第 ${page.number} 页` : ''}</h1><p class="article-subtitle">共 ${page.count} 篇手记 · 按日期由新到旧</p><p class="page-range">显示第 ${page.offset+1}–${page.offset+page.posts.length} 篇</p></header><ol class="archive-list" start="${page.offset+1}">${page.posts.map(post=>`<li><time datetime="${escape(post.date)}">${escape(post.date.replaceAll('-','.'))}</time><a href="/notes/${escape(post.slug)}/">${escape(post.title)}</a></li>`).join('')}</ol>${navigation}<p><a href="/archive/#month-${escape(page.month)}">返回总归档中的本月</a> · <a href="/archive/">全部归档</a></p></div>`;
 }

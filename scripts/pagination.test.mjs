@@ -40,12 +40,12 @@ test('pagination uses real boundary links, a current position, and bounded navig
   assert.match(middle, /href="\/" rel="prev"/);
   assert.match(middle, /href="\/page\/3\/" rel="next"/);
   assert.match(middle, /aria-label="手记分页"/);
-  assert.match(middle, /<span aria-current="page">第 2 \/ 3 页<\/span>/);
+  assert.match(middle, /<span aria-current="page" aria-label="第 2 页，当前页">第 2 \/ 3 页<\/span>/);
   const last = renderPagination({number:3,total:3});
   assert.doesNotMatch(last, /rel="next"/);
   assert.match(last, /href="\/page\/2\/" rel="prev"/);
   assert.match(last, /href="\/archive\/"/);
-  assert.equal([...renderPagination({number:500,total:1000}).matchAll(/<a /g)].length, 3);
+  assert.equal([...renderPagination({number:500,total:1000}).matchAll(/<a /g)].length, 7);
 });
 
 test('static builds cover overflow, sorting, metadata, full feeds/archive and stale-page cleanup', async () => {
