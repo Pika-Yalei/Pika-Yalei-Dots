@@ -1,4 +1,5 @@
 import { renderSourceDomainGroups } from './source-domain-groups.mjs';
+import { renderPageWindow } from './page-window.mjs';
 import { createHash } from 'node:crypto';
 import { isReviewedSource, sectionSourceGroups } from './article-content.mjs';
 import { sectionAnchors, newsItemAnchors } from './reading-navigation.mjs';
@@ -55,9 +56,7 @@ export function paginateSources(sources) {
 }
 function renderSourcePagination({number, total}) {
   if (total === 1) return '';
-  const links = Array.from({length: total}, (_, index) => index + 1).map(page => page === number
-    ? `<span aria-current="page" aria-label="第 ${page} 页，当前页">${page}</span>`
-    : `<a href="${sourcePagePath(page)}" aria-label="第 ${page} 页">${page}</a>`).join('');
+  const links = renderPageWindow(number, total, sourcePagePath);
   return `<nav class="pagination" aria-label="来源分页">${number > 1 ? `<a href="${sourcePagePath(number - 1)}" rel="prev">← 上一页</a>` : ''}${links}${number < total ? `<a href="${sourcePagePath(number + 1)}" rel="next">下一页 →</a>` : ''}</nav>`;
 }
 export function renderSourcePage(page) {

@@ -54,7 +54,9 @@ test('all page navigation resolves locally, handles empty pages and distinguishe
     assert.ok(html.includes(`href="/topics/#${page.id}"`));
     assert.equal(html.includes('rel="prev"'), page.number > 1);
     assert.equal(html.includes('rel="next"'), page.number < page.total);
-    assert.equal(html.includes('aria-current="page">第'), page.total > 1);
+    const pagination = html.match(/<nav class="pagination"[^>]*>[\s\S]*?<\/nav>/)?.[0] ?? '';
+    assert.equal(Boolean(pagination), page.total > 1);
+    assert.equal((pagination.match(/aria-current="page"/g) ?? []).length, page.total > 1 ? 1 : 0);
     assert.doesNotMatch(html, /page\/1\//);
   }
   const empty = renderTopicPage(paginateTopics([])[0]);

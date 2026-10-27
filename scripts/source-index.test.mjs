@@ -74,7 +74,7 @@ test('numbered keyboard links, current page and previous/next links match source
     assert.equal(html.includes('rel="prev"'),number > 1);
     assert.equal(html.includes('rel="next"'),number < 3);
     for (const other of [1,2,3].filter(page => page !== number)) {
-      assert.ok(html.includes(`<a href="${sourcePagePath(other)}" aria-label="第 ${other} 页">${other}</a>`));
+      assert.ok(html.includes(`<a href="${sourcePagePath(other)}" aria-label="第 ${other} 页${other === 1 ? '，首页' : other === 3 ? '，末页' : ''}">${other}</a>`));
     }
     assert.doesNotMatch(html,/sources\/page\/1\/|<script|<form|onclick/);
   }
