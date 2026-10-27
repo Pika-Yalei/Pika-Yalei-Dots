@@ -1,3 +1,4 @@
+import { renderNewsCalendar } from './news-calendar.mjs';
 import { renderReaderControls } from './reader-controls.mjs';
 import { paginateMonthArchive, renderMonthArchive } from './month-archive.mjs';
 import { renderPlainText } from './plain-text.mjs';
@@ -60,6 +61,7 @@ ${renderMetadata({title, description, pagePath, post})}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/${stylesheetName}">
 ${post ? '<link rel="stylesheet" href="/reader-controls.css">' : ''}
+${pagePath === '/calendar/' ? '<link rel="stylesheet" href="/news-calendar.css">' : ''}
 ${category ? `<link rel="alternate" type="application/rss+xml" title="${escape(`韩立的工作手记 · ${category.name} RSS`)}" href="${category.path}feed.xml">\n` : ''}<link rel="alternate" type="application/rss+xml" title="韩立的工作手记 RSS" href="/feed.xml">
 ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${escape(category.name)}专题 JSON Feed" href="${category.path}feed.json">` : ''}
 <link rel="alternate" type="application/feed+json" title="韩立的工作手记 JSON Feed" href="/feed.json">
@@ -72,7 +74,7 @@ ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main" tabindex="-1">${content}</main>
-<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="/headlines/">新闻条目</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
+<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="/headlines/">新闻条目</a> · <a href="/calendar/">新闻日历</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
 </html>\n`;
@@ -94,6 +96,8 @@ ${page.number === 1 ? `
 <section class="journal" aria-labelledby="journal-title"><div class="section-label"><h2 id="journal-title">手记归档</h2><span>${String(posts.length).padStart(2,'0')} 篇 · 慢慢更新</span></div>${posts.length ? `<p class="page-range">显示第 ${page.offset + 1}–${page.offset + page.posts.length} 篇，共 ${posts.length} 篇</p>` : ''}${entries || '<p>第一篇手记正在路上。</p>'}</section>${renderPagination(page)}
 <aside class="home-aside"><span class="aside-symbol" aria-hidden="true">＊</span><p>记下能公开的方法，把私人信息留在纸外。<br><a href="/about/">关于这本手记 <span aria-hidden="true">↗</span></a></p></aside>`, page.number === 1 ? 'home' : '', page.path));
 }
+await mkdir(path.join(out, 'calendar'), {recursive:true});
+await writeFile(path.join(out, 'calendar/index.html'), layout('新闻日历', '按新闻简报回顾日期查看已刊发文章，一日多篇与原文链接。', renderNewsCalendar(posts), '', '/calendar/'));
 await mkdir(path.join(out, 'archive'), {recursive:true});
 await writeFile(path.join(out, 'archive/index.html'), layout('归档', '按年份和月份浏览所有公开手记。', renderArchive(posts), 'archive', '/archive/'));
 for (const page of paginateMonthArchive(posts)) {
@@ -161,5 +165,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 6} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 7} HTML pages in dist/`);
 

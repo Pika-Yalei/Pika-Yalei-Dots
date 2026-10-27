@@ -1,0 +1,18 @@
+.calendar-month{margin:0 0 24px;border:1px solid var(--line);padding:12px}
+.calendar-month>summary{min-height:44px;padding:10px 4px;cursor:pointer;line-height:1.6;font-weight:600}
+.calendar-month>summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.calendar-grid{width:100%;table-layout:fixed;border-collapse:collapse;margin:12px 0 28px;text-align:center;font-variant-numeric:tabular-nums}
+.calendar-grid caption{text-align:left;font-size:.875rem;line-height:1.8;margin:0 0 12px;color:var(--muted)}
+.calendar-grid th{font-weight:500;padding:8px 0;font-size:.875rem}
+.calendar-grid td{border:1px solid var(--line);padding:0;vertical-align:top}
+.calendar-grid td a{display:flex;min-height:56px;flex-direction:column;justify-content:center;align-items:center;line-height:1.35;color:var(--green);background:var(--wash);text-decoration:underline;text-underline-offset:3px;padding:5px 0}
+.calendar-grid small{font-size:.625rem;line-height:1.6;text-decoration:none}
+.calendar-empty{display:flex;min-height:56px;align-items:center;justify-content:center;color:var(--muted);font-size:.875rem}
+.calendar-padding{background:var(--paper)}
+.calendar-entries h2{font-size:1rem;font-weight:500;margin:24px 0 8px;scroll-margin-top:24px}
+.calendar-entries h2:focus{outline:2px solid var(--green);outline-offset:5px}
+.calendar-entries ul{margin:0;padding-left:22px}
+.calendar-entries a{display:inline-block;min-height:44px;padding:10px 0;line-height:1.8;overflow-wrap:anywhere}
+.calendar-month>p{font-size:.875rem;line-height:1.8}
+@media(max-width:30em){.calendar-month{padding:6px}.calendar-grid th{font-size:.75rem}.calendar-grid td a{font-size:.875rem}}
+@media(forced-colors:active){.calendar-grid td a{color:LinkText}.calendar-month>summary:focus-visible,.calendar-entries h2:focus{outline-color:Highlight}}
