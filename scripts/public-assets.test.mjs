@@ -32,7 +32,7 @@ async function fixture(t) {
 
 test('reviewed assets retain their bytes and headers append only generated cache rules', async (t) => {
   const { temp, previous } = await fixture(t);
-  assert.deepEqual(PUBLIC_ASSETS, ['_headers', 'favicon.svg', 'style.css']);
+  assert.deepEqual(PUBLIC_ASSETS, ['_headers', 'favicon.svg', 'style.css', 'reader-controls.css']);
   for (const name of PUBLIC_ASSETS) {
     const original = await readFile(path.join(temp, 'public', name));
     const fingerprint = Object.keys(previous).find(name => /^style\.[0-9a-f]{16}\.css$/.test(name));
