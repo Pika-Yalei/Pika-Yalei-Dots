@@ -1,3 +1,4 @@
+import { renderSourceDomainGroups } from './source-domain-groups.mjs';
 import { createHash } from 'node:crypto';
 import { isReviewedSource, sectionSourceGroups } from './article-content.mjs';
 import { sectionAnchors, newsItemAnchors } from './reading-navigation.mjs';
@@ -62,7 +63,7 @@ function renderSourcePagination({number, total}) {
 export function renderSourcePage(page) {
   const {sources, number, total, count, offset, domains = []} = page;
   const domainNavigation = !domains.length ? '' : number === 1
-    ? `<details class="source-domains" id="source-domains"><summary>按来源网站定位（${domains.length} 个网站）</summary><ul>${domains.map(domain=>`<li><a href="${escape(domain.href)}">${escape(domain.host)}（${domain.count} 个来源）</a>${domain.pages.length > 1 ? `<span class="domain-pages"> · 所在页：${domain.pages.map(page=>`<a href="${escape(page.href)}" aria-label="${escape(domain.host)}，第 ${page.number} 页">${page.number}</a>`).join(' · ')}</span>` : ''}</li>`).join('')}</ul></details>`
+    ? `<details class="source-domains" id="source-domains"><summary>按来源网站定位（${domains.length} 个网站）</summary><p>按网站首字母展开；www 前缀不参与分组。每个链接仍定位完整来源索引，不是过滤结果。</p>${renderSourceDomainGroups(domains)}</details>`
     : '<p><a href="/sources/#source-domains">按来源网站定位</a></p>';
   return `<div class="article-shell"><header class="article-header"><h1>新闻与复盘来源${number === 1 ? '' : ` · 第 ${number} 页`}</h1><p class="article-subtitle">逐条回到原始材料，并查看引用它的手记章节。</p></header><div class="prose"><p>共 ${count} 个实际引用的公开链接。来源来自文章正文，不代表已独立验证来源的全部内容；统计窗口和事实限定仍以各篇手记为准。</p><p><a href="/sources/websites/">按网站集中浏览全部引用材料</a></p>${domainNavigation}${sources.length ? `<p class="page-range">显示第 ${offset + 1}–${offset + sources.length} 个来源 · 第 ${number} / ${total} 页</p><ol start="${offset + 1}">${sources.map(source => `<li class="source-entry" id="${sourceAnchor(source.url)}" tabindex="-1"><p><a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a> <small>（${escape(new URL(source.url).hostname)}）</small></p><ul>${source.references.map(ref => `<li><a href="${escape(ref.href)}">${escape(ref.title)} · ${escape(ref.heading)}</a></li>`).join('')}</ul></li>`).join('')}</ol>` : '<p>尚无可列出的引用来源。</p>'}</div>${renderSourcePagination(page)}</div>`;
 }
