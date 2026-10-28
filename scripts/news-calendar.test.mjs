@@ -43,7 +43,8 @@ test('only actual months with news appear, empty days are not fabricated article
 
 test('semantic calendar links reach labelled date headings and article URLs without scripts', () => {
   const html = renderNewsCalendar([post('2026-10-01', 'a', '<unsafe>'), post('2026-10-01', 'b'), post('2026-09-01')]);
-  assert.equal((html.match(/class="calendar-month" open/g) || []).length, 1);
+  assert.match(html, /id="calendar-month-2026-10"/);
+  assert.equal((html.match(/class="calendar-month" id="calendar-month-[0-9-]+" open/g) || []).length, 1);
   assert.match(html, /<caption>2026-10 新闻简报（周一开始）<\/caption>/);
   assert.equal((html.match(/scope="col"/g) || []).length, 14);
   assert.match(html, /href="#calendar-day-2026-10-01" aria-label="2026-10-01，2 篇新闻简报"/);
