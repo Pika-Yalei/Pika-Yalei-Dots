@@ -20,7 +20,7 @@ export function sectionAnchors(sections) {
 }
 
 export function renderContents(sections) {
-  return `<nav class="article-contents" aria-labelledby="contents-title"><h2 id="contents-title">本篇目录</h2><ol>${sections.map((section) => `<li><a href="#${section.id}">${escape(section.heading)}</a></li>`).join('')}</ol></nav>`;
+  return `<nav class="article-contents" aria-labelledby="contents-title"><h2 id="contents-title" tabindex="-1">本篇目录</h2><ol>${sections.map((section) => `<li><a href="#${section.id}">${escape(section.heading)}</a></li>`).join('')}</ol></nav>`;
 }
 
 export function renderAdjacent(posts, index) {

@@ -88,6 +88,7 @@
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 .news-outline{border:1px solid var(--line);padding:8px 16px;margin:16px 0 24px;font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}.news-outline summary{cursor:pointer;min-height:44px;padding:10px 0}.news-outline summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.news-outline nav{display:block}.news-outline ul{list-style:none;padding:0;margin:8px 0}.news-outline a{display:block;min-height:44px;padding:10px 0;line-height:1.6;text-decoration:underline}
 @media print{
+  .section-navigation{display:none}
   .article-download{display:none}
   .news-outline{display:none}
   /* Printed citations must remain usable without a clickable screen. */
@@ -147,3 +148,9 @@
 .headline-context{font-family:var(--sans);font-size:.75rem;color:var(--muted);line-height:1.8;margin:0.25rem 0 0;overflow-wrap:anywhere}
 
 .article-download a{display:inline-block;min-height:44px;padding:10px 0;text-decoration:underline;overflow-wrap:anywhere}
+
+/* Long briefings remain traversable without returning to the page top. */
+@media screen{
+.section-navigation{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;margin:28px 0;padding:16px 0;border-block:1px solid var(--line);font: .875rem/1.7 var(--sans)}
+.section-navigation a{display:flex;align-items:center;min-height:44px;max-width:100%;overflow-wrap:anywhere}
+}
