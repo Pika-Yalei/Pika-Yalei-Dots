@@ -18,3 +18,22 @@
 }
 @media print{.reader-controls{display:none}}
 @media (forced-colors:active){.reader-controls label:has(input:checked){border-color:Highlight}.reader-controls label:has(input:focus-visible){outline-color:Highlight}}
+
+.reader-layout{display:none}
+@supports selector(:has(input:checked)){
+  .reader-layout{display:block;min-width:0;margin:0 0 16px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+  .reader-layout legend{padding:0 6px}
+  .reader-layout-options{display:flex;flex-wrap:wrap;gap:10px}
+  .reader-layout label{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid var(--line);cursor:pointer}
+  .reader-layout input{margin:0;accent-color:var(--green)}
+  .reader-layout label:has(input:checked){border-color:var(--green);font-weight:600}
+  .reader-layout label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
+  .reader-layout p{margin:10px 0 0;color:var(--muted);font-size:.75rem;line-height:1.7}
+}
+@media screen{
+  .article-reader:has(input[name="reader-narrow"]:checked) .prose{max-width:28em;margin-inline:auto}
+  .article-reader:has(input[name="reader-spaced"]:checked) .prose p{line-height:2.2;margin-block:1.5em}
+  .article-reader:has(input[name="reader-spaced"]:checked) .article-sources{line-height:2.2}
+}
+@media print{.reader-layout{display:none}}
+@media (forced-colors:active){.reader-layout label:has(input:checked){border-color:Highlight}.reader-layout label:has(input:focus-visible){outline-color:Highlight}}
