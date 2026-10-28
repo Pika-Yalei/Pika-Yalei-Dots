@@ -3571,5 +3571,203 @@
     ],
     "closing": "本期收录25条独立进展，五栏各5条。统计基准、部分计票、未来融资与交易条件已分别标明；分析不构成投资建议。",
     "publishedAt": "2026-10-27T02:18:28Z"
+  },
+  {
+    "slug": "news-2026-10-28",
+    "date": "2026-10-28",
+    "title": "2026-10-28｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-27 10:30:00 至 2026-10-28 10:30:00",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "五栏各5条：世界模型与企业AI、公司季度业绩、五地市场收盘、中国政策执行及外交、国际选举与公共事务。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-27T02:30:00Z",
+      "end": "2026-10-28T02:30:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Google公布Genie 4世界模型研究。10月27日公告称，新模型支持用自然语言实时改变模拟场景并生成原生音频，现已向少量可信测试者推出；更广泛的订阅与API访问仍属后续计划。分析：视听交互模拟的应用空间扩大，但不能将有限测试写成全面开放。",
+          "2. 微软推出MAI Image 2.7图像编辑预览。10月27日发布的模型支持场景、光照、文字与符号编辑及素材修复，可通过MAI Playground等入口试用，文生图功能尚待推出。分析：创作工作流增加了可比较的工具，预览阶段仍需验证编辑一致性。",
+          "3. Anthropic发布药物研发早期合作进展。10月27日报告介绍与六家机构的研发合作，也披露自有药物发现探索；大部分研究仍处于临床前阶段。分析：AI开始参与研发流程中的多种任务，但早期结果不是人体疗效证明，更不等于药物已获批。",
+          "4. Anthropic扩大美国政府采购合作。10月27日宣布扩展GSA协议，为政府伙伴购买Claude Enterprise、Claude for Government和API提供40%折扣，并覆盖州、地方、部落及领地政府；直接采购现可用，云商渠道计划随后数月推进。分析：采购门槛降低，但各机构仍需落实安全与使用治理。",
+          "5. Oracle与OpenAI扩大企业系统合作。10月27日AI World公告将OpenAI模型、ChatGPT和Codex与Oracle应用、数据及云服务相结合，覆盖企业工作空间、安全测试与应用构建。分析：AI竞争继续进入系统整合与治理层；公告中的产品规划不应理解为所有能力已全面交付。"
+        ],
+        "sources": [
+          {
+            "label": "1. Google发布公告",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
+          },
+          {
+            "label": "2. Microsoft AI公告",
+            "url": "https://microsoft.ai/news/mai-image-2-7-debut/"
+          },
+          {
+            "label": "3. Anthropic研究报告",
+            "url": "https://www.anthropic.com/research/early-progress-drug-development"
+          },
+          {
+            "label": "4. Anthropic与GSA协议公告",
+            "url": "https://www.anthropic.com/news/expanding-partnership-gsa"
+          },
+          {
+            "label": "5. Oracle合作公告",
+            "url": "https://www.oracle.com/asean/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. UPS提高全年展望。10月27日公布第三季度收入229亿美元，同比增长6.7%；GAAP摊薄每股收益1.37美元，调整后1.69美元，并将全年收入展望提高至约926亿美元。分析：旺季前收入和效率改善提供支撑，但全年展望仍是预测。",
+          "2. 可口可乐销量与收入增长。10月27日公布第三季度净收入134亿美元，同比增长7%，全球单位箱销量增长5%，GAAP每股收益0.93美元，并提高全年指引。分析：销量增长说明收入并非仅靠提价支撑，但单家公司不能代表全部消费需求。",
+          "3. 皇家加勒比上调盈利指引。10月27日公布第三季度GAAP每股收益6.45美元、调整后6.57美元，将全年调整后每股收益目标提高至17.85至17.95美元；公司称临近出发需求和成本时点带来帮助。分析：邮轮需求延续，但燃油与汇率仍会影响兑现。",
+          "4. SoFi会员与利润同步扩张。10月27日公布第三季度GAAP净收入约13.85亿美元、净利润约2.41亿美元，会员1710万、同比增长35%，全年调整后净收入目标提高至约50.4亿美元。分析：规模扩大带来收入增长，贷款业务仍需持续观察信用质量。",
+          "5. 波音现金流改善但仍净亏损。10月27日公布第三季度收入241.88亿美元，同比增长4%，净亏损1.16亿美元，经营现金流14.96亿美元，总订单储备7450亿美元。分析：现金回流与盈利恢复并不是同一件事，订单转化为交付仍是关键。"
+        ],
+        "sources": [
+          {
+            "label": "1. UPS第三季度业绩公告",
+            "url": "https://investors.ups.com/news-events/press-releases/detail/2172/ups-releases-3q-2026-earnings"
+          },
+          {
+            "label": "2. 可口可乐第三季度业绩公告",
+            "url": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1176/coca-cola-reports-third-quarter-2026-results-and-raises-full-year-guidance"
+          },
+          {
+            "label": "3. 皇家加勒比业绩公告（SEC披露）",
+            "url": "https://www.sec.gov/Archives/edgar/data/884887/000088488726000042/a2026q3earningsrelease.htm"
+          },
+          {
+            "label": "4. SoFi第三季度业绩公告",
+            "url": "https://investors.sofi.com/news/news-details/2026/SoFi-Reports-Third-Quarter-2026-with-Record-Net-Revenue-of-1-4-Billion-Net-Income-of-241-Million-and-Raises-Full-Year-Guidance/default.aspx"
+          },
+          {
+            "label": "5. 波音第三季度业绩公告",
+            "url": "https://investors.boeing.com/investors/news/press-release-details/2026/Boeing-Reports-Third-Quarter-Results/default.aspx"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美股权重科技股支撑指数。美国当地10月27日16:00 EDT收盘（北京时间28日04:00），标普500报7722.60点、涨0.6%，纳斯达克综合报26477.81点、涨1.2%，道指报52377.57点、涨不足0.1%。美联社指出标普多数成分股下跌。分析：指数上涨并不等于普涨。指数单位为点，美股交易币种为美元。",
+          "2. 英股受金融权重拖累。英国当地10月27日收盘，富时100报10686.54点，下跌80.79点、约0.75%；汇丰等权重公司业绩更新后下跌，伦敦表现弱于欧洲同业。分析：全球科技情绪改善未能抵消本地权重压力。指数单位为点，英国股票常以英镑或便士报价。",
+          "3. 日股出现显著反弹。日本当地10月27日15:30 JST收盘，日经225报63268.37点，涨1078.72点、约1.73%；市场报道指出半导体权重股带动。分析：权重股修复不应直接等同于所有行业转强。日本股票交易币种为日元。",
+          "4. A股成长板块承压。北京时间10月27日15:00收盘，上证指数报3648.30点、跌1.33%，深成指跌2.50%，创业板指跌3.41%；沪深成交额14609.41亿元人民币，较前一日缩减。分析：缩量与成长股下跌并存，局部防御板块上涨不足以代表整体修复。",
+          "5. 港股整体回落但题材分化。香港当地10月27日收市竞价结束后，恒指收23041.32点、跌0.73%，恒生科技指数跌1.48%；房地产和医药承压，部分AI个股上涨。分析：题材活跃并未扭转整体风险偏好。指数单位为点，港股交易币种为港元。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美联社10月27日收盘统计",
+            "url": "https://apnews.com/article/eae2932c0c253be1039e1545909656a8"
+          },
+          {
+            "label": "2. AJ Bell当日收盘报道",
+            "url": "https://www.ajbell.co.uk/news/articles/late-market-roundup-ftse-100-down-hsbc-disappoints-oil-falls"
+          },
+          {
+            "label": "3. 共同社收盘快讯，经livedoor刊载",
+            "url": "https://news.livedoor.com/article/detail/32668542/"
+          },
+          {
+            "label": "3. 松井证券当日市场分析",
+            "url": "https://finance.matsui.co.jp/news/631505/index"
+          },
+          {
+            "label": "4. 智通财经当日收盘报道，经Investing刊载",
+            "url": "https://cn.investing.com/news/stock-market-news/article-3629058"
+          },
+          {
+            "label": "5. 财华社当日收盘报道",
+            "url": "https://www.finet.hk/newscenter/news_content/6ae0655e230829e760ea3be0"
+          },
+          {
+            "label": "5. 财联社当日收盘报道，经新浪刊载",
+            "url": "https://finance.sina.com.cn/roll/2026-10-27/doc-iniwsfqt1282592.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 外交部发布制裁除名执行通告。10月27日10:46发布的第27号通告要求有关单位执行安理会1267制裁委员会对三名个人除名的决定，资产冻结、旅行禁令和武器禁运不再适用于这些个人。安理会决定作于24日，本期新增是中国执行通知。分析：相关合规名单需要跟随正式执行文件更新。",
+          "2. 中央纪委国家监委发布9月执纪统计。10月27日17:30公布，全国9月查处违反中央八项规定精神问题32940起，批评教育和处理40122人，其中党纪政务处分28461人。分析：月度数据提供监督执纪观察，统计的是9月情况，并非27日集中发生。",
+          "3. 中国宣布拟派特使推动地区对话。外交部10月27日17:10记者会表示，近期将派有关特使访问中东海湾、红海及非洲之角相关国家，加强沟通、推动接触对话。分析：这是外交斡旋计划，不是已经成行或实现停火，结果仍待后续。",
+          "4. 习近平向卢拉发出连任贺电。新华社10月27日18:00报道，习近平当日致电祝贺卢拉连任巴西总统，表达继续推进两国战略协作；韩正同日向阿尔克明致贺电。分析：这是选后双边合作延续的外交信号，不构成新的贸易协议。",
+          "5. 广东启动新一轮冬春河道清淤。中新社10月27日19:27引述广东省水利厅当日通报，正式启动2026年冬至2027年春水塘河道清淤，为2023年以来第四轮全省冬春清淤，并部署淤积摸查及年度方案。分析：汛后治理转向防洪排涝维护，工程效果仍需后续实施检验。"
+        ],
+        "sources": [
+          {
+            "label": "1. 外交部2026年第27号通告",
+            "url": "https://www.mfa.gov.cn/wjb_673085/zfxxgk_674865/gknrlb/jytz/202610/t20261027_12047416.shtml"
+          },
+          {
+            "label": "2. 中央纪委国家监委月报",
+            "url": "https://www.ccdi.gov.cn/toutiaon/202610/t20261027_519029.html"
+          },
+          {
+            "label": "3. 外交部10月27日例行记者会",
+            "url": "https://www.mfa.gov.cn/web/wjdt_674879/fyrbt_674889/202610/t20261027_12047706.shtml"
+          },
+          {
+            "label": "4. 新华社贺电报道，经人民网刊载",
+            "url": "https://politics.people.com.cn/n1/2026/1027/c1024-40822663.html"
+          },
+          {
+            "label": "5. 中新社采访广东省水利厅",
+            "url": "https://www.chinanews.com/sh/2026/10-27/10721813.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 以色列大选出口民调显示组阁仍不明朗。当地10月27日投票结束后，主要电视台出口民调显示，执政及主要反对阵营均未达到120席议会的61席多数。分析：出口民调不是官方计票结果，不能据此宣布谁已当选总理或下台，后续还需组阁谈判。",
+          "2. 联大开启古巴禁运年度辩论。联合国10月27日通报，联大当天开始辩论美国对古巴经济禁运，并计划28日第34次表决要求结束禁运的决议。分析：辩论启动不等于表决已经完成，也不代表美国已经取消禁运。",
+          "3. WMO发布温室气体浓度新纪录。10月27日公报称，2025年全球平均近地面二氧化碳浓度为426.8ppm，达到1750年基准的153%，甲烷和氧化亚氮也创新高。分析：长期累积强化持续升温压力，浓度不能与某一年排放量混为一谈。",
+          "4. ILO公布家政劳动保障缺口。10月27日发布的新估计显示，全球约8000万人从事家政劳动，其中6650万、即83.1%属于非正规就业。分析：照护需求并不会自动转化为劳动保障，正规化与社保覆盖仍是政策重点。",
+          "5. UNHCR呼吁维持对乌克兰的人道支持。10月27日联合国发布会上，UNHCR表示关键基础设施袭击增加，冬季供暖供电面临风险；今年以来逾13.6万人通过其支持的中转中心撤离。分析：冬季救援与流离失所者保障仍有持续需求，不能将援助疲劳视为需求已经消失。"
+        ],
+        "sources": [
+          {
+            "label": "1. 以色列时报出口民调报道",
+            "url": "https://www.timesofisrael.com/exit-polls-show-israeli-rejection-of-current-netanyahu-coalition-but-uncertainty-on-its-replacement/"
+          },
+          {
+            "label": "1. 耶路撒冷邮报交叉报道",
+            "url": "https://fr.jpost.com/israel-election-2026/article-913053"
+          },
+          {
+            "label": "2. 联合国10月27日古巴禁运辩论报道",
+            "url": "https://www.ungeneva.org/en/news-media/news/2026/10/124270/general-assembly-weighs-us-embargo-against-cuba-ahead-34th-vote"
+          },
+          {
+            "label": "2. The National联合国现场报道",
+            "url": "https://www.thenationalnews.com/news/us/2026/10/27/cuba-us-argument-un/"
+          },
+          {
+            "label": "3. 世界气象组织正式公告",
+            "url": "https://wmo.int/news/media-centre/greenhouse-gas-levels-once-again-reach-record-high"
+          },
+          {
+            "label": "4. 国际劳工组织最新报告",
+            "url": "https://www.ilo.org/resource/brief/state-domestic-work-2025-15-years-after-convention-no-189"
+          },
+          {
+            "label": "4. 联合国10月27日发布会",
+            "url": "https://www.ungeneva.org/en/news-media/press-briefing/2026/10/un-geneva-press-briefing-6"
+          },
+          {
+            "label": "5. 联合国10月27日发布会：UNHCR陈述",
+            "url": "https://www.ungeneva.org/en/news-media/press-briefing/2026/10/un-geneva-press-briefing-6"
+          }
+        ]
+      }
+    ],
+    "closing": "本期收录25条独立进展。市场数据均为10月27日当地交易日收盘；产品预览、政策计划、出口民调及公司展望不等于已实现结果。分析不构成投资建议。",
+    "publishedAt": "2026-10-28T02:36:27Z"
   }
 ]
