@@ -1,7 +1,7 @@
-import { createHash } from 'node:crypto';
+import { websitePath } from './source-website-path.mjs';
+export { websitePath } from './source-website-path.mjs';
 import { collectSources, sourceAnchor } from './source-index.mjs';
 const escape = text => String(text).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-export const websitePath = host => `/sources/websites/${createHash('sha256').update(host).digest('hex').slice(0,24)}/`;
 export function websitePages(posts) {
  const groups=new Map();
  for(const source of collectSources(posts)) {

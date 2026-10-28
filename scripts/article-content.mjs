@@ -1,3 +1,4 @@
+import { websitePath } from './source-website-path.mjs';
 import { newsItemAnchors } from './reading-navigation.mjs';
 import { newsWindowText } from './news-window.mjs';
 import { readFileSync } from 'node:fs';
@@ -21,9 +22,9 @@ export const publicationText = post => {
     : `回顾日期：${post.date}；补发时间：${time}（北京时间）。这是事后整理，不是当日即时刊发。`;
   return [publication, newsWindowText(post)].filter(Boolean).join(' ');
 };
-export function renderSourceLinks(sources, escape) {
+export function renderSourceLinks(sources, escape, websiteNavigation = false) {
   if (sources?.some(source => !isReviewedSource(source.url))) throw new TypeError('Unreviewed source URL');
-  return sources?.length ? `<ul class="article-sources">${sources.map(source => `<li>来源：<a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a></li>`).join('')}</ul>` : '';
+  return sources?.length ? `<ul class="article-sources">${sources.map(source => `<li>来源：<a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a> <span class="source-origin">网站：${escape(new URL(source.url).hostname)}${websiteNavigation ? ` <a class="source-website-link" href="${websitePath(new URL(source.url).hostname)}" aria-label="查看本站引用的 ${escape(new URL(source.url).hostname)} 材料">本站引用</a>` : ''}</span></li>`).join('')}</ul>` : '';
 }
 // Only explicit item numbers or unique complete titles establish source mappings.
 export function sectionSourceGroups(section, numbered = false) {
@@ -52,15 +53,15 @@ export function sectionSourceGroups(section, numbered = false) {
   }
   return {groups, remaining};
 }
-export function renderSectionContent(section, escape, numbered = false, separator = '') {
+export function renderSectionContent(section, escape, numbered = false, separator = '', websiteNavigation = false) {
   const {groups, remaining} = sectionSourceGroups(section, numbered);
   const anchors = numbered && section.id ? newsItemAnchors(section) : [];
   return groups.map((group, index) => {
-    const content = `<p>${escape(group.text)}</p>${renderSourceLinks(group.sources, escape)}`;
+    const content = `<p>${escape(group.text)}</p>${renderSourceLinks(group.sources, escape, websiteNavigation)}`;
     return anchors[index] ? `<div class="news-item" id="${anchors[index]}" tabindex="-1">${content}<a class="news-permalink" href="#${anchors[index]}" aria-label="本条新闻链接：${escape(group.text.replace(/^\d+\.\s+/, '').split('。')[0])}">本条链接</a></div>` : content;
   }).join(separator)
     + (numbered && remaining.length ? '<p class="source-mapping-note">补充来源（原记录未明确对应条目）</p>' : '')
-    + renderSourceLinks(remaining, escape);
+    + renderSourceLinks(remaining, escape, websiteNavigation);
 }
 export function articleText(post) {
   return [publicationText(post), post.subtitle, ...post.sections.flatMap(section => {
