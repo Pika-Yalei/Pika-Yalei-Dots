@@ -89,3 +89,46 @@ test('build publishes only occupied months, all pagination and canonical paths, 
     }
   } finally {await rm(temp,{recursive:true,force:true});}
 });
+
+test('neighbor months skip gaps and cross years, with the same targets on every page',()=>{
+  const input=[post(30,'2025-12-31'),...Array.from({length:13},(_,i)=>post(i,'2026-02-01')),post(40,'2026-10-01')];
+  const before=structuredClone(input);
+  const pages=paginateMonthArchive(input);
+  assert.deepEqual(input,before);
+  for(const page of pages) {
+    const html=renderMonthArchive(page);
+    const nav=html.match(/<nav class="article-neighbors"[^>]*>(.*?)<\/nav>/)?.[0];
+    assert.ok(nav);
+    assert.match(nav,/aria-label="相邻有文章月份"/);
+    assert.doesNotMatch(nav,/rel="(?:prev|next)"|\/page\//);
+    assert.equal(nav.includes('/archive/2026-02/'),page.month!=='2026-02');
+    if(page.month==='2026-02') {
+      assert.equal(page.olderMonth,'2025-12');
+      assert.equal(page.newerMonth,'2026-10');
+      assert.match(nav,/href="\/archive\/2025-12\/"/);
+      assert.match(nav,/href="\/archive\/2026-10\/"/);
+    } else if(page.month==='2025-12') {
+      assert.equal(page.olderMonth,null);
+      assert.equal(page.newerMonth,'2026-02');
+      assert.doesNotMatch(nav,/较早的/);
+    } else {
+      assert.equal(page.newerMonth,null);
+      assert.equal(page.olderMonth,'2026-02');
+      assert.doesNotMatch(nav,/较新的/);
+    }
+    assert.doesNotMatch(nav,/2026-01|2026-09/);
+  }
+});
+test('a single occupied month has no dead-end neighbor navigation',()=>{
+  const [page]=paginateMonthArchive([post(1)]);
+  assert.equal(page.newerMonth,null);
+  assert.equal(page.olderMonth,null);
+  assert.doesNotMatch(renderMonthArchive(page),/相邻有文章月份/);
+});
+test('month archive links to a calendar only when that month contains news',()=>{
+  const pages=paginateMonthArchive([{...post(1),category:'新闻回顾'},{...post(2,'2026-09-01'),category:'工作复盘'}]);
+  assert.equal(pages[0].hasNews,true);
+  assert.match(renderMonthArchive(pages[0]),/href="\/calendar\/#calendar-month-2026-10"/);
+  assert.equal(pages[1].hasNews,false);
+  assert.doesNotMatch(renderMonthArchive(pages[1]),/查看本月新闻日历/);
+});
