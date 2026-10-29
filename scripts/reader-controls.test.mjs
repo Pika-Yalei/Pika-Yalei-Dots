@@ -41,7 +41,7 @@ test('built articles include one scoped reader group and stylesheet, without scr
     const html = await readFile(new URL(`../dist/notes/${post.slug}/index.html`, import.meta.url), 'utf8');
     assert.match(html, /href="\/reader-controls.css"/);
     assert.equal((html.match(/class="reader-controls"/g) || []).length, 1);
-    assert.match(html, /<div class="article-reader"><fieldset class="reader-layout">/);
+    assert.match(html, /<div class="article-reader"><fieldset class="reader-palette">/);
     assert.match(html, /<\/fieldset><div class="prose">/);
     assert.doesNotMatch(html, /<script/);
   }

@@ -37,3 +37,26 @@
 }
 @media print{.reader-layout{display:none}}
 @media (forced-colors:active){.reader-layout label:has(input:checked){border-color:Highlight}.reader-layout label:has(input:focus-visible){outline-color:Highlight}}
+
+/* Page-local palette: auto has no override, so changes in the system still apply.
+   Unsupported :has browsers keep the original prose, with no inert controls. */
+.reader-palette{display:none}
+@supports selector(:has(input:checked)){
+  @media screen{
+    .reader-palette{display:block;min-width:0;margin:0 0 16px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+    .reader-palette legend{padding:0 6px}
+    .reader-palette-options{display:flex;flex-wrap:wrap;gap:10px}
+    .reader-palette label{display:flex;align-items:center;gap:8px;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid var(--green);cursor:pointer;touch-action:manipulation}
+    .reader-palette input{margin:0;accent-color:var(--green)}
+    .reader-palette label:has(input:checked){border-width:2px;font-weight:600}
+    .reader-palette label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
+    .reader-palette p{margin:10px 0 0;color:var(--muted);font-size:.75rem;line-height:1.7}
+  }
+  /* Never override the OS high-contrast palette or the original printed page. */
+  @media screen and (forced-colors:none){
+    .article-reader:has(input[name="reader-palette"][value="light"]:checked){color-scheme:light;--paper:#f7f5ef;--ink:#282c27;--muted:#656a61;--line:#738364;--green:#506342;--wash:#ecefe3;--selection:#dbe3ca;--selection-ink:#282c27;--note-muted:#617054;--note-rule:#738364;--index:#656f5b;--separator:#656a61;background:var(--paper);color:var(--ink)}
+    .article-reader:has(input[name="reader-palette"][value="dark"]:checked){color-scheme:dark;--paper:#1c211c;--ink:#e6eadf;--muted:#b4bdae;--line:#9eae8c;--green:#b9d399;--wash:#2b3427;--selection:#bfd79f;--selection-ink:#1c211c;--note-muted:#bdcbb1;--note-rule:#9eae8c;--index:#b0bea2;--separator:#b4bdae;background:var(--paper);color:var(--ink)}
+  }
+}
+@media print{.reader-palette{display:none}}
+@media (forced-colors:active){.reader-palette label:has(input:checked){border-color:Highlight}.reader-palette label:has(input:focus-visible){outline-color:Highlight}}
