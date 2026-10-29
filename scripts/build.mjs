@@ -1,3 +1,4 @@
+import { renderSourceCsv } from './source-csv.mjs';
 import { renderOpml } from './opml.mjs';
 import { renderReaderLayout } from './reader-layout.mjs';
 import { renderSectionNavigation } from './section-navigation.mjs';
@@ -121,6 +122,8 @@ await writeFile(path.join(out,'about/index.html'),layout('关于','关于韩立�
 await mkdir(path.join(out, 'subscribe'), {recursive:true});
 for (const mode of ['all','topics']) await writeFile(path.join(out,'subscribe',`${mode}.opml`),renderOpml(mode));
 await writeFile(path.join(out, 'subscribe/index.html'), layout('订阅说明', '使用 RSS 或 JSON Feed 阅读公开全文，了解订阅步骤、更新方式和内容边界。', renderSubscribe(), '', '/subscribe/'));
+await mkdir(path.join(out,'sources'),{recursive:true});
+await writeFile(path.join(out,'sources/catalogue.csv'),renderSourceCsv(posts));
 for (const page of sourcePages) {
   const dir = path.join(out, page.path);
   await mkdir(dir, {recursive:true});
