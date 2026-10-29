@@ -60,3 +60,26 @@
 }
 @media print{.reader-palette{display:none}}
 @media (forced-colors:active){.reader-palette label:has(input:checked){border-color:Highlight}.reader-palette label:has(input:focus-visible){outline-color:Highlight}}
+/* No :has means no controls and no filtering. :target always wins over focus.
+   Screen-only hiding keeps every chapter and its inline sources in print. */
+.topic-focus{display:none}
+@supports selector(section:has(:target)){
+  @media screen{
+    .topic-focus{display:block;min-width:0;margin:0 0 16px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+    .topic-focus legend{padding:0 6px}
+    .topic-focus-options{display:flex;flex-wrap:wrap;gap:10px}
+    .topic-focus label{display:flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:8px 12px;border:1px solid var(--line);cursor:pointer}
+    .topic-focus input{margin:0;accent-color:var(--green)}
+    .topic-focus label:has(input:checked){border-color:var(--green);font-weight:600}
+    .topic-focus label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
+    .topic-focus label:has(input:disabled){color:var(--muted);cursor:default}
+    .topic-focus p{margin:10px 0 0;color:var(--muted);font-size:.75rem;line-height:1.7}
+    .article-reader:has(input[name="news-focus"][value="ai"]:checked) .prose>section:not([data-news-topic="ai"]):not(:has(:target)),
+    .article-reader:has(input[name="news-focus"][value="business"]:checked) .prose>section:not([data-news-topic="business"]):not(:has(:target)),
+    .article-reader:has(input[name="news-focus"][value="markets"]:checked) .prose>section:not([data-news-topic="markets"]):not(:has(:target)),
+    .article-reader:has(input[name="news-focus"][value="china-policy"]:checked) .prose>section:not([data-news-topic="china-policy"]):not(:has(:target)),
+    .article-reader:has(input[name="news-focus"][value="world"]:checked) .prose>section:not([data-news-topic="world"]):not(:has(:target)){display:none}
+  }
+}
+@media print{.topic-focus{display:none}}
+@media (forced-colors:active){.topic-focus label:has(input:checked){border-color:Highlight}.topic-focus label:has(input:focus-visible){outline-color:Highlight}}

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { renderReaderPalette } from './reader-palette.mjs';
 const read = path => readFileSync(new URL(path, import.meta.url), 'utf8');
 const css = read('../public/reader-controls.css');
-const paletteCss = css.slice(css.indexOf('/* Page-local palette:'));
+const paletteCss = css.slice(css.indexOf('/* Page-local palette:')).split('/* No :has means')[0];
 const palettes = Object.fromEntries(['light', 'dark'].map(mode => {
   const selector = `.article-reader:has(input[name="reader-palette"][value="${mode}"]:checked)`;
   const declarations = paletteCss.slice(paletteCss.indexOf(selector) + selector.length + 1).split('}')[0];
