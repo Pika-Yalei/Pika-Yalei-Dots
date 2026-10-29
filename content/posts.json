@@ -3769,5 +3769,199 @@
     ],
     "closing": "本期收录25条独立进展。市场数据均为10月27日当地交易日收盘；产品预览、政策计划、出口民调及公司展望不等于已实现结果。分析不构成投资建议。",
     "publishedAt": "2026-10-28T02:36:27Z"
+  },
+  {
+    "slug": "news-2026-10-29",
+    "date": "2026-10-29",
+    "title": "2026-10-29｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-28 10:40:00 至 2026-10-29 10:40:00",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "五栏各5条：AI模型与工作流更新、货币政策及企业业绩、股票市场与金融基础设施、中国政策进展及外交、国际政治与重大事件。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-28T02:40:00Z",
+      "end": "2026-10-29T02:40:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Google公布Gemini 4 Carbon，尚非全面开放。28日官方宣布新模型，本周起通过Fairwind向部分可信网络防御伙伴逐步提供访问；更广泛开发者与消费者开放时间未定。分析：竞争转向长流程工程及网络防御，但公司能力评测不能等同实际部署效果。",
+          "2. GitHub Copilot Fusion正式可用。28日更新称，系统可按任务自动选择、组合模型，支持单模型、逐级升级及交叉审阅，管理员仍可限制可用模型。分析：开发工具开始代用户管理模型选择与成本，生成代码仍需测试和人工审查。",
+          "3. ServiceNow与OpenAI扩大合作，MCP插件先上线。28日公告称，插件当日进入OpenAI应用市场，可按既有权限与审批处理企业工作流；语音、安全及Codex等后续集成主要规划于2027年。分析：合作重点从问答走向业务操作，但不能将未来计划视为已经交付。",
+          "4. Claude发布法律工作Artifacts。28日官方介绍可重复使用的引文核验、合同偏差审阅等工作界面，并展示来源关联的结果，定位为律师审核前的初步工作。分析：模板化有望降低专业流程搭建成本，法律判断及引文真实性仍须专业人员复核。",
+          "5. Rime推出Prism语音模型。28日公司宣布可微调的语音到语音模型，称其先生成可检查文本再输出语音，并支持工具调用与语音并行处理。分析：可检查的中间文本有利于客服规则控制，但公司延迟与效果主张仍待独立验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. Google官方发布",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+          },
+          {
+            "label": "2. GitHub官方更新日志",
+            "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/"
+          },
+          {
+            "label": "3. ServiceNow官方公告",
+            "url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-and-OpenAI-accelerate-enterprise-AI-from-models-and-operations-to-cybersecurity-and-agentic-development/default.aspx"
+          },
+          {
+            "label": "4. Claude官方介绍",
+            "url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work"
+          },
+          {
+            "label": "5. Rime公司新闻稿",
+            "url": "https://www.prnewswire.com/news-releases/rime-launches-prism-the-first-fine-tunable-frontier-speech-to-speech-model-302922665.html"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 美联储维持利率不变，两票主张加息。28日FOMC以10比2维持联邦基金利率目标区间3.75%—4.00%，两名异议委员倾向加息25个基点；声明仍称通胀偏高。分析：企业融资成本未获得即时缓解，政策分歧也不支持把下一次降息视为确定事件。",
+          "2. 微软季度营收增长19%，Azure增长48%。28日公布的2027财年第一季度业绩显示，营收约923亿美元；Azure及其他云服务收入增长48%。GAAP净利润增长32%，剔除OpenAI投资影响后的非GAAP增幅为18%。分析：云业务扩张强劲，但投资会计影响与经营增长应分开看。",
+          "3. Alphabet营收增长25%，云收入翻倍。28日第三季度财报披露营收约1276亿美元，Google Cloud收入增长103%；归属普通股股东的净利润降至约262亿美元，股权证券投资损失拖累利润。分析：云业务增长并不直接等于净利润增长，经营表现与投资估值波动须区别评估。",
+          "4. 福特收入回落，调整后利润小幅增长。28日第三季度披露营收495亿美元、同比下降2%，调整后息税前利润27亿美元、增长3%；全年该利润指引收窄至105亿—110亿美元。分析：产品组合与成本控制支持盈利，但全年指引仍是预测，不是已经实现的利润。",
+          "5. GE Vernova披露约90亿美元收购Trench协议。28日随第三季度业绩公布收购安排；协议实际于25日签署，预计2027年末完成，仍须监管批准。公司同期上调全年营收等指引。分析：电网设备扩张押注电力基础设施需求，但交易尚未交割，审批与整合效果仍有不确定性。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美联储FOMC声明",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+          },
+          {
+            "label": "2. 微软官方财报",
+            "url": "https://news.microsoft.com/source/2026/10/28/microsoft-announces-first-quarter-results-2/"
+          },
+          {
+            "label": "3. Alphabet官方财报PDF",
+            "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/2026q3-alphabet-earnings-release.pdf"
+          },
+          {
+            "label": "4. 福特官方财务介绍",
+            "url": "https://www.fromtheroad.ford.com/us/en/articles/2026/what-to-know-about-ford-third-quarter-2026"
+          },
+          {
+            "label": "5. GE Vernova官方公告",
+            "url": "https://www.gevernova.com/news/articles/ge-vernova-releases-third-quarter-2026-financial-results-announces-agreement-acquire"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. A股收盘回升，创业板指涨3.40%。10月28日北京时间15:00收盘，上证指数报3681.47点，涨0.91%；深证成指报11473.18点，涨2.02%；创业板指报2634.76点，涨3.40%。同花顺统计的全市场成交额约1.64万亿元人民币。分析：创业板与深市主要指数涨幅高于沪指，显示本交易日不同市场板块表现有别；单日回升不能据此认定趋势已经反转。",
+          "2. 日经指数收涨，但下跌成分股多于上涨股。10月28日东京市场收盘，日经225指数报63954.19点，上涨685.82点、涨幅1.08%；日经官方当日摘要列出上涨成分股85只、下跌139只、持平1只，成分股成交金额为6.53万亿日元。分析：指数上涨与多数成分股下跌同时出现，说明指数点位表现不等于多数股票的实际涨跌体验。",
+          "3. 美股三大指数28日均小幅收高。美国东部时间10月28日16:00常规交易收盘，道琼斯工业平均指数报52475.10点，涨0.19%；标普500指数报7743.98点，涨0.28%；纳斯达克综合指数报26549.85点，涨0.27%。这些为指数点位，而非美元股价。分析：三大指数方向一致，但涨幅均不足0.3%；这一收盘快照不包含随后公布财报造成的盘后价格变化。",
+          "4. 港交所综合基金平台增加平台及代理人服务。香港交易所10月28日宣布，综合基金平台加入总分销、代理人及行政服务，将服务延伸至基金分销全流程；参与者已由订单传递服务启动时的33家增至超过60家。分析：统一客户登记、订单、交收和对账流程有望降低运营摩擦，但这是基金分销基础设施更新，不代表基金回报或股市成交量必然增加。",
+          "5. T-Mobile披露第三季度35亿美元股东回报。美国上市公司T-Mobile于10月28日发布第三季度业绩，披露该季度回购普通股约24亿美元、支付现金股息约11亿美元；同期摊薄每股收益3.22美元，同比增长约34%。这是当日新披露的季度执行数据，不是当天新完成的回购，也不是新增回购授权。分析：回购与分红为观察资本分配提供依据，评估股东回报仍需同时考虑盈利及现金流，不能把回购金额直接当作未来股价涨幅。"
+        ],
+        "sources": [
+          {
+            "label": "1. 同花顺金融研究中心：10月28日收盘快讯",
+            "url": "https://yuanchuang.10jqka.com.cn/20261028/c681182295.shtml"
+          },
+          {
+            "label": "2. 日经指数官方：2026年10月28日每日摘要",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary"
+          },
+          {
+            "label": "3. Chase行情页：10月28日17:18 EDT市场快照",
+            "url": "https://idc.chase.com/marketspublic/usoverview"
+          },
+          {
+            "label": "3. Monex证券：10月28日美国市场收盘回顾",
+            "url": "https://media.monex.co.jp/articles/-/30401"
+          },
+          {
+            "label": "4. 香港交易所：综合基金平台推出平台及代理人服务",
+            "url": "https://www.hkex.com.hk/News/News-Release/2026/261028news?sc_lang=zh-HK"
+          },
+          {
+            "label": "5. T-Mobile投资者关系：2026年第三季度业绩",
+            "url": "https://investor.t-mobile.com/news-releases/news-release-details/t-mobile-delivers-strong-account-and-arpa-growth-translating"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 国务院原副总理刘延东逝世。新华社10月28日发布讣告，刘延东因病于当日14时53分在北京逝世，享年81岁；她曾任中共中央政治局委员、国务委员和国务院副总理。分析：这是前任国家领导人逝世消息，不涉及现任职务接替或新政策出台。",
+          "2. 外交部公布瑞士联邦主席访华安排。10月28日15时，外交部宣布帕姆兰将于10月30日至11月1日来华工作访问。分析：本次新进展为访问日程正式公布，并非访问已经完成；会谈及成果仍待后续发布。",
+          "3. 北京公开解读“十五五”新型能源体系规划。规划于10月24日签发，北京市发展改革委于28日16时32分公开解读，提出非化石能源消费占比提升至27.6%、外调绿电量力争达到710亿千瓦时等目标。分析：本窗口内新进展是公开解读，不是当日签发；规划兼顾供能安全与绿色转型，目标不等于已完成指标。",
+          "4. 国防部披露解放军赴法德战略磋商结果。10月28日14时公布消息称，代表团于21日至28日赴法国、德国举行磋商，各方同意继续加强防务战略沟通、拓展交流合作。分析：本窗口内进展为结果披露，磋商结束的具体小时未知；军方沟通继续运作，但公告未披露新条约或具体军事合作项目。",
+          "5. 8000亿元新型政策性金融工具完成投放。新华社10月28日18时51分披露，截至28日，全年8000亿元工具已全部投放，其中国开行3650亿元、进出口银行1200亿元、农发行3150亿元。分析：政策进入资金落地阶段，但投放完成不等于项目建成，后续仍看配套融资和实物工作量。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社讣告（人民网）",
+            "url": "https://cpc.people.com.cn/n1/2026/1028/c87393-40823436.html"
+          },
+          {
+            "label": "2. 外交部：瑞士联邦主席帕姆兰将访华",
+            "url": "https://www.fmprc.gov.cn/wjdt_674879/wsrc_674883/202610/t20261028_12048188.shtml"
+          },
+          {
+            "label": "3. 北京市发展改革委：能源规划解读",
+            "url": "https://www.beijing.gov.cn/zhengce/zcjd/202610/t20261028_4922184.html"
+          },
+          {
+            "label": "4. 国防部：战略磋商消息",
+            "url": "https://www.mod.gov.cn/gfbw/qwfb/16496641.html"
+          },
+          {
+            "label": "4. 政知见据国防部消息报道（新浪）",
+            "url": "https://finance.sina.com.cn/wm/2026-10-28/doc-iniwukpx9492765.shtml"
+          },
+          {
+            "label": "5. 新华社权威快报：8000亿元新型政策性金融工具投放完成",
+            "url": "https://www.news.cn/fortune/20261028/dcc3e81a5a6f4e9c983e3baeb844b54e/c.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 西班牙发生严重高铁碰撞事故。当地10月28日上午，马德里以南发生高铁碰撞；当日晚间法新社与路透社引述地方政府的死亡人数均为至少68人，救援仍在继续，马德里通往南部的高铁主线暂停运行。分析：事故造成重大人员伤亡及交通中断；政府承诺调查，交通大臣关于调度错误的说法不等于最终事故调查结论。",
+          "2. 弗拉维奥·博索纳罗抵达美国。路透社10月28日报道，巴西参议员、总统选举落败者弗拉维奥·博索纳罗当日抵达迈阿密，此前拒绝遵守巴西最高法院要求交出护照的命令；该命令涉及洗钱调查，他否认违法。分析：此事使巴西国内司法争议延伸至美巴关系，但调查不等于定罪。",
+          "3. 以色列计票推进，组阁前景仍不明确。以色列时报10月28日深夜引述选举委员会数据，约90%选票已统计，内塔尼亚胡阵营暂获53席、艾森科特领导的阵营48席、阿拉伯政党19席；单独组阁多数门槛为61席。分析：当日新进展是计票结果进一步明朗，两大阵营均未单独过半；结果尚未最终确认，新政府并未组成。",
+          "4. 俄乌下一轮谈判日期仍未敲定。路透社10月28日报道，俄总统助理乌沙科夫称具体日期取决于中东局势等因素；泽连斯基当日在海牙表示，希望谈判安排在11月6日至10日之间。分析：双方均在讨论后续谈判，但公开表态尚不足以确认共同接受的日程，更不能据此认定已达成和平协议。",
+          "5. 利比亚东部当局宣布限制伊朗和阿富汗公民入境。路透社10月28日晚报道，东部政府宣布禁止两国公民通过陆海空口岸入境，并要求遣返没有有效居留许可者；外交人员及获准从事医疗、教育工作的人员等获豁免，公告未解释原因。分析：这将增加相关人员出入境和居留的不确定性；利比亚存在东西部对立政府，不宜把东部命令视作全国统一执行的政策。"
+        ],
+        "sources": [
+          {
+            "label": "1. 法新社：西班牙高铁事故",
+            "url": "https://www.afp.com/en/spain-high-speed-train-crash-kills-68-injures-over-100"
+          },
+          {
+            "label": "1. 路透社交叉核验（AOL）",
+            "url": "https://www.aol.com/articles/two-high-speed-trains-rear-083828000.html"
+          },
+          {
+            "label": "2. 路透社：博索纳罗抵达迈阿密（MarketScreener）",
+            "url": "https://uk.marketscreener.com/news/bolsonaro-s-plane-touches-down-in-miami-after-trump-offers-brazil-exit-ce785cd2de81f222"
+          },
+          {
+            "label": "3. 以色列时报：10月28日计票实录",
+            "url": "https://www.timesofisrael.com/liveblog-october-28-2026/"
+          },
+          {
+            "label": "3. 路透社：组阁僵局（Quews转载）",
+            "url": "https://quews.news/netanyahu-set-to-remain/"
+          },
+          {
+            "label": "4. 路透社：俄乌谈判日程（AOL）",
+            "url": "https://www.aol.com/articles/next-round-ukraine-talks-depends-235837000.html"
+          },
+          {
+            "label": "5. 路透社：利比亚东部入境限制（StreetInsider）",
+            "url": "https://new.streetinsider.com/Reuters/Libyas%2Beastern%2Badministration%2Bbars%2Bentry%2Bto%2BIranians%2C%2BAfghans/27250585.html"
+          }
+        ]
+      }
+    ],
+    "closing": "本期收录25条独立进展。市场数据注明交易时点；产品开放范围、公司预测、政策目标、初步计票及未交割交易均以对应条目限定为准。分析不构成投资建议。",
+    "publishedAt": "2026-10-29T02:55:00Z"
   }
 ]
