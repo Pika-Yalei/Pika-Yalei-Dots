@@ -1,3 +1,4 @@
+import { fingerprintStylesheets } from './stylesheets.mjs';
 import { renderCacheHeaders } from './cache-headers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,8 +36,8 @@ test('reviewed assets retain their bytes and headers append only generated cache
   assert.deepEqual(PUBLIC_ASSETS, ['_headers', 'favicon.svg', 'style.css', 'reader-controls.css', 'news-calendar.css']);
   for (const name of PUBLIC_ASSETS) {
     const original = await readFile(path.join(temp, 'public', name));
-    const fingerprint = Object.keys(previous).find(name => /^style\.[0-9a-f]{16}\.css$/.test(name));
-    assert.deepEqual(previous[name], name === '_headers' ? Buffer.from(renderCacheHeaders(original.toString('utf8'), fingerprint)) : original);
+    const fingerprints = [...fingerprintStylesheets(await readPublicAssets(path.join(temp, 'public'))).values()];
+    assert.deepEqual(previous[name], name === '_headers' ? Buffer.from(renderCacheHeaders(original.toString('utf8'), fingerprints)) : original);
   }
   const hashed = Object.keys(previous).filter(name => /^style\.[0-9a-f]{16}\.css$/.test(name));
   assert.equal(hashed.length, 1);

@@ -39,7 +39,7 @@ test('built articles include one scoped reader group and stylesheet, without scr
   const posts = JSON.parse(await readFile(new URL('../content/posts.json', import.meta.url), 'utf8'));
   for (const post of posts) {
     const html = await readFile(new URL(`../dist/notes/${post.slug}/index.html`, import.meta.url), 'utf8');
-    assert.match(html, /href="\/reader-controls.css"/);
+    assert.match(html, /href="\/reader-controls\.[a-f0-9]{16}\.css"/);
     assert.equal((html.match(/class="reader-controls"/g) || []).length, 1);
     assert.match(html, /<div class="article-reader"><fieldset class="reader-palette">/);
     assert.match(html, /<\/fieldset><div class="prose">/);

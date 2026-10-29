@@ -22,7 +22,7 @@ import { articleDisclosure, publicationText, renderSectionContent } from './arti
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
+import { fingerprintStylesheets } from './stylesheets.mjs';
 import { paginatePosts, renderPagination } from './pagination.mjs';
 import { buildDirectory } from './build-directory.mjs';
 import { readPublicAssets } from './public-assets.mjs';
@@ -43,8 +43,8 @@ import { renderNotFound } from './not-found.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const publicAssets = await readPublicAssets(path.join(root, 'public'));
-const stylesheet = publicAssets.get('style.css');
-const stylesheetName = `style.${createHash('sha256').update(stylesheet).digest('hex').slice(0, 16)}.css`;
+const stylesheets = fingerprintStylesheets(publicAssets);
+const stylesheetName = stylesheets.get('style.css');
 const escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 // Reject malformed content before touching the previous successful build.
 const posts = validatePosts(JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8')));
@@ -66,8 +66,8 @@ ${renderMetadata({title, description, pagePath, post})}
 <title>${escape(title)} · 韩立的工作手记</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/${stylesheetName}">
-${post ? '<link rel="stylesheet" href="/reader-controls.css">' : ''}
-${pagePath === '/calendar/' ? '<link rel="stylesheet" href="/news-calendar.css">' : ''}
+${post ? `<link rel="stylesheet" href="/${stylesheets.get('reader-controls.css')}">` : ''}
+${pagePath === '/calendar/' ? `<link rel="stylesheet" href="/${stylesheets.get('news-calendar.css')}">` : ''}
 ${category ? `<link rel="alternate" type="application/rss+xml" title="${escape(`韩立的工作手记 · ${category.name} RSS`)}" href="${category.path}feed.xml">\n` : ''}<link rel="alternate" type="application/rss+xml" title="韩立的工作手记 RSS" href="/feed.xml">
 ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${escape(category.name)}专题 JSON Feed" href="${category.path}feed.json">` : ''}
 <link rel="alternate" type="application/feed+json" title="韩立的工作手记 JSON Feed" href="/feed.json">
@@ -87,9 +87,11 @@ ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${
 }
 await buildDirectory(path.join(root, 'dist'), async out => {
 for (const [name, bytes] of publicAssets) {
-  await writeFile(path.join(out, name), name === '_headers' ? renderCacheHeaders(bytes.toString('utf8'), stylesheetName) : bytes);
+  await writeFile(path.join(out, name), name === '_headers' ? renderCacheHeaders(bytes.toString('utf8'), [...stylesheets.values()]) : bytes);
 }
-await writeFile(path.join(out, stylesheetName), stylesheet);
+for (const [original, fingerprint] of stylesheets) {
+  await writeFile(path.join(out, fingerprint), publicAssets.get(original));
+}
 for (const page of indexPages) {
 const entries = page.posts.map((post, index) => `<article class="entry"><div class="entry-index">${String(posts.length - page.offset - index).padStart(2,'0')}</div><div class="entry-content"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${readingTimeText(post)}</span></div><h2><a href="${link(post)}">${escape(post.title)}<svg class="entry-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2><p>${escape(post.summary)}</p><a class="read-link" href="${link(post)}">读这篇手记 <span aria-hidden="true">→</span><span class="sr-only">：${escape(post.title)}</span></a></div></article>`).join('\n');
 const dir = path.join(out, page.path);

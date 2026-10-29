@@ -67,7 +67,7 @@ test('built calendar, sitemap and archive expose the stable calendar route', asy
   const html = await readFile(new URL('../dist/calendar/index.html', import.meta.url), 'utf8');
   const sitemap = await readFile(new URL('../dist/sitemap.xml', import.meta.url), 'utf8');
   const archive = await readFile(new URL('../dist/archive/index.html', import.meta.url), 'utf8');
-  assert.match(html, /href="\/news-calendar.css"/);
+  assert.match(html, /href="\/news-calendar\.[a-f0-9]{16}\.css"/);
   assert.match(html, /<h1>新闻日历<\/h1>/);
   assert.match(sitemap, /\/calendar\/<\/loc>/);
   assert.match(archive, /href="\/calendar\/">用日历定位新闻简报日期/);
