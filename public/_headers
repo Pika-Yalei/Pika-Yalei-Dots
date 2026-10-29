@@ -32,3 +32,7 @@
 
 /subscribe/*.opml
   Content-Type: text/x-opml; charset=utf-8
+
+/sources/catalogue.csv
+  Content-Type: text/csv; charset=utf-8
+  Content-Disposition: attachment; filename="pika-dots-sources.csv"
