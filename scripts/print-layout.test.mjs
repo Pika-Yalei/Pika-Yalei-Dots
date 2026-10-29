@@ -69,7 +69,7 @@ test('long printed content can wrap and fragment rather than being clipped', asy
   assert.match(print, /\.entry,\.archive-list li,\.entry h2 a\s*\{[^}]*display:\s*block/);
   assert.doesNotMatch(print, /overflow(?:-x|-y)?:\s*(?:hidden|clip)|[;{]\s*(?:max-)?height:\s*\d|text-overflow:\s*ellipsis|break-inside:\s*avoid/);
   const html = await readFile(path.join(fixture, 'dist/notes', post.slug, 'index.html'), 'utf8');
-  assert.equal([...html.matchAll(/<section><h2/g)].length, post.sections.length);
+  assert.equal([...html.matchAll(/<section(?: data-news-topic="[a-z-]+")?><h2/g)].length, post.sections.length);
   assert.equal(html.split(`<p>${longText}</p>`).length - 1, post.sections.length);
   assert.ok(html.includes(`<div class="closing-note">${longText}</div>`));
 });
