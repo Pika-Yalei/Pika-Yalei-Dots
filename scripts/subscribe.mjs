@@ -10,6 +10,9 @@ export function renderSubscribe() {
 <p>JSON Feed 地址：<a href="${siteUrl}/feed.json">${siteUrl}/feed.json</a></p>
 <h2>只订阅一个新闻栏目</h2>
 <p>在<a href="/topics/">新闻专题</a>选择栏目，再选择该专题的 RSS 或 JSON Feed。专题订阅只包含对应章节及其来源，不重复推送其他栏目；两种格式任选其一。</p>
+<h2>批量导入订阅</h2>
+<p>支持 OPML 的阅读器可下载<a href="/subscribe/all.opml" download="pika-dots-all.opml">全部手记订阅清单（1 个源）</a>，或<a href="/subscribe/topics.opml" download="pika-dots-topics.opml">五个新闻栏目清单（5 个源）</a>，然后在阅读器里选择“导入 OPML”。两套清单二选一，避免同时订阅造成重复内容；栏目清单导入后也可在阅读器中删去不需要的栏目。</p>
+<p>下载只提供公开订阅地址，不会自动修改你的阅读器或创建账号。OPML 支持与去重行为取决于阅读器。</p>
 <h2>怎样添加到阅读器</h2>
 <ol><li>复制上方 RSS 地址；如果阅读器支持 JSON Feed，也可以复制对应地址。</li><li>打开自己的阅读器，找到“添加订阅”或“添加订阅源”，粘贴完整地址。</li><li>确认订阅后，在阅读器里查看文章。直接打开链接时看到 XML 或 JSON 文本是正常的，它们是供阅读器读取的订阅源。</li></ol>
 <h2>更新怎样到达</h2>

@@ -29,3 +29,6 @@
 /notes/*/article.txt
   Content-Type: text/plain; charset=utf-8
   X-Content-Type-Options: nosniff
+
+/subscribe/*.opml
+  Content-Type: text/x-opml; charset=utf-8
