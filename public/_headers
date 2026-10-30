@@ -36,3 +36,13 @@
 /sources/catalogue.csv
   Content-Type: text/csv; charset=utf-8
   Content-Disposition: attachment; filename="pika-dots-sources.csv"
+
+# Detach the inherited CSP before installing the search-only policy.
+
+/search/
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; script-src 'self'
+
+/search/index.html
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; script-src 'self'

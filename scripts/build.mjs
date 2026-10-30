@@ -1,3 +1,4 @@
+import { fingerprintSearch, renderSearch } from './search.mjs';
 import { renderSourceCsv } from './source-csv.mjs';
 import { renderTopicFocus, topicFocusSections } from './topic-focus.mjs';
 import { renderOpml } from './opml.mjs';
@@ -41,6 +42,7 @@ import { renderNotFound } from './not-found.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const publicAssets = await readPublicAssets(path.join(root, 'public'));
+const searchScript = fingerprintSearch(publicAssets);
 const stylesheets = fingerprintStylesheets(publicAssets);
 const stylesheetName = stylesheets.get('style.css');
 const escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -61,6 +63,7 @@ function layout(title, description, content, active = '', pagePath = null, categ
 <meta name="description" content="${escape(description)}">
 <meta name="color-scheme" content="light dark">
 ${renderMetadata({title, description, pagePath, post})}
+${pagePath === '/search/' ? `<script src="/${searchScript}" defer></script>` : ''}
 <title>${escape(title)} · 韩立的工作手记</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/${stylesheetName}">
@@ -78,15 +81,18 @@ ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${
 <nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main" tabindex="-1">${content}</main>
-<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="/headlines/">新闻条目</a> · <a href="/calendar/">新闻日历</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
+<footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="/headlines/">新闻条目</a> · <a href="/calendar/">新闻日历</a> · <a href="/search/">站内搜索</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
 </div>
 </body>
 </html>\n`;
 }
 await buildDirectory(path.join(root, 'dist'), async out => {
 for (const [name, bytes] of publicAssets) {
-  await writeFile(path.join(out, name), name === '_headers' ? renderCacheHeaders(bytes.toString('utf8'), [...stylesheets.values()]) : bytes);
+  await writeFile(path.join(out, name), name === '_headers' ? renderCacheHeaders(bytes.toString('utf8'), [...stylesheets.values()], searchScript) : bytes);
 }
+await writeFile(path.join(out, searchScript), publicAssets.get('search.js'));
+await mkdir(path.join(out, 'search'), {recursive:true});
+await writeFile(path.join(out, 'search/index.html'), layout('站内搜索', '在浏览器本地搜索公开文章、新闻标题与引用来源。', renderSearch(posts), '', '/search/'));
 for (const [original, fingerprint] of stylesheets) {
   await writeFile(path.join(out, fingerprint), publicAssets.get(original));
 }
@@ -174,5 +180,5 @@ await writeFile(path.join(out, 'feed.json'), renderJsonFeed(posts));
 await writeFile(path.join(out, 'sitemap.xml'), renderSitemap(posts));
 await writeFile(path.join(out, 'robots.txt'), renderRobots());
 });
-console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 7} HTML pages in dist/`);
+console.log(`Built ${posts.length + paginateCategories(categories).length + indexPages.length + sourcePages.length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 8} HTML pages in dist/`);
 

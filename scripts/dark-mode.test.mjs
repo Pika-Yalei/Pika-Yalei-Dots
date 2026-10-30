@@ -91,5 +91,7 @@ test('every page declares both color schemes before stylesheet loading', async (
   const build = await readFile(new URL('./build.mjs', import.meta.url), 'utf8');
   assert.equal([...build.matchAll(/<meta name="color-scheme" content="light dark">/g)].length, 1);
   assert.ok(build.indexOf('name="color-scheme"') < build.indexOf('rel="stylesheet"'));
-  assert.doesNotMatch(build, /localStorage|sessionStorage|document\.cookie|<script\b/i);
+  assert.ok(build.includes("pagePath === '/search/' ? `<script"));
+  assert.equal([...build.matchAll(/<script\b/g)].length, 1);
+  assert.doesNotMatch(build, /localStorage|sessionStorage|document\.cookie/i);
 });

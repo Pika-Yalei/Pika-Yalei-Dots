@@ -41,7 +41,7 @@ test('all emitted HTML links use exact current fingerprints with page-specific h
 
 test('fingerprints alone are immutable while legacy helper URLs always revalidate', () => {
   const headers = read('../dist/_headers').toString();
-  assert.equal((headers.match(/immutable/g)||[]).length, 3);
+  assert.equal((headers.match(/immutable/g)||[]).length, 4);
   for (const original of STYLESHEETS) {
     assert.ok(headers.includes(`\n/${original}\n  Cache-Control: public, max-age=0, must-revalidate`));
     assert.ok(headers.includes(`\n/${names.get(original)}\n  Cache-Control: public, max-age=31536000, immutable`));
