@@ -159,3 +159,11 @@
 /* Distinguish the external evidence from this site’s source collection. */
 .source-origin{display:block;font-size:0.8125rem;overflow-wrap:anywhere}
 .source-website-link{display:inline-block;min-height:24px;padding:0.125rem 0.25rem}
+/* Search controls are native, labelled and usable without pointer precision. */
+#search-controls [role="search"]{display:grid;gap:12px;margin:24px 0;max-width:100%}
+#search-controls input,#search-controls select,#search-controls button{font:1rem var(--sans);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:3px;min-height:44px;min-width:0;width:100%;padding:8px 12px}
+#search-controls button{cursor:pointer}
+#search-controls :focus-visible{outline:2px solid var(--green);outline-offset:4px}
+#search-results{padding-left:24px;overflow-wrap:anywhere}
+#search-results li{padding:12px 0;border-bottom:1px solid var(--line)}
+#search-results p{font-size:.875rem;margin:8px 0}

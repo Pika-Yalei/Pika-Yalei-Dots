@@ -26,7 +26,7 @@ const all = await files(dist);
 const pages = all.filter(f=>f.endsWith('.html'));
 test('build generates every public page and a real 404 page', async () => {
   const posts = JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8'));
-  assert.equal(pages.length, posts.length + paginateCategories(groupCategories(posts)).length + pageCount(posts) + paginateSources(collectSources(posts)).length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 7);
+  assert.equal(pages.length, posts.length + paginateCategories(groupCategories(posts)).length + pageCount(posts) + paginateSources(collectSources(posts)).length + paginateTopics(posts).length + websitePages(posts).length + allHeadlinePages(posts).length + paginateMonthArchive(posts).length + paginateWebsiteDirectory(websitePages(posts)).length + 8);
   for (const file of ['index.html','about/index.html','archive/index.html','categories/index.html','404.html', ...groupCategories(posts).map(category => `${category.path.slice(1)}index.html`), ...posts.map(p => `notes/${p.slug}/index.html`)]) {
     assert.ok(all.includes(path.join(dist,file)));
   }
@@ -46,10 +46,14 @@ test('every page has semantic and accessible foundations', async () => {
     assert.match(html, /name="description"/);
   }
 });
-test('output has no scripts, forms, trackers, remote imports or common secrets', async () => {
+test('only search has its exact reviewed script; output has no forms, trackers, remote imports or common secrets', async () => {
   for (const file of all) {
     const text = await readFile(file,'utf8');
-    assert.doesNotMatch(text, /<script\b|<iframe\b|<form\b|@import\b|localStorage|sessionStorage|document\.cookie|google-analytics|googletagmanager|cloudflareinsights/i);
+    if (file === path.join(dist, 'search/index.html')) {
+      assert.equal([...text.matchAll(/<script\b/g)].length, 1);
+      assert.match(text, /<script src="\/search\.[a-f0-9]{16}\.js" defer><\/script>/);
+    } else assert.doesNotMatch(text, /<script\b/i);
+    assert.doesNotMatch(text, /<iframe\b|<form\b|@import\b|localStorage|sessionStorage|document\.cookie|google-analytics|googletagmanager|cloudflareinsights/i);
     assert.doesNotMatch(text, /(?:gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/i);
     if (file.endsWith('.css')) {
       assert.doesNotMatch(text,/url\s*\(/i);

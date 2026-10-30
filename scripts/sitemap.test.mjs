@@ -23,11 +23,11 @@ test('sitemap is deterministic, absolute and excludes non-content paths', () => 
   assert.match(xml, /^<\?xml version="1.0" encoding="UTF-8"\?>/);
   assert.match(xml, /xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"/);
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-  assert.deepEqual(urls, ['/', '/about/', '/calendar/', '/archive/', ...paginateMonthArchive(posts).map(page=>page.path), '/categories/', '/subscribe/', ...allHeadlinePages(posts).map(page=>page.path), '/sources/websites/', '/sources/', '/topics/', ...paginateTopics(posts).map(page => page.path), ...posts.map(post => categoryPath(post.category)).sort(), '/notes/a-first/', '/notes/z-last/'].map(p => siteUrl + p));
+  assert.deepEqual(urls, ['/', '/search/', '/about/', '/calendar/', '/archive/', ...paginateMonthArchive(posts).map(page=>page.path), '/categories/', '/subscribe/', ...allHeadlinePages(posts).map(page=>page.path), '/sources/websites/', '/sources/', '/topics/', ...paginateTopics(posts).map(page => page.path), ...posts.map(post => categoryPath(post.category)).sort(), '/notes/a-first/', '/notes/z-last/'].map(p => siteUrl + p));
   assert.equal(xml, renderSitemap([...posts].reverse()));
   assert.deepEqual(posts.map(p=>p.slug), ['z-last', 'a-first']);
   assert.doesNotMatch(xml, /404|feed\.xml|style|lastmod/);
-  assert.equal([...renderSitemap([]).matchAll(/<url>/g)].length, 20);
+  assert.equal([...renderSitemap([]).matchAll(/<url>/g)].length, 21);
   assert.equal(renderRobots(), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`);
 });
 
@@ -42,7 +42,7 @@ test('build publishes a sitemap whose unique links all resolve, including empty 
       const xml = await readFile(path.join(temp,'dist/sitemap.xml'),'utf8');
       assert.equal(xml,renderSitemap(input));
       const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-      assert.equal(new Set(urls).size,input.length+paginateCategories(groupCategories(input)).length+pageCount(input)+paginateSources(collectSources(input)).length+paginateTopics(input).length+websitePages(input).length+allHeadlinePages(input).length+paginateMonthArchive(input).length+paginateWebsiteDirectory(websitePages(input)).length+6);
+      assert.equal(new Set(urls).size,input.length+paginateCategories(groupCategories(input)).length+pageCount(input)+paginateSources(collectSources(input)).length+paginateTopics(input).length+websitePages(input).length+allHeadlinePages(input).length+paginateMonthArchive(input).length+paginateWebsiteDirectory(websitePages(input)).length+7);
       for (const value of urls) {
         const url = new URL(value);
         assert.equal(url.origin,siteUrl);

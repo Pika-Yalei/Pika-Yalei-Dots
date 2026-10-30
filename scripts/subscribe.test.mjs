@@ -55,7 +55,9 @@ test('build always publishes subscription help and retains both feed links in ev
         for (const href of ['/feed.xml', '/feed.json', '/subscribe/']) {
           assert.ok(footer.includes(`href="${href}"`), `Missing ${href} in ${file}`);
         }
-        assert.doesNotMatch(page, /<script\b|<iframe\b|\son\w+=/i);
+        if (file !== path.join(output, 'search/index.html')) assert.doesNotMatch(page, /<script\b/i);
+        else assert.match(page, /<script src="\/search\.[a-f0-9]{16}\.js" defer><\/script>/);
+        assert.doesNotMatch(page, /<iframe\b|\son\w+=/i);
       }
       await validateLinks(output);
     }

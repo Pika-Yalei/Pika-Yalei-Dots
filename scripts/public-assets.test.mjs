@@ -1,3 +1,4 @@
+import { fingerprintSearch } from './search.mjs';
 import { fingerprintStylesheets } from './stylesheets.mjs';
 import { renderCacheHeaders } from './cache-headers.mjs';
 import test from 'node:test';
@@ -33,11 +34,11 @@ async function fixture(t) {
 
 test('reviewed assets retain their bytes and headers append only generated cache rules', async (t) => {
   const { temp, previous } = await fixture(t);
-  assert.deepEqual(PUBLIC_ASSETS, ['_headers', 'favicon.svg', 'style.css', 'reader-controls.css', 'news-calendar.css']);
+  assert.deepEqual(PUBLIC_ASSETS, ['_headers', 'favicon.svg', 'style.css', 'reader-controls.css', 'news-calendar.css', 'search.js']);
   for (const name of PUBLIC_ASSETS) {
     const original = await readFile(path.join(temp, 'public', name));
     const fingerprints = [...fingerprintStylesheets(await readPublicAssets(path.join(temp, 'public'))).values()];
-    assert.deepEqual(previous[name], name === '_headers' ? Buffer.from(renderCacheHeaders(original.toString('utf8'), fingerprints)) : original);
+    assert.deepEqual(previous[name], name === '_headers' ? Buffer.from(renderCacheHeaders(original.toString('utf8'), fingerprints, fingerprintSearch(await readPublicAssets(path.join(temp, 'public'))))) : original);
   }
   const hashed = Object.keys(previous).filter(name => /^style\.[0-9a-f]{16}\.css$/.test(name));
   assert.equal(hashed.length, 1);
