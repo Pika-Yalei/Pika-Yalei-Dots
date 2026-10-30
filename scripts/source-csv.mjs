@@ -7,9 +7,9 @@ export function csvCell(value) {
  return `"${safe.replaceAll('"','""')}"`;
 }
 export function renderSourceCsv(posts) {
- const rows=[['source_label','source_url','source_website','article_title','section','article_url']];
+ const rows=[['source_label','source_url','source_website','article_title','section','article_url','news_item_title','mapping_scope']];
  for(const source of collectSources(posts)) for(const ref of source.references){
-  rows.push([source.label,source.url,new URL(source.url).hostname,ref.title,ref.heading,siteUrl+ref.href]);
+  rows.push([source.label,source.url,new URL(source.url).hostname,ref.title,ref.heading,siteUrl+ref.href,ref.itemTitle,ref.scope]);
  }
  return '\uFEFF'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';
 }

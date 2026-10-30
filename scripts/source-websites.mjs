@@ -1,7 +1,7 @@
 import { renderPageWindow } from './page-window.mjs';
 import { websitePath } from './source-website-path.mjs';
 export { websitePath } from './source-website-path.mjs';
-import { collectSources, sourceAnchor } from './source-index.mjs';
+import { collectSources, sourceAnchor, renderSourceReference } from './source-index.mjs';
 const escape = text => String(text).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 export function websitePages(posts) {
  const groups=new Map();
@@ -37,5 +37,5 @@ export function renderWebsiteDirectory(page) {
 export function renderWebsitePage(page) {
  const href=n=>n===1?page.base:`${page.base}page/${n}/`;
  const navigation=page.total>1?`<nav class="pagination" aria-label="网站来源分页">${page.number>1?`<a href="${href(page.number-1)}" rel="prev">← 上一页</a>`:''}${renderPageWindow(page.number,page.total,href)}${page.number<page.total?`<a href="${href(page.number+1)}" rel="next">下一页 →</a>`:''}</nav>`:'';
- return `<div class="article-shell"><header class="article-header"><h1>${escape(page.host)} 的引用材料${page.number>1?` · 第 ${page.number} 页`:''}</h1><p class="article-subtitle">共 ${page.count} 个来源 · 显示第 ${page.offset+1}–${page.offset+page.sources.length} 个</p></header><div class="prose"><ol start="${page.offset+1}">${page.sources.map(source=>`<li class="source-entry" id="${sourceAnchor(source.url)}" tabindex="-1"><p><a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a></p><ul>${source.references.map(ref=>`<li><a href="${escape(ref.href)}">${escape(ref.title)} · ${escape(ref.heading)}</a></li>`).join('')}</ul></li>`).join('')}</ol></div>${navigation}<p><a href="${escape(page.directoryHref ?? '/sources/websites/')}">返回来源网站目录中的本站</a> · <a href="/sources/">全部来源</a></p></div>`;
+ return `<div class="article-shell"><header class="article-header"><h1>${escape(page.host)} 的引用材料${page.number>1?` · 第 ${page.number} 页`:''}</h1><p class="article-subtitle">共 ${page.count} 个来源 · 显示第 ${page.offset+1}–${page.offset+page.sources.length} 个</p></header><div class="prose"><ol start="${page.offset+1}">${page.sources.map(source=>`<li class="source-entry" id="${sourceAnchor(source.url)}" tabindex="-1"><p><a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a></p><ul>${source.references.map(renderSourceReference).join('')}</ul></li>`).join('')}</ol></div>${navigation}<p><a href="${escape(page.directoryHref ?? '/sources/websites/')}">返回来源网站目录中的本站</a> · <a href="/sources/">全部来源</a></p></div>`;
 }

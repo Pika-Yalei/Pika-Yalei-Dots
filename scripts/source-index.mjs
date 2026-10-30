@@ -14,7 +14,10 @@ export function collectSources(posts) {
         const anchors = newsItemAnchors(section);
         let current = null;
         sectionSourceGroups(section, true).groups.forEach((group, index) => {
-          current = anchors[index] ?? current;
+          if (anchors[index]) current = {
+            anchor: anchors[index],
+            itemTitle: group.text.replace(/^\d+\.\s+/, '').split('。')[0]
+          };
           if (current) for (const source of group.sources) itemTargets.set(source, current);
         });
       }
@@ -22,12 +25,23 @@ export function collectSources(posts) {
         if (!isReviewedSource(source.url)) throw new TypeError('Unreviewed source URL');
         if (!sources.has(source.url)) sources.set(source.url, {...source, references: []});
         const entry = sources.get(source.url);
-        const href = `/notes/${post.slug}/#${itemTargets.get(source) ?? section.id}`;
-        if (!entry.references.some(reference => reference.href === href)) entry.references.push({href, title: post.title, heading: section.heading});
+        const target = itemTargets.get(source);
+        const href = `/notes/${post.slug}/#${target?.anchor ?? section.id}`;
+        if (!entry.references.some(reference => reference.href === href)) entry.references.push({
+          href, title: post.title, heading: section.heading,
+          itemTitle: target?.itemTitle ?? '', scope: target ? 'news-item' : 'section'
+        });
       }
     }
   }
   return [...sources.values()];
+}
+// Both source views share one escaped description of the mapping, not a guessed title.
+export function renderSourceReference(ref) {
+  const context = ref.scope === 'news-item'
+    ? `新闻条目：${ref.itemTitle}`
+    : '整节参考（未明确对应单条新闻）';
+  return `<li><a href="${escape(ref.href)}">${escape(ref.title)} · ${escape(ref.heading)} · ${escape(context)}</a></li>`;
 }
 // Source pages use their own size and canonical first-page path.
 export const sourcePageSize = 40;
@@ -64,7 +78,7 @@ export function renderSourcePage(page) {
   const domainNavigation = !domains.length ? '' : number === 1
     ? `<details class="source-domains" id="source-domains"><summary>按来源网站定位（${domains.length} 个网站）</summary><p>按网站首字母展开；www 前缀不参与分组。每个链接仍定位完整来源索引，不是过滤结果。</p>${renderSourceDomainGroups(domains)}</details>`
     : '<p><a href="/sources/#source-domains">按来源网站定位</a></p>';
-  return `<div class="article-shell"><header class="article-header"><h1>新闻与复盘来源${number === 1 ? '' : ` · 第 ${number} 页`}</h1><p class="article-subtitle">逐条回到原始材料，并查看引用它的手记章节。</p></header><div class="prose"><p>共 ${count} 个实际引用的公开链接。来源来自文章正文，不代表已独立验证来源的全部内容；统计窗口和事实限定仍以各篇手记为准。</p><p><a href="/sources/websites/">按网站集中浏览全部引用材料</a></p><p><a href="/sources/catalogue.csv" download="pika-dots-sources.csv">下载全部来源及引用位置（CSV）</a>：每行对应一个来源与引用位置；可离线筛选，不含来源网页全文。潜在公式单元格加前置单引号以便安全阅读。</p>${domainNavigation}${sources.length ? `<p class="page-range">显示第 ${offset + 1}–${offset + sources.length} 个来源 · 第 ${number} / ${total} 页</p><ol start="${offset + 1}">${sources.map(source => `<li class="source-entry" id="${sourceAnchor(source.url)}" tabindex="-1"><p><a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a> <small>（${escape(new URL(source.url).hostname)}）</small></p><ul>${source.references.map(ref => `<li><a href="${escape(ref.href)}">${escape(ref.title)} · ${escape(ref.heading)}</a></li>`).join('')}</ul></li>`).join('')}</ol>` : '<p>尚无可列出的引用来源。</p>'}</div>${renderSourcePagination(page)}</div>`;
+  return `<div class="article-shell"><header class="article-header"><h1>新闻与复盘来源${number === 1 ? '' : ` · 第 ${number} 页`}</h1><p class="article-subtitle">逐条回到原始材料，并查看引用它的新闻条目或手记章节。</p></header><div class="prose"><p>共 ${count} 个实际引用的公开链接。来源来自文章正文，不代表已独立验证来源的全部内容；统计窗口和事实限定仍以各篇手记为准。</p><p><a href="/sources/websites/">按网站集中浏览全部引用材料</a></p><p><a href="/sources/catalogue.csv" download="pika-dots-sources.csv">下载全部来源及引用位置（CSV）</a>：每行对应一个来源与引用位置；可离线筛选，不含来源网页全文。潜在公式单元格加前置单引号以便安全阅读。</p>${domainNavigation}${sources.length ? `<p class="page-range">显示第 ${offset + 1}–${offset + sources.length} 个来源 · 第 ${number} / ${total} 页</p><ol start="${offset + 1}">${sources.map(source => `<li class="source-entry" id="${sourceAnchor(source.url)}" tabindex="-1"><p><a href="${escape(source.url)}" rel="noreferrer">${escape(source.label)}</a> <small>（${escape(new URL(source.url).hostname)}）</small></p><ul>${source.references.map(renderSourceReference).join('')}</ul></li>`).join('')}</ol>` : '<p>尚无可列出的引用来源。</p>'}</div>${renderSourcePagination(page)}</div>`;
 }
 export function renderSourceIndex(posts, number = 1) {
   sourcePagePath(number);
