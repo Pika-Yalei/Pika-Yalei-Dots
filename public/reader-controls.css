@@ -83,3 +83,17 @@
 }
 @media print{.topic-focus{display:none}}
 @media (forced-colors:active){.topic-focus label:has(input:checked){border-color:Highlight}.topic-focus label:has(input:focus-visible){outline-color:Highlight}}
+
+/* Compact, native disclosure keeps optional appearance controls out of the way.
+   Do not tie preferences to [open]: closing this panel must keep their effects. */
+.reader-settings{display:none}
+@supports selector(:has(input:checked)){
+  @media screen{
+    .reader-settings{display:block;min-width:0;margin:0 0 24px;padding:0 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
+    .reader-settings>summary{min-height:44px;padding:12px 0;cursor:pointer;overflow-wrap:anywhere;touch-action:manipulation}
+    .reader-settings>summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+    .reader-settings-hint{color:var(--muted);font-size:.75rem;line-height:1.7;margin:0 0 16px}
+  }
+}
+@media print{.reader-settings{display:none}}
+@media (forced-colors:active){.reader-settings>summary:focus-visible{outline-color:Highlight}}
