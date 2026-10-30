@@ -58,7 +58,7 @@ test('article build contains one palette alongside both existing controls, never
   for (const post of posts) {
     const html = read(`../dist/notes/${post.slug}/index.html`);
     assert.equal((html.match(/class="reader-palette"/g)||[]).length, 1);
-    assert.match(html, /<div class="article-reader"><fieldset class="reader-palette">/);
+    assert.match(html, /<details class="reader-settings"><summary>/);
     for (const name of ['reader-size', 'reader-narrow', 'reader-spaced']) assert.ok(html.includes(`name="${name}"`));
   }
   for (const file of ['index.html', 'feed.xml', 'feed.json']) assert.doesNotMatch(read(`../dist/${file}`), /reader-palette/);
