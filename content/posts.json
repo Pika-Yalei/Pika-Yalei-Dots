@@ -3963,5 +3963,219 @@
     ],
     "closing": "本期收录25条独立进展。市场数据注明交易时点；产品开放范围、公司预测、政策目标、初步计票及未交割交易均以对应条目限定为准。分析不构成投资建议。",
     "publishedAt": "2026-10-29T02:59:02Z"
+  },
+  {
+    "slug": "news-2026-10-30",
+    "date": "2026-10-30",
+    "title": "2026-10-30｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-29 10:15:00 至 2026-10-30 10:15:00",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "五栏各5条：AI投资与工具更新、企业季度业绩、主要股票市场收盘、中国政策与外交、国际政治及重大事件。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-29T02:15:00Z",
+      "end": "2026-10-30T02:15:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. 加拿大承诺向Cohere投资最高16亿加元。29日总理办公室宣布，政府将分阶段进行股权投资；Cohere承诺保持加拿大总部，并在2030年前新增至少1000个技术岗位、投入至少17亿加元建设本国算力。分析：公共资本支持本土AI供给，但投资上限和未来承诺不等于资金已全部到账或目标已实现。",
+          "2. OpenAI更新模型行为规范。29日发布的Model Spec围绕忠实于人类意图、减少伤害、诚实透明、人类自主性及关怀五项价值重组，并补充上下文、监督和行动副作用指导；公司明确现有模型尚未完全符合规范。分析：公开规则提供了外部评估依据，但规范发布不等于技术风险已经消除。",
+          "3. Gemini支持在聊天内预览和编辑文件。Google于29日宣布向所有支持地区和语言的用户提供新功能，可直接修改生成的文档、表格和演示文稿；PDF支持网页与移动端，其他格式目前仅限网页。分析：起草到修改的操作链缩短，但跨设备能力仍不一致，重要内容仍须复核。",
+          "4. BetterCloud上线AI支出与代理生命周期管理。29日公司称客户现可集中查看AI工具费用及负责人，并通过工作流创建、更新、停用代理和撤销权限。分析：企业管理开始覆盖员工离职后仍运行的代理及其访问权；功能上线并不意味着所有第三方平台已受控或安全得到绝对保证。",
+          "5. Coforge公布自主软件工厂运营模式。29日公告提出，将编码、测试、验证、代码审阅等专门AI代理并行组织，并保留人类治理和监督；公告未给出客户部署规模或量化成效。分析：焦点由单次代码生成转向全流程协调，但新模式的成本、可靠性和交付收益仍待实际项目验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. 加拿大总理办公室投资公告",
+            "url": "https://www.pm.gc.ca/en/news/news-releases/2026/10/29/canada-announces-landmark-investment-cohere-scale-secure-sovereign-ai"
+          },
+          {
+            "label": "2. OpenAI官方规范更新说明",
+            "url": "https://openai.com/index/updated-model-spec/"
+          },
+          {
+            "label": "3. Google官方功能公告",
+            "url": "https://blog.google/innovation-and-ai/products/gemini-app/edit-files-directly/"
+          },
+          {
+            "label": "4. BetterCloud公司新闻稿",
+            "url": "https://www.accessnewswire.com/newsroom/en/computers-technology-and-internet/bettercloud-releases-ai-spend-tracking-and-agent-lifecycle-manage-1242733"
+          },
+          {
+            "label": "5. Coforge官方公告",
+            "url": "https://news.coforge.com/newsroom/press-release/coforge-introduces-autonomous-software-factory-for-the-era-of-agentic-software-development"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 亚马逊云业务增长，净利润小幅回落。29日第三季度财报显示，营收约2019亿美元、同比增长12%，AWS营收增长39.3%；净利润约207亿美元，低于上年约212亿美元，公司指出上年Anthropic投资收益抬高了比较基数。分析：经营业务与投资估值影响应分开看，云增长不能直接等同净利润增长。",
+          "2. 万事达卡收入和交易规模扩张。29日第三季度财报披露，净收入约98亿美元、增长14%，净利润约46亿美元、增长18%；按当地货币计算，购买交易金额增长9%。分析：支付活动和公司盈利同步增加，但一家卡组织的数据不能代表全部消费或所有地区的需求。",
+          "3. 卡特彼勒营收增长17%，经营利润率提升。29日第三季度财报披露，销售与收入约207亿美元，经营利润率由上年17.3%升至20.4%；公司称增量主要来自销量及价格实现改善。分析：收入增长并非仅靠提价，但单季表现仍不足以证明所有终端行业均进入扩张。",
+          "4. 壳牌季度利润与现金流保持高位。29日第三季度财报披露，归属股东利润约121亿美元，调整后收益约108亿美元，经营现金流约210亿美元；公司称较上季收益改善受炼油利润率及液化天然气价格、销量支持。分析：商品市场变化显著影响盈利，调整后指标不能与法定利润混用。",
+          "5. 礼来上调全年收入展望。29日第三季度财报显示，营收约244亿美元、增长39%，主要由Mounjaro和Zepbound带动；全年收入指引提高至910亿至920亿美元。本季收入也包含约9亿美元里程碑付款及返利折扣估计调整等有利影响。分析：销量扩张支持增长，但这些特殊收益与全年预测不宜当作可持续、已实现的经营成果。"
+        ],
+        "sources": [
+          {
+            "label": "1. Amazon官方第三季度财报",
+            "url": "https://www.aboutamazon.com/news/company-news/amazon-earnings-q3-2026-report"
+          },
+          {
+            "label": "2. Mastercard官方第三季度财报PDF",
+            "url": "https://investor.mastercard.com/files/content_files/3Q26-Mastercard-Earnings-Release.pdf"
+          },
+          {
+            "label": "3. Caterpillar官方第三季度财报",
+            "url": "https://www.caterpillar.com/en/news/corporate-press-releases/h/3q26-results-caterpillar-inc.html"
+          },
+          {
+            "label": "4. Shell官方第三季度财报PDF",
+            "url": "https://www.shell.com/investors/results-and-reporting/quarterly-results/_jcr_content/root/main/section/simple/promo_1962010312_cop/links/item1.stream/1793238865458/4bc70d25b73a07e71802c547bf6df9afbb724171/q3-2026-qra-document.pdf"
+          },
+          {
+            "label": "5. Eli Lilly官方第三季度财报",
+            "url": "https://investor.lilly.com/news-releases/news-release-details/lilly-reports-third-quarter-2026-financial-results-raises-full"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. A股29日回落，创业板指跌4.45%。北京时间10月29日15:00收盘，上证指数报3651.43点，跌0.82%；深证成指报11138.20点，跌2.92%；创业板指报2517.59点，跌4.45%。沪深两市成交约1.56万亿元人民币，全市场逾4700只个股下跌，银行板块相对走强。分析：主要指数与大量个股同步下跌，但行业表现并不一致，不能把局部银行股上涨理解为整体市场转强。",
+          "2. 港股收低，恒生科技指数跌幅更大。香港市场10月29日收盘，恒生指数报22958.65点，跌136.18点、跌幅0.59%；恒生科技指数报3744.14点，跌2.84%；国企指数报7755.66点，跌0.46%。全日主板成交1894.53亿港元。分析：科技指数跌幅明显高于恒指，显示不同指数所覆盖的股票组合承受的波动有别，不能仅用恒指概括所有港股表现。",
+          "3. 日经225收涨1.10%，上涨成分股占多数。日本当地10月29日收盘，日经225指数报64659.47点，上涨705.28点；日经官方摘要显示，225只成分股中132只上涨、92只下跌、1只持平，成分股成交金额为11.05万亿日元。分析：本交易日指数与多数成分股方向一致，但仍有92只成分股下跌，指数上涨不意味着所有板块同步受益。",
+          "4. 韩国两大指数下跌，KOSPI回落至6000点以下。韩国当地10月29日收盘，KOSPI报5937.66点，跌1.24%；KOSDAQ报753.23点，跌2.34%。韩国MBC当日收市报道确认两项数据。以上为指数点位，不是韩元股价。分析：KOSDAQ跌幅高于KOSPI，反映两个市场的表现分化；单日跌幅本身不能证明后续方向或某一单独原因。",
+          "5. 美股三大指数收跌，纳指跌1.38%。美国东部时间10月29日16:00常规交易收盘，道琼斯工业平均指数报52342.56点，跌0.25%；标普500指数报7720.39点，跌0.30%；纳斯达克综合指数报26184.72点，跌1.38%。这些为指数点位，而非美元股价。分析：纳指跌幅明显大于另外两项指数，说明指数构成会影响市场表现；上述常规时段收盘数据不包含之后的盘后交易。"
+        ],
+        "sources": [
+          {
+            "label": "1. 第一财经官方账号：10月29日A股收盘（新浪）",
+            "url": "https://cj.sina.com.cn/articles/view/1733360754/6750fc7202001kqzo"
+          },
+          {
+            "label": "2. 新华社：港股29日跌0.59%",
+            "url": "https://www.xinhuanet.com/gangao/20261029/cf1e071fc2bc493db8386de4296ba4f2/c.html"
+          },
+          {
+            "label": "3. 日经指数官方：10月29日每日摘要",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary"
+          },
+          {
+            "label": "3. Monex证券：10月29日东京市场收盘回顾",
+            "url": "https://media.monex.co.jp/articles/-/30408"
+          },
+          {
+            "label": "4. 韩国MBC：10月29日韩股收市",
+            "url": "https://imnews.imbc.com/news/2026/econo/article/6861694_36932.html"
+          },
+          {
+            "label": "5. Chase行情：10月29日16:33 EDT快照",
+            "url": "https://idc.chase.com/marketspublic/usoverview"
+          },
+          {
+            "label": "5. Monex证券：10月29日美股收盘回顾",
+            "url": "https://media.monex.co.jp/articles/-/30411"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 二十届五中全会闭幕并通过全面从严治党决定。新华社10月29日17时42分公布公报，全会审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》。分析：相较此前开幕及审议消息，本次实质进展是正式通过；具体制度落实仍须结合后续文件，不能把原则部署等同于全部配套措施已经生效。",
+          "2. 成品油价格调控后上调。国家发展改革委29日宣布，自当日24时起，汽油、柴油标准品价格每吨分别上调345元、335元，低于现行机制测算的440元、420元涨幅。分析：截至本期截点调整已生效，政策压减的是涨幅而非下调价格，有助缓冲下游成本压力，但各地零售限价与油品规格仍有差异。",
+          "3. 四部门公开海南自贸港贸易便利化16项措施。商务部29日11时15分公开10月9日签发的通知，涉及保税监管、保税维修和再制造，以及医疗、保险、职业资格等服务贸易领域；下午发布会进一步说明外籍医师执业许可有效期由1年延长至3年等安排。分析：窗口内新进展为文件公开和官方解读，不是当日签发；实际便利化效果仍取决于配套实施和风险监管。",
+          "4. 生态环境部新公布前三季度地表水数据。29日公开的统计显示，1—9月全国地表水Ⅰ—Ⅲ类水质比例为86.1%，同比提高1.7个百分点；第三季度单季比例为76.0%，同比提高0.7个百分点。分析：这为水环境治理提供新的监测依据；累计与单季口径不同，不能直接把两者差值解释为水质恶化，也不是29日当天的水质变化。",
+          "5. 中菲在东盟防长扩大会结束时就中方参会安排发生争议。29日国防部发言人称菲方个别政客阻碍中方参会；路透社报道，中方由驻菲武官出席，菲律宾防长则表示中方已获机会陈述立场，未直接回应阻挠指控。分析：这是当天区域安全对话中的新外交分歧；双方说法需分别归属，不能将其中一方指控写成已独立证实的事实。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社受权发布全会公报",
+            "url": "https://www.xinhuanet.com/politics/leaders/20261029/3dc769be3bff40aeafcbf957eb4e47bb/c.html"
+          },
+          {
+            "label": "1. 国务院侨办转载新华社公报",
+            "url": "https://www.gqb.gov.cn/news/2026/1029/63418.shtml"
+          },
+          {
+            "label": "2. 国家发展改革委原始调价公告",
+            "url": "https://www.ndrc.gov.cn/xwdt/xwfb/202610/t20261029_1408449_ext.html"
+          },
+          {
+            "label": "3. 商务部四部门通知原文（签发10月9日、公开29日）",
+            "url": "https://zmqgs.mofcom.gov.cn/zcfg/myl/art/2026/art_0622853ab3934ccea86ba6b08be28bb0.html"
+          },
+          {
+            "label": "3. 商务部29日下午新闻发布会",
+            "url": "https://www.mofcom.gov.cn/xwfbzt/2026/swbzklxxwfbh2026n10y29r/index.html"
+          },
+          {
+            "label": "4. 生态环境部原始统计",
+            "url": "https://www.mee.gov.cn/ywdt/xwfb/202610/t20261029_1184815.shtml"
+          },
+          {
+            "label": "4. 中宏网29日14时48分报道",
+            "url": "https://www.zhonghongwang.com/show-258-476494-1.html"
+          },
+          {
+            "label": "5. 央视军事消息，经界面新闻刊载",
+            "url": "https://news.sina.com.cn/c/2026-10-29/doc-iniwwpnu6061608.shtml"
+          },
+          {
+            "label": "5. 路透社双方回应交叉核验",
+            "url": "https://new.streetinsider.com/Reuters/China%2Bsays%2BPhilippine%2Bpolitician%2Bimposed%2Bobstacles%2Bto%2Bits%2Bparticipation%2Bat%2BASEAN%2Bdefence%2Bmeeting/27251382.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 乌克兰第聂伯罗车站遭无人机袭击。路透社29日现场报道及乌克兰官员通报称，一架俄方无人机击中繁忙站台，造成至少14人死亡；其他城市当天也发生致命袭击。分析：车站等民用交通设施继续面临严重风险；赫尔松地区的局部人道停火并非全国停火。伤亡数字为当时通报，俄方一贯否认蓄意攻击平民。",
+          "2. 北爱民主统一党暂停首席部长之间的联合活动。29日，DUP宣布副首席部长不再与新芬党首席部长奥尼尔参加联合公务活动，背景是有关游行抗议的警方调查；该党尚未撤回副首席部长、使行政当局垮台。分析：政治争议已影响共同对外履职和预算沟通，但不能将调查视为定罪，也不能写成权力分享政府已经解散。",
+          "3. 欧委会启动SAFE第二轮213亿欧元贷款申请。29日官方公告邀请所有成员国申请，并鼓励将与乌克兰共同采购纳入投资计划，优先支持防空、无人机及弹药等需求。分析：本轮资金属于此前1500亿欧元SAFE长期贷款框架，既不是新增同额赠款，也不代表武器或贷款已全部交付。",
+          "4. 委内瑞拉总统选举时间表出现新表态。29日，反对派领袖马查多在加拉加斯称美国建议2027年举行总统选举；美联社同时报道，代总统罗德里格斯当天表示将举行选举，但未给出日期。分析：双方均谈到选举，不等于已就时间表达成一致；马查多转述的美方建议也不是正式选举公告。",
+          "5. 联合国新调查显示阿富汗罂粟种植明显反弹。29日发布的UNODC调查经法新社报道，2026年种植面积约4.3万公顷，2025年约1万公顷；鸦片估算产量由约300吨增至1500吨，仍低于禁种前水平。分析：新增的是年度调查披露，而非一天内产量激增；结果提示禁毒执法还需与农户替代生计、市场和灌溉条件相配合。"
+        ],
+        "sources": [
+          {
+            "label": "1. 路透社现场报道及29日23:45 UTC更新",
+            "url": "https://www.aol.co.uk/articles/russian-drone-attack-train-station-100622000.html"
+          },
+          {
+            "label": "1. RFE/RL交叉核验及乌克兰铁路部门说法",
+            "url": "https://www.rferl.org/a/oleshky-ukraine-russia-melania-trump-ceasefire/33886379.html"
+          },
+          {
+            "label": "2. 路透社：DUP决定",
+            "url": "https://www.aol.com/articles/dup-cease-cooperation-northern-ireland-161803000.html"
+          },
+          {
+            "label": "2. ITV双方回应与实际影响核验",
+            "url": "https://www.itv.com/news/2026-10-29/dup-blocks-joint-engagements-with-sinn-fin-first-minister-amid-parading-dispute"
+          },
+          {
+            "label": "3. 欧盟委员会原始SAFE公告",
+            "url": "https://defence-industry-space.ec.europa.eu/commission-invites-member-states-use-eur213-billion-under-safe-boost-defence-readiness-and-support-2026-10-29_en"
+          },
+          {
+            "label": "4. 路透社：马查多29日讲话",
+            "url": "https://www.aol.com/articles/us-proposed-venezuela-elections-2027-182939000.html"
+          },
+          {
+            "label": "4. 美联社报道（iNFOnews刊载）",
+            "url": "https://infonews.ca/news/7967125/venezuelas-maria-corina-machado-hopeful-for-2027-presidential-election/"
+          },
+          {
+            "label": "5. 法新社原始报道及UNODC官员采访",
+            "url": "https://www.afp.com/en/afghanistan-opium-poppy-cultivation-surges-despite-taliban-govt-ban-un"
+          }
+        ]
+      }
+    ],
+    "closing": "本期收录25条独立进展。未来承诺、业绩指引、各方说法及统计口径以条目限定为准；市场数据为所注明交易时点。分析不构成投资建议。",
+    "publishedAt": "2026-10-30T02:25:00Z"
   }
 ]
