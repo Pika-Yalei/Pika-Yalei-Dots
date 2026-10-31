@@ -29,7 +29,7 @@
       item.append(link, detail);
       if (record.reference) {
         const reference = document.createElement('a');
-        reference.textContent = '查看引用章节';
+        reference.textContent = record.referenceLabel || '查看引用章节';
         reference.href = record.reference;
         item.append(reference);
       }

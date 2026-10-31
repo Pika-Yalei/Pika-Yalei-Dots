@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { collectHeadlines } from './headlines.mjs';
-import { sectionAnchors } from './reading-navigation.mjs';
-import { isReviewedSource } from './article-content.mjs';
+import { sectionAnchors, newsItemAnchors } from './reading-navigation.mjs';
+import { isReviewedSource, sectionSourceGroups } from './article-content.mjs';
 const escape = text => String(text).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 export function fingerprintSearch(assets) {
   const bytes = assets.get('search.js');
@@ -12,10 +12,22 @@ export function collectSearchEntries(posts) {
   return [...posts].sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug)).flatMap(post => [
     {type:'article', title:post.title, detail:post.summary, date:post.date, href:`/notes/${post.slug}/`},
     ...collectHeadlines([post]).map(item => ({type:'headline', title:item.title, detail:`${item.heading} · ${item.article}`, date:item.date, href:item.href})),
-    ...sectionAnchors(post.sections).flatMap(section => (section.sources ?? []).map(source => {
-      if (!isReviewedSource(source.url)) throw new TypeError('Unreviewed search source URL');
-      return {type:'source', title:source.label, detail:`${new URL(source.url).hostname} · ${post.title} · ${section.heading}`, date:post.date, href:source.url, reference:`/notes/${post.slug}/#${section.id}`};
-    }))
+    ...sectionAnchors(post.sections).flatMap(section => {
+      const targets = new Map();
+      if (post.category === '新闻回顾') {
+        const anchors = newsItemAnchors(section);
+        let current = null;
+        sectionSourceGroups(section, true).groups.forEach((group, index) => {
+          if (anchors[index]) current = {anchor:anchors[index], title:group.text.replace(/^\d+\.\s+/, '').split('。')[0]};
+          if (current) for (const source of group.sources) targets.set(source, current);
+        });
+      }
+      return (section.sources ?? []).map(source => {
+        if (!isReviewedSource(source.url)) throw new TypeError('Unreviewed search source URL');
+        const target = targets.get(source);
+        return {type:'source', title:source.label, detail:`${new URL(source.url).hostname} · ${post.title} · ${section.heading}${target ? ` · ${target.title}` : ''}`, date:post.date, href:source.url, reference:`/notes/${post.slug}/#${target?.anchor ?? section.id}`, referenceLabel:target ? '查看引用新闻条目' : '查看引用章节（未明确对应单条新闻）'};
+      });
+    })
   ]);
 }
 export function renderSearch(posts) {

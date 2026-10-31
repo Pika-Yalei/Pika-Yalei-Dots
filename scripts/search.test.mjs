@@ -34,7 +34,7 @@ test('index covers articles, individual headlines and every source label with st
   assert.equal(entries.filter(item => item.type === 'source').length, posts.flatMap(post => post.sections.flatMap(section => section.sources ?? [])).length);
   for (const item of entries.filter(item => item.type === 'source')) {
     assert.ok(item.detail.includes(new URL(item.href).hostname));
-    assert.match(item.reference, /^\/notes\/[^/]+\/#section-/);
+    assert.match(item.reference, /^\/notes\/[^/]+\/#(?:section|news)-/);
   }
   assert.deepEqual(collectSearchEntries([]), []);
 });
@@ -109,4 +109,18 @@ test('every indexed internal destination resolves to its original page and fragm
   }
   const malicious = [{slug:'safe',date:'2026-01-01',title:'safe',summary:'safe',sections:[{heading:'safe',paragraphs:[],sources:[{label:'unsafe',url:'javascript:alert(1)'}]}]}];
   assert.throws(() => collectSearchEntries(malicious), /Unreviewed/);
+});
+
+test('source search uses explicit news mapping including continuation paragraphs, not guessed labels', () => {
+  const url = posts.flatMap(post=>post.sections.flatMap(section=>section.sources??[]))[0].url;
+  const post={slug:'mapping',date:'2026-01-01',title:'Mapping',summary:'summary',category:'新闻回顾',sections:[{heading:'AI',paragraphs:['1. First item。Facts.','Continuation.','2. Second item。Facts.'],sources:[{label:'1. Original',url},{label:'2. Other',url},{label:'Unmapped',url}]}]};
+  const entries=collectSearchEntries([post]).filter(item=>item.type==='source');
+  assert.match(entries[0].reference, /#news-/);
+  assert.notEqual(entries[0].reference,entries[1].reference);
+  assert.match(entries[0].detail,/First item/);
+  assert.equal(entries[0].referenceLabel,'查看引用新闻条目');
+  assert.match(entries[2].reference,/#section-/);
+  assert.match(entries[2].referenceLabel,/未明确对应/);
+  post.category='技术复盘';
+  assert.ok(collectSearchEntries([post]).filter(item=>item.type==='source').every(item=>item.reference.includes('#section-')));
 });
