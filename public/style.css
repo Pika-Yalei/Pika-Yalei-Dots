@@ -167,3 +167,6 @@
 #search-results{padding-left:24px;overflow-wrap:anywhere}
 #search-results li{padding:12px 0;border-bottom:1px solid var(--line)}
 #search-results p{font-size:.875rem;margin:8px 0}
+#search-pagination:not([hidden]){display:flex;gap:12px;margin-block:16px}
+#search-pagination button{flex:1}
+#search-pagination button:disabled{cursor:default;color:var(--muted);border-style:dashed}

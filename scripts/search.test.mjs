@@ -19,7 +19,7 @@ class Node {
   focus() { this.focused = true; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-type'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
   ids['search-ui'].content = {cloneNode:() => ({querySelector:selector => ids[selector.slice(1)]})};
@@ -64,13 +64,32 @@ test('runtime normalizes full-width/case/whitespace, AND matches, filters, clear
   assert.equal(query.value, ''); assert.equal(nodes['search-type'].value, 'all'); assert.equal(query.focused, true);
   assert.match(status.textContent, /请输入/);
 });
-test('runtime bounds rendered results, counts all matches and never interprets markup or regex', () => {
+test('runtime paginates rendered results, counts all matches and never interprets markup or regex', () => {
   const payload = '<img src=x onerror=alert(1)> [.*]';
   const nodes = boot(Array.from({length:73}, () => ({type:'article',title:payload,detail:'',date:'2026-01-01',href:'/notes/example/'})));
   nodes['search-query'].value = '[.*]'; nodes['search-query'].fire('input');
   assert.match(nodes['search-status'].textContent, /共找到 73 条，显示 50 条/);
   const items = nodes['search-results'].children[0].children;
   assert.equal(items.length, 50); assert.equal(items[0].children[0].textContent, payload);
+  assert.equal(nodes['search-pagination'].hidden, false);
+  assert.equal(nodes['search-previous'].disabled, true);
+  nodes['search-previous'].fire('click');
+  assert.equal(nodes['search-results'].start, 1);
+  nodes['search-next'].fire('click');
+  assert.match(nodes['search-status'].textContent,/第 2 \/ 2 页，显示第 51–73 条/);
+  assert.equal(nodes['search-results'].children[0].children.length,23);
+  assert.equal(nodes['search-results'].start,51);
+  assert.equal(nodes['search-next'].disabled,true);
+  nodes['search-next'].fire('click');
+  assert.equal(nodes['search-results'].start,51);
+  nodes['search-previous'].fire('click');
+  assert.equal(nodes['search-results'].start,1);
+  nodes['search-next'].fire('click');
+  nodes['search-type'].value='source'; nodes['search-type'].fire('change');
+  assert.equal(nodes['search-results'].start,1);
+  assert.equal(nodes['search-pagination'].hidden,true);
+  nodes['search-clear'].fire('click');
+  assert.equal(nodes['search-pagination'].hidden,true);
   assert.doesNotMatch(script, /innerHTML|outerHTML|insertAdjacentHTML|eval\(|new Function|fetch\(|XMLHttpRequest|WebSocket|sendBeacon|localStorage|sessionStorage|document\.cookie|location\.|history\./);
 });
 test('only reviewed bytes determine the script fingerprint and exact immutable route', () => {
@@ -123,4 +142,37 @@ test('source search uses explicit news mapping including continuation paragraphs
   assert.match(entries[2].referenceLabel,/未明确对应/);
   post.category='技术复盘';
   assert.ok(collectSearchEntries([post]).filter(item=>item.type==='source').every(item=>item.reference.includes('#section-')));
+});
+
+test('pagination controls keep native disabled state, labels and hidden empty state',()=>{
+ const html=renderSearch([]);
+ assert.match(html,/<nav id="search-pagination" aria-label="搜索结果分页" hidden>/);
+ for(const id of ['previous','next'])assert.ok(html.includes(`id="search-${id}" type="button"`));
+ const css=readFileSync(new URL('../public/style.css',import.meta.url),'utf8');
+ assert.match(css,/#search-pagination:not\(\[hidden\]\)\{display:flex/);
+ assert.match(css,/#search-pagination button:disabled\{cursor:default/);
+});
+
+test('pagination covers unique destinations once and resets after IME on a later page',()=>{
+ const records=Array.from({length:73},(_,i)=>({type:'article',title:`Match ${i}`,detail:'',date:'2026-01-01',href:`/notes/item-${i}/`}));
+ const nodes=boot(records),query=nodes['search-query'];
+ query.value='match';query.fire('input');
+ const first=nodes['search-results'].children[0].children.map(item=>item.children[0].href);
+ nodes['search-next'].fire('click');
+ const second=nodes['search-results'].children[0].children.map(item=>item.children[0].href);
+ assert.deepEqual([...first,...second],records.map(item=>item.href));
+ query.fire('compositionstart');query.value='match 0';query.fire('input');
+ assert.equal(nodes['search-results'].start,51);
+ query.fire('compositionend');assert.equal(nodes['search-results'].start,1);
+ assert.match(nodes['search-status'].textContent,/共找到 8 条/);
+});
+test('exact page boundaries never expose an empty page',()=>{
+ for(const count of [50,100]) {
+  const nodes=boot(Array.from({length:count},()=>({type:'article',title:'Match',detail:'',date:'2026-01-01',href:'/notes/item/'})));
+  nodes['search-query'].value='match';nodes['search-query'].fire('input');
+  assert.equal(nodes['search-pagination'].hidden,count===50);
+  if(count===100)nodes['search-next'].fire('click');
+  assert.equal(nodes['search-next'].disabled,true);
+  assert.equal(nodes['search-results'].children[0].children.length,50);
+ }
 });
