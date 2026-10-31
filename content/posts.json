@@ -4177,5 +4177,195 @@
     ],
     "closing": "本期收录25条独立进展。未来承诺、业绩指引、各方说法及统计口径以条目限定为准；市场数据为所注明交易时点。分析不构成投资建议。",
     "publishedAt": "2026-10-30T02:32:52Z"
+  },
+  {
+    "slug": "news-2026-10-31",
+    "date": "2026-10-31",
+    "title": "2026-10-31｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-30 10:15:00 至 2026-10-31 10:15:00",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "五栏各5条：AI开发工具与访问范围、企业季度业绩、五地股市收盘、中国政策与外交、联合国及人道援助进展。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-30T02:15:00Z",
+      "end": "2026-10-31T02:15:00Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Claude Code 2.1.316增加子代理默认推理强度设置。Anthropic在10月31日版本日志中加入CLAUDE_CODE_SUBAGENT_EFFORT：没有其他显式设置时，子代理可使用指定推理强度，而非继承主会话。该版本还为云端会话加入MCP表单卡片，让用户能够填写或拒绝表单请求。影响：开发团队可更细致地配置多代理工作流，但默认强度设置不等于保证降低成本，表单仍须用户判断。",
+          "2. ChatGPT移动端开始推出双账号切换。OpenAI于10月30日宣布向iOS和Android逐步推出账号切换功能：最多同时登录两个账号，通过设置中的“Switch account”切换，无须先退出。不同账号的聊天、记忆、设置和订阅仍分别保存。影响：个人与工作账号的切换更方便，但这不是账号合并，也不会合并订阅权益；分批推出意味着并非所有用户立即可用。",
+          "3. Claude Opus 4.8快速模式进入退役期。Anthropic在10月30日宣布弃用Opus 4.8的fast mode，并将于11月30日移除。届时，向claude-opus-4-8发送speed: \"fast\"请求会报错；官方建议需要继续使用快速模式的开发者迁移至Opus 5.5。影响：相关应用需要预留迁移和回归测试时间；这不是宣布整个Opus 4.8模型关闭，也不能假定请求会自动回退。",
+          "4. GPT-6 Rosalind进入受控API开放。OpenAI于10月30日公布GPT-6 Rosalind，将生物学推理与科学工具使用结合，用于复杂生命科学研究。访问面向获批Rosalind Research的机构及其授权用户，限定内部研究；API使用需单独获批，Discovery资格不自动包含Research资格。影响：获批研究团队多了一种工具整合路径，但购买ChatGPT订阅并不等于获得这一模型的访问权。",
+          "5. Gemini API的Computer Use工具正式可用。Google于10月30日宣布Computer Use在Interactions和GenerateContent两类API中正式可用。工具根据截图生成鼠标、键盘等界面动作，开发者仍须提供接收并执行动作的客户端环境。影响：浏览器及设备自动化进入正式API能力范围，但不等于Gemini应用自动获得设备控制权；权限、安全检查和动作执行仍需集成方负责。"
+        ],
+        "sources": [
+          {
+            "label": "1. Anthropic官方版本日志",
+            "url": "https://code.claude.com/docs/en/changelog"
+          },
+          {
+            "label": "2. OpenAI官方更新日志",
+            "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          },
+          {
+            "label": "3. Anthropic官方平台更新日志",
+            "url": "https://platform.claude.com/docs/en/release-notes/overview"
+          },
+          {
+            "label": "4. OpenAI API更新日志",
+            "url": "https://developers.openai.com/api/docs/changelog"
+          },
+          {
+            "label": "4. 官方访问条件",
+            "url": "https://help.openai.com/en/articles/20001193-gpt-rosalind-for-life-sciences-research"
+          },
+          {
+            "label": "5. Google官方更新日志",
+            "url": "https://ai.google.dev/gemini-api/docs/changelog"
+          },
+          {
+            "label": "5. Computer Use官方文档",
+            "url": "https://ai.google.dev/gemini-api/docs/computer-use"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 埃克森美孚公布第三季度利润与明年回购计划。10 月 30 日，埃克森美孚披露第三季度 GAAP 利润为 154 亿美元，每股收益 3.72 美元；调整后利润为 175 亿美元。季度经营现金流为 257 亿美元，并宣布 2027 年计划回购 200 亿美元股票。现金创造与股东回报计划为观察能源企业资本分配提供了新数据，回购计划不等于已执行。",
+          "2. 雪佛龙季度利润同比上升、环比回落。雪佛龙 10 月 30 日公布第三季度利润约 99 亿美元，去年同期约 35 亿美元、上一季度约 121 亿美元；调整后利润约 104 亿美元。公司美国炼厂原油加工量创纪录，原油利用率达到 98%。同比改善与环比下降并存，提示不能只用一个增速概括能源企业盈利周期。",
+          "3. 再生元收入增长，区分自有收入与合作伙伴销售。再生元 10 月 30 日披露第三季度收入同比增长 36% 至 51 亿美元，GAAP 每股收益增长 35% 至 18.45 美元。公告另列的 Dupixent 全球销售额 65 亿美元由赛诺菲记账，不能与再生元收入直接相加。业绩显示主要产品商业化收入扩大，但公司间合作收入与终端销售口径仍需分清。",
+          "4. 高露洁收窄全年销售预测区间。高露洁棕榄 10 月 30 日公布第三季度销售额 53.69 亿美元，同比增长 4.6%；GAAP 每股收益为 0.94 美元。公司将全年销售增长预测从 2%—6% 收窄至 4%—5%，并上调毛利率及非 GAAP 基础业务每股收益预期。更窄的预测区间提供了新的经营判断，但仍属于预测而非全年实际结果。",
+          "5. Mammoth 航空租赁扩张带动收入，上调盈利率展望。Mammoth Energy 10 月 30 日披露第三季度持续经营收入 2,130 万美元，去年同期为 1,090 万美元、上一季度为 2,610 万美元。调整后 EBITDA 为 580 万美元，公司将全年该指标利润率预期上调至百分之十几的中段。航空租赁等业务改善带来增长，但收入仍环比下降，且调整后 EBITDA 不是 GAAP 净利润。"
+        ],
+        "sources": [
+          {
+            "label": "1. 埃克森美孚第三季度业绩公告",
+            "url": "https://investor.exxonmobil.com/sec-filings/all-sec-filings/content/0002115436-26-000018/livef8k3q26991.htm"
+          },
+          {
+            "label": "2. 雪佛龙第三季度业绩公告",
+            "url": "https://chevroncorp.gcs-web.com/node/38811"
+          },
+          {
+            "label": "3. 再生元第三季度财务和经营业绩",
+            "url": "https://investor.regeneron.com/news-releases/news-release-details/regeneron-reports-third-quarter-2026-financial-and-operating"
+          },
+          {
+            "label": "4. 高露洁棕榄第三季度业绩公告",
+            "url": "https://investor.colgatepalmolive.com/news-releases/news-release-details/colgate-palmolive-announces-3rd-quarter-2026-results"
+          },
+          {
+            "label": "5. Mammoth 第三季度财务和经营业绩",
+            "url": "https://ir.mammothenergy.com/news-events/press-releases/detail/149/mammoth-reports-third-quarter-2026-operational-and"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美股：科技股下跌拖累三大指数。美国市场 10 月 30 日收盘，纳斯达克综合指数约 25,437 点，下跌 2.86%；标普 500 约 7,580 点，下跌 1.82%；道指约 51,770 点，下跌 1.09%。相关股票以美元交易。科技与 AI 投资回报担忧推动抛售，显示资本开支预期正影响市场风险偏好。",
+          "2. A 股：沪指收于约 3,599 点。中国内地市场 10 月 30 日收盘，上证指数约 3,599 点，下跌 1.44%；深证成指下跌 2.73%，创业板指下跌 4.13%。A 股以人民币交易。香港电台当日收盘报道显示，影视、游戏及软件开发板块偏弱，白酒、医疗及港口航运部分股份上升。市场内部表现分化，不能把指数下跌等同于所有行业同步下跌。",
+          "3. 港股：消费股走强，恒指上涨 1.46%。香港市场 10 月 30 日收盘，恒生指数上涨 1.46% 至 23,294.42 点，恒生科技指数上涨 0.29% 至 3,754.90 点。相关港股以港元交易。消费股领涨恒指部分成分股，但恒指 10 月累计仍下跌 5.36%；单日反弹与整月表现方向不同，尚不能据此认定趋势逆转。",
+          "4. 日股：日经 225 下跌 2.12%。日本市场 10 月 30 日收盘，日经 225 官方指数页面记录为 63,290.11 点，较前一交易日下跌 1,369.36 点，跌幅 2.12%。日本股票以日元交易。该收盘结果反映日本大盘当日明显回落；这里只采用官方确认的收盘值，不把早盘更大的跌幅当作最终结果。",
+          "5. 韩股：KOSPI 跌 3.48%，外资净卖出。韩国市场 10 月 30 日收盘，KOSPI 下跌 3.48% 至 5,730.74 点，KOSDAQ 下跌 3.83% 至 724.38 点。Aju Press 引述韩国交易所数据称，外资在主板净卖出约 1.6173 万亿韩元；三星电子和 SK 海力士当日分别下跌 3.02% 和 7.08%。资金流与芯片权重股共同显示当日卖压，但不能由单日流向推断长期走势。"
+        ],
+        "sources": [
+          {
+            "label": "1. eOption 当日收盘记录",
+            "url": "https://www.eoption.com/market-review-october-30-2026/"
+          },
+          {
+            "label": "1. Kiplinger 当日市场报道",
+            "url": "https://www.kiplinger.com/investing/stocks/nasdaq-falls-another-747-points-as-intel-is-way-outside-stock-market-today"
+          },
+          {
+            "label": "2. 香港电台当日 A 股收盘报道",
+            "url": "https://news.rthk.hk/rthk/ch/component/k2/1875953-20261030.htm"
+          },
+          {
+            "label": "3. 每日经济新闻当日港股收盘报道",
+            "url": "https://www.nbd.com.cn/articles/2026-10-30/4631070.html"
+          },
+          {
+            "label": "4. 日经指数官方收盘数据",
+            "url": "https://indexes.nikkei.co.jp/en/nkave"
+          },
+          {
+            "label": "5. Aju Press 引述韩国交易所的收盘报道",
+            "url": "https://m.ajupress.com/view/20261030154470982"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 五部门公布消费基础设施建设意见。10月30日，国家发展改革委公布与交通运输部等部门联合制定的指导意见，覆盖城乡商业、服务消费、停车充电、冷链物流和数字化设施，提出拓展多元投资渠道。文件落款为10月19日，本条新增是30日公开发布。影响：消费政策进一步连接设施更新与投资，但具体项目仍须按规定审批实施。",
+          "2. 产品碳足迹标准建设明确三年任务。市场监管总局10月30日16时公布五部门《重点产品碳足迹标准体系建设行动方案（2026—2028年）》，围绕能源、原材料、消费品、机械装备和交通运输工具，部署100余项国家标准，并推动部分标准与国际标准同步研制。影响：企业后续碳核算和供应链信息披露将获得更统一的技术依据；这不意味着全部标准已经发布实施。",
+          "3. 五类政府采购本国产品标准公开征求意见。工信部装备工业二司、财政部国库司10月30日17:26公布五项标准征求意见稿，涉及气体分析仪、水处理装备、扫描电子显微镜、工业机器人和中小型直升机，反馈截止11月13日。影响：供应商可据草案评估产品认定规则并提出意见；现阶段是征求意见，不是正式生效的新标准。",
+          "4. 中方宣布奥地利总理将正式访华。外交部10月30日宣布，奥地利总理施托克尔应邀将于11月2日至7日正式访华，首站上海并将出席第九届进博会，随后赴北京开展会谈会见。影响：这为中奥建交55周年的高层与经贸交流提供新安排；访问及相关成果尚未发生。",
+          "5. 科技部公布国家科技专家库集中征集安排。科技部10月30日11:24公开专家征集通知，集中征集截止11月20日，可通过集中推荐或自主申请方式办理，全流程在线完成。通知落款为10月14日，本条记录30日公开安排。影响：符合条件的科研、技术管理、成果转化等领域人员可按标准申请，入库仍须审核，并非提交即获资格。"
+        ],
+        "sources": [
+          {
+            "label": "1. 国家发展改革委原文",
+            "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202610/t20261030_1408459.html"
+          },
+          {
+            "label": "2. 市场监管总局公告",
+            "url": "https://www.samr.gov.cn/xw/zj/art/2026/art_9a87cc1660434645be61321840d8041e.html"
+          },
+          {
+            "label": "3. 工信部公示及草案附件",
+            "url": "https://www.miit.gov.cn/jgsj/zbes/gzdt/art/2026/art_a20ae1541035456e8afa7c185927df2d.html"
+          },
+          {
+            "label": "4. 外交部10月30日例行记者会",
+            "url": "https://www.fmprc.gov.cn/web/wjdt_674879/fyrbt_674889/202610/t20261030_12050300.shtml"
+          },
+          {
+            "label": "5. 科技部通知",
+            "url": "https://www.most.gov.cn/kjbgz/202610/t20261030_197621.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 安理会延长联合国哥伦比亚核查团任期。10月30日，安理会通过决议，将联合国哥伦比亚核查团任期延至2027年10月31日，授权聚焦安全、解除武装和重新融入社会事项的落实核查。英国投赞成票并在解释投票时确认上述调整。影响：国际核查得以延续，但工作重点收窄，农村改革更多转由哥伦比亚国内机构承担。",
+          "2. 联合国难民署呼吁追加冬季援助。难民署10月30日表示，四国约900万人需额外过冬援助，拟向个人与私营部门筹集5,000万美元。影响：取暖和住房支持缺口仍待资金填补。",
+          "3. 也门难民援助面临安全和资金双重压力。难民署同日警告，也门逾6.5万名难民及寻求庇护者处境恶化，援助行动资金到位率仅19%。影响：安全与资金限制叠加，救援覆盖承压。",
+          "4. 埃塞俄比亚冲突外溢增加肯尼亚救援压力。难民署10月30日估计，约5万人从埃塞俄比亚逃往肯尼亚，伙伴机构拟筹900万美元援助。影响：安置与供水需求上升，暴雨加剧救援困难。",
+          "5. 联合国妇女权利委员会完成八国履约审议。消除对妇女歧视委员会10月30日在日内瓦结束第93届会议，通过对安哥拉、佛得角、库克群岛、哈萨克斯坦、肯尼亚、巴拉圭、摩尔多瓦和多哥的结论性意见。影响：后续监督有了新的履约建议依据，但这些意见不等同于各国国内法律已经改变；具体文本仍待会议网页发布。"
+        ],
+        "sources": [
+          {
+            "label": "1. 英国驻联合国代表投票解释原文",
+            "url": "https://www.gov.uk/government/speeches/the-peace-agreement-remains-central-to-tackling-the-factors-that-sustain-conflict-in-colombia-uk-statement-at-the-un-security-council"
+          },
+          {
+            "label": "2. 联合国日内瓦当天记者会纪要",
+            "url": "https://www.ungeneva.org/en/news-media/press-briefing/2026/10/un-geneva-press-briefing-7"
+          },
+          {
+            "label": "3. 联合国日内瓦当天记者会纪要",
+            "url": "https://www.ungeneva.org/en/news-media/press-briefing/2026/10/un-geneva-press-briefing-7"
+          },
+          {
+            "label": "4. 联合国日内瓦当天记者会纪要",
+            "url": "https://www.ungeneva.org/en/news-media/press-briefing/2026/10/un-geneva-press-briefing-7"
+          },
+          {
+            "label": "5. 联合国日内瓦闭会纪要",
+            "url": "https://www.ungeneva.org/en/news-media/meeting-summary/2026/10/le-comite-pour-lelimination-de-la-discrimination-legard-des-0"
+          }
+        ]
+      }
+    ],
+    "closing": "本期25条。影响判断为分析，不构成投资建议；未来安排、草案和资金目标以条目限定为准。",
+    "publishedAt": "2026-10-31T02:17:37Z"
   }
 ]
