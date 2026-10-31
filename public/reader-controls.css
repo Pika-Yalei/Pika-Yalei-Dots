@@ -13,6 +13,11 @@
 @media screen{
   .article-reader:has(input[name="reader-size"][value="large"]:checked) .prose{font-size:1.25rem}
   .article-reader:has(input[name="reader-size"][value="larger"]:checked) .prose{font-size:1.5rem}
+  /* Citation text is part of the reading content, not a fixed-size control. */
+  .article-reader:has(input[name="reader-size"][value="large"]:checked) .article-sources,
+  .article-reader:has(input[name="reader-size"][value="larger"]:checked) .article-sources{font-size:.875em}
+  .article-reader:has(input[name="reader-size"][value="large"]:checked) .source-origin,
+  .article-reader:has(input[name="reader-size"][value="larger"]:checked) .source-origin{font-size:.93em}
   .article-reader:has(input[name="reader-size"][value="large"]:checked) .prose h2{font-size:1.65rem}
   .article-reader:has(input[name="reader-size"][value="larger"]:checked) .prose h2{font-size:2rem}
 }
