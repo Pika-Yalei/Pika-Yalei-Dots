@@ -16,3 +16,13 @@
 .calendar-month>p{font-size:.875rem;line-height:1.8}
 @media(max-width:30em){.calendar-month{padding:6px}.calendar-grid th{font-size:.75rem}.calendar-grid td a{font-size:.875rem}}
 @media(forced-colors:active){.calendar-grid td a{color:LinkText}.calendar-month>summary:focus-visible,.calendar-entries h2:focus{outline-color:Highlight}}
+
+/* A separate shared-data list avoids browsers omitting closed details in print. */
+.calendar-print{display:none}
+@media print{
+  .calendar-month{display:none}
+  .calendar-print{display:block}
+  .calendar-print h2,.calendar-print h3{break-after:avoid}
+  .calendar-print li{break-inside:avoid;margin-bottom:8pt;overflow-wrap:anywhere}
+  .calendar-print a::after{content:" (https://pika-yalei-dots.yaleizhang.com" attr(href) ")";font-size:9pt;overflow-wrap:anywhere}
+}
