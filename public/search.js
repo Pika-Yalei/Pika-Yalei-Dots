@@ -7,6 +7,8 @@
   const ui = document.getElementById('search-ui').content.cloneNode(true);
   const query = ui.querySelector('#search-query');
   const type = ui.querySelector('#search-type');
+  const from = ui.querySelector('#search-from');
+  const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
   const pagination = ui.querySelector('#search-pagination');
   const previous = ui.querySelector('#search-previous');
@@ -18,9 +20,12 @@
   function update(reset = false) {
     if (reset) page = 1;
     const terms = normalize(query.value.slice(0,200)).split(' ').filter(Boolean);
+    const invalidRange = from.value && to.value && from.value > to.value;
+    const hasFilter = terms.length || from.value || to.value;
     const fragment = document.createDocumentFragment();
     let total = 0;
-    if (terms.length) for (const record of records) {
+    if (hasFilter && !invalidRange) for (const record of records) {
+      if ((from.value && record.date < from.value) || (to.value && record.date > to.value)) continue;
       if ((type.value !== 'all' && record.type !== type.value) || !terms.every(term => record.haystack.includes(term))) continue;
       total += 1;
       if (total <= (page - 1) * 50 || total > page * 50) continue;
@@ -45,16 +50,18 @@
     pagination.hidden = total <= 50;
     previous.disabled = page <= 1;
     next.disabled = page * 50 >= total;
-    status.textContent = terms.length ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词开始搜索。';
+    status.textContent = invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择回顾日期范围。';
   }
   let composing = false;
   query.addEventListener('compositionstart', () => { composing = true; });
   query.addEventListener('compositionend', () => { composing = false; update(true); });
   query.addEventListener('input', () => { if (!composing) update(true); });
+  from.addEventListener('change', () => update(true));
+  to.addEventListener('change', () => update(true));
   type.addEventListener('change', () => update(true));
   previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(); } });
   next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(); } });
-  clear.addEventListener('click', () => { query.value = ''; type.value = 'all'; update(true); query.focus(); });
+  clear.addEventListener('click', () => { query.value = ''; type.value = 'all'; from.value = ''; to.value = ''; update(true); query.focus(); });
   update();
   // Reveal controls only after data parsing and all handlers succeeded. No form submission.
   document.getElementById('search-controls').append(ui);
