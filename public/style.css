@@ -95,6 +95,10 @@
   /* Printed citations must remain usable without a clickable screen. */
   .article-sources a::after{content:" (" attr(href) ")";font-family:var(--sans);font-size:9pt;overflow-wrap:anywhere;word-break:break-word}
   .article-sources li{margin-bottom:8pt}
+  .source-entry a::after{font-family:var(--sans);font-size:9pt;overflow-wrap:anywhere;word-break:break-word}
+  .source-entry a[href^="https://"]::after{content:" (" attr(href) ")"}
+  .source-entry a[href^="/"]::after{content:" (https://pika-yalei-dots.yaleizhang.com" attr(href) ")"}
+  .source-entry li{margin-bottom:8pt}
   .source-domains{display:none}.source-entry:focus{outline:none}
   .news-permalink{display:none}.news-item:focus{outline:none}
   @page{margin:18mm}
