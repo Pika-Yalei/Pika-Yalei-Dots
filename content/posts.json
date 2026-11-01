@@ -4367,5 +4367,206 @@
     ],
     "closing": "本期25条。影响判断为分析，不构成投资建议；未来安排、草案和资金目标以条目限定为准。",
     "publishedAt": "2026-10-31T02:26:33Z"
+  },
+  {
+    "slug": "news-2026-11-01",
+    "date": "2026-11-01",
+    "title": "2026-11-01｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-10-31 10:20:34 至 2026-11-01 10:20:34",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "核实23条：AI、商业、中国政策、国际政治各5条，股票市场3条；周末披露不足，不重复旧收盘行情。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-10-31T02:20:34Z",
+      "end": "2026-11-01T02:20:34Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. DeepSeek搜索与抓取工具进入公告计费期。按DeepSeek此前公布的安排，北京时间11月1日零点起，通过DeepSeek Harness、Claude Code或Codex使用DeepSeek API的服务端Search、Fetch工具调用进入按成功请求计费期，两类接口均为每千次0.75美元。失败、超时及空搜索结果不计费。影响：相关代理工作流的预算需要计入工具费用；本条记录计费节点到达，而不是声称模型或工具今日首发，也不代表已核验具体账户账单。",
+          "2. Grok API预告默认文本水印。10月31日更新的官方文档宣布，从11月7日起，指定Grok 4.7、4.6、4.5、4.3和4.20系列模型的文本生成API输出将默认带不可见水印，涵盖普通文本、结构化输出和工具调用参数；适用于全球及区域端点。影响：开发者需要关注输出来源识别与合规设置；这是未来安排，不是所有Grok产品已经启用。检测接口须申请，退出设置也附有法律条件。",
+          "3. KoboldCpp 1.124扩展本地音乐与语音生成。KoboldCpp于10月31日发布1.124版，整合部分audio.cpp模型，新增YuE2音乐生成及多种语音合成模型支持，并加入MCP配置向导、共享并行上下文池等改进。影响：本地多模态工具的模型选择和代理连接能力扩大；模型仍须另行下载，能否运行及速度取决于硬件，版本发布不代表所有设备获得相同性能。",
+          "4. HybridClaw更新审批管理与中断恢复。HybridClaw于10月31日发布0.42.0版，将审批默认值、安全阻止规则与网络策略集中管理，并为文件替换加入冲突校验，保留中断会话中的消息和已完成工具结果。其可选Learning模式会实际执行动作，不是模拟运行。影响：管理员获得更多恢复和审计工具，但选择这一模式仍须审慎评估真实操作权限，不能把日志记录等同于风险消除。",
+          "5. Agent Deck增加工具调用追踪和受控重试。AI编码代理终端会话管理器Agent Deck于10月31日发布1.16.35版，新增Claude和Codex工具调用追踪、可选的Codex提交受控重试，并修复安装或卸载钩子时保留用户配置等问题。影响：多会话排障和操作追踪更方便；重试功能为可选项，升级后仍需核对现有配置及工作流，而非假设所有提交问题都会自动修复。"
+        ],
+        "sources": [
+          {
+            "label": "1. DeepSeek官方Search & Fetch计费规则",
+            "url": "https://api-docs.deepseek.com/guides/search/"
+          },
+          {
+            "label": "1. 原始公告及生效时间",
+            "url": "https://api-docs.deepseek.com/news/news261017/"
+          },
+          {
+            "label": "2. Grok官方输出水印文档",
+            "url": "https://docs.x.ai/developers/advanced-api-usage/watermarking"
+          },
+          {
+            "label": "3. KoboldCpp官方发布记录",
+            "url": "https://github.com/LostRuins/koboldcpp/releases/tag/v1.124"
+          },
+          {
+            "label": "4. HybridClaw官方发布记录",
+            "url": "https://github.com/HybridAIOne/hybridclaw/releases/tag/v0.42.0"
+          },
+          {
+            "label": "5. Agent Deck官方发布记录",
+            "url": "https://github.com/asheshgoplani/agent-deck/releases/tag/v1.16.35"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. Eastman 将上调美洲部分乙酸乙酯价格。Eastman 于 10 月 31 日公布，自 11 月 1 日起或按合同允许的时间，北美及拉丁美洲的聚氨酯级乙酸乙酯表外价格提高每磅 0.06 美元（每公斤 0.13 美元）；食品级、犹太洁食食品级及 NF/EP 级不在此次范围。影响：相关采购方需按具体等级和合同重新核算成本，不能将其理解为所有酯类统一涨价。",
+          "2. 创维光伏推出 Solavita 智能微电网品牌。创维光伏 10 月 31 日发布 Solavita 全球品牌，将住宅、工商业、大型储能及便携能源产品纳入四条产品线，并以能源管理系统连接光伏、储能和用电负荷。公司称海口测试平台计划于年底建成，尚不能写成已投运。影响：这次调整重点在于将分散设备组织为能源系统方案，实际交付范围与性能仍需以各地产品和项目为准。",
+          "3. 纽伦堡 iENA 发明展开幕。iENA 于德国当地 10 月 31 日开幕，展期至 11 月 2 日。新华社现场报道显示，来自 20 多个国家和地区的近 600 项发明参展，涉及绿色能源、人工智能等领域。影响：展会为原型产品寻找授权、投资和商业伙伴提供集中接触渠道；参展不等于已有订单或完成商业化。",
+          "4. 路透：OPEC+ 原则同意维持 12 月产量目标，正式决定待定。路透社 10 月 31 日援引三名知情人士报道，OPEC+ 已原则同意在 11 月 1 日会议上维持 12 月石油产量目标不变。消息来自匿名来源，截至本简报窗口尚不能视为正式决议。影响：这是供给政策讨论的新进展，但目标产量不等于实际产量，会议公报仍是判断后续安排的关键。",
+          "5. Marathon 拟买下 Adani 持有的孟买项目权益。据印度报业托拉斯 10 月 31 日对当日监管披露的报道，Marathon Nextgen Realty 董事会批准以约 33.5 亿印度卢比收购 Adani 集团持有的 Monte South 项目 60% 权益；完成后持有比例将由 40% 升至 100%。项目位于孟买 Byculla，包含住宅和商业物业。影响：交易将集中项目控制权，但董事会批准不等于已完成交割。"
+        ],
+        "sources": [
+          {
+            "label": "1. Eastman 官方公告",
+            "url": "https://www.eastman.com/en/media-center/news-stories/2026/eastman-increases-esters-prices-on-november-1-2026"
+          },
+          {
+            "label": "2. 创维光伏原始新闻稿",
+            "url": "https://www.prnewswire.com/news-releases/skyworth-solar-announces-global-launch-of-solavita-as-a-smart-microgrid-brand-302925595.html"
+          },
+          {
+            "label": "3. iENA 官方日程",
+            "url": "https://www.iena.de/en/visitors/visitor-information/"
+          },
+          {
+            "label": "3. 新华社开幕报道",
+            "url": "https://www.xinhuanet.com/world/20261031/8d60306fb8bd44568f0a6981c983954a/c.html"
+          },
+          {
+            "label": "4. 路透原稿（Yahoo 承载）",
+            "url": "https://finance.yahoo.com/energy/articles/opec-agrees-principle-keep-oil-180448800.html"
+          },
+          {
+            "label": "5. PTI 原稿（Economic Times 承载）",
+            "url": "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/marathon-nextgen-realty-to-buy-adani-groups-60-pc-stake-in-mumbai-project-for-rs-335-crore/articleshow/135405049.cms"
+          },
+          {
+            "label": "5. 对应 BSE 原始披露文件（本次直接读取受限）",
+            "url": "https://www.bseindia.com/xml-data/corpfiling/AttachLive/0b9f079d-3d16-40e2-ab90-faa3a5d42647.pdf"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "本栏核实3条窗口内新增，距5条目标缺2条。主要市场处于周末，不以10月30日已发布收盘行情重复填充。",
+          "1. 印度 NTPC 董事会批准每股 3 卢比中期股息。印度上市电力企业 NTPC 在当地 10 月 31 日董事会上批准 2026—2027 财年每股 3 印度卢比中期股息，登记日为 11 月 6 日，计划不晚于 11 月 25 日支付。公告记录董事会在当日 12:10 至 13:55 举行，位于本次新闻窗口内。影响：股东获得了明确的现金分配日程；这不是周末即时行情，也不代表股价或总回报将等额增加。",
+          "2. Nucleus Software 收入上升，但季度税后利润下降。印度上市银行软件企业 Nucleus Software 于 10 月 31 日发布截至 9 月末季度业绩：合并收入 22.770 亿印度卢比，上年同期为 21.351 亿；税后利润由 2.629 亿降至 2.125 亿印度卢比，每股收益由 9.99 降至 8.08 卢比。影响：收入增长并未同步转化为盈利增长，需结合费用与业务结构继续观察；本条为周末业绩披露，不引用上一交易日股价作为公告后的市场反应。",
+          "3. 印度证券存管机构 CDSL 公布季度利润增长 24%。CDSL 于印度当地 10 月 31 日披露截至 9 月末季度业绩：合并总收入约 41.7 亿印度卢比，同比增长 22%；净利润约 17.3 亿卢比，同比增长 24%。公司称季度内新增约 750 万个证券电子账户。影响：披露为观察印度证券市场参与度与基础设施收入提供新数据，但新增账户数不等同于新增独立投资者人数；本条不提供周末即时股价。"
+        ],
+        "sources": [
+          {
+            "label": "1. NTPC 向 NSE 提交的董事会结果原文",
+            "url": "https://nsearchives.nseindia.com/corporate/xbrl/OUTCOME_2249_WebXMLFile_20261031_151619656.xml"
+          },
+          {
+            "label": "2. Nucleus 向 NSE 提交的原始业绩新闻稿",
+            "url": "https://nsearchives.nseindia.com/corporate/Nucleus_31102026163628_INTIMATION.pdf"
+          },
+          {
+            "label": "3. CDSL 向 NSE 提交的原始新闻稿",
+            "url": "https://nsearchives.nseindia.com/corporate/CDSL_31102026142410_Press_release_Signed.pdf"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 全国统一税务行政处罚裁量基准今日施行。11 月 1 日，《全国税务行政处罚裁量基准（2026 年版）》正式施行。税务机关须在处罚决定书中说明基准的适用情况，符合条件的轻微违法及时改正且没有危害后果的，依法不予处罚。影响：统一裁量尺度，有助于减少跨地区执法差异；不意味着所有首次违法均可免责。该公告此前已发布，今日新增进展是正式施行。",
+          "2. 成品油零售“交易即开票”进入全国实施阶段。按照国家税务总局此前公布的安排，自 11 月 1 日起，全国成品油零售加油站全面推广“交易即开票”：完成销售交易后，依照交易数据通过税务部门平台即时开具数电发票，覆盖平台支付、加油卡及现金等场景。影响：开票与实际交易关联更紧，消费者取票和加油站税务合规流程随之调整；这是实施节点，不是今日新发公告。",
+          "3. 人防工程开发利用和维护新办法生效。《人民防空工程开发利用和维护管理办法》11 月 1 日起施行。办法明确所有权人等责任主体，鼓励公用人防工程优先服务非经营性公共事业，并要求开发利用不得损害防护效能。影响：地下空间平时利用与维护责任有了统一规则，相关物业和运营主体需要据此落实维护、安全与改造手续。该办法于 9 月公布。",
+          "4. 儿童用品通用安全强制国标开始实施。GB 46523—2025《儿童用品通用安全要求》于 11 月 1 日实施，国家标准平台已标记为现行。该标准为儿童用品建立通用安全要求，与已有具体品类标准衔接。影响：相关生产、销售和检测环节需要检查产品是否满足通用要求，而不能只关注单一品类指标。标准于 2025 年公布，本次报道的是实施节点。",
+          "5. 修订后的监狱法正式施行。4 月 30 日修订通过的《中华人民共和国监狱法》于 11 月 1 日正式施行。法律对刑罚执行、服刑人员权利义务、教育改造及未成年犯特别规定等作出安排，并要求依法推进狱务公开。影响：监狱管理和刑罚执行从今日起适用修订后的制度框架；制度生效不等于其执行效果已经得到验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. 国家税务总局公告原文",
+            "url": "https://fgk.chinatax.gov.cn/zcfgk/c100012/c5252754/content.html"
+          },
+          {
+            "label": "2. 国家税务总局实施安排",
+            "url": "https://www.chinatax.gov.cn/chinatax/n810219/n810724/c5250353/content.html"
+          },
+          {
+            "label": "3. 国家发展改革委令",
+            "url": "https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202609/t20260917_1407686.html"
+          },
+          {
+            "label": "3. 办法全文",
+            "url": "https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202609/P020260917325418218971.pdf"
+          },
+          {
+            "label": "4. 国家标准全文公开系统",
+            "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=010A2C4DB0F0D67A1B0B6D4D26A36B5B"
+          },
+          {
+            "label": "4. 司法部网站转载解读",
+            "url": "https://legalinfo.moj.gov.cn/pub/sfbzhfx/zhfxfzzx/fzzxyw/202610/t20261030_541255.html"
+          },
+          {
+            "label": "5. 全国人大法律原文",
+            "url": "https://www.npc.gov.cn/npc/c2/c30834/202604/t20260430_454309.html"
+          },
+          {
+            "label": "5. 人民日报刊载法律及主席令",
+            "url": "https://paper.people.com.cn/rmrb/pc/attachement/202605/06/1fe997c8-0cc1-47e8-aca5-9387a66069b3.pdf"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. COP17 闭幕，生物多样性议程转向落实。COP17 于埃里温当地 10 月 31 日 10:20（北京时间 14:20）闭幕。联合国环境署闭幕声明称，会议通过全球审查，并在遗传资源数字序列信息、传统知识及资源筹措等议题取得协议。环境署同时指出，现有行动仍不足以实现全球生物多样性目标。影响：会议成果为下一阶段实施提供依据，但资金与执行缺口不能被“达成协议”所掩盖。",
+          "2. 联合国索马里政治特派团结束使命。联合国索马里过渡援助团（UNTMIS）于 10 月 31 日结束两年过渡并停止运作，其职能按安排转交索马里机构及联合国相关机构。影响：联合国对索马里的支持模式发生变化，但并非联合国整体撤离：驻地机构、基金和方案继续开展工作。结束日期已由联合国此前正式声明明确，本窗口内发生的是使命到期。",
+          "3. 达喀尔青奥会开幕，奥林匹克赛事首次来到非洲。达喀尔 2026 青年奥林匹克运动会于 10 月 31 日晚在塞内加尔开幕，国际奥委会确认这是非洲大陆首次举办奥林匹克体育赛事。赛事持续至 11 月 13 日。影响：非洲承办大型国际体育赛事迎来新节点，后续重点将落在赛事运行、青年参与以及场馆长期利用，而非仅开幕式本身。",
+          "4. Quad 四国宣布筹办首届商业领袖论坛。美国、澳大利亚、印度、日本 10 月 31 日在亚特兰大会晤后发表联合声明，宣布首届 Quad 商业领袖论坛，并提出加强供应链及关键矿产合作。影响：四国希望把政府层面合作延伸至企业参与；论坛仍属宣布筹办，不能写成已举行，也不能将声明中的计划等同于已完成投资。",
+          "5. G20 外长会议结束，主席声明聚焦能源与供应链。10 月 30 至 31 日在亚特兰大举行的 G20 外长会议结束后，美国主席国发布声明，概述能源可获得性、供应链韧性以及霍尔木兹海峡和曼德海峡等议题的讨论。影响：能源运输及关键投入品安全继续进入主要经济体外交议程。文件是主席声明，不应表述为所有成员一致通过的联合公报，也未直接改变各国法律。"
+        ],
+        "sources": [
+          {
+            "label": "1. 联合国环境署闭幕声明",
+            "url": "https://www.unep.org/en/news-and-stories/speech/unep-executive-director-statement-closing-cop17-yerevan-armenia"
+          },
+          {
+            "label": "1. IISD／ENB 现场闭幕记录",
+            "url": "https://enb.iisd.org/un-biodiversity-conference-cbd-cop17-30Oct2026"
+          },
+          {
+            "label": "2. 联合国秘书长发言人关于使命结束的声明",
+            "url": "https://somalia.un.org/en/325191-statement-attributable-spokesperson-secretary-general-conclusion-mandate-united-nations"
+          },
+          {
+            "label": "3. 国际奥委会开幕报道",
+            "url": "https://www.olympics.com/ioc/news/dakar-2026-youth-olympic-games-open-in-historic-first-for-africa"
+          },
+          {
+            "label": "4. 澳大利亚外交部长办公室联合声明",
+            "url": "https://www.foreignminister.gov.au/minister/penny-wong/media-release/quad-joint-press-release-economic-prosperity-and-security"
+          },
+          {
+            "label": "5. 美国国务院主席声明原始链接",
+            "url": "https://www.state.gov/releases/office-of-the-spokesman/2026/10/g20-chairs-statement-g20-foreign-ministers-meeting/"
+          },
+          {
+            "label": "5. 多伦多大学 G20 研究组全文存档",
+            "url": "https://www.g20.utoronto.ca/2026/261031-foreign.html"
+          }
+        ]
+      }
+    ],
+    "closing": "本期23条，股票市场较目标缺2条。影响判断为分析，不构成投资建议；未来安排与各方说法以条目限定为准。",
+    "publishedAt": "2026-11-01T02:21:11Z"
   }
 ]
