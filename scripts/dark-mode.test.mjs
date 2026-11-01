@@ -81,7 +81,7 @@ test('print stays light and forced colors override all authored palette tokens',
   assert.match(print, /body\{background:white;color:black\}/);
   assert.match(print, /--paper:#fff;--wash:#fff;/);
   for (const key of Object.keys(darkPalette)) {
-    assert.match(rootDeclarations(forced), new RegExp(key + ':(?:Canvas|CanvasText|Highlight|HighlightText)(?:;|$)'));
+    assert.match(rootDeclarations(forced), new RegExp(key + ':(?:Canvas|CanvasText|ButtonText|Highlight|HighlightText)(?:;|$)'));
   }
   assert.doesNotMatch(css, /forced-color-adjust\s*:\s*none/);
 });
