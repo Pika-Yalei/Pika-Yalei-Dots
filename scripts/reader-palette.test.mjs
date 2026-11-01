@@ -35,7 +35,7 @@ test('paint is confined to screen reading region and defers to forced colors', (
   assert.doesNotMatch(paletteCss, /:root|body\{|value="auto"|forced-color-adjust|url\(/);
   for (const mode of ['light', 'dark']) {
     assert.match(paletteCss, new RegExp(`color-scheme:${mode};`));
-    assert.equal(Object.keys(palettes[mode]).length, 12);
+    assert.equal(Object.keys(palettes[mode]).length, 13);
   }
   // Palette selection cannot change font size, width, or spacing modes.
   for (const rule of paletteCss.matchAll(/\.article-reader[^{}]+\{([^}]+)\}/g)) {

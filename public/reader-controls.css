@@ -4,7 +4,7 @@
   .reader-controls{display:block;min-width:0;margin:0 0 24px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
   .reader-controls legend{padding:0 6px}
   .reader-controls-options{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-  .reader-controls label{display:flex;align-items:center;justify-content:center;gap:8px;min-width:64px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);touch-action:manipulation;cursor:pointer}
+  .reader-controls label{display:flex;align-items:center;justify-content:center;gap:8px;min-width:64px;min-height:44px;padding:8px 12px;border:1px solid var(--control-border);border-radius:3px;background:var(--paper);color:var(--ink);touch-action:manipulation;cursor:pointer}
   .reader-controls label:has(input:checked){border-color:var(--green);font-weight:600}
   .reader-controls input{margin:0;accent-color:var(--green)}
   .reader-controls label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
@@ -29,7 +29,7 @@
   .reader-layout{display:block;min-width:0;margin:0 0 16px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
   .reader-layout legend{padding:0 6px}
   .reader-layout-options{display:flex;flex-wrap:wrap;gap:10px}
-  .reader-layout label{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid var(--line);cursor:pointer}
+  .reader-layout label{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid var(--control-border);cursor:pointer}
   .reader-layout input{margin:0;accent-color:var(--green)}
   .reader-layout label:has(input:checked){border-color:var(--green);font-weight:600}
   .reader-layout label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
@@ -59,8 +59,8 @@
   }
   /* Never override the OS high-contrast palette or the original printed page. */
   @media screen and (forced-colors:none){
-    .article-reader:has(input[name="reader-palette"][value="light"]:checked){color-scheme:light;--paper:#f7f5ef;--ink:#282c27;--muted:#656a61;--line:#738364;--green:#506342;--wash:#ecefe3;--selection:#dbe3ca;--selection-ink:#282c27;--note-muted:#617054;--note-rule:#738364;--index:#656f5b;--separator:#656a61;background:var(--paper);color:var(--ink)}
-    .article-reader:has(input[name="reader-palette"][value="dark"]:checked){color-scheme:dark;--paper:#1c211c;--ink:#e6eadf;--muted:#b4bdae;--line:#9eae8c;--green:#b9d399;--wash:#2b3427;--selection:#bfd79f;--selection-ink:#1c211c;--note-muted:#bdcbb1;--note-rule:#9eae8c;--index:#b0bea2;--separator:#b4bdae;background:var(--paper);color:var(--ink)}
+    .article-reader:has(input[name="reader-palette"][value="light"]:checked){color-scheme:light;--paper:#f7f5ef;--ink:#282c27;--muted:#656a61;--line:#738364;--control-border:#738364;--green:#506342;--wash:#ecefe3;--selection:#dbe3ca;--selection-ink:#282c27;--note-muted:#617054;--note-rule:#738364;--index:#656f5b;--separator:#656a61;background:var(--paper);color:var(--ink)}
+    .article-reader:has(input[name="reader-palette"][value="dark"]:checked){color-scheme:dark;--paper:#1c211c;--ink:#e6eadf;--muted:#b4bdae;--line:#9eae8c;--control-border:#9eae8c;--green:#b9d399;--wash:#2b3427;--selection:#bfd79f;--selection-ink:#1c211c;--note-muted:#bdcbb1;--note-rule:#9eae8c;--index:#b0bea2;--separator:#b4bdae;background:var(--paper);color:var(--ink)}
   }
 }
 @media print{.reader-palette{display:none}}
@@ -73,7 +73,7 @@
     .topic-focus{display:block;min-width:0;margin:0 0 16px;padding:12px 16px;border:1px solid var(--line);font-family:var(--sans);font-size:.875rem}
     .topic-focus legend{padding:0 6px}
     .topic-focus-options{display:flex;flex-wrap:wrap;gap:10px}
-    .topic-focus label{display:flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:8px 12px;border:1px solid var(--line);cursor:pointer}
+    .topic-focus label{display:flex;align-items:center;gap:8px;min-height:44px;min-width:44px;padding:8px 12px;border:1px solid var(--control-border);cursor:pointer}
     .topic-focus input{margin:0;accent-color:var(--green)}
     .topic-focus label:has(input:checked){border-color:var(--green);font-weight:600}
     .topic-focus label:has(input:focus-visible){outline:2px solid var(--green);outline-offset:3px}
