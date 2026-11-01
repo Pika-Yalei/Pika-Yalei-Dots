@@ -19,7 +19,7 @@ class Node {
   focus() { this.focused = true; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-type'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
   ids['search-ui'].content = {cloneNode:() => ({querySelector:selector => ids[selector.slice(1)]})};
@@ -175,4 +175,29 @@ test('exact page boundaries never expose an empty page',()=>{
   assert.equal(nodes['search-next'].disabled,true);
   assert.equal(nodes['search-results'].children[0].children.length,50);
  }
+});
+
+
+test('inclusive review-date filters work without keywords and combine with text/type',()=>{
+ const nodes=boot([{type:'article',title:'AI first',detail:'',date:'2026-10-30',href:'/notes/one/'},{type:'source',title:'AI middle',detail:'',date:'2026-10-31',href:'/notes/two/'},{type:'article',title:'AI last',detail:'',date:'2026-11-01',href:'/notes/three/'}]);
+ nodes['search-from'].value='2026-10-31';nodes['search-from'].fire('change');
+ assert.match(nodes['search-status'].textContent,/共找到 2 条/);
+ nodes['search-to'].value='2026-10-31';nodes['search-to'].fire('change');
+ assert.match(nodes['search-status'].textContent,/共找到 1 条/);
+ nodes['search-type'].value='article';nodes['search-type'].fire('change');
+ assert.match(nodes['search-status'].textContent,/共找到 0 条/);
+ nodes['search-from'].value='2026-11-01';nodes['search-from'].fire('change');
+ assert.match(nodes['search-status'].textContent,/起始日期不能晚于/);
+ assert.equal(nodes['search-results'].children[0].children.length,0);
+ nodes['search-clear'].fire('click');
+ assert.equal(nodes['search-from'].value,'');assert.equal(nodes['search-to'].value,'');
+ assert.match(nodes['search-status'].textContent,/请输入/);
+});
+test('date changes reset later pages and preserve native accessible date labels',()=>{
+ const nodes=boot(Array.from({length:51},()=>({type:'article',title:'AI',detail:'',date:'2026-10-31',href:'/notes/one/'})));
+ nodes['search-query'].value='AI';nodes['search-query'].fire('input');nodes['search-next'].fire('click');
+ assert.equal(nodes['search-results'].start,51);
+ nodes['search-to'].value='2026-10-31';nodes['search-to'].fire('change');
+ assert.equal(nodes['search-results'].start,1);
+ const html=renderSearch([]);for(const id of ['from','to']){assert.ok(html.includes(`for="search-${id}"`));assert.ok(html.includes(`id="search-${id}" type="date"`));}
 });
