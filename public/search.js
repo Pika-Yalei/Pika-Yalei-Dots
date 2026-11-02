@@ -17,7 +17,7 @@
   const status = document.getElementById('search-status');
   const results = document.getElementById('search-results');
   const labels = {article:'文章', headline:'新闻条目', source:'引用来源'};
-  function update(reset = false) {
+  function update(reset = false, focusResults = false) {
     if (reset) page = 1;
     const terms = normalize(query.value.slice(0,200)).split(' ').filter(Boolean);
     const invalidRange = from.value && to.value && from.value > to.value;
@@ -51,6 +51,7 @@
     previous.disabled = page <= 1;
     next.disabled = page * 50 >= total;
     status.textContent = invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择回顾日期范围。';
+    if (focusResults) status.focus();
   }
   let composing = false;
   query.addEventListener('compositionstart', () => { composing = true; });
@@ -59,8 +60,8 @@
   from.addEventListener('change', () => update(true));
   to.addEventListener('change', () => update(true));
   type.addEventListener('change', () => update(true));
-  previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(); } });
-  next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(); } });
+  previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(false, true); } });
+  next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(false, true); } });
   clear.addEventListener('click', () => { query.value = ''; type.value = 'all'; from.value = ''; to.value = ''; update(true); query.focus(); });
   update();
   // Reveal controls only after data parsing and all handlers succeeded. No form submission.

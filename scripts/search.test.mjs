@@ -201,3 +201,15 @@ test('date changes reset later pages and preserve native accessible date labels'
  assert.equal(nodes['search-results'].start,1);
  const html=renderSearch([]);for(const id of ['from','to']){assert.ok(html.includes(`for="search-${id}"`));assert.ok(html.includes(`id="search-${id}" type="date"`));}
 });
+
+test('explicit paging moves focus to the new range without stealing input focus',()=>{
+ const nodes=boot(Array.from({length:51},()=>({type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'})));
+ const status=nodes['search-status'];assert.equal(status.focused,undefined);
+ nodes['search-query'].value='AI';nodes['search-query'].fire('input');assert.equal(status.focused,undefined);
+ nodes['search-next'].fire('click');assert.equal(status.focused,true);assert.match(status.textContent,/51–51/);
+ status.focused=false;nodes['search-next'].fire('click');assert.equal(status.focused,false);
+ nodes['search-previous'].fire('click');assert.equal(status.focused,true);
+ status.focused=false;nodes['search-query'].fire('input');assert.equal(status.focused,false);
+ assert.match(renderSearch([]),/id="search-status" tabindex="-1"/);
+ assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,2);
+});
