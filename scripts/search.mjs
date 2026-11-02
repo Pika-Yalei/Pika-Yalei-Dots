@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { collectTopics } from './topics.mjs';
 import { collectHeadlines } from './headlines.mjs';
 import { sectionAnchors, newsItemAnchors } from './reading-navigation.mjs';
 import { isReviewedSource, sectionSourceGroups } from './article-content.mjs';
@@ -9,10 +10,14 @@ export function fingerprintSearch(assets) {
   return `search.${createHash('sha256').update(bytes).digest('hex').slice(0,16)}.js`;
 }
 export function collectSearchEntries(posts) {
-  return [...posts].sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug)).flatMap(post => [
-    {type:'article', title:post.title, detail:post.summary, date:post.date, href:`/notes/${post.slug}/`},
-    ...collectHeadlines([post]).map(item => ({type:'headline', title:item.title, detail:`${item.heading} · ${item.article}`, date:item.date, href:item.href})),
+  return [...posts].sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug)).flatMap(post => {
+    const topics = collectTopics([post]);
+    const bySection = new Map(topics.flatMap(topic => topic.entries.map(entry => [entry.href, topic.id])));
+    return [
+    {type:'article', topics:topics.filter(topic => topic.entries.length).map(topic => topic.id), title:post.title, detail:post.summary, date:post.date, href:`/notes/${post.slug}/`},
+    ...collectHeadlines([post]).map(item => ({type:'headline', topics:[item.topicId], title:item.title, detail:`${item.heading} · ${item.article}`, date:item.date, href:item.href})),
     ...sectionAnchors(post.sections).flatMap(section => {
+      const topicId = bySection.get(`/notes/${post.slug}/#${section.id}`);
       const targets = new Map();
       if (post.category === '新闻回顾') {
         const anchors = newsItemAnchors(section);
@@ -25,12 +30,13 @@ export function collectSearchEntries(posts) {
       return (section.sources ?? []).map(source => {
         if (!isReviewedSource(source.url)) throw new TypeError('Unreviewed search source URL');
         const target = targets.get(source);
-        return {type:'source', title:source.label, detail:`${new URL(source.url).hostname} · ${post.title} · ${section.heading}${target ? ` · ${target.title}` : ''}`, date:post.date, href:source.url, reference:`/notes/${post.slug}/#${target?.anchor ?? section.id}`, referenceLabel:target ? '查看引用新闻条目' : '查看引用章节（未明确对应单条新闻）'};
+        return {type:'source', topics:topicId ? [topicId] : [], title:source.label, detail:`${new URL(source.url).hostname} · ${post.title} · ${section.heading}${target ? ` · ${target.title}` : ''}`, date:post.date, href:source.url, reference:`/notes/${post.slug}/#${target?.anchor ?? section.id}`, referenceLabel:target ? '查看引用新闻条目' : '查看引用章节（未明确对应单条新闻）'};
       });
     })
-  ]);
+  ];
+  });
 }
 // Keep email-like versioned URLs out of HTML edge email rewriting; JSON parsing restores @.
 export function renderSearch(posts) {
-  return `<div class="article-shell"><header class="article-header"><h1>站内搜索</h1><p class="article-subtitle">搜索公开文章标题与摘要、新闻标题、来源标签与网站。</p></header><div class="prose"><p id="search-help">关键词只在本页内匹配，不上传、不写入网址或浏览器存储。空格分隔的词须全部匹配；忽略大小写和全角差异。不搜索新闻正文或来源网页全文。来源按引用位置计数，同一来源可能重复出现。结果按回顾日期排列，每页 50 条，可翻页查看全部匹配。可只选日期范围浏览；日期指简报回顾日，不是实际发布时间，起止日期均包含。</p><p>无需脚本也可浏览：<a href="/archive/">文章归档</a> · <a href="/headlines/">新闻条目</a> · <a href="/sources/">来源索引</a>。</p><noscript><p>本地搜索需要 JavaScript；请使用上面的静态索引。</p></noscript><div id="search-controls"></div><p id="search-print-context" class="search-print-context"></p><p id="search-status" tabindex="-1" role="status" aria-live="polite" aria-atomic="true" aria-label="搜索结果状态">搜索尚未就绪；如未出现输入框，请使用静态索引。</p><ol id="search-results"></ol></div></div><template id="search-data">${escape(JSON.stringify(collectSearchEntries(posts)).replaceAll('@', '\\u0040'))}</template><template id="search-ui"><div role="search" aria-label="站内搜索"><label for="search-query">关键词</label><input id="search-query" type="search" maxlength="200" autocomplete="off" spellcheck="false" aria-describedby="search-help"><label for="search-type">内容类型</label><select id="search-type"><option value="all">全部</option><option value="article">文章</option><option value="headline">新闻条目</option><option value="source">引用来源</option></select><label for="search-from">起始回顾日期</label><input id="search-from" type="date" aria-describedby="search-help search-status"><label for="search-to">结束回顾日期</label><input id="search-to" type="date" aria-describedby="search-help search-status"><button id="search-clear" type="button">清空搜索</button></div><nav id="search-pagination" aria-label="搜索结果分页" hidden><button id="search-previous" type="button" aria-controls="search-results">上一页</button><button id="search-next" type="button" aria-controls="search-results">下一页</button></nav></template>`;
+  return `<div class="article-shell"><header class="article-header"><h1>站内搜索</h1><p class="article-subtitle">搜索公开文章标题与摘要、新闻标题、来源标签与网站。</p></header><div class="prose"><p id="search-help">关键词只在本页内匹配，不上传、不写入网址或浏览器存储。空格分隔的词须全部匹配；忽略大小写和全角差异。不搜索新闻正文或来源网页全文。来源按引用位置计数，同一来源可能重复出现。结果按回顾日期排列，每页 50 条，可翻页查看全部匹配。可只选栏目或日期范围浏览；栏目按新闻章节归属，文章命中表示该篇包含该栏。日期指简报回顾日，不是实际发布时间，起止日期均包含。</p><p>无需脚本也可浏览：<a href="/archive/">文章归档</a> · <a href="/headlines/">新闻条目</a> · <a href="/sources/">来源索引</a>。</p><noscript><p>本地搜索需要 JavaScript；请使用上面的静态索引。</p></noscript><div id="search-controls"></div><p id="search-print-context" class="search-print-context"></p><p id="search-status" tabindex="-1" role="status" aria-live="polite" aria-atomic="true" aria-label="搜索结果状态">搜索尚未就绪；如未出现输入框，请使用静态索引。</p><ol id="search-results"></ol></div></div><template id="search-data">${escape(JSON.stringify(collectSearchEntries(posts)).replaceAll('@', '\\u0040'))}</template><template id="search-ui"><div role="search" aria-label="站内搜索"><label for="search-query">关键词</label><input id="search-query" type="search" maxlength="200" autocomplete="off" spellcheck="false" aria-describedby="search-help"><label for="search-type">内容类型</label><select id="search-type"><option value="all">全部</option><option value="article">文章</option><option value="headline">新闻条目</option><option value="source">引用来源</option></select><label for="search-topic">新闻栏目</label><select id="search-topic"><option value="all">全部栏目</option>${collectTopics([]).map(topic => `<option value="${topic.id}">${escape(topic.name)}</option>`).join('')}</select><label for="search-from">起始回顾日期</label><input id="search-from" type="date" aria-describedby="search-help search-status"><label for="search-to">结束回顾日期</label><input id="search-to" type="date" aria-describedby="search-help search-status"><button id="search-clear" type="button">清空搜索</button></div><nav id="search-pagination" aria-label="搜索结果分页" hidden><button id="search-previous" type="button" aria-controls="search-results">上一页</button><button id="search-next" type="button" aria-controls="search-results">下一页</button></nav></template>`;
 }
