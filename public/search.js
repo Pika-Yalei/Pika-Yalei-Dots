@@ -20,11 +20,14 @@
   function update(reset = false, focusResults = false) {
     if (reset) page = 1;
     const terms = normalize(query.value.slice(0,200)).split(' ').filter(Boolean);
+    const invalidInput = [from, to].some(input => input.validity?.badInput);
     const invalidRange = from.value && to.value && from.value > to.value;
+    from.setAttribute('aria-invalid', String(Boolean(from.validity?.badInput || invalidRange)));
+    to.setAttribute('aria-invalid', String(Boolean(to.validity?.badInput || invalidRange)));
     const hasFilter = terms.length || from.value || to.value;
     const fragment = document.createDocumentFragment();
     let total = 0;
-    if (hasFilter && !invalidRange) for (const record of records) {
+    if (hasFilter && !invalidInput && !invalidRange) for (const record of records) {
       if ((from.value && record.date < from.value) || (to.value && record.date > to.value)) continue;
       if ((type.value !== 'all' && record.type !== type.value) || !terms.every(term => record.haystack.includes(term))) continue;
       total += 1;
@@ -50,13 +53,15 @@
     pagination.hidden = total <= 50;
     previous.disabled = page <= 1;
     next.disabled = page * 50 >= total;
-    status.textContent = invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择回顾日期范围。';
+    status.textContent = invalidInput ? '日期输入不完整或无效，请输入完整的有效日期；当前未显示结果。' : invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择回顾日期范围。';
     if (focusResults) status.focus();
   }
   let composing = false;
   query.addEventListener('compositionstart', () => { composing = true; });
   query.addEventListener('compositionend', () => { composing = false; update(true); });
   query.addEventListener('input', () => { if (!composing) update(true); });
+  from.addEventListener('input', () => update(true));
+  to.addEventListener('input', () => update(true));
   from.addEventListener('change', () => update(true));
   to.addEventListener('change', () => update(true));
   type.addEventListener('change', () => update(true));
