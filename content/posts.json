@@ -4568,5 +4568,177 @@
     ],
     "closing": "本期23条，股票市场较目标缺2条。影响判断为分析，不构成投资建议；未来安排与各方说法以条目限定为准。",
     "publishedAt": "2026-11-01T02:25:47Z"
+  },
+  {
+    "slug": "news-2026-11-02",
+    "date": "2026-11-02",
+    "title": "2026-11-02｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-11-01 10:15:06 至 2026-11-02 10:15:06",
+    "category": "新闻回顾",
+    "readingMinutes": 14,
+    "summary": "核实20条：AI5、商业4、股票市场5、中国政策1、国际事件5；商业缺1、中国政策缺4，不以旧闻补数。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-01T02:15:06Z",
+      "end": "2026-11-02T02:15:06Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Microsoft Conductor 0.1.44 增加隔离式 Agent 执行环境。微软开源项目 Conductor 于 11 月 1 日 16:50 UTC 发布 0.1.44。新版允许通过执行配置把 LLM Agent 放入 Docker 容器或 Azure Container Apps 动态会话，支持远程执行中断、多模型提供方，以及按调用向 MCP 子进程交付凭据。它也修复了交互问题未填写就被提前提交的情况。影响：开发者有了更明确的运行环境隔离和人工输入边界；这不意味着容器能自动消除所有安全风险。",
+          "2. OpenAI Java SDK 4.96.0 接入 Responses WebSocket 预热。OpenAI 于 11 月 1 日 19:59 UTC 发布 Java SDK 4.96.0，加入 Responses WebSocket warmup 支持，并补充实时翻译客户端密钥示例。相关接口模型允许设置 generate=false，准备响应而不生成输出，并区分未填写参数与显式真假值。影响：Java 应用可以更直接地表达预热操作；这是 SDK 的新版本交付，不代表相关 API 在当天首次上线，也没有据此推导性能提升幅度。",
+          "3. OpenBot 0.58.0 加入 GitHub 事件驱动工作流。OpenBot 于 11 月 1 日 15:31 UTC 发布 0.58.0。发布记录列出从 GitHub 事件启动工作流、在工作流中操作 GitHub，以及远程连接和模型用量展示改进；同时记录 iOS 1.4.5 可用。影响：开发者可以把代码仓库事件与 Agent 工作流衔接，但配置 GitHub App、授权范围及实际执行动作仍需自行审核，不能把“支持自动化”理解为无需权限控制。",
+          "4. GE HealthCare 展示 AI 影像引导系统 Allia Celeo。GE HealthCare 在美国当地 11 月 1 日的 TCT 大会上介绍吊顶式介入影像引导系统 Allia Celeo。公司称其 AI 影像链旨在实时平衡图像质量与辐射剂量，并可配合基于深度学习的预测性维护工具。设备已取得 CE 标志，但美国 FDA 510(k) 仍在审查，尚不可在美国销售，部分应用另售、地区可用性不同。影响：AI 正进一步嵌入介入影像设备的工作流程；预期效率与临床收益仍需与公司设计目标区分。",
+          "5. Tibo 发布 Day 28 更新：仅披露“Banked 2/2”。Tibo 于 11 月 1 日 23:27:20 UTC 发布新的 Day 28 帖子，公开文字为“Banked 2/2”。这构成其连续更新的新一条记录，但该帖本身没有说明套餐、适用账号、领取步骤或有效期。影响：它提供了新的产品动向线索，尚不足以把某种额度或功能写成全量开放；实际可用性仍应以正式说明及各账号界面为准。"
+        ],
+        "sources": [
+          {
+            "label": "1. Microsoft Conductor 官方发布记录",
+            "url": "https://github.com/microsoft/conductor/releases/tag/v0.1.44"
+          },
+          {
+            "label": "2. SDK 官方发布记录",
+            "url": "https://github.com/openai/openai-java/releases/tag/v4.96.0"
+          },
+          {
+            "label": "2. 官方变更说明",
+            "url": "https://github.com/openai/openai-java/pull/1311"
+          },
+          {
+            "label": "3. OpenBot 官方发布记录",
+            "url": "https://github.com/nightly-labs/openbot/releases/tag/v0.58.0"
+          },
+          {
+            "label": "4. GE HealthCare 官方公告",
+            "url": "https://www.gehealthcare.com/en-us/about/newsroom/press-releases/ge-healthcare-debuts-allia-celeo-a-ceiling-mounted-interventional-system-designed-for-smooth-procedural-flow-and-ai-powered-precision-imaging"
+          },
+          {
+            "label": "5. Tibo 原始公开帖子",
+            "url": "https://x.com/thsottiaux/status/2117035794678546764"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "本栏核实 4 条独立新增，距 5 条目标缺 1 条。",
+          "1. OPEC+ 七国正式决定维持十二月产量安排。11 月 1 日，沙特、俄罗斯、伊拉克等七国举行线上会议，正式决定十二月继续采用九月所要求的生产水平，下次会议定于 11 月 29 日。相较前一日的会前消息，新增是正式决定，而非匿名预期。影响：近期供应政策更明确，但目标产量不等于实际供应，亦不能据此推断油价方向。",
+          "2. Affle 签约以约 4.2 亿美元收购 Perion。Perion 于 11 月 1 日宣布全现金合并协议，股东拟获每股 11.70 美元，股权价值约 4.2 亿美元。协议允许 40 天征求其他报价，预计 2027 年初完成，仍需股东批准及反垄断等待期等条件。影响：若完成，将整合移动广告与多渠道广告业务，Perion 将从纳斯达克和特拉维夫交易所退市；目前并未交割。",
+          "3. Plaquemines 一期首艘长期合同 LNG 货船启航。Venture Global 11 月 1 日披露，Plaquemines LNG 一期商业运营后的首艘货船于当天凌晨离港，由 Shell 提货。商业运营日期为 10 月 31 日，属于背景；本窗口新增是实际首船交付。影响：项目开始兑现一期长期合同供应，与此前调试期销售不同；该进展不代表二期也已投入商业运营。",
+          "4. 蔚来披露十月交付 34,246 辆。蔚来在 11 月 1 日发布月度数据：十月交付 34,246 辆，其中蔚来品牌 18,125 辆、乐道 8,383 辆、萤火虫 7,738 辆；前十个月合计 334,547 辆，同比增长 38.5%。影响：品牌分项为观察多品牌战略提供了新数据，但交付量本身不能说明毛利、现金流或盈利改善。"
+        ],
+        "sources": [
+          {
+            "label": "1. OPEC 官方声明",
+            "url": "https://www.opec.org/pr-detail/2033620-1-november-2026.html"
+          },
+          {
+            "label": "2. Perion 公告",
+            "url": "https://perion.com/investors/press/perion-enters-into-definitive-merger-agreement-with-affle/"
+          },
+          {
+            "label": "3. Venture Global 公告",
+            "url": "https://ventureglobal.com/2026/11/01/venture-global-commences-commercial-operations-of-phase-one-of-plaquemines-lng/"
+          },
+          {
+            "label": "4. 蔚来官方公告",
+            "url": "https://www.nio.com/news/20261101001"
+          },
+          {
+            "label": "4. 公司 GlobeNewswire 稿件及发布时间",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/nio-inc-provides-october-2026-041500969.html"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "本栏为窗口内上市公司新披露及证券交易服务变化，不以周末重述的旧收盘行情充数；以下未提供股价表现。",
+          "1. POWERGRID 宣布每股 3 印度卢比中期股息。印度上市公司 POWERGRID 董事会于 11 月 1 日批准季度及半年财报，并决定 2026—27 财年首次中期股息为每股 3 印度卢比，股权登记日为 11 月 6 日、付款日为 11 月 30 日。影响：分配金额和日期已明确，但股息不等于无风险收益，亦不代表除息后股价走势。",
+          "2. Maruti Suzuki 披露创纪录的月度销量。印度上市车企 Maruti Suzuki 11 月 1 日披露十月销量 276,120 辆，创公司月度新高；国内销量 216,789 辆，向其他整车厂销售 9,459 辆，出口 49,872 辆。影响：最新经营数据为评估销售规模提供依据；批发出货不等于消费者零售，也不能直接外推净利润。",
+          "3. TVS Motor 十月销量增长 29%，电动两轮车翻倍。TVS Motor 于印度时间 11 月 1 日 14:19 发布经营更新：十月总销量 700,134 辆，同比增长 29%；电动两轮车 71,382 辆，同比增长 120%，国际业务销量增长 51%。影响：电动和海外业务增长快于总体，为印度上市公司的业务结构观察提供新线索，但公告未给出这些销量对应的利润。",
+          "4. Mahindra 汽车销量创新高，拖拉机表现分化。Mahindra & Mahindra 11 月 1 日披露十月汽车总销量 131,109 辆，同比增长 9%；国内 SUV 销量 73,338 辆，创月度新高。同期国内拖拉机销量为 62,626 辆，同比下降 13%，公司将下降主要归因于节庆日期变化。影响：汽车与农机板块方向不同，分析整体经营时不宜只看创纪录的单一指标。",
+          "5. 国投证券加强新三板股票买入风险弹窗。国投证券 11 月 2 日 08:37 公告，当天实施优化后的新三板交易风险提示。新开权限后 60 个交易日内，买入被实施风险提示的股票将逐笔弹窗；超过该期限仍无买入成交的，提示延续至首笔买入成交当日收盘。相关客户输入证券及确认买入时需分别阅读确认。影响：这是该券商的风险提示流程变化，并非暂停新三板交易或扩大交易权限。"
+        ],
+        "sources": [
+          {
+            "label": "1. POWERGRID 向 NSE 提交的董事会决议及财报",
+            "url": "https://nsearchives.nseindia.com/corporate/POWERGRID1_01112026200821_BSENSEReg30FileFinal.pdf"
+          },
+          {
+            "label": "2. Maruti Suzuki 官方月度公告",
+            "url": "https://www.marutisuzuki.com/corporate/media/press-releases/2026/november/maruti-suzuki-sales-in-october-2026"
+          },
+          {
+            "label": "3. TVS Motor 原始 NSE 公告",
+            "url": "https://nsearchives.nseindia.com/corporate/TVSMOTOR_01112026144636_TVSM_SalesupdateSD.pdf"
+          },
+          {
+            "label": "4. Mahindra 向 NSE 提交的三份经营公告",
+            "url": "https://nsearchives.nseindia.com/corporate/ferozebaria_01112026101454_SEIntimationNovember2026PR.pdf"
+          },
+          {
+            "label": "5. 国投证券原始公告",
+            "url": "https://www.essence.com.cn/news/2566654?columnId=003005"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "本栏核实 1 条独立新增，距 5 条目标缺 4 条；未用上一窗口已生效的法规补足数量。",
+          "1. 央行开展5410亿元隔夜逆回购。中国人民银行11月2日上午公布，当日以固定利率、数量招标方式开展5410亿元隔夜逆回购操作，操作利率1.25%，足额满足一级交易商需求。影响：这是当天实际发生的短期流动性投放，不能直接等同于居民贷款利率调整，也不宜与不同期限利率作简单降息比较。"
+        ],
+        "sources": [
+          {
+            "label": "1. 人民银行公开市场业务交易公告〔2026〕第211号",
+            "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125431/125475/2026110208540841613/index.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 保加利亚总统决选初步计票：约托娃领先。保加利亚国家电视台援引中央选举委员会数据称，截至当地11月2日03:00，11月1日总统决选已有98.43%的投票站记录完成处理；伊利亚娜·约托娃及搭档得票57.64%，安德烈·久罗夫及搭档为39.40%。影响：初步计票已显示明显领先，但这些比例仍非全部计票后的最终法定结果。",
+          "2. 教宗呼吁将奥列什基人道合作延伸为和平对话。教宗良十四世在11月1日三钟经讲话中，提及近日援助乌克兰奥列什基平民的人道行动，呼吁促成行动的各方合作推动对话及新的具体和平倡议。影响：这是当天新的外交呼吁，并非宣布俄乌已达成全面停火；人道行动本身发生于近日。",
+          "3. 佛罗里达州一架载9人的公务机坠毁，NTSB牵头调查。美国联邦航空局确认，11月1日当地12:50左右，一架Learjet 60在佛罗里达州Cresthaven附近居民区坠毁，机上9人，原定从得克萨斯州奥斯汀飞往巴哈马北伊柳塞拉。FAA及国家运输安全委员会将调查，后者牵头。影响：居民区事故与机上人员情况需要后续官方核实，现阶段不能推断机械故障或天气等具体原因。",
+          "4. 西撒哈拉联合国特派团进入撤收阶段。联合国11月1日表示，西撒哈拉全民投票特派团MINURSO开始收尾，联合国仍支持能体现当地人民自决的公正、持久、各方可接受的政治解决。美联社引述联合国发言人称，清算阶段涉及人员遣返及资产处置。影响：行动结束改变现场安排，不代表领土地位争议已解决；未续任的安理会表决发生于10月30日，并非当天新决定。",
+          "5. 加沙两地再遭袭击，巴方报告至少8人死亡。巴勒斯坦通讯社WAFA引述医疗消息称，11月1日加沙城和汗尤尼斯两次以军袭击造成8人死亡，包括一名儿童。路透社另引述医务人员和哈马斯控制的内政部门报告同一死亡数字；以军称在汗尤尼斯打击武装人员，未立即回应加沙城一击。影响：新增伤亡进一步冲击当地安全与停火安排；伤亡及目标身份应保留各方归属，不能当作均已独立核实。"
+        ],
+        "sources": [
+          {
+            "label": "1. 保加利亚国家电视台：中央选举委员会初步数据",
+            "url": "https://bntnews.bg/news/cik-pri-obraboteni-9239-ot-protokolite-iliyana-yotova-poluchava-5736-gyurov-e-vtori-s-3968-1420115news.html"
+          },
+          {
+            "label": "2. 梵蒂冈11月1日讲话原文",
+            "url": "https://www.vatican.va/content/leo-xiv/en/angelus/2026/documents/20261101-angelus.html"
+          },
+          {
+            "label": "3. FAA航空事故声明：11月1日Cresthaven条目",
+            "url": "https://www.faa.gov/newsroom/statements/accident_incidents"
+          },
+          {
+            "label": "4. 联合国11月1日消息",
+            "url": "https://www.un.org/en/node/249761"
+          },
+          {
+            "label": "4. 美联社对联合国发言人的报道",
+            "url": "https://apnews.com/article/030e303c58207060265d8748c1db3778"
+          },
+          {
+            "label": "5. WAFA原始报道",
+            "url": "https://english.wafa.ps/Pages/Details/176486"
+          },
+          {
+            "label": "5. 路透社报道（StreetInsider转载）",
+            "url": "https://www.streetinsider.com/Reuters/Israeli%2Bstrikes%2Bkill%2Beight%2Bpeople%2Bin%2BGaza%2B-%2Bmedics%2Bsay/27267679.html"
+          }
+        ]
+      }
+    ],
+    "closing": "本期收录20条；商业缺1条、中国政治与政策缺4条。影响部分为简短分析，不构成投资建议。",
+    "publishedAt": "2026-11-02T02:20:10Z"
   }
 ]
