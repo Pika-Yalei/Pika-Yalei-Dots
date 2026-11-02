@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-type'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
   ids['search-ui'].content = {cloneNode:() => ({querySelector:selector => ids[selector.slice(1)]})};
@@ -226,4 +226,29 @@ test('incomplete native dates block results instead of silently removing a bound
  to.value='2026-01-01';to.fire('input');assert.equal(from['aria-invalid'],'false');assert.equal(to['aria-invalid'],'false');
  assert.equal((renderSearch([]).match(/type="date" aria-describedby="search-help search-status"/g)||[]).length,2);
 
+});
+
+test('print snapshot tracks filters and page status without interpreting input as markup',()=>{
+ const nodes=boot(Array.from({length:51},()=>({type:'source',title:'<tag>',detail:'',date:'2026-01-01',href:'https://example.com/?x=1&y=2'})));
+ nodes['search-query'].value='<tag>';nodes['search-query'].fire('input');
+ assert.match(nodes['search-print-context'].textContent,/关键词：<tag>/);assert.match(nodes['search-print-context'].textContent,/仅包含当前显示的一页/);
+ nodes['search-next'].fire('click');assert.match(nodes['search-status'].textContent,/51–51/);
+ nodes['search-from'].value='2026-01-01';nodes['search-from'].fire('input');assert.match(nodes['search-print-context'].textContent,/2026-01-01 至 不限/);
+ nodes['search-clear'].fire('click');assert.match(nodes['search-print-context'].textContent,/关键词：未指定/);assert.match(nodes['search-status'].textContent,/请输入/);
+ const css=readFileSync(new URL('../public/style.css',import.meta.url),'utf8'),at=css.indexOf('@media print{');
+ assert.match(css.slice(at),/#search-controls\{display:none\}/);assert.match(css.slice(at),/#search-results a\[href\^="https:\/\/"\]::after/);
+ assert.match(css.slice(at),/#search-results a\[href\^="\/"\]::after/);
+});
+
+test('native date segment keyup and blur recheck validity even when no input event fires',()=>{
+ const n=boot([{type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'}]);n['search-query'].value='AI';n['search-query'].fire('input');
+ const from=n['search-from'];from.validity={badInput:true};from.value='';from.fire('keyup');
+ assert.equal(from['aria-invalid'],'true');assert.match(n['search-status'].textContent,/日期输入不完整或无效/);assert.equal(n['search-results'].children[0].children.length,0);
+ from.validity={badInput:false};from.value='2026-01-01';from.fire('blur');assert.equal(from['aria-invalid'],'false');assert.match(n['search-status'].textContent,/共找到 1 条/);
+});
+
+test('tabbing through unchanged date segments does not reset the result page',()=>{
+ const n=boot(Array.from({length:51},()=>({type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'})));n['search-query'].value='AI';n['search-query'].fire('input');n['search-next'].fire('click');
+ n['search-from'].fire('keyup');n['search-from'].fire('blur');assert.equal(n['search-results'].start,51);
+ n['search-from'].validity={badInput:true};n['search-from'].fire('keyup');assert.match(n['search-print-context'].textContent,/无效或未填完整/);
 });
