@@ -20,8 +20,9 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-type'].value = 'all';
+  ids['search-topic'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
   ids['search-ui'].content = {cloneNode:() => ({querySelector:selector => ids[selector.slice(1)]})};
   const document = {getElementById:id => ids[id], createDocumentFragment:() => new Node(), createElement:() => new Node()};
@@ -251,4 +252,21 @@ test('tabbing through unchanged date segments does not reset the result page',()
  const n=boot(Array.from({length:51},()=>({type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'})));n['search-query'].value='AI';n['search-query'].fire('input');n['search-next'].fire('click');
  n['search-from'].fire('keyup');n['search-from'].fire('blur');assert.equal(n['search-results'].start,51);
  n['search-from'].validity={badInput:true};n['search-from'].fire('keyup');assert.match(n['search-print-context'].textContent,/无效或未填完整/);
+});
+
+test('exact topic filtering composes with text, type and date, resets paging and clears',()=>{
+ const records=[...Array.from({length:51},(_,i)=>({type:'headline',topics:['ai'],title:'AI'+i,detail:'',date:'2026-11-01',href:'/notes/a/'})),{type:'source',topics:['world'],title:'AI abroad',detail:'',date:'2026-11-01',href:'https://example.com'}, {type:'article',topics:[],title:'AI retrospective',detail:'',date:'2026-11-01',href:'/notes/r/'}];
+ const n=boot(records);n['search-topic'].value='ai';n['search-topic'].fire('change');assert.match(n['search-status'].textContent,/共找到 51 条/);
+ n['search-next'].fire('click');assert.equal(n['search-results'].start,51);
+ n['search-topic'].value='world';n['search-topic'].fire('change');assert.equal(n['search-results'].start,1);assert.match(n['search-status'].textContent,/共找到 1 条/);
+ n['search-query'].value='AI';n['search-query'].fire('input');n['search-type'].value='headline';n['search-type'].fire('change');assert.match(n['search-status'].textContent,/共找到 0 条/);
+ assert.match(n['search-print-context'].textContent,/新闻栏目：国际政治与重大事件/);n['search-type'].value='all';n['search-from'].value='2026-11-02';n['search-from'].fire('input');assert.match(n['search-status'].textContent,/共找到 0 条/);
+ n['search-clear'].fire('click');assert.equal(n['search-topic'].value,'all');assert.match(n['search-status'].textContent,/请输入/);
+ assert.match(renderSearch([]),/for="search-topic"/);
+});
+test('topic metadata follows exact news sections including legacy names, not title keywords',()=>{
+ const original=posts.find(p=>p.category==='新闻回顾');const samples=[{...original,slug:'fixture',sections:[{heading:'股票',paragraphs:['1. Example。Fact'],sources:original.sections.flatMap(s=>s.sources??[]).slice(0,1)}]}, {...original,slug:'retrospective',category:'工作复盘',sections:[{heading:'AI',paragraphs:['1. Example。Fact'],sources:[]}]}];
+ const data=collectSearchEntries(samples);for(const r of data.filter(r=>r.href.startsWith('/notes/retrospective/')))assert.deepEqual(r.topics,[]);
+ for(const r of data.filter(r=>r.href.startsWith('/notes/fixture/')||r.reference?.startsWith('/notes/fixture/')))assert.deepEqual(r.topics,['markets']);
+ for(const r of collectSearchEntries(posts))assert.ok(r.topics.every(t=>['ai','business','markets','china-policy','world'].includes(t)));
 });
