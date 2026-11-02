@@ -174,3 +174,6 @@
 #search-pagination:not([hidden]){display:flex;gap:12px;margin-block:16px}
 #search-pagination button{flex:1}
 #search-pagination button:disabled{cursor:default;color:var(--muted);border-style:dashed}
+
+#search-status{scroll-margin-top:24px}
+@media screen{#search-status:focus{outline:2px solid var(--green);outline-offset:4px}}
