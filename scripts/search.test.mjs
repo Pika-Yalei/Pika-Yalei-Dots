@@ -17,6 +17,7 @@ class Node {
   addEventListener(name, callback) { this.listeners[name] = callback; }
   fire(name) { this.listeners[name]?.(); }
   focus() { this.focused = true; }
+  setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
   const ids = Object.fromEntries(['search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
@@ -212,4 +213,17 @@ test('explicit paging moves focus to the new range without stealing input focus'
  status.focused=false;nodes['search-query'].fire('input');assert.equal(status.focused,false);
  assert.match(renderSearch([]),/id="search-status" tabindex="-1"/);
  assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,2);
+});
+
+test('incomplete native dates block results instead of silently removing a boundary',()=>{
+ const nodes=boot([{type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'}]);
+ nodes['search-query'].value='AI';nodes['search-query'].fire('input');
+ const from=nodes['search-from'],to=nodes['search-to'];from.validity={badInput:true};from.value='';from.fire('input');
+ assert.match(nodes['search-status'].textContent,/日期输入不完整或无效/);assert.equal(nodes['search-results'].children[0].children.length,0);assert.equal(from['aria-invalid'],'true');
+ from.validity={badInput:false};from.value='2026-01-01';from.fire('change');assert.match(nodes['search-status'].textContent,/共找到 1 条/);assert.equal(from['aria-invalid'],'false');
+ to.validity={badInput:true};to.fire('input');assert.equal(to['aria-invalid'],'true');assert.equal(nodes['search-pagination'].hidden,true);
+ to.validity={badInput:false};to.value='2025-12-31';to.fire('change');assert.equal(from['aria-invalid'],'true');assert.equal(to['aria-invalid'],'true');
+ to.value='2026-01-01';to.fire('input');assert.equal(from['aria-invalid'],'false');assert.equal(to['aria-invalid'],'false');
+ assert.equal((renderSearch([]).match(/type="date" aria-describedby="search-help search-status"/g)||[]).length,2);
+
 });
