@@ -34,6 +34,12 @@
 #main{scroll-margin-top:24px}
 #main:focus{outline:2px solid var(--green);outline-offset:7px}
 
+/* Return links reveal their keyboard destination, not only its scroll position. */
+@media screen{
+  #contents-title,.category-list>li[id^="website-"][tabindex="-1"]{scroll-margin-top:24px}
+  #contents-title:focus,.category-list>li[id^="website-"][tabindex="-1"]:focus{outline:2px solid var(--green);outline-offset:7px}
+}
+
 /* Breadcrumbs retain list semantics and wrap rather than truncate long labels. */
 .breadcrumbs{display:block;color:var(--muted);font-size:0.75rem;line-height:1.8}
 .breadcrumbs ol{display:flex;flex-wrap:wrap;gap:0.25rem 0.75rem;list-style:none;padding:0;margin:0}
@@ -105,6 +111,7 @@
   .source-entry a[href^="https://"]::after{content:" (" attr(href) ")"}
   .source-entry a[href^="/"]::after{content:" (https://pika-yalei-dots.yaleizhang.com" attr(href) ")"}
   .source-entry li{margin-bottom:8pt}
+  #contents-title:focus,.category-list>li[id^="website-"][tabindex="-1"]:focus{outline:none}
   .source-domains{display:none}.source-entry:focus{outline:none}
   .news-permalink{display:none}.news-item:focus{outline:none}
   @page{margin:18mm}
@@ -140,6 +147,7 @@
   :root a:visited{color:VisitedText}
   :root nav a[aria-current="page"]{text-decoration-style:double;text-decoration-thickness:2px;box-shadow:none}
   :root a:focus-visible,#main:focus,.prose h2[id]:focus,.archive-month h3[id]:focus,#article-top:focus{outline:2px solid Highlight;outline-offset:7px}
+  #contents-title:focus,.category-list>li[id^="website-"][tabindex="-1"]:focus{outline:2px solid Highlight;outline-offset:7px}
   /* Keep the revealed skip link readable over the page and give it an edge. */
   :root .skip,:root .skip:focus{background:Canvas;color:LinkText;outline:2px solid Highlight}
   .margin-note{outline:1px solid CanvasText}
