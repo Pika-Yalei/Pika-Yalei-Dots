@@ -85,3 +85,19 @@ test('build and sitemap publish all directory pages with canonical URLs and pres
     }
   } finally { await rm(temp,{recursive:true,force:true}); }
 });
+
+test('initial jumps target the first existing row across directory page boundaries', () => {
+ const input=Array.from({length:31},(_,i)=>({number:1,host:`a${String(i).padStart(2,'0')}.example`,path:websitePath(`a${i}.example`),count:1}));
+ input.push({number:1,host:'b.example',path:websitePath('b.example'),count:1},{number:1,host:'www.example',path:websitePath('www.example'),count:1});
+ const pages=paginateWebsiteDirectory(input);
+ assert.deepEqual(pages[0].initials.map(x=>x.initial),['A','B','W']);
+ assert.deepEqual(pages[0].initials,pages[1].initials);
+ assert.match(pages[0].initials[1].href,/^\/sources\/websites\/page\/2\/#website-/);
+ for(const item of pages[0].initials){
+   const [path,anchor]=item.href.split('#');
+   const target=pages.find(page=>page.path===path);
+   assert.ok(renderWebsiteDirectory(target).includes(`id="${anchor}"`));
+ }
+ assert.match(renderWebsiteDirectory(pages[1]),/aria-label="按网站域名首字母跳转"/);
+ assert.deepEqual(paginateWebsiteDirectory([])[0].initials,[]);
+});
