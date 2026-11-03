@@ -26,13 +26,25 @@ export function paginateWebsiteDirectory(pages) {
  const total = Math.max(1, Math.ceil(websites.length / websiteDirectoryPageSize));
  return Array.from({length:total}, (_,index) => ({
   number:index+1, total, count:websites.length, offset:index*websiteDirectoryPageSize,
+  initials: websiteDirectoryInitials(websites),
   path:websiteDirectoryPath(index+1),
   websites:websites.slice(index*websiteDirectoryPageSize,(index+1)*websiteDirectoryPageSize)
  }));
 }
+// Preserve the existing hostname ordering and URLs; jump to each initial's first row.
+export function websiteDirectoryInitials(websites) {
+ const first = new Map();
+ websites.forEach((website,index) => {
+  const character = website.host.slice(0,1).toUpperCase();
+  const initial = /^[A-Z]$/.test(character) ? character : '#';
+  if (!first.has(initial)) first.set(initial, {initial, href:`${websiteDirectoryPath(Math.floor(index/websiteDirectoryPageSize)+1)}#${websiteDirectoryAnchor(website.host)}`});
+ });
+ return [...first.values()];
+}
 export function renderWebsiteDirectory(page) {
  const navigation = page.total > 1 ? `<nav class="pagination" aria-label="来源网站目录分页">${page.number > 1 ? `<a href="${websiteDirectoryPath(page.number-1)}" rel="prev">← 上一页</a>` : ''}${renderPageWindow(page.number,page.total,websiteDirectoryPath)}${page.number < page.total ? `<a href="${websiteDirectoryPath(page.number+1)}" rel="next">下一页 →</a>` : ''}</nav>` : '';
- return `<div class="article-shell"><header class="article-header"><h1>按来源网站浏览${page.number > 1 ? ` · 第 ${page.number} 页` : ''}</h1><p class="article-subtitle">只列出手记实际引用的材料，不代表对网站全部内容的背书。</p><p class="page-range">共 ${page.count} 个网站 · 显示第 ${page.count ? page.offset+1 : 0}–${page.offset+page.websites.length} 个</p></header><ul class="category-list">${page.websites.map(p=>`<li id="${websiteDirectoryAnchor(p.host)}" tabindex="-1"><a href="${escape(p.path)}"><span>${escape(p.host)}</span><span class="category-count">${p.count} 个来源</span></a></li>`).join('')}</ul>${page.count?'':'<p>尚无引用来源。</p>'}${navigation}<p><a href="/sources/">返回全部来源</a></p></div>`;
+ const initials = page.initials?.length ? `<nav class="website-initials" aria-label="按网站域名首字母跳转"><p>按完整域名首字母定位（包含 www 前缀；# 为其他字符）：</p><ul>${page.initials.map(item=>`<li><a href="${escape(item.href)}" aria-label="跳到 ${escape(item.initial)} 开头的网站">${escape(item.initial)}</a></li>`).join('')}</ul></nav>` : '';
+ return `<div class="article-shell"><header class="article-header"><h1>按来源网站浏览${page.number > 1 ? ` · 第 ${page.number} 页` : ''}</h1><p class="article-subtitle">只列出手记实际引用的材料，不代表对网站全部内容的背书。</p><p class="page-range">共 ${page.count} 个网站 · 显示第 ${page.count ? page.offset+1 : 0}–${page.offset+page.websites.length} 个</p></header>${initials}<ul class="category-list">${page.websites.map(p=>`<li id="${websiteDirectoryAnchor(p.host)}" tabindex="-1"><a href="${escape(p.path)}"><span>${escape(p.host)}</span><span class="category-count">${p.count} 个来源</span></a></li>`).join('')}</ul>${page.count?'':'<p>尚无引用来源。</p>'}${navigation}<p><a href="/sources/">返回全部来源</a></p></div>`;
 }
 export function renderWebsitePage(page) {
  const href=n=>n===1?page.base:`${page.base}page/${n}/`;
