@@ -220,12 +220,12 @@ test('incomplete native dates block results instead of silently removing a bound
  const nodes=boot([{type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'}]);
  nodes['search-query'].value='AI';nodes['search-query'].fire('input');
  const from=nodes['search-from'],to=nodes['search-to'];from.validity={badInput:true};from.value='';from.fire('input');
- assert.match(nodes['search-status'].textContent,/日期输入不完整或无效/);assert.equal(nodes['search-results'].children[0].children.length,0);assert.equal(from['aria-invalid'],'true');
+ assert.match(nodes['search-status'].textContent,/日期输入不完整或超出支持范围/);assert.equal(nodes['search-results'].children[0].children.length,0);assert.equal(from['aria-invalid'],'true');
  from.validity={badInput:false};from.value='2026-01-01';from.fire('change');assert.match(nodes['search-status'].textContent,/共找到 1 条/);assert.equal(from['aria-invalid'],'false');
  to.validity={badInput:true};to.fire('input');assert.equal(to['aria-invalid'],'true');assert.equal(nodes['search-pagination'].hidden,true);
  to.validity={badInput:false};to.value='2025-12-31';to.fire('change');assert.equal(from['aria-invalid'],'true');assert.equal(to['aria-invalid'],'true');
  to.value='2026-01-01';to.fire('input');assert.equal(from['aria-invalid'],'false');assert.equal(to['aria-invalid'],'false');
- assert.equal((renderSearch([]).match(/type="date" aria-describedby="search-help search-status"/g)||[]).length,2);
+ assert.equal((renderSearch([]).match(/type="date" min="0001-01-01" max="9999-12-31" aria-describedby="search-help search-status"/g)||[]).length,2);
 
 });
 
@@ -244,7 +244,7 @@ test('print snapshot tracks filters and page status without interpreting input a
 test('native date segment keyup and blur recheck validity even when no input event fires',()=>{
  const n=boot([{type:'article',title:'AI',detail:'',date:'2026-01-01',href:'/notes/a/'}]);n['search-query'].value='AI';n['search-query'].fire('input');
  const from=n['search-from'];from.validity={badInput:true};from.value='';from.fire('keyup');
- assert.equal(from['aria-invalid'],'true');assert.match(n['search-status'].textContent,/日期输入不完整或无效/);assert.equal(n['search-results'].children[0].children.length,0);
+ assert.equal(from['aria-invalid'],'true');assert.match(n['search-status'].textContent,/日期输入不完整或超出支持范围/);assert.equal(n['search-results'].children[0].children.length,0);
  from.validity={badInput:false};from.value='2026-01-01';from.fire('blur');assert.equal(from['aria-invalid'],'false');assert.match(n['search-status'].textContent,/共找到 1 条/);
 });
 
@@ -286,4 +286,25 @@ test('content type alone browses matching records and paginates without requirin
   assert.match(nodes['search-status'].textContent, /共找到 0 条/);
   nodes['search-clear'].fire('click');
   assert.match(nodes['search-status'].textContent, /请输入/);
+});
+
+test('extended native years cannot silently widen lexicographic date filters', () => {
+  const nodes=boot([{type:'article',title:'AI',detail:'',date:'2026-11-02',href:'/notes/example/'}]);
+  nodes['search-query'].value='AI'; nodes['search-query'].fire('input');
+  nodes['search-from'].value='10000-01-01'; nodes['search-from'].validity={badInput:false,rangeOverflow:true}; nodes['search-from'].fire('input');
+  assert.equal(nodes['search-from']['aria-invalid'],'true');
+  assert.equal(nodes['search-results'].children[0].children.length,0);
+  assert.match(nodes['search-status'].textContent,/0001–9999/);
+  assert.match(nodes['search-print-context'].textContent,/无效或未填完整/);
+  nodes['search-from'].validity={badInput:false}; nodes['search-from'].fire('change');
+  assert.equal(nodes['search-from']['aria-invalid'],'true');
+  nodes['search-from'].value='0001-01-01'; nodes['search-from'].fire('input');
+  nodes['search-to'].value='9999-12-31'; nodes['search-to'].fire('input');
+  assert.match(nodes['search-status'].textContent,/共找到 1 条/);
+  assert.equal(nodes['search-from']['aria-invalid'],'false');
+  nodes['search-to'].value='10000-12-31'; nodes['search-to'].fire('input');
+  assert.equal(nodes['search-to']['aria-invalid'],'true');
+  nodes['search-clear'].fire('click');
+  assert.equal(nodes['search-to']['aria-invalid'],'false');
+  assert.equal((renderSearch([]).match(/min="0001-01-01" max="9999-12-31"/g)||[]).length,2);
 });
