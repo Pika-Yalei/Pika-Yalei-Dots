@@ -270,3 +270,20 @@ test('topic metadata follows exact news sections including legacy names, not tit
  for(const r of data.filter(r=>r.href.startsWith('/notes/fixture/')||r.reference?.startsWith('/notes/fixture/')))assert.deepEqual(r.topics,['markets']);
  for(const r of collectSearchEntries(posts))assert.ok(r.topics.every(t=>['ai','business','markets','china-policy','world'].includes(t)));
 });
+
+test('content type alone browses matching records and paginates without requiring hidden criteria', () => {
+  const records = Array.from({length: 63}, (_,index) => ({type:'headline', topics:['ai'], title:`Title ${index}`, detail:'',date:'2026-11-02',href:`/notes/example/#news-${index}`}));
+  records.push({type:'article',topics:[],title:'Article',detail:'',date:'2026-11-02',href:'/notes/example/'});
+  const nodes = boot(records);
+  nodes['search-type'].value = 'headline'; nodes['search-type'].fire('change');
+  assert.match(nodes['search-status'].textContent, /共找到 63 条/);
+  nodes['search-next'].fire('click');
+  assert.equal(nodes['search-results'].start, 51);
+  nodes['search-type'].value = 'article'; nodes['search-type'].fire('change');
+  assert.equal(nodes['search-results'].start, 1);
+  assert.match(nodes['search-status'].textContent, /共找到 1 条/);
+  nodes['search-type'].value = 'source'; nodes['search-type'].fire('change');
+  assert.match(nodes['search-status'].textContent, /共找到 0 条/);
+  nodes['search-clear'].fire('click');
+  assert.match(nodes['search-status'].textContent, /请输入/);
+});
