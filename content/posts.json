@@ -4740,5 +4740,208 @@
     ],
     "closing": "本期收录20条；商业缺1条、中国政治与政策缺4条。影响部分为简短分析，不构成投资建议。",
     "publishedAt": "2026-11-02T02:25:44Z"
+  },
+  {
+    "slug": "news-2026-11-03",
+    "date": "2026-11-03",
+    "title": "2026-11-03｜24 小时新闻简报",
+    "subtitle": "北京时间 2026-11-02 10:08:32 至 2026-11-03 10:08:32",
+    "category": "新闻回顾",
+    "readingMinutes": 14,
+    "summary": "25条新闻：AI服务与基础设施、企业财报及收购、五地市场收盘、政策外交安排和国际事件。",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-02T02:08:32Z",
+      "end": "2026-11-03T02:08:32Z"
+    },
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Claude Messages API 推出消息线程测试版。Anthropic 11 月 2 日发布 message threads 测试版：首次发送完整对话，此后请求只需携带新增消息及上一条响应 ID，服务端临时保留上下文。线程在最后一次请求后 5 分钟过期，最后使用后最多 1 小时内删除；不符合零数据保留或 HIPAA 适用条件。影响：长 Agent 循环可减少重复上传，但应用仍须保存完整对话，并准备失效后的重放路径。",
+          "2. Google 公告 Gemini 2.5 两款模型弃用及迁移安排。Google 11 月 2 日宣布 Gemini 2.5 Pro 和 2.5 Flash 弃用，已不再供 Google AI Studio 选择。12 月 1 日起，两者的 API 请求将分别自动路由至 Gemini 3.8 Flash 和 Gemini 3.5 Flash-Lite，并按目标模型计费。影响：现有集成应在期限前检查模型名、函数调用及思考参数等不兼容变化；这是未来自动迁移安排，不是当天 API 请求已全部切换。",
+          "3. OpenAI 宣布 Grid Protectors 电网协作计划。OpenAI 11 月 2 日宣布 Grid Protectors，计划与电力公司和监管方协作，让未来算力园区在电网承压时降低用电。佐治亚州 Effingham 项目拟作为试点，与 Georgia Power 的协议包含最高 1,000 兆瓦灵活需求响应。影响：AI 基础设施建设开始更明确地纳入电网调节责任；园区仍在开发，不能把约定能力写成已经实际释放的电力，亦不能把预测节费当作已实现收益。",
+          "4. Claude Code 2.1.317 加强权限提示和失败阻断。Claude Code 于 11 月 3 日 01:25 UTC 发布 2.1.317，新增定时任务意外获得连接器时的提醒，以及工具向网络发送账号邮箱前的确认检查。Agent SDK 钩子新增 onFailure: \"block\"，可在回调失败时阻止动作。影响：这些改动有助于让授权边界和异常更可见，但失败阻断需相应配置，不能据此宣称所有外发风险已被消除。",
+          "5. NetApp 完成收购 PEAK:AIO，补强 AI 存储架构。NetApp 11 月 2 日宣布完成收购 PEAK:AIO，拟把其元数据服务及并行文件系统能力引入 ONTAP 架构，并支持面向大规模 AI 工作负载的 Novus 路线。影响：交易补强的是数据供给和存储扩展能力，有助于减少 GPU 等待数据的瓶颈；公告明确未来产品、集成及发布时间仍可能变化，不能把规划全部视为已经交付。"
+        ],
+        "sources": [
+          {
+            "label": "1. Claude Platform 发布说明",
+            "url": "https://platform.claude.com/docs/en/release-notes/overview"
+          },
+          {
+            "label": "1. 消息线程官方文档",
+            "url": "https://platform.claude.com/docs/en/build-with-claude/message-threads"
+          },
+          {
+            "label": "2. Google Gemini API 官方更新记录",
+            "url": "https://ai.google.dev/gemini-api/docs/changelog"
+          },
+          {
+            "label": "3. OpenAI 官方公告",
+            "url": "https://openai.com/index/grid-protectors-program/"
+          },
+          {
+            "label": "4. Anthropic 官方版本发布记录",
+            "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.317"
+          },
+          {
+            "label": "5. NetApp 投资者关系原始公告",
+            "url": "https://investors.netapp.com/news/news-details/2026/NetApp-Completes-Acquisition-of-PEAKAIO-to-Accelerate-Zettabyte-scale-AI-Deployments/default.aspx"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. Marvell 拟以全股票交易收购 Lumentum。11月2日，两家公司公布合并协议：每股 Lumentum 股票拟换取4.500股 Marvell 股票，对应 Lumentum 企业价值约1150亿美元。交易预计2028年上半年完成，仍须股东及监管批准。影响：电连接与光连接业务若整合，将改变 AI 数据中心互连供应格局；目前不是已完成收购。",
+          "2. 万豪第三季度利润增长，上调全年客房收入展望。万豪11月2日披露，第三季度净利润7.94亿美元，同比增长9%；按固定汇率计算，全球每间可售客房收入增长6.5%。公司将全年该指标增长预期上调至4.5%—5%。影响：酒店经营恢复支持盈利，但全年展望仍取决于后续需求，不能视为已实现业绩。",
+          "3. Tempus 收入增长23%，仍录得净亏损。Tempus 11月2日公布第三季度收入4.115亿美元，同比增长23%；净亏损从上年同期8000万美元收窄至1490万美元。当季损益包含4280万美元证券未实现收益。影响：收入增长与亏损收窄值得分别观察，投资收益影响意味着不能把亏损变化全部归因于主营业务改善。",
+          "4. BioMarin 季度营收超过10亿美元，净亏损扩大。BioMarin 11月2日披露第三季度收入10.25亿美元，同比增长32%，但按美国会计准则计算的净亏损扩大至1.23亿美元。公司称收购相关费用等影响损益，并将全年收入指引调整至38亿—39亿美元。影响：营收扩张没有同步转化为净利润，收购成本与订单时间仍影响经营表现。",
+          "5. BWXT 第三季度收入增长，商业业务增速较快。BWX Technologies 11月2日公布第三季度收入9.53亿美元，同比增长10%；按美国会计准则计算的净利润1.02亿美元，增长24%。商业业务收入增长25%，快于政府业务的4%。影响：商业核工业及相关业务对增长的贡献增加，但不能将当季增速直接外推至未来年度。"
+        ],
+        "sources": [
+          {
+            "label": "1. Lumentum 与 Marvell 联合公告",
+            "url": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Marvell-and-Lumentum-to-Combine-Creating-a-Category-Leader-in-AI-Connectivity/default.aspx"
+          },
+          {
+            "label": "2. 万豪第三季度业绩公告",
+            "url": "https://marriott.gcs-web.com/news-releases/news-release-details/marriott-international-reports-third-quarter-2026-results"
+          },
+          {
+            "label": "3. Tempus 第三季度业绩公告",
+            "url": "https://www.tempus.com/news/pr/tempus-reports-third-quarter-2026-results/"
+          },
+          {
+            "label": "4. BioMarin 财务及经营公告",
+            "url": "https://www.biomarin.com/news/press-releases/biomarin-reports-third-quarter-2026-financial-and-operating-results/"
+          },
+          {
+            "label": "5. BWXT 第三季度业绩公告",
+            "url": "https://investors.bwxt.com/news-releases/news-release-details/bwx-technologies-reports-third-quarter-2026-results"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "以下为各市场当地 11 月 2 日收盘数据；指数单位为点，成交金额另行注明币种。",
+          "1. 美股11月2日收盘分化，纳指下跌。美国当地11月2日收盘，标普500指数报7541.40点，跌0.5%；道指报51983.98点，涨0.4%；纳指报25164.32点，跌1.1%。影响：科技权重股走弱令主要指数表现分化，不能用单一指数代表全部股票。",
+          "2. A股11月2日收盘普涨，创业板领涨主要指数。中国内地11月2日收盘，上证指数报3638.03点，涨1.08%；深证成指报11010.68点，涨1.63%；创业板指报2458.70点，涨1.87%。媒体相关板块表现较强，贵金属等板块走弱。影响：上涨覆盖面较广，但行业之间仍有分化，单日反弹不等同于趋势确认。",
+          "3. 港股11月2日小幅收高，科技股较强。香港11月2日收盘，恒生指数报约23393点，上涨0.4%；恒生科技指数报约3839点，上涨超过2%。主板成交额超过2048亿港元。影响：科技股表现强于整体市场，金融股走势不一，指数上涨并非各类股票同步走强。",
+          "4. 日股11月2日收低，半导体个股表现分化。日本当地11月2日收盘，日经225指数报63081.86点，下跌208.25点，跌幅0.33%。半导体相关股票受各自财报与资本回报消息影响，表现并不一致。影响：行业热度不能替代对个别公司的业绩判断，日本市场也未与当日其他亚洲市场同步上涨。",
+          "5. 韩股11月2日由跌转升，KOSPI 收涨2.24%。韩国当地11月2日，KOSPI 早盘下跌后反弹，收报5859.08点，上涨2.24%；KOSDAQ 收报734.36点，上涨1.38%。三星电子、SK海力士均收涨。影响：半导体权重股回升支撑市场，但日内先跌后涨也显示波动仍大。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美联社收盘统计",
+            "url": "https://apnews.com/article/475bb37b4d95dd99e26c94e708c99f8f"
+          },
+          {
+            "label": "1. 美联社授权刊载页",
+            "url": "https://www.ctinsider.com/business/article/how-major-us-stock-indexes-fared-monday-11-2-2026-22507155.php"
+          },
+          {
+            "label": "2. 中新经纬收盘报道",
+            "url": "https://www.jwview.com/jingwei/html/11-02/695166.shtml"
+          },
+          {
+            "label": "3. 香港电台收盘报道",
+            "url": "https://news.rthk.hk/rthk/ch/component/k2/1876243-20261102.htm?archive_date=2026-11-02"
+          },
+          {
+            "label": "4. 株探收盘报道",
+            "url": "https://s.kabutan.jp/news/n202611020950/"
+          },
+          {
+            "label": "5. 韩国电子新闻收盘报道",
+            "url": "https://www.etnews.com/20261102000403"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 黄河保护治理会议部署节水与跨区域协同。11月2日公布的习近平有关指示及当天在郑州召开的黄河保护治理会议，将水资源节约集约利用、水网统筹调配和水生态保护列为重点。刘国中出席会议并讲话。影响：后续观察重点是流域各省和有关部门如何衔接治水、生态保护与工程调度；此次公开内容并未给出新增投资金额。",
+          "2. 中国与阿曼发表深化战略伙伴关系联合声明。11月2日公布的联合声明提出拓展油气、新能源和人工智能合作，并以签署本币互换协议推进金融合作。两国元首还见证了北斗应用、产供链等领域文件签署。影响：双边合作范围进一步扩大，但声明中的合作意向不等于具体项目已经建成，实施进度仍需后续协议和项目披露。",
+          "3. 澜湄外长会宣布于北京举行。外交部11月2日宣布，王毅将于3日至4日主持第十一次澜湄外长会。中方提出讨论合作下一阶段方向及执法安全等议题。影响：这是新公布的会议安排，具体共识尚待会后文件。",
+          "4. APEC外交和贸易双部长视频会议确定日程。外交部11月2日宣布，王毅、王文涛将于3日在北京共同主持APEC第37届外交和贸易双部长视频会议。影响：外交与贸易议程将进入部长级协调；不能将会议预告视为已达成贸易安排。",
+          "5. 中方披露特使赴中东、非洲的具体安排。外交部11月2日公布，翟隽将访伊朗、阿曼、沙特，刘显法将访埃塞俄比亚、吉布提、埃及，胡长春将访厄立特里亚，时间分别在11月上中旬或上旬。影响：这是斡旋行程的具体化，不代表相关冲突已取得谈判成果。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社原文",
+            "url": "https://www.news.cn/politics/leaders/20261102/7cd5e0cfc8ed46d9a01a865a5c4900f1/c.html"
+          },
+          {
+            "label": "2. 中阿联合声明全文·新华社",
+            "url": "https://www.news.cn/world/20261102/620003da00104bc19f8068814ccae9c0/c.html"
+          },
+          {
+            "label": "3. 外交部11月2日记者会",
+            "url": "https://www.fmprc.gov.cn/web/wjdt_674879/fyrbt_674889/202611/t20261102_12051610.shtml"
+          },
+          {
+            "label": "4. 外交部11月2日记者会",
+            "url": "https://www.fmprc.gov.cn/web/wjdt_674879/fyrbt_674889/202611/t20261102_12051610.shtml"
+          },
+          {
+            "label": "5. 外交部11月2日记者会",
+            "url": "https://www.fmprc.gov.cn/web/wjdt_674879/fyrbt_674889/202611/t20261102_12051610.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 英联邦论坛在安提瓜和巴布达联合开幕。11月2日，英联邦商业、民众、妇女及青年论坛举行联合开幕活动，500多名代表参与，议题包括就业、技能和性别平等。秘书长表示，论坛建议将供政府首脑讨论。影响：社会与青年议题进入峰会议程准备阶段；开幕发言和论坛建议不等于成员国已通过共同政策。",
+          "2. 比利时首相递交辞呈，国王暂未决定接受。据美联社11月2日报道，德韦弗因执政联盟预算谈判失败递交辞呈；王室表示国王菲利普暂缓决定是否接受，并计划先与议会党团负责人磋商。影响：预算协调与政府稳定性面临不确定性，但截至该报道，不能称政府已正式解散。",
+          "3. 乌方通报扎波罗热援助点遇袭，死亡人数升至26人。乌克兰总统11月2日晚表示，科米舒瓦哈一处用于分发援助物资的学校建筑遭俄军轰炸，已报告26人死亡、5人住院，搜救仍在继续。路透社报道了相同通报。伤亡与责任认定来自乌方，本文无法独立核实。影响：事件凸显前线平民援助点和救援人员面临的风险。",
+          "4. 美委外长在华盛顿讨论选举准备与制度改革。11月2日，美国国务卿鲁比奥会见委内瑞拉外长奥利弗·布兰科。据美联社和路透社援引的美国国务院会后说明，双方讨论了委内瑞拉主导的和解谈判及选举相关制度改革。影响：此次会面推进了外交接触，但没有据此确认选举日期或改革已经完成。",
+          "5. 美国司法部集中公布涉及 63 人的选举相关起诉。美国司法部 11 月 2 日集中公布涉及 63 人的选举相关起诉，指控包括非法投票、虚假登记等；其中部分案件的诉状此前已经提交，并非当天同时新立案。地方媒体 FOX 5 当天下午报道了该公告及佐治亚州个案。影响：这是一项新的执法信息披露；指控不是定罪，被告享有无罪推定，案件数量也不能直接用于推断全国舞弊规模或选举结果。"
+        ],
+        "sources": [
+          {
+            "label": "1. 英联邦秘书处现场报道",
+            "url": "https://thecommonwealth.org/CHOGM2026/news/joint-forums-top-agenda-commonwealth-events-kick-off"
+          },
+          {
+            "label": "1. 11月2日开幕演讲",
+            "url": "https://thecommonwealth.org/CHOGM2026/speech/commonwealth-secretary-general-joint-forums-opening-ceremony-chogm-2026"
+          },
+          {
+            "label": "2. 美联社原始报道·ABC News刊载",
+            "url": "https://abcnews.com/International/wireStory/belgian-prime-minister-quits-after-budget-talks-fail-137764313"
+          },
+          {
+            "label": "3. 乌克兰总统府11月2日讲话",
+            "url": "https://www.president.gov.ua/en/news/znayemo-vid-rozvidki-sho-rosiya-gotuye-novij-masovanij-udar-107113"
+          },
+          {
+            "label": "3. 路透社交叉报道·DZRH刊载",
+            "url": "https://www.dzrh.com.ph/post/russian-bombing-kills-26-in-village-in-southeastern-ukraine-emergency-services-say"
+          },
+          {
+            "label": "4. 美联社原始报道",
+            "url": "https://apnews.com/article/bc2edbe9c9257e82c821ccdc89035936"
+          },
+          {
+            "label": "4. 路透社会后报道·Yahoo刊载",
+            "url": "https://malaysia.news.yahoo.com/rubio-speaks-venezuelan-minister-reforms-230547222.html"
+          },
+          {
+            "label": "5. 美国司法部原始公告",
+            "url": "https://www.justice.gov/opa/pr/justice-department-announces-charges-involving-63-individuals-election-related-crimes"
+          },
+          {
+            "label": "5. FOX 5 当日地方报道",
+            "url": "https://www.fox5atlanta.com/news/georgia-arrest-among-63-alleged-u-s-election-related-crimes"
+          }
+        ]
+      }
+    ],
+    "closing": "本期收录25条，五栏各5条。影响部分为简短分析，不构成投资建议。",
+    "publishedAt": "2026-11-03T02:19:10Z"
   }
 ]
