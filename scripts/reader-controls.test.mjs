@@ -5,7 +5,7 @@ import { renderReaderControls } from './reader-controls.mjs';
 
 test('reader controls are a native named radio group with one default selection', () => {
   const html = renderReaderControls();
-  assert.match(html, /<fieldset class="reader-controls">/);
+  assert.match(html, /<fieldset class="reader-controls" aria-describedby="reader-controls-help">/);
   assert.match(html, /<legend>阅读字号<\/legend>/);
   assert.equal((html.match(/type="radio" name="reader-size"/g) || []).length, 3);
   assert.equal((html.match(/ checked/g) || []).length, 1);
