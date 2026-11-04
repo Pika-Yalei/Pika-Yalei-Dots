@@ -26,3 +26,12 @@
   .calendar-print li{break-inside:avoid;margin-bottom:8pt;overflow-wrap:anywhere}
   .calendar-print a::after{content:" (https://pika-yalei-dots.yaleizhang.com" attr(href) ")";font-size:9pt;overflow-wrap:anywhere}
 }
+
+/* A summary is visible even while its month is collapsed. */
+.calendar-navigation{display:flex;flex-wrap:wrap;gap:4px 20px;margin:0 0 24px}
+.calendar-navigation p{flex-basis:100%;margin:0;line-height:1.8}
+.calendar-navigation a{display:inline-flex;align-items:center;min-height:44px;max-width:100%;overflow-wrap:anywhere;text-decoration:underline}
+.calendar-month>summary{scroll-margin-top:24px}
+.calendar-month>summary:target{outline:2px solid var(--green);outline-offset:3px}
+@media(forced-colors:active){.calendar-month>summary:target{outline-color:Highlight}}
+@media print{.calendar-navigation{display:none}}
