@@ -27,14 +27,25 @@ test('generated source index exposes download and explicit CSV response headers'
 });
 
 test('CSV appends exact item title and mapping scope after the unchanged six columns',()=>{
- const headers=['source_label','source_url','source_website','article_title','section','article_url','news_item_title','mapping_scope'];
+ const headers=['source_label','source_url','source_website','article_title','section','article_url','news_item_title','mapping_scope','review_date','published_at_utc','news_window_start_utc','news_window_end_utc'];
  assert.equal(renderSourceCsv([]),'\uFEFF'+headers.map(csvCell).join(',')+'\r\n');
  const url='https://github.com/simonw/llm/pull/1771';
  const fixture={slug:'csv-context',date:'2026-10-30',title:'文章',category:'新闻回顾',sections:[{heading:'AI',paragraphs:['1. =SUM(A1), "标题"。事实。','延续。','2. 第二标题。'],sources:[{url,label:'1. 引用'},{url,label:'2. 引用'},{url,label:'补充来源'}]}]};
  const csv=renderSourceCsv([fixture]),refs=collectSources([fixture])[0].references;
  assert.equal(refs.length,3);
- assert.ok(csv.includes(',"\'=SUM(A1), ""标题""","news-item"\r\n'));
- assert.ok(csv.includes(',"第二标题","news-item"\r\n'));
- assert.ok(csv.includes(',"","section"\r\n'));
+ assert.ok(csv.includes(',"\'=SUM(A1), ""标题""","news-item","2026-10-30","","",""\r\n'));
+ assert.ok(csv.includes(',"第二标题","news-item","2026-10-30","","",""\r\n'));
+ assert.ok(csv.includes(',"","section","2026-10-30","","",""\r\n'));
  for(const ref of refs) assert.ok(csv.includes([ref.title,ref.heading,'https://pika-yalei-dots.yaleizhang.com'+ref.href,ref.itemTitle,ref.scope].map(csvCell).join(',')));
+});
+
+
+test('CSV timing columns preserve review, publication and window distinctions without guessing',()=>{
+ const url='https://github.com/simonw/llm/pull/1771';
+ const post={slug:'timing',date:'2026-11-04',publishedAt:'2026-11-04T03:00:00Z',newsWindow:{start:'2026-11-03T02:00:00Z',end:'2026-11-04T02:00:00Z'},title:'Timing',category:'新闻回顾',sections:[{heading:'AI',paragraphs:['1. Item。Fact.'],sources:[{url,label:'1. Source'}]}]};
+ const before=structuredClone(post),csv=renderSourceCsv([post]);
+ assert.ok(csv.includes(',"2026-11-04","2026-11-04T03:00:00Z","2026-11-03T02:00:00Z","2026-11-04T02:00:00Z"\r\n'));
+ assert.deepEqual(post,before);
+ const legacy={...post,publishedAt:undefined,newsWindow:undefined};
+ assert.ok(renderSourceCsv([legacy]).includes(',"2026-11-04","","",""\r\n'));
 });
