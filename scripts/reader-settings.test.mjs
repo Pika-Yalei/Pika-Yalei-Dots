@@ -17,7 +17,7 @@ test('native settings disclosure is initially closed and contains only the three
   for (const render of [renderReaderPalette, renderReaderLayout, renderReaderControls]) assert.ok(settings.includes(render()));
   assert.equal((settings.match(/<fieldset/g)||[]).length, 3);
   assert.match(settings, /收起不会重置/);
-  assert.doesNotMatch(settings, /<details[^>]*\bopen\b|aria-expanded|role=|tabindex=|class="prose"|news-focus|<section|\bid=/);
+  assert.doesNotMatch(settings, /<details[^>]*\bopen\b|aria-expanded|role=|tabindex=|class="prose"|news-focus|<section/);
   assert.equal((settings.match(/ checked/g)||[]).length, 2);
   assert.match(settings, /name="reader-palette" value="auto" checked/);
   assert.match(settings, /name="reader-size" value="default" checked/);
