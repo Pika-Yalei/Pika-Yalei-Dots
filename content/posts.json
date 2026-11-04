@@ -4943,5 +4943,196 @@
     ],
     "closing": "本期收录25条，五栏各5条。影响部分为简短分析，不构成投资建议。",
     "publishedAt": "2026-11-03T02:23:48Z"
+  },
+  {
+    "slug": "news-2026-11-04",
+    "date": "2026-11-04",
+    "title": "2026-11-04｜24 小时新闻简报",
+    "subtitle": "五个栏目，25项新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "AI工具和工程应用继续拓展，多家企业披露季度业绩，全球市场分化；关注APEC会议、中期选举及国际外交进展。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Copilot 接入 JetBrains Air。GitHub 11月3日宣布，开发者可通过 ACP 在 JetBrains IDE 或 Air 云端委派编码任务、并行跟踪会话并审阅代码。云任务使用 Copilot 套餐而非 JetBrains AI 点数，但需要启用 Air Teams 的企业组织、有效订阅及管理员开放。影响：现有 Copilot 用户获得新的 IDE 与云端协作入口，组织仍须分别核对用量治理能力。",
+          "2. Google 为 Antigravity 推出化学信息学技能。11月3日公布的 Cheminformatics Skills 将 RDKit 与 ChEMBL、PubChem 等资源接入研究流程，由模型编排文献整理、化合物分析等工作，确定性工具执行分子计算。影响：有望减少整理数据和衔接工具的重复劳动；官方一小时演示不是药物研发完成或疗效证明，候选分子仍需实验验证。",
+          "3. Cohere Model Vault 开放第三方模型。Cohere 11月3日宣布将 DeepSeek、Gemma、GPT-OSS、Phi 等开放模型纳入托管推理平台。标准 Model Vault 已覆盖美国、欧盟和加拿大；更强加密版本目前仅在美国上线，且支持模型范围不同。影响：企业可以在统一托管平台选择多家模型，但不能假定所有模型具备相同区域与加密支持。",
+          "4. OpenAI 与马自达启动工程研究合作。OpenAI 11月3日宣布与马自达空气动力学及碰撞安全工程团队合作，利用气流和结构仿真探索车辆设计；同时扩展与 Chip Ganassi Racing 的扫描数据转 CAD 研究。影响：AI 工具进一步进入实体工程迭代，但成果仍由工程师审核，合作不是量产车型或新模型正式上市公告。",
+          "5. Claude Code 2.1.318 支持无仓库云会话。11月4日更新允许 Anthropic 托管云会话选择 No repository，并增加已保存登录的到期信息及提前10天警告；从 IDE 终端启动时不再自动安装或更新 IDE 扩展。影响：无需仓库的云端工作更方便，无人值守任务也能更早识别登录到期风险；扩展更新需通过编辑器或指定入口管理。"
+        ],
+        "sources": [
+          {
+            "label": "1. GitHub 官方公告",
+            "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/"
+          },
+          {
+            "label": "2. Google DeepMind 官方公告",
+            "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/"
+          },
+          {
+            "label": "3. Cohere 官方公告",
+            "url": "https://cohere.com/blog/open-source-model-vault"
+          },
+          {
+            "label": "4. OpenAI 官方公告",
+            "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/"
+          },
+          {
+            "label": "5. Claude Code 更新日志",
+            "url": "https://code.claude.com/docs/en/changelog#2-1-318"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. AMD 第三季度收入创纪录，数据中心收入近翻倍。AMD 美国时间11月3日公布季度收入133.77亿美元，同比增长45%；数据中心收入85亿美元，同比增长97%，GAAP净利润24.28亿美元。影响：数据中心业务显著改变收入结构，但客户端与游戏合计收入下降8%，增长并非全面同步。",
+          "2. Shopify 收入增长32%，延续高增长预期。Shopify 11月3日公布第三季度商户商品交易总额1190亿美元，自由现金流利润率22%；预计第四季度收入同比增幅处于30%出头区间。影响：商户交易扩张继续支撑平台收入，同时需要观察增长能否转化为持续现金流。第四季度数字属于公司预期。",
+          "3. 辉瑞上调全年收入与调整后每股收益指引。辉瑞11月3日公布第三季度收入约166亿美元，剔除新冠产品后收入按运营口径增长7%；全年收入指引上调至620亿至640亿美元，调整后稀释每股收益指引为2.95至3.05美元。影响：非新冠产品增长正在支持业务转型，但整体季度收入仍大致持平。",
+          "4. 杜邦再次上调全年指引，拟继续回购。杜邦11月3日公布第三季度净销售额18.68亿美元，同比增长4%；调整后每股收益2.09美元。公司将全年调整后每股收益指引升至7.47至7.52美元，并计划第四季度回购2.5亿美元股票。影响：有机增长和成本效率支撑利润，但回购仍是计划，并非已完成。",
+          "5. 百胜中国提高开店目标，同店销售仍承压。百胜中国11月3日公布第三季度收入35亿美元，同比增长8%，剔除汇率影响增长2%；经营利润增长13%，同店销售下降3%。公司把全年净新增门店目标提高至超过2400家。影响：扩张与运营效率支撑盈利，同店销售表现仍提示消费端压力。"
+        ],
+        "sources": [
+          {
+            "label": "1. AMD 财报公告",
+            "url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results"
+          },
+          {
+            "label": "2. Shopify 财报公告",
+            "url": "https://www.shopify.com/news/shopify-q3-2026-financial-results"
+          },
+          {
+            "label": "3. 辉瑞财报公告",
+            "url": "https://www.pfizer.com/news/press-release/press-release-detail/pfizer-reports-strong-third-quarter-2026-results-and-raises"
+          },
+          {
+            "label": "4. 杜邦发布的新闻稿",
+            "url": "https://www.prnewswire.com/news-releases/dupont-reports-third-quarter-2026-results-302927030.html"
+          },
+          {
+            "label": "5. 百胜中国财报公告",
+            "url": "https://yumchinaholdingsinc.gcs-web.com/news-releases/news-release-details/yum-china-reports-third-quarter-2026-results"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "以下均为当地11月3日交易日收盘，指数单位为点，不是货币；不代表11月4日盘中行情。 交易币种分别为美元、人民币、港元、韩元；STOXX 600 为欧元基准的多币种欧洲指数。",
+          "1. 美股收盘分化。纽约收盘，标普500涨0.4%至7568.92点，纳指涨0.8%至25372.01点，道指跌0.4%至51786.72点。影响：标普多数成分股下跌，指数上涨不代表市场普遍回暖。",
+          "2. A股主要指数下跌，成长板块跌幅较大。北京时间15:00收盘，上证指数跌0.82%至3608.10点，深证成指跌1.21%至10876.99点，创业板指跌2.73%至2391.65点；沪深成交约1.70万亿元人民币。影响：AI硬件调整与红利板块相对走强并存，市场呈结构分化。",
+          "3. 港股连续第三日上涨。香港收盘，恒指涨0.57%至23525.97点，恒生科技指数涨0.74%至3867.73点，南向资金净买入超过230亿港元。影响：港股与内地市场形成分化，消费股和南向资金提供支持。",
+          "4. 韩国股市明显回落，芯片股承压。韩国收盘，KOSPI跌3.59%至5648.79点；外资卖出约1.52万亿韩元。影响：报道将科技股压力与市场对大型科技公司AI资本开支及回报的担忧联系起来，但这不构成单一因果解释。",
+          "5. 欧洲股市收跌，矿业和零售板块拖累。欧洲收盘，STOXX 600跌0.58%至645.66点，零售板块跌约2%，矿业股也受铜价疲弱影响。影响：中东局势、美国选举与企业业绩共同维持市场谨慎情绪。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美联社收盘统计",
+            "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-95ac47c160dba546cbbdf72c10010e2c"
+          },
+          {
+            "label": "2. 澎湃新闻收盘报道／新浪转载",
+            "url": "https://finance.sina.com.cn/jjxw/2026-11-03/doc-inixmxcy2254012.shtml"
+          },
+          {
+            "label": "3. 每日经济新闻收盘报道",
+            "url": "https://www.mrjjxw.com/articles/2026-11-03/4636198.html"
+          },
+          {
+            "label": "4. Aju Press 收盘报道",
+            "url": "https://m.ajupress.com/view/20261103162424676"
+          },
+          {
+            "label": "5. 路透社收盘报道／MarketScreener转载",
+            "url": "https://www.marketscreener.com/news/europe-stocks-set-to-fall-as-us-iran-tensions-fuel-oil-rebound-ce785fd9df81f121"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. APEC 外交和贸易双部长会议举行。外交部11月4日00:20公布，11月3日第37届APEC外交和贸易双部长会议以视频形式在北京举行，王毅、王文涛共同主持。中方提出维护多边贸易体制、削减贸易投资壁垒、加强数智经济规则协调等主张。影响：会议为领导人会议作准备，但不等于已达成新的贸易协定。",
+          "2. 中菲外长通话，提出保持对话、管控分歧。据中国外交部11月3日22:10通报，王毅当日应约同菲律宾外长拉扎罗通电话；双方同意保持外交对话，负责任地管控分歧、稳定局势、扩大共同利益，并讨论东亚合作领导人会议与APEC会议。影响：为双边关系及涉海争议保留沟通渠道；此处对双方共识的描述依据中方通报。",
+          "3. 五中全会精神中央宣讲团首场报告会举行。11月3日下午，首场报告会在人民大会堂举行，唐方裕围绕全面从严治党相关《决定》作报告；约700人参加，宣讲团随后将赴各地宣讲。影响：这是有关部署进入全国性传达落实阶段的新进展，不是当天新通过《决定》。",
+          "4. 国务院公布两项免职。11月3日公布的人事任免消息显示，免去王志军的国务院副秘书长职务、莫高义的国务院新闻办公室主任职务。影响：涉及国务院工作协调与新闻发布系统的人事调整；公告没有解释原因，不作推断。",
+          "5. 外交部公布进博会外国领导人出席安排。外交部11月3日例行记者会公布，加蓬总统恩圭马、奥地利总理施托克尔等外国领导人将出席第九届进博会开幕式及相关活动。展会定于11月5日至10日在上海举行。影响：出席安排为贸易展示与双边交流提供外交层面的议程信息；截至这份公告，展会尚未开幕。"
+        ],
+        "sources": [
+          {
+            "label": "1. 中国外交部通报",
+            "url": "https://www.mfa.gov.cn/wjdt_674879/gjldrhd_674881/202611/t20261104_12052725.shtml"
+          },
+          {
+            "label": "2. 中国外交部通报",
+            "url": "https://www.mfa.gov.cn/web/wjdt_674879/gjldrhd_674881/202611/t20261103_12052654.shtml"
+          },
+          {
+            "label": "3. 新华社原始报道",
+            "url": "https://www.xinhuanet.com/20261103/adfa0cf33e914d159baca7fb049ff49a/c.html"
+          },
+          {
+            "label": "4. 新华社原始报道",
+            "url": "https://www2.xinhuanet.com/politics/20261103/7bedb84a649a4198a569493197312e86/c.html"
+          },
+          {
+            "label": "5. 中国外交部记者会实录",
+            "url": "https://www.mfa.gov.cn/fyrbt_673021/202611/t20261103_12052527.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 美国进入中期选举投票日。美国11月3日举行中期选举，涉及全部435个众议院席位、35个参议院席位及36州州长。影响：选举结果将影响联邦立法、预算与对行政部门的监督。本条记录投票日这一事件，不作尚未核实的席位归属判断。",
+          "2. 卡塔尔称美伊研究调解方案，分歧仍待弥合。卡塔尔外交部发言人安萨里11月3日表示，美伊均在研究调解方方案，仍愿继续谈判；卡方正与巴基斯坦及地区伙伴协调，但没有可宣布的具体突破。影响：外交渠道仍在运作，不能据此认定已达成停火或结束冲突协议。",
+          "3. 泽连斯基访德，德国宣布筹备伙伴峰会。11月3日柏林联合记者会上，德国总理默茨重申对乌克兰防空与能源领域的支持，并宣布计划与法国、英国共同举办“意愿联盟”峰会，协调援助、停火后安全保障及外交努力。影响：欧洲国家继续协调对乌支持，但不能写成新的援助金额已获批准或安全保障已实施。",
+          "4. 国际法院公布罗兴亚人案件裁决日期。国际法院11月3日宣布，将于11月19日对冈比亚诉缅甸涉罗兴亚人种族灭绝案作出判决。缅甸否认种族灭绝指控。影响：案件将进入国家责任裁决的重要阶段；目前只是公布裁决安排，不是已经作出责任认定。 法院公告正文暂未成功读取，日期依据路透社与HRW交叉确认。",
+          "5. 捷克公共媒体员工举行一日罢工。11月3日，捷克公共电视与广播员工反对政府改变融资方式的计划而罢工，部分节目受限。拟议方案将取消家庭广播费，改由国家预算拨款并削减资金。员工担忧编辑独立性受影响；总理巴比什否认意在控制媒体，称为减轻家庭负担。影响：媒体独立性与财政安排争议升级，但方案仍在讨论，不能写成已经实施。"
+        ],
+        "sources": [
+          {
+            "label": "1. 路透社投票日报道",
+            "url": "https://ca.marketscreener.com/news/voting-begins-in-us-midterms-a-referendum-on-trump-s-second-term-ce785fded98df225"
+          },
+          {
+            "label": "2. 新华社22:05最新报道",
+            "url": "https://www.xinhuanet.com/20261103/dcf9de062f3848c6b6fb46ada4297611/c.html"
+          },
+          {
+            "label": "2. 路透社交叉报道",
+            "url": "https://www.al-monitor.com/originals/2026/11/iran-us-still-far-apart-deal-end-war-qatar-pushes-mediation"
+          },
+          {
+            "label": "3. 德国政府记者会实录",
+            "url": "https://www.bundesregierung.de/breg-de/aktuelles/bundeskanzler-pk-selenskyj-berlin-2459660"
+          },
+          {
+            "label": "4. 国际法院公告链接",
+            "url": "https://www.icj-cij.org/sites/default/files/case-related/178/178-20261103-pre-01-00-en.pdf"
+          },
+          {
+            "label": "4. 路透社报道",
+            "url": "https://new.streetinsider.com/Reuters/World%2BCourt%2Bto%2Brule%2Bin%2BRohingya%2Bgenocide%2Bcase%2Bon%2B19%2BNovember/27280155.html"
+          },
+          {
+            "label": "4. HRW交叉核验",
+            "url": "https://www.hrw.org/news/2026/11/03/world-court-set-to-rule-in-myanmar-genocide-case"
+          },
+          {
+            "label": "5. 路透社报道",
+            "url": "https://www.marketscreener.com/news/czech-public-media-launch-strike-accusing-government-of-political-meddling-ce785fd9de80f526"
+          }
+        ]
+      }
+    ],
+    "closing": "事实与判断分开，仍有疑问时回到原始材料。",
+    "publishedAt": "2026-11-04T02:34:00Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-03T02:28:10Z",
+      "end": "2026-11-04T02:28:10Z"
+    }
   }
 ]
