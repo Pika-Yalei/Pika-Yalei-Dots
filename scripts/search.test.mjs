@@ -20,7 +20,8 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  ids['search-order'].value = 'newest';
   ids['search-type'].value = 'all';
   ids['search-topic'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
@@ -307,4 +308,25 @@ test('extended native years cannot silently widen lexicographic date filters', (
   nodes['search-clear'].fire('click');
   assert.equal(nodes['search-to']['aria-invalid'],'false');
   assert.equal((renderSearch([]).match(/min="0001-01-01" max="9999-12-31"/g)||[]).length,2);
+});
+
+
+test('date ordering is stable, resets pagination, prints its context and clears to newest', () => {
+ const records = Array.from({length:55}, (_,index)=>({type:'article',title:`Item ${index}`,detail:'',date:index<2?'2026-01-01':'2026-02-01',href:`/notes/item-${index}/`}));
+ const nodes=boot(records), order=nodes['search-order'];
+ nodes['search-type'].value='article';nodes['search-type'].fire('change');
+ const first=()=>nodes['search-results'].children[0].children[0].children[0].href;
+ assert.equal(first(),'/notes/item-2/');
+ nodes['search-next'].fire('click');
+ order.value='oldest';order.fire('change');
+ assert.equal(nodes['search-results'].start,1);
+ assert.equal(first(),'/notes/item-0/');
+ assert.equal(nodes['search-results'].children[0].children[1].children[0].href,'/notes/item-1/');
+ assert.match(nodes['search-print-context'].textContent,/回顾日期从旧到新/);
+ nodes['search-clear'].fire('click');
+ assert.equal(order.value,'newest');
+ assert.match(nodes['search-status'].textContent,/请输入/);
+ order.value='oldest';order.fire('change');
+ assert.match(nodes['search-status'].textContent,/请输入/);
+ assert.match(renderSearch([]),/label for="search-order"/);
 });
