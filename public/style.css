@@ -92,9 +92,17 @@
 .source-domains{border:1px solid var(--line);padding:12px 16px;margin:24px 0;overflow-wrap:anywhere}.source-domains summary{cursor:pointer;min-height:44px;padding:10px 0}.source-domains summary:focus-visible,.source-entry:focus{outline:2px solid var(--green);outline-offset:7px}.source-domains ul{columns:2;column-gap:32px;padding-left:20px}.source-domains li{break-inside:avoid}.source-domains a{display:inline-block;min-width:44px;min-height:44px;max-width:100%;padding:8px 0}.source-entry{scroll-margin-top:24px}
 @media(max-width:43.75em){.source-domains ul{columns:1}}
 
+/* Long date archives have a native route back to the month chooser. */
+@media screen{
+  #archive-months-title{scroll-margin-top:24px}
+  #archive-months-title:focus{outline:2px solid var(--green);outline-offset:7px}
+  .archive-month-return{margin:16px 0 0}
+}
+
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 .news-outline{border:1px solid var(--line);padding:8px 16px;margin:16px 0 24px;font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}.news-outline summary{cursor:pointer;min-height:44px;padding:10px 0}.news-outline summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.news-outline nav{display:block}.news-outline ul{list-style:none;padding:0;margin:8px 0}.news-outline a{display:block;min-height:44px;padding:10px 0;line-height:1.6;text-decoration:underline}
 @media print{
+  .archive-month-return{display:none}
   .website-initials{display:none}
   #search-controls{display:none}
   .search-print-context{display:block;white-space:pre-wrap;overflow-wrap:anywhere;font-size:10pt;line-height:1.6}
@@ -142,6 +150,7 @@
 
 /* Respect the user's high-contrast palette; outlines never change box geometry. */
 @media screen and (forced-colors:active){
+  #archive-months-title:focus{outline:2px solid Highlight;outline-offset:7px}
   :root{--paper:Canvas;--ink:CanvasText;--muted:CanvasText;--line:CanvasText;--control-border:ButtonText;--green:CanvasText;--wash:Canvas;--selection:Highlight;--selection-ink:HighlightText;--note-muted:CanvasText;--note-rule:CanvasText;--index:CanvasText;--separator:CanvasText}
   /* Underlines identify links even when the palette uses one foreground color. */
   :root a:any-link{color:LinkText;text-decoration-line:underline}

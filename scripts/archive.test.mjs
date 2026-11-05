@@ -17,7 +17,7 @@ test('archive month navigation sorts across years, includes counts and leaves in
   const html = renderArchive(posts);
   const nav = navigation(html);
   assert.ok(nav);
-  assert.match(nav, /aria-labelledby="archive-months-title"><h2 id="archive-months-title">按月份跳转<\/h2><ol>/);
+  assert.match(nav, /aria-labelledby="archive-months-title"><h2 id="archive-months-title" tabindex="-1">按月份跳转<\/h2><ol>/);
   assert.deepEqual([...nav.matchAll(/href="([^"]+)">([^<]+)<\/a>/g)].map(([, href, label]) => [href, label]), [
     ['#month-2026-10', '2026 年 10 月 · 3 篇'],
     ['#month-2026-02', '2026 年 2 月 · 1 篇'],
