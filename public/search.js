@@ -3,7 +3,7 @@
 (() => {
   const normalize = value => value.normalize('NFKC').toLowerCase().replace(/\s+/gu, ' ').trim();
   const data = document.getElementById('search-data');
-  const records = JSON.parse(data.content.textContent).map(record => ({...record, haystack:normalize(`${record.title} ${record.detail}`)}));
+  const records = JSON.parse(data.content.textContent).map(record => ({...record, haystack:normalize(`${record.title} ${record.detail}${record.type === 'source' ? ` ${record.href}` : ''}`)}));
   const ui = document.getElementById('search-ui').content.cloneNode(true);
   const query = ui.querySelector('#search-query');
   const type = ui.querySelector('#search-type');

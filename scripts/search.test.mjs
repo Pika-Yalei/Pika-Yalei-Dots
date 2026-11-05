@@ -356,3 +356,22 @@ test('last page shortcut handles an exact page boundary without an empty page',(
  assert.equal(nodes['search-results'].start,51);assert.equal(nodes['search-results'].children[0].children.length,50);
  assert.equal(nodes['search-next'].disabled,true);assert.equal(nodes['search-last'].disabled,true);
 });
+
+
+test('source URL queries find all citations locally without indexing internal navigation paths', () => {
+ const url='https://example.com/release/v1.2?name=AI&mode=public#result';
+ const nodes=boot([
+  {type:'source',title:'One citation',detail:'example.com',date:'2026-01-02',href:url,reference:'/notes/one/#news-1'},
+  {type:'source',title:'Other citation',detail:'example.com',date:'2026-01-01',href:url,reference:'/notes/two/#news-1'},
+  {type:'article',title:'One article',detail:'summary',date:'2026-01-02',href:'/notes/internal-only-path/'}
+ ]);
+ const query=nodes['search-query'],status=nodes['search-status'],results=nodes['search-results'];
+ query.value=url;query.fire('input');assert.match(status.textContent,/共找到 2 条/);
+ assert.deepEqual(results.children[0].children.map(item=>item.children[2].href),['/notes/one/#news-1','/notes/two/#news-1']);
+ query.value='/RELEASE/V1.2?NAME=ai&MODE=public#RESULT';query.fire('input');assert.match(status.textContent,/共找到 2 条/);
+ nodes['search-from'].value='2026-01-02';nodes['search-from'].fire('change');assert.match(status.textContent,/共找到 1 条/);
+ nodes['search-clear'].fire('click');query.value='internal-only-path';query.fire('input');assert.match(status.textContent,/共找到 0 条/);
+ query.value='https://unlisted.example/private';query.fire('input');assert.match(status.textContent,/共找到 0 条/);
+ assert.match(renderSearch([]),/完整网址或网址片段/);
+ assert.doesNotMatch(script,/fetch\(|XMLHttpRequest|WebSocket|sendBeacon|localStorage|sessionStorage|location\.|history\./);
+});
