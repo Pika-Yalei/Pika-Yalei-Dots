@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-type'].value = 'all';
   ids['search-topic'].value = 'all';
@@ -150,9 +150,11 @@ test('source search uses explicit news mapping including continuation paragraphs
 test('pagination controls keep native disabled state, labels and hidden empty state',()=>{
  const html=renderSearch([]);
  assert.match(html,/<nav id="search-pagination" aria-label="搜索结果分页" hidden>/);
- for(const id of ['previous','next'])assert.ok(html.includes(`id="search-${id}" type="button"`));
+ for(const id of ['first','previous','next','last'])assert.ok(html.includes(`id="search-${id}" type="button"`));
  const css=readFileSync(new URL('../public/style.css',import.meta.url),'utf8');
+ assert.match(css,/#search-pagination\[hidden\]\{display:none\}/);
  assert.match(css,/#search-pagination:not\(\[hidden\]\)\{display:flex/);
+ assert.match(css,/#search-pagination:not\(\[hidden\]\)\{[^}]*flex-wrap:wrap/);
  assert.match(css,/#search-pagination button:disabled\{cursor:default/);
 });
 
@@ -214,7 +216,7 @@ test('explicit paging moves focus to the new range without stealing input focus'
  nodes['search-previous'].fire('click');assert.equal(status.focused,true);
  status.focused=false;nodes['search-query'].fire('input');assert.equal(status.focused,false);
  assert.match(renderSearch([]),/id="search-status" tabindex="-1"/);
- assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,2);
+ assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,4);
 });
 
 test('incomplete native dates block results instead of silently removing a boundary',()=>{
@@ -329,4 +331,28 @@ test('date ordering is stable, resets pagination, prints its context and clears 
  order.value='oldest';order.fire('change');
  assert.match(nodes['search-status'].textContent,/请输入/);
  assert.match(renderSearch([]),/label for="search-order"/);
+});
+
+
+test('first and last page shortcuts reach boundaries, preserve order and reset with filters', () => {
+ const nodes = boot(Array.from({length:151},(_,i)=>({type:'article',title:`AI item ${i}`,detail:'',date:'2026-01-01',href:`/notes/item-${i}/`})));
+ const first = nodes['search-first'],last = nodes['search-last'],results = nodes['search-results'],status = nodes['search-status'];
+ assert.equal(nodes['search-pagination'].hidden,true);
+ nodes['search-type'].value='article';nodes['search-type'].fire('change');
+ assert.equal(first.disabled,true);assert.equal(last.disabled,false);
+ first.fire('click');assert.equal(status.focused,undefined);
+ last.fire('click');assert.equal(results.start,151);assert.equal(last.disabled,true);assert.equal(first.disabled,false);
+ assert.match(status.textContent,/第 4 \/ 4 页/);assert.equal(status.focused,true);
+ assert.equal(results.children[0].children[0].children[0].href,'/notes/item-150/');
+ status.focused=false;last.fire('click');assert.equal(status.focused,false);
+ first.fire('click');assert.equal(results.start,1);assert.equal(status.focused,true);assert.equal(first.disabled,true);
+ last.fire('click');nodes['search-query'].value='item 150';nodes['search-query'].fire('input');
+ assert.equal(results.start,1);assert.equal(nodes['search-pagination'].hidden,true);assert.equal(first.disabled,true);assert.equal(last.disabled,true);
+ nodes['search-clear'].fire('click');assert.equal(first.disabled,true);assert.equal(last.disabled,true);
+});
+test('last page shortcut handles an exact page boundary without an empty page',()=>{
+ const nodes=boot(Array.from({length:100},(_,i)=>({type:'article',title:`AI ${i}`,detail:'',date:'2026-01-01',href:`/notes/${i}/`})));
+ nodes['search-type'].value='article';nodes['search-type'].fire('change');nodes['search-last'].fire('click');
+ assert.equal(nodes['search-results'].start,51);assert.equal(nodes['search-results'].children[0].children.length,50);
+ assert.equal(nodes['search-next'].disabled,true);assert.equal(nodes['search-last'].disabled,true);
 });

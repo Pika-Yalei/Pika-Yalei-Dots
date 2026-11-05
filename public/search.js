@@ -13,9 +13,12 @@
   const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
   const pagination = ui.querySelector('#search-pagination');
+  const first = ui.querySelector('#search-first');
+  const last = ui.querySelector('#search-last');
   const previous = ui.querySelector('#search-previous');
   const next = ui.querySelector('#search-next');
   let page = 1;
+  let pageCount = 1;
   const status = document.getElementById('search-status');
   const results = document.getElementById('search-results');
   const printContext = document.getElementById('search-print-context');
@@ -60,7 +63,10 @@
     }
     results.replaceChildren(fragment);
     results.start = (page - 1) * 50 + 1;
+    pageCount = Math.max(1, Math.ceil(total / 50));
     pagination.hidden = total <= 50;
+    first.disabled = page <= 1;
+    last.disabled = page >= pageCount;
     previous.disabled = page <= 1;
     next.disabled = page * 50 >= total;
     status.textContent = invalidInput ? '日期输入不完整或超出支持范围，请输入 0001–9999 年的完整有效日期；当前未显示结果。' : invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择内容类型、新闻栏目、回顾日期范围。';
@@ -84,6 +90,8 @@
   topic.addEventListener('change', () => update(true));
   order.addEventListener('change', () => update(true));
   type.addEventListener('change', () => update(true));
+  first.addEventListener('click', () => { if (!first.disabled) { page = 1; update(false, true); } });
+  last.addEventListener('click', () => { if (!last.disabled) { page = pageCount; update(false, true); } });
   previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(false, true); } });
   next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(false, true); } });
   clear.addEventListener('click', () => { query.value = ''; order.value = 'newest'; type.value = 'all'; topic.value = 'all'; from.value = ''; to.value = ''; update(true); query.focus(); });
