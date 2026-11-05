@@ -56,9 +56,22 @@ export function sectionSourceGroups(section, numbered = false) {
 export function renderSectionContent(section, escape, numbered = false, separator = '', websiteNavigation = false) {
   const {groups, remaining} = sectionSourceGroups(section, numbered);
   const anchors = numbered && section.id ? newsItemAnchors(section) : [];
-  return groups.map((group, index) => {
+  // Keep continuation paragraphs and their citations inside the same target.
+  // A permalink belongs after the complete item, not between its title and analysis.
+  const blocks = [];
+  for (const [index, group] of groups.entries()) {
     const content = `<p>${escape(group.text)}</p>${renderSourceLinks(group.sources, escape, websiteNavigation)}`;
-    return anchors[index] ? `<div class="news-item" id="${anchors[index]}" tabindex="-1">${content}<a class="news-permalink" href="#${anchors[index]}" aria-label="本条新闻链接：${escape(group.text.replace(/^\d+\.\s+/, '').split('。')[0])}">本条链接</a></div>` : content;
+    if (anchors[index]) {
+      blocks.push({id: anchors[index], title: group.text.replace(/^\d+\.\s+/, '').split('。')[0], parts: [content]});
+    } else if (blocks.at(-1)?.id) {
+      blocks.at(-1).parts.push(content);
+    } else {
+      blocks.push({parts: [content]});
+    }
+  }
+  return blocks.map(block => {
+    const content = block.parts.join(separator);
+    return block.id ? `<div class="news-item" id="${block.id}" tabindex="-1">${content}<a class="news-permalink" href="#${block.id}" aria-label="本条新闻链接：${escape(block.title)}">本条链接</a></div>` : content;
   }).join(separator)
     + (numbered && remaining.length ? '<p class="source-mapping-note">补充来源（原记录未明确对应条目）</p>' : '')
     + renderSourceLinks(remaining, escape, websiteNavigation);
