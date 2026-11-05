@@ -5134,5 +5134,227 @@
       "start": "2026-11-03T02:28:10Z",
       "end": "2026-11-04T02:28:10Z"
     }
+  },
+  {
+    "slug": "news-2026-11-05",
+    "date": "2026-11-05",
+    "title": "2026-11-05｜24 小时新闻简报",
+    "subtitle": "五个栏目，25项新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "AI安全研究和开发工具更新，多家公司披露季度业绩；五地股市收盘分化，关注澜湄合作、美国选举结果与国际政策新进展。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. OpenAI 披露大规模 Linux 漏洞研究。11月4日公布的研究称，其自动化流程在10月中旬的一次运行中复现1724处漏洞，并验证948条本地提权利用路径、生成候选补丁，API成本约121万美元。分析：研究展示了自动化发现、验证和修补漏洞的规模潜力，候选补丁仍需人工审核与维护者接纳。",
+          "2. OpenAI 宣布拟收购 Pierre。11月4日公告称，Pierre 的 Trees 与 Diffs 已用于 Codex；双方计划进一步整合 Git 工作流，开源项目将继续开源，Code Storage 客户可继续使用。分析：收购有助于扩展代理编程的代码管理和审阅工具，但交易尚待监管批准等交割条件。",
+          "3. Gemini 3.8 TTS 新增声音重混。Google 11月4日更新说明宣布，可用自然语言修改预设或已设计声音，生成独立保存的新声音，并用于 Flash TTS 与 Flash-Lite TTS 合成。分析：降低定制语音的操作门槛，为已有语音模型增加更细的声音控制能力。",
+          "4. Copilot 接入 Xcode 内置编码助手。GitHub 11月4日宣布公开预览，自 Xcode 27.3 beta 起支持所有 Copilot 套餐，要求 macOS Tahoe 26.6 或更高版本；现有 Xcode 扩展仍可单独使用。分析：Apple 平台开发者获得原生助手入口，但预览版的适配和稳定性仍需验证。",
+          "5. Dharma-AI 公布文档字段提取模型。团队11月4日介绍20亿参数 Field Extractor，可把文档图像转换为指定结构的 JSON，并披露覆盖546份文档、1638种测试情形的自测结果。分析：专用小模型为高频文档处理提供另一条成本路径；性能与成本比较来自厂商自测，实际效果仍取决于文档与任务。"
+        ],
+        "sources": [
+          {
+            "label": "1. OpenAI 研究原文",
+            "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/"
+          },
+          {
+            "label": "2. OpenAI 收购公告",
+            "url": "https://openai.com/index/openai-to-acquire-pierre/"
+          },
+          {
+            "label": "3. Google Gemini API 更新日志",
+            "url": "https://aistudio.google.com/docs/changelog#11-04-2026"
+          },
+          {
+            "label": "4. GitHub 官方公告",
+            "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/"
+          },
+          {
+            "label": "5. Dharma-AI 团队原始发布",
+            "url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 诺和诺德上调全年指引。11月4日公布第三季度销售额791.95亿丹麦克朗，按固定汇率增长4%；调整后经营利润317.20亿克朗，增长27%，但报告经营利润受减值影响下降9%。公司预计全年调整后销售及经营利润增幅均为−2%至2%。分析：GLP-1业务支持预期改善，调整后增长与减值及同比基数影响需一并观察。",
+          "2. CVS 上调每股收益与现金流预期。11月4日财报显示，第三季度收入1084亿美元，同比增长5.4%；调整后每股收益2.09美元，公司把全年调整后每股收益指引升至至少8.20美元，经营现金流至少155亿美元。分析：医保业务利润率恢复支持盈利，但公司仍提示医疗成本和宏观压力；去年商誉减值也影响了GAAP同比比较。",
+          "3. Arm 财季收入增长27%，数据中心版税翻倍。11月4日公布的2027财年第二季度股东信显示，收入约14.4亿美元，授权及其他收入7.73亿美元、增长50%，版税收入6.70亿美元、增长8%；非GAAP每股收益0.52美元。分析：AI算力需求同时带动授权与数据中心收入，但整体版税增速明显低于授权收入。",
+          "4. Uber 订单增长20%，盈利口径分化。11月4日公布第三季度总预订额598亿美元、收入约148亿美元；GAAP净利润5.12亿美元，其中包括4.76亿美元税前股权投资重估损失，非GAAP每股收益为0.88美元。分析：业务规模继续扩张，但投资估值会显著影响净利润，调整后指标需要与GAAP结果结合观察。",
+          "5. AppLovin 收入增长55%，增加回购额度。11月4日公布第三季度收入21.85亿美元、净利润14.39亿美元，分别同比增长55%和72%；公司披露董事会增加32亿美元回购授权，10月底授权总额达36亿美元。分析：高增长与现金流增强资本回报能力，实际回购规模仍取决于后续执行。"
+        ],
+        "sources": [
+          {
+            "label": "1. 诺和诺德原始新闻稿（StockTitan刊载）",
+            "url": "https://www.stocktitan.net/news/NVO/novo-raises-full-year-outlook-on-continued-glp-1-momentum-with-third-pkn6ybrl9otd.html"
+          },
+          {
+            "label": "2. CVS 官方财报 PDF",
+            "url": "https://s206.q4cdn.com/752775519/files/content_files/Q3-2026-Earnings-Release.pdf"
+          },
+          {
+            "label": "3. Arm 官方股东信",
+            "url": "https://investors.arm.com/static-files/0b5baa2e-fc47-4d05-b724-e49de7bd4356"
+          },
+          {
+            "label": "4. Uber 官方财报",
+            "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Third-Quarter-2026/default.aspx"
+          },
+          {
+            "label": "5. AppLovin 官方财报",
+            "url": "https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Third-Quarter-2026-Financial-Results/default.aspx"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美股三大指数齐涨，道指领跑。纽约11月4日16:00收盘，标普500涨1.58%至7688.62点，道指涨3.03%至53356.12点，纳斯达克综合指数涨1.44%至25736.51点。分析：道指涨幅明显超过纳指，说明当天反弹并非单靠大型科技股推动；选举后的政策预期与油价下跌是报道关注的背景，不宜归结为单一原因。（指数为点位，股票交易币种为美元。）",
+          "2. A股午后反弹，成长指数涨幅更大。北京时间11月4日15:00收盘，上证指数涨2.16%至3686.17点，深证成指涨4.22%至11335.69点，创业板指涨6.40%至2544.73点；沪深成交额约2.04万亿元人民币。分析：成交放大与电子、半导体板块走强同步出现，但银行股仍承压，单日反弹不能直接视为趋势反转。（指数为点位，股票交易币种为人民币。）",
+          "3. 港股午后走强，科技指数由跌转涨。香港11月4日收盘，恒生指数涨1.67%至23919.50点，恒生科技指数涨1.77%至3936.02点。分析：存储芯片、医药和光伏股共同贡献上涨，反弹覆盖多个行业。（指数为点位，股票交易币种为港元。）",
+          "4. 日本股市假期后收跌，日经跌幅盘中收窄。东京11月4日15:30收盘，日经225报62188.63点，较11月2日下跌893.23点、跌幅1.42%；11月3日为当地休市日。指数发布方日报显示，当日最低60030.10点，225只成分股中150只下跌、73只上涨。分析：收盘明显高于日内低位，但下跌股票仍占多数，尾盘回升仍未扭转全日跌势。（指数为点位，股票交易币种为日元。）",
+          "5. 英国股市上涨，银行与贵金属矿业股领先。伦敦11月4日收盘，富时100涨1.79%至10829.21点。路透社称银行板块涨4.48%、贵金属矿业板块涨6.51%。分析：利率预期和金价变化对应不同板块的表现，英国市场的上涨结构与日本科技权重股承压并不相同。（指数为点位，股票交易币种为英镑。）"
+        ],
+        "sources": [
+          {
+            "label": "1. 华尔街日报收盘报道",
+            "url": "https://www.wsj.com/finance/investing/u-s-stocks-rally-on-divided-government-as-ai-wobbles-continue-1a679abe"
+          },
+          {
+            "label": "1. 美联社收盘统计交叉核验",
+            "url": "https://apnews.com/article/c0be7ca45b5875abe758e0570cb9a265"
+          },
+          {
+            "label": "2. 智通财经收盘报道／同花顺转载",
+            "url": "https://news.10jqka.com.cn/20261104/c681452253.shtml"
+          },
+          {
+            "label": "2. 中国宁波网收盘报道／新浪转载",
+            "url": "https://finance.sina.com.cn/jjxw/2026-11-04/doc-inixqhkw1554495.shtml"
+          },
+          {
+            "label": "3. 金吾财讯收盘报道／证券之星转载",
+            "url": "https://wap.stockstar.com/detail/IG2026110400031435"
+          },
+          {
+            "label": "3. 凯基行情页面（MegaHub数据）",
+            "url": "https://webcontent.megahubhk.com/Web/KGIbmp/en/Quote/HKIndicesDetails?code=27360"
+          },
+          {
+            "label": "3. 证券时报收盘快讯／证券之星转载",
+            "url": "https://stock.stockstar.com/IG2026110400031756.shtml"
+          },
+          {
+            "label": "4. 日经指数官网11月4日日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary"
+          },
+          {
+            "label": "4. 共同社收盘快讯／Livedoor转载",
+            "url": "https://news.livedoor.com/article/detail/32730009/"
+          },
+          {
+            "label": "5. 路透社英国收盘报道",
+            "url": "https://www.reuters.com/business/finance/ftse-100-climbs-1-banks-miners-boost-2026-11-04/"
+          },
+          {
+            "label": "5. 路透社全文转载核验",
+            "url": "https://new.streetinsider.com/Reuters/FTSE%2B100%2Bclimbs%2B1%25%2Bon%2Bbanks,%2Bminers%2Bboost/27285391.html"
+          },
+          {
+            "label": "5. MarketWatch收盘行情交叉核验",
+            "url": "https://www.marketwatch.com/data-news/international-consolidated-airlines-group-rises-wednesday-outperforms-market-3c23d163-91de687e70b1"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 最高检披露马兴瑞涉嫌受贿案已提起公诉。新华社11月5日10:00报道，记者当日从最高检获悉，宜昌市检察院近日已向宜昌市中级法院提起公诉。检方指控其利用职务等便利为他人谋利并非法收受财物，数额特别巨大。分析：公诉标志着司法程序进一步推进，指控仍待法院审理认定；实际起诉日期仅披露为“近日”。",
+          "2. 澜湄外长会通过年度项目清单。11月4日，澜沧江—湄公河合作第十一次外长会在北京举行，王毅与泰国外长西哈萨共同主持。会议通过五年行动计划的2025年度落实进展报告及2026年度专项基金支持项目清单，并讨论互联互通、水资源、跨境犯罪和灾害治理合作。分析：年度项目安排进入执行框架，数字经济和预警机制等建议仍需后续落实。",
+          "3. 李强会见世界知识产权组织总干事。11月4日下午，李强在北京会见邓鸿森，提出参与全球知识产权服务体系现代化改革，在世界知识产权组织框架下讨论人工智能和前沿技术，并继续面向全球南方开展能力建设合作。分析：会谈把人工智能与前沿技术纳入知识产权合作讨论，具体规则调整仍待后续协商。",
+          "4. 韩正出席COP31峰会及访格安排公布。外交部11月4日宣布，韩正将作为习近平特别代表，于11月6日至12日赴土耳其出席联合国气候变化大会安塔利亚领导人峰会，并访问格鲁吉亚。分析：公告明确中国参与气候峰会的代表层级，后续需关注大会成果及双边合作进展。",
+          "5. 中方确认就中俄美元首会晤保持沟通。11月4日记者会上，面对有关深圳APEC会议期间可能举行三国元首会晤的提问，外交部回应，中方正就中俄美元首会晤同相关方保持沟通。分析：沟通渠道已经确认，但会晤是否举行、地点与议程仍未公布。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社原始报道",
+            "url": "https://www.news.cn/legal/20261105/c722f4902fb1441c9e92dd756d7f7eac/c.html"
+          },
+          {
+            "label": "1. 路透社交叉报道",
+            "url": "https://www.reuters.com/world/china/china-indicts-ex-politburo-member-ma-bribery-2026-11-05/"
+          },
+          {
+            "label": "2. 中国外交部会议通报",
+            "url": "https://www.mfa.gov.cn/wjbzhd/202611/t20261104_12053242.shtml"
+          },
+          {
+            "label": "3. 中国外交部会见通报",
+            "url": "https://www.mfa.gov.cn/zyxw/202611/t20261104_12053362.shtml"
+          },
+          {
+            "label": "4. 外交部记者会实录／中国驻老挝使馆",
+            "url": "https://la.china-embassy.gov.cn/fyrth/202611/t20261104_12053185.htm"
+          },
+          {
+            "label": "5. 外交部记者会实录／中国驻老挝使馆",
+            "url": "https://la.china-embassy.gov.cn/fyrth/202611/t20261104_12053185.htm"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 民主党赢得美国国会两院控制权。路透社与美联社11月4日报道的计票结果显示，民主党已赢得参众两院多数，部分选区仍未完成结果判定。新一届国会将在2027年1月就职。分析：新国会就职后将改变立法、预算及行政监督格局，重大政策仍需面对总统否决权和跨党协商。",
+          "2. 以色列正式认证议会选举结果。11月4日，中央选举委员会认证10月27日议会选举结果并提交总统赫尔佐格。部分执政联盟代表反对或弃权；委员会认为现有舞弊嫌疑不足以改变结果，相关调查仍继续。分析：认证推进了组阁程序，组阁结果和仍在进行的调查需分别观察。",
+          "3. 印尼总统免去涉嫌窃听案官员职务。安塔拉通讯社11月4日报道，普拉博沃当日上午签署总统令，免去总统办公厅主任利斯蒂奥职务，并任命阿里约临时代理。此前警方将利斯蒂奥等三人列为涉嫌非法窃听、删除电子证据及非法访问的嫌疑人。分析：行政人事处置已发生，但刑事责任仍须经调查与司法程序认定。",
+          "4. 欧委会公布2027年工作计划。11月4日发布的计划将降低能源成本、消除单一市场壁垒与减少行政负担列为重点，并拟提出人工智能应用蓝图、欧洲水资源倡议和热浪应对计划，同时继续推进防务合作。分析：工作计划为后续提案排定方向，相关立法和资金安排仍需另行推进。",
+          "5. 韩国拟扩大清海部队行动区域。路透社北京时间11月5日09:54报道，韩国国防部确认拟向国会提交延长清海部队中东部署的议案，并把行动区域扩大至阿曼杜库姆港附近、距霍尔木兹海峡约650公里的海域。分析：扩大行动区域将影响商船护航与地区风险管理，方案仍待总统、内阁与国会审批。"
+        ],
+        "sources": [
+          {
+            "label": "1. 路透社选举结果报道",
+            "url": "https://www.reuters.com/legal/government/democrats-seize-congress-sweeping-midterm-repudiation-trump-2026-11-04/"
+          },
+          {
+            "label": "1. 美联社原始报道",
+            "url": "https://apnews.com/article/midterm-election-house-senate-democrats-republicans-trump-f126e12e05b579a327b98481c0ae2226"
+          },
+          {
+            "label": "2. 以色列时报现场报道",
+            "url": "https://www.timesofisrael.com/election-chief-presents-results-to-president-says-casting-doubt-on-them-a-real-danger-to-democracy/"
+          },
+          {
+            "label": "2. 新华社交叉报道",
+            "url": "https://www.news.cn/world/20261104/5fcd64176c5b49a8ae6e54c986f8fba0/c.html"
+          },
+          {
+            "label": "3. 安塔拉通讯社原始报道",
+            "url": "https://en.antaranews.com/amp/news/440119/prabowo-dismisses-listyo-names-ariyo-as-presidential-chief-of-staff"
+          },
+          {
+            "label": "3. 新华社交叉报道",
+            "url": "https://www.news.cn/world/20261104/b32bbb874c6a43eeb5e03b3e29b57ea0/c.html"
+          },
+          {
+            "label": "4. 新华社布鲁塞尔原始报道",
+            "url": "https://www.news.cn/20261105/1fbd6409cf8648c59634578349506bdb/c.html"
+          },
+          {
+            "label": "5. 路透社采访韩国国防部",
+            "url": "https://www.reuters.com/world/asia-pacific/south-korea-expand-anti-piracy-unit-operations-closer-strait-hormuz-2026-11-05/"
+          }
+        ]
+      }
+    ],
+    "closing": "事实与判断分开，仍有疑问时回到原始材料。",
+    "publishedAt": "2026-11-05T02:39:00Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-04T02:30:00Z",
+      "end": "2026-11-05T02:30:00Z"
+    }
   }
 ]
