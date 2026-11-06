@@ -35,3 +35,9 @@
 .calendar-month>summary:target{outline:2px solid var(--green);outline-offset:3px}
 @media(forced-colors:active){.calendar-month>summary:target{outline-color:Highlight}}
 @media print{.calendar-navigation{display:none}}
+
+/* Return to the precise day, so keyboard readers can continue across the grid. */
+.calendar-grid a{scroll-margin-top:24px}
+.calendar-grid a:target{outline:2px solid var(--green);outline-offset:-3px}
+.calendar-return{font-size:.875rem}
+@media(forced-colors:active){.calendar-grid a:target{outline-color:Highlight}}

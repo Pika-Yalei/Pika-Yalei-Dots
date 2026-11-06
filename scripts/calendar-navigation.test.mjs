@@ -23,3 +23,28 @@ test('month shortcut style wraps, preserves target visibility and omits print du
  assert.match(css,/summary:target\{outline:2px/);
  assert.match(css,/@media print\{\.calendar-navigation\{display:none/);
 });
+
+
+test('each populated day returns to its own focusable grid cell with no empty-day links', () => {
+  const html = renderNewsCalendar([post('2026-10-30','a'),post('2026-10-30','b'),post('2026-11-01','c')]);
+  for (const date of ['2026-10-30','2026-11-01']) {
+    assert.ok(html.includes(`<a id="calendar-cell-${date}" href="#calendar-day-${date}"`));
+    assert.ok(html.includes(`<a class="calendar-return" href="#calendar-cell-${date}">返回 ${date} 日期格</a>`));
+    assert.equal(html.split(`id="calendar-cell-${date}"`).length, 2);
+    assert.equal(html.split(`href="#calendar-cell-${date}"`).length, 2);
+  }
+  assert.doesNotMatch(html, /calendar-cell-2026-10-31|<script|onclick/);
+  assert.doesNotMatch(renderNewsCalendar([]), /calendar-return|calendar-cell-/);
+});
+
+test('built calendar return destinations are unique, visible and covered by target styles', () => {
+  const html = readFileSync(new URL('../dist/calendar/index.html', import.meta.url), 'utf8');
+  const returns = [...html.matchAll(/class="calendar-return" href="#([^"]+)"/g)].map(match => match[1]);
+  assert.ok(returns.length > 0);
+  assert.equal(new Set(returns).size, returns.length);
+  for (const id of returns) assert.equal(html.split(`id="${id}"`).length, 2);
+  const css = readFileSync(new URL('../public/news-calendar.css', import.meta.url), 'utf8');
+  assert.match(css, /calendar-grid a:target\{outline:2px solid var\(--green\)/);
+  assert.match(css, /@media\(forced-colors:active\)\{\.calendar-grid a:target\{outline-color:Highlight/);
+  assert.match(css, /calendar-entries a\{[^}]*min-height:44px/);
+});
