@@ -5356,5 +5356,219 @@
       "start": "2026-11-04T02:30:00Z",
       "end": "2026-11-05T02:30:00Z"
     }
+  },
+  {
+    "slug": "news-2026-11-06",
+    "date": "2026-11-06",
+    "title": "2026-11-06｜24 小时新闻简报",
+    "subtitle": "五个栏目，25项新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 15,
+    "summary": "从受限开放的安全模型、企业财报到全球市场分化，记录过去24小时的25项公开进展。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. OpenAI 发布 GPT-6 Cyber，并限定首批开放范围。11月5日公告称，该模型在 ExploitGym 上得分48.5%，前代为32.1%；初期通过 API 和 Codex 向部分获批 Daybreak Red 客户提供。分析：安全研究能力继续提升，但上述数据来自厂商评测，且这并非面向所有 ChatGPT 用户的普遍上线。",
+          "2. Claude Enterprise 增加安全与管理功能。Anthropic 11月5日宣布提示词及工具调用前置检查钩子正式可用；安全中心、集中管理及部分访问控制仍为测试版。分析：企业可将既有数据安全政策接入模型工作流，但安全中心建议不等于合规认证，功能范围仍须按具体产品核对。",
+          "3. LeRobot 0.7.0 发布，支持流式训练与远程推理。团队11月5日发布新版本，可直接流式读取机器人数据，并让策略模型在远程 GPU 上运行；训练框架转向 FSDP2/HSDP。分析：有利于降低本地存储和机器人端算力要求，但旧版 FSDP 检查点不能直接恢复训练，升级需先核对兼容性。",
+          "4. Google Vids 接入 Gemini Omni 1.2 Flash。Google 11月5日开始推送，支持3至15秒视频生成，并改进参考对象一致性及声音表现；公告预计1至3天可见，涵盖多种 Workspace 版本及个人账号，使用限额因资格而异。分析：较长片段让视频编排更灵活，但不能把推送启动视为所有账号已获得相同额度。",
+          "5. 微软研究院展示 PDD Kit 形式化验证流程。11月5日原文介绍把开发意图转换为 Verus 规格，并以 Rust 商店应用登录逻辑演示证明与测试结合；第三方库、界面等证明覆盖不到的部分仍依赖实测。分析：工具把审阅重点推向规格与信任边界，并不意味着整个应用已被证明不存在任何缺陷。"
+        ],
+        "sources": [
+          {
+            "label": "1. OpenAI 官方发布",
+            "url": "https://openai.com/index/introducing-gpt-6-cyber/"
+          },
+          {
+            "label": "2. Anthropic 官方说明",
+            "url": "https://claude.com/resources/articles/claude-enterprise-security-updates"
+          },
+          {
+            "label": "3. LeRobot 团队发布",
+            "url": "https://huggingface.co/blog/lerobot/lerobot-release-v070"
+          },
+          {
+            "label": "3. LeRobot 正式版本与升级限制",
+            "url": "https://github.com/huggingface/lerobot/releases/tag/v0.7.0"
+          },
+          {
+            "label": "4. Google Workspace 官方更新",
+            "url": "https://workspaceupdates.googleblog.com/2026/11/gemini-omni-12-flash-now-in-vids-with-15second-generations-and-improved-quality.html"
+          },
+          {
+            "label": "5. 微软研究院原文",
+            "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 丰田在11月5日14:00日本时间（北京时间13:00）的业绩发布会上，上调截至2027年3月财年的营业利润预测，由3.4万亿增至3.9万亿日元，同时把营收预测下调至53.5万亿日元。分析：降成本及价值链业务改善支撑盈利，营收与利润方向不同，不能只凭销量判断经营质量。",
+          "2. Tapestry于11月5日公布2027财年首季业绩：营收18.94亿美元，同比增长11%；Coach收入增长16%，Kate Spade下降10%，GAAP摊薄每股收益1.76美元。公司上调全年预期。分析：品牌间表现分化，比笼统的消费复苏判断更值得关注。",
+          "3. 康菲11月5日披露第三季度盈利40亿美元、每股3.34美元，上年同期为17亿美元和1.38美元；季度普通股息提高11%至每股0.93美元。公司称实现价格上涨推动盈利，产量下降部分抵销。分析：上游企业利润改善不能直接等同于产量扩张，仍需关注能源价格波动。",
+          "4. 康明斯11月5日07:30美东时间发布Q3业绩：营收约94亿美元，GAAP净利润11.40亿美元，摊薄每股收益8.25美元，非GAAP EBITDA率18.9%创纪录。管理层指出数据中心建设带动发电设备需求。分析：AI投资正在传导至电力设备供应链，但不同业务的景气并不一致。",
+          "5. Airbnb于11月5日16:03美东时间（北京时间6日05:03）发布Q3结果：营收约49亿美元，同比增长19%；总预订额277亿美元，增长21%；新增最高120亿美元回购授权。分析：旅游需求与盈利表现改善，回购授权只是可执行上限，不代表已实际回购同等金额。"
+        ],
+        "sources": [
+          {
+            "label": "1. 丰田官方FY2027第二季度财报材料",
+            "url": "https://global.toyota/pages/global_toyota/ir/financial-results/2027_2q_presentation_en.pdf"
+          },
+          {
+            "label": "1. 丰田官方业绩发布会时间",
+            "url": "https://global.toyota/en/newsroom/corporate/44911706.html"
+          },
+          {
+            "label": "2. Tapestry官方业绩公告",
+            "url": "https://investors.tapestry.com/news-releases/news-release-details/tapestry-inc-reports-fiscal-2027-first-quarter-results-and"
+          },
+          {
+            "label": "3. 康菲官方业绩与股息公告",
+            "url": "https://www.conocophillips.com/news-media/story/conocophillips-announces-third-quarter-2026-results-and-increases-quarterly-ordinary-dividend-by-11/"
+          },
+          {
+            "label": "4. 康明斯官方业绩公告",
+            "url": "https://investor.cummins.com/news/detail/705/cummins-reports-strong-third-quarter-2026-results"
+          },
+          {
+            "label": "4. 康明斯IR发布时刻",
+            "url": "https://investor.cummins.com/"
+          },
+          {
+            "label": "5. Airbnb官方财报摘要",
+            "url": "https://news.airbnb.com/airbnb-q3-2026-financial-results"
+          },
+          {
+            "label": "5. Airbnb公司分发稿及准确发布时间",
+            "url": "https://www.prnewswire.com/news-releases/airbnb-announces-third-quarter-2026-results-302917687.html"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 日本市场11月5日收盘，日经225报61,077.90点，下跌1,110.73点，跌幅1.79%；按当地15:30收市计算，对应北京时间14:30。市场基础币种为日元，指数本身以点计。分析：日本股市走弱与同日中港上涨形成分化，不能把亚洲市场概括为同方向行情。",
+          "2. A股11月5日15:00北京时间收盘，上证指数3,689.91点、涨0.10%；深证成指11,471.09点、涨1.19%；创业板指2,566.80点、涨0.87%。股票交易币种为人民币，沪深成交约2.12万亿元人民币，光伏和机器人活跃，石油煤炭偏弱。分析：放量上涨仍伴随明显行业分化。",
+          "3. 香港市场11月5日收盘，恒指24,796.98点、涨3.67%，恒生科技4,154.29点、涨5.55%；主板成交3,566.67亿港元。新华社于当日18:20香港时间发布确认，指数以点计、股票交易币种为港元。分析：科技领涨而石油股偏弱，说明行情上涨并非所有行业同步受益。",
+          "4. 欧洲市场11月5日收盘，STOXX 600报654.87点、跌0.38%；官方17:50中欧时间快照对应北京时间6日00:50，指数采用欧元计价，成分股交易币种因市场而异。路透收盘稿显示科技板块跌3.2%、防务跌2.6%。分析：科技抛售影响延伸至欧洲，但各行业和国家市场表现仍有差异。",
+          "5. 美国市场11月5日14:00美东时间（北京时间6日03:00）盘中，NYSE官方评论称标普500约跌4%、等权指数近跌3%，所有板块下跌，科技及AI基础设施股领跌。这里是盘中快照而非收盘价，股票交易币种为美元，指数以点计。分析：抛售已由部分科技股扩散，短线情绪与企业盈利应分开判断。"
+        ],
+        "sources": [
+          {
+            "label": "1. 日经指数公司11月5日历史日线",
+            "url": "https://indexes.nikkei.co.jp/nkave/statistics/dataload?list=daily"
+          },
+          {
+            "label": "2. 新华财经11月5日A股收评",
+            "url": "https://www.cnfin.com/gs-lb/detail/20261105/4491496_1.html"
+          },
+          {
+            "label": "3. 新华社香港11月5日收盘原稿",
+            "url": "https://www.news.cn/20261105/de8d19b8a8ee462c99431c28415872dd/c.html"
+          },
+          {
+            "label": "4. STOXX官方SXXP欧元价格指数",
+            "url": "https://stoxx.com/index/sxxp/"
+          },
+          {
+            "label": "4. 路透欧洲收盘稿授权转载",
+            "url": "https://new.streetinsider.com/Reuters/Tech%2Bselloff,%2Bdefence%2Bweakness%2Bweigh%2Bon%2BEuropean%2Bshares/27292814.html"
+          },
+          {
+            "label": "5. NYSE官方11月5日14:00 EST盘中评论",
+            "url": "https://www.nyse.com/index"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 国务院公开修改14部、废止4部行政法规的决定。11月5日17:03新华社公布全文，涉及精简基层专项规划、衔接相关法律及机构职责调整；决定此前已于10月29日签署，规定自公布之日起施行。分析：有助于统一行政规则和减少重复规划，各部门仍需逐项落实，不能理解为全面放松监管。",
+          "2. 2027年节假日安排公布。11月5日17:23发布的通知全文明确，春节2月5日至13日放假调休9天，劳动节5天、国庆节7天；春节对应1月31日和2月14日上班。分析：较长假期方便家庭和企业提前安排出行、排班及经营，但连休包含调休，不等于新增同等天数的法定假日。",
+          "3. 九省区自然保护地整合优化获原则同意。11月5日公开的国务院批复涉及辽宁、吉林、江苏、广东、四川、西藏、甘肃、宁夏、新疆；文件成文于10月31日，具体名称、范围和管控分区将另行公布。分析：后续边界及管控规则关系生态保护和项目用地，不能把原则批复视为全部细节已经落地。",
+          "4. 王毅在北京会见朝鲜劳动党代表团。外交部11月5日13:59发布消息，王毅与朝鲜劳动党中央政治局委员、书记兼国际部部长金成男就落实两党两国领导人共识、深化双边关系交换意见，并介绍中共二十届五中全会情况。分析：此次接触延续政治沟通，通稿未宣布新的条约或具体经贸措施。",
+          "5. 赵乐际与列席全国人大常委会会议的代表座谈。新华社11月5日15:48发布通稿，报道当日上午的活动，强调依法履职、联系群众、加强能力建设并自觉接受监督。分析：这是对代表履职和作风建设的工作要求，有助于观察立法与监督重点，不能将座谈讲话等同于新法律通过或生效。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社受权发布决定全文",
+            "url": "https://www.news.cn/politics/20261105/95a013d20fed499c8bd4f54ce185c6c3/c.html"
+          },
+          {
+            "label": "1. 国务院令第851号",
+            "url": "https://www.xinhuanet.com/politics/20261105/58eb5b7304d34ea99a6d8a3335a519fb/c.html"
+          },
+          {
+            "label": "2. 新华社受权发布2027年节假日通知",
+            "url": "https://www1.xinhuanet.com/politics/20261105/69adf4f2f2db490c9fc518874a24d602/c.html"
+          },
+          {
+            "label": "3. 国家林草局公开国务院批复全文",
+            "url": "https://www.forestry.gov.cn/lyj/1/szxx/20261105/695099.html"
+          },
+          {
+            "label": "4. 外交部会见通稿",
+            "url": "https://www.fmprc.gov.cn/web/gjhdq_676201/gj_676203/yz_676205/1206_676404/xgxw_676410/202611/t20261105_12053738.shtml"
+          },
+          {
+            "label": "5. 新华社座谈报道",
+            "url": "https://www.xinhuanet.com/20261105/fd8f590a63574393a839fb3139d5483e/c.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 俄乌代表在白宫讨论人道合作。白宫11月5日通稿确认，梅拉尼娅主持双方代表会面，并称此前奥列什基局部停火已帮助近800名平民撤离及援助进入。分析：此类接触为人道事务保留沟通渠道，但人数属于美方公布口径，局部安排也不代表俄乌全面停火或政治分歧已经解决。",
+          "2. 安理会通过关于战时外交的主席声明。央视北京时间11月6日03:33报道，安理会于纽约时间5日一致通过巴基斯坦起草的声明，强调冲突爆发后仍应保持沟通、调解并推动停止敌对行动。分析：文件体现成员对外交渠道的共同支持，但主席声明本身不会自动实现停火，也不能替代冲突各方的具体安排。",
+          "3. 安理会讨论阿卜耶伊局势与维和工作。英国11月5日公布会议发言，要求未经授权的武装力量撤离这一苏丹与南苏丹争议地区，并关注其被纳入南苏丹12月选举的风险；俄罗斯同期发言也强调政治解决。分析：安全部署与归属争议仍可能影响平民和选举，本次讨论不等于维和授权续期已获通过。",
+          "4. 英国拟立法要求招聘广告披露薪酬。英国政府11月5日宣布，将尽快提出相关立法，帮助年轻求职者比较岗位并减少薪酬信息不对称；目前属于政府提出的政策计划，尚不能视为已经生效的法律。分析：若获通过，企业需要调整岗位薪酬披露流程，具体适用范围和执行日期仍待立法明确。",
+          "5. 美国扩大针对古巴的制裁权限。美国财政部11月5日生效的决定，将古巴电子、制造、海事和技术行业纳入相关行政令适用范围；同日美国还宣布针对有关个人及实体的新制裁。分析：相关跨境业务面临更高合规风险，但行业范围扩大并不意味着其中每家企业都自动被列为制裁对象。"
+        ],
+        "sources": [
+          {
+            "label": "1. 白宫会后通稿",
+            "url": "https://www.whitehouse.gov/briefings-statements/2026/11/first-lady-melania-trump-unites-russia-and-ukraine-at-the-white-house-following-historic-ceasefire/"
+          },
+          {
+            "label": "1. 白宫公布会议时间为11月5日美东11时",
+            "url": "https://www.whitehouse.gov/briefings-statements/2026/11/first-lady-melania-trump-to-convene-russian-and-ukrainian-representatives-at-the-white-house/"
+          },
+          {
+            "label": "2. 央视关于主席声明通过的报道",
+            "url": "https://news.cctv.cn/2026/11/06/ARTIEvQDdxINXcvfqFdgXSpv261106.shtml"
+          },
+          {
+            "label": "3. 英国政府安理会发言全文",
+            "url": "https://www.gov.uk/government/speeches/continued-violations-of-abyeis-demilitarised-status-are-unacceptable-uk-statement-at-the-un-security-council"
+          },
+          {
+            "label": "3. 俄罗斯常驻联合国代表团同次会议发言",
+            "url": "https://russiaun.ru/en/news/05112026"
+          },
+          {
+            "label": "4. 英国政府招聘薪酬立法计划",
+            "url": "https://www.gov.uk/government/news/new-say-what-you-pay-law-to-help-young-people-into-work"
+          },
+          {
+            "label": "5. 美国财政部行业范围决定原件",
+            "url": "https://ofac.treasury.gov/media/937326/download?inline"
+          },
+          {
+            "label": "5. 路透社11月5日17:46Z制裁报道",
+            "url": "https://www.reuters.com/world/americas/us-issues-new-cuba-sanctions-takes-aim-sectors-cuban-economy-2026-11-05/"
+          }
+        ]
+      }
+    ],
+    "closing": "事实与判断分开，仍有疑问时回到原始材料。",
+    "publishedAt": "2026-11-06T02:58:00Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-05T02:50:00Z",
+      "end": "2026-11-06T02:50:00Z"
+    }
   }
 ]
