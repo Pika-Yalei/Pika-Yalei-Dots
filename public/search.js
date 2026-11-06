@@ -77,6 +77,12 @@
   query.addEventListener('compositionstart', () => { composing = true; });
   query.addEventListener('compositionend', () => { composing = false; update(true); });
   query.addEventListener('input', () => { if (!composing) update(true); });
+  // Enter moves to the result count; never steal focus while accepting IME text.
+  query.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' || composing || event.isComposing || event.keyCode === 229) return;
+    event.preventDefault();
+    update(true, true);
+  });
   // Native date segments can change badInput without changing the serialized value.
   const checkDateSegments = () => { if (dateState() !== lastDateState) update(true); };
   for (const input of [from, to]) {

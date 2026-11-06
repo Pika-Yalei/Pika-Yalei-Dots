@@ -15,7 +15,7 @@ class Node {
   append(...nodes) { this.children.push(...nodes); }
   replaceChildren(...nodes) { this.children = nodes; }
   addEventListener(name, callback) { this.listeners[name] = callback; }
-  fire(name) { this.listeners[name]?.(); }
+  fire(name, event = {}) { this.listeners[name]?.(event); }
   focus() { this.focused = true; }
   setAttribute(name, value) { this[name] = value; }
 }
@@ -374,4 +374,28 @@ test('source URL queries find all citations locally without indexing internal na
  query.value='https://unlisted.example/private';query.fire('input');assert.match(status.textContent,/共找到 0 条/);
  assert.match(renderSearch([]),/完整网址或网址片段/);
  assert.doesNotMatch(script,/fetch\(|XMLHttpRequest|WebSocket|sendBeacon|localStorage|sessionStorage|location\.|history\./);
+});
+
+
+test('Enter focuses fresh search results without consuming IME confirmation', () => {
+  const nodes = boot([{type:'article', title:'Find me', detail:'', date:'2026-01-01', href:'/notes/found/'}]);
+  const query = nodes['search-query'], status = nodes['search-status'];
+  query.value = 'Find';
+  let prevented = 0;
+  const enter = {key:'Enter', preventDefault:() => prevented++};
+  query.fire('keydown', {key:'ArrowDown'});
+  query.fire('compositionstart'); query.fire('keydown', enter);
+  assert.equal(status.focused, undefined);
+  query.fire('compositionend');
+  query.fire('keydown', {...enter, isComposing:true});
+  query.fire('keydown', {...enter, keyCode:229});
+  assert.equal(status.focused, undefined);
+  assert.equal(prevented, 0);
+  query.fire('keydown', enter);
+  assert.equal(prevented, 1);
+  assert.equal(status.focused, true);
+  assert.match(status.textContent, /共找到 1 条/);
+  query.value = 'missing'; query.fire('keydown', enter);
+  assert.match(status.textContent, /共找到 0 条/);
+  assert.match(renderSearch([]), /按 Enter 可跳到结果状态/);
 });
