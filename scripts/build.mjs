@@ -92,7 +92,7 @@ for (const [name, bytes] of publicAssets) {
 }
 await writeFile(path.join(out, searchScript), publicAssets.get('search.js'));
 await mkdir(path.join(out, 'search'), {recursive:true});
-await writeFile(path.join(out, 'search/index.html'), layout('站内搜索', '在浏览器本地搜索公开文章、新闻标题与引用来源。', renderSearch(posts), '', '/search/'));
+await writeFile(path.join(out, 'search/index.html'), layout('站内搜索', '在浏览器本地搜索公开文章、新闻标题与引用来源，也可选择匹配新闻正文。', renderSearch(posts), '', '/search/'));
 for (const [original, fingerprint] of stylesheets) {
   await writeFile(path.join(out, fingerprint), publicAssets.get(original));
 }

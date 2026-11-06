@@ -20,8 +20,9 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
+  ids['search-scope'].value = 'summary';
   ids['search-type'].value = 'all';
   ids['search-topic'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
@@ -398,4 +399,57 @@ test('Enter focuses fresh search results without consuming IME confirmation', ()
   query.value = 'missing'; query.fire('keydown', enter);
   assert.match(status.textContent, /共找到 0 条/);
   assert.match(renderSearch([]), /按 Enter 可跳到结果状态/);
+});
+
+
+test('news full text keeps continuation paragraphs with exactly their own item', () => {
+  const post = {slug:'prose', date:'2026-11-01', title:'简报', summary:'概述', category:'新闻回顾', sections:[
+    {heading:'AI', paragraphs:['说明不索引', '1. First。事实甲。', '影响甲。', '2. Second。事实乙。', '影响乙。']},
+    {heading:'商业', paragraphs:['新章节说明', '1. Third。事实丙。']}
+  ]};
+  const before = structuredClone(post);
+  const entries = collectSearchEntries([post]);
+  assert.deepEqual(entries.filter(item => item.type === 'headline').map(item => item.body), [
+    '1. First。事实甲。\n影响甲。', '2. Second。事实乙。\n影响乙。', '1. Third。事实丙。'
+  ]);
+  assert.deepEqual(post, before);
+  assert.ok(entries.filter(item => item.type !== 'headline').every(item => item.body === undefined));
+  const html = renderSearch([{...post, sections:[{heading:'AI', paragraphs:['1. Title。</template><script>unsafe</script>']}]}]);
+  assert.doesNotMatch(html, /<script>/);
+  assert.match(html, /&lt;script&gt;/);
+});
+
+test('optional news prose matching respects scope, filters, normalization and clear', () => {
+  const records = [
+    {type:'headline', topics:['ai'], title:'Title', detail:'AI', body:'ＡＢＣ 中文续段', date:'2026-11-01', href:'/notes/test/#news-one'},
+    {type:'source', title:'Source', detail:'example.test', body:'中文续段', date:'2026-11-01', href:'https://example.test/'}
+  ];
+  const nodes = boot(records), query = nodes['search-query'], scope = nodes['search-scope'], status = nodes['search-status'];
+  query.value = 'abc 中文续段'; query.fire('input');
+  assert.match(status.textContent, /共找到 0 条/);
+  scope.value = 'body'; scope.fire('change');
+  assert.match(status.textContent, /共找到 1 条/);
+  assert.equal(nodes['search-results'].children[0].children[0].children[0].href, '/notes/test/#news-one');
+  assert.match(nodes['search-print-context'].textContent, /匹配范围：同时匹配新闻正文/);
+  nodes['search-topic'].value = 'world'; nodes['search-topic'].fire('change');
+  assert.match(status.textContent, /共找到 0 条/);
+  query.value = '中文续段';
+  nodes['search-topic'].value = 'all'; nodes['search-type'].value = 'source'; nodes['search-type'].fire('change');
+  assert.match(status.textContent, /共找到 0 条/);
+  nodes['search-clear'].fire('click');
+  assert.equal(scope.value, 'summary');
+  assert.match(nodes['search-print-context'].textContent, /匹配范围：标题、摘要与来源/);
+  assert.match(renderSearch([]), /label for="search-scope"/);
+});
+
+test('changing news prose scope resets pagination and does not turn scope alone into a filter', () => {
+  const nodes = boot(Array.from({length:73}, (_,index) => ({type:'headline',title:'Title',detail:'',body:'Body',date:'2026-11-01',href:`/notes/test/#${index}`})));
+  const scope = nodes['search-scope'];
+  scope.value = 'body'; scope.fire('change');
+  assert.match(nodes['search-status'].textContent, /请输入/);
+  nodes['search-query'].value = 'Body'; nodes['search-query'].fire('input');
+  nodes['search-next'].fire('click'); assert.equal(nodes['search-results'].start, 51);
+  scope.value = 'summary'; scope.fire('change');
+  assert.equal(nodes['search-results'].start, 1);
+  assert.match(nodes['search-status'].textContent, /共找到 0 条/);
 });
