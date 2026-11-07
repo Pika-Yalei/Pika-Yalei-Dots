@@ -5570,5 +5570,183 @@
       "start": "2026-11-05T02:50:00Z",
       "end": "2026-11-06T02:50:00Z"
     }
+  },
+  {
+    "slug": "news-2026-11-07",
+    "date": "2026-11-07",
+    "title": "2026-11-07｜24 小时新闻简报",
+    "subtitle": "五个栏目，25项新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 16,
+    "summary": "机器人研究与开发工具更新、公司财报、全球收盘行情，以及中国与欧洲的政策进展。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Ai2 发布 ToyBlocks 机器人学习环境。11月6日发布的首个 FoundationWorld 围绕机械臂与桌面积木，自动生成任务及示范数据，并记录成功率之外的执行速度、作用力和任务进展。分析：可控环境有助于定位模型失败原因；这是一套研究工具，不能据此推断机器人已能胜任开放世界工作。",
+          "2. Harness Hub 发布面向不同 Agent 框架的 LoRA 适配器方案。作者11月6日介绍在 pi、opencode、hermes 内开展强化学习，并以 safeagents 检查工具调用；早期冒烟测试中，部分适配器减少工具调用而维持或提高准确率。分析：训练开始针对具体运行框架优化，但结果仍属作者的小规模实验，不代表通用安全保证。",
+          "3. @GitHub 在 Slack 与 Teams 正式可用。11月6日公告称，用户可在对话中调查问题、创建 issue、实施修改并开启 PR；Teams Canvas 支持一起查看计划、变更和预览，新建 issue 与 PR 会标注对话来源。分析：协作入口更接近日常讨论，但实际仓库权限仍是操作边界。",
+          "4. Copilot 影响仪表盘纳入聊天和 VS Code Agent 使用。11月6日更新把参与度覆盖扩至九种体验，企业与组织的28天 API 报告也增加相应字段。分析：聊天型使用更容易被看见，但这两类行为不直接计入采用阶段，不能把指标覆盖扩大解读为团队生产率提升。",
+          "5. Copilot 代码评审新增 API 管理能力。11月7日北京时间早晨发布的更新允许按角色管理企业、组织及仓库设置，并提供评审归属、使用力度及部分来源元数据。分析：有利于审计与批量管理；企业、组织端点暂不支持 GitHub Apps 或细粒度令牌，不能照搬仓库端点的鉴权方式。"
+        ],
+        "sources": [
+          {
+            "label": "1. Ai2 团队原文",
+            "url": "https://huggingface.co/blog/allenai/toyblocks"
+          },
+          {
+            "label": "2. Harness Hub 作者发布",
+            "url": "https://huggingface.co/blog/harness-hub/harness-adapters"
+          },
+          {
+            "label": "3. GitHub 官方发布",
+            "url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available/"
+          },
+          {
+            "label": "4. GitHub 指标更新",
+            "url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/"
+          },
+          {
+            "label": "5. GitHub 评审更新",
+            "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. Moderna 上调全年营收增长预期。公司11月6日披露第三季度营收13.13亿美元，同比增长29%，净利润1.62亿美元；全年收入增长预期由不超过10%调至15%至25%。分析：销售与成本改善推动展望上修，但财务表现不等同于任何产品疗效或新适应证获批。",
+          "2. Interface 收入增长有限，调整后利润继续改善。11月6日业绩公告显示，第三季度销售额3.667亿美元，同比增长0.6%；GAAP 每股收益0.67美元，同比下降14.1%，调整后每股收益0.68美元，同比增长11.5%。分析：两种利润口径方向相反，评估经营状况需同时关注调整项目，而不能只引用较好的一组数字。",
+          "3. Humana 上调年度调整后每股收益下限。11月6日公告将全年调整后 EPS 预期由至少9美元提高至至少9.50美元；第三季度 GAAP EPS 为1.33美元，调整后每股亏损0.70美元。分析：年度预期改善与季度调整后亏损并存，应分别理解，不能把上调指引写成当季已全面转强。",
+          "4. Calumet 披露第三季度利润及去杠杆进展。公司11月6日宣布季度净利润2.733亿美元，调整后 EBITDA 为3.220亿美元；含税务属性的另一个调整后口径为3.472亿美元。公司称7月以来已偿还约2.65亿美元债务。分析：利润、调整后指标和还债金额是不同口径，观察偿债能力仍需结合现金流。",
+          "5. 美国10月新增16.5万个非农岗位。劳工统计局11月6日发布报告，失业率为4.1%；私人非农平均时薪环比升0.4%、同比升3.1%。8月和9月新增就业合计上修8.4万人。分析：就业和工资数据为需求判断提供新依据，但单月报告及后续修订不足以确定央行下一次利率决定。"
+        ],
+        "sources": [
+          {
+            "label": "1. Moderna 向 SEC 提交的业绩公告",
+            "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm"
+          },
+          {
+            "label": "2. Interface 投资者公告",
+            "url": "https://investors.interface.com/news/news-details/2026/Interface-Reports-Third-Quarter-2026-Results/default.aspx"
+          },
+          {
+            "label": "3. Humana 官方财报",
+            "url": "https://humana.gcs-web.com/node/41421"
+          },
+          {
+            "label": "4. Calumet 公司发布的业绩新闻稿",
+            "url": "https://www.prnewswire.com/news-releases/calumet-reports-third-quarter-2026-results-302931990.html"
+          },
+          {
+            "label": "5. 美国劳工统计局就业报告",
+            "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 日本股市显著下跌。11月6日东京收盘，日经225报57,434.77点，较前一交易日61,077.90点下跌约5.96%。日本股票交易币种为日元，指数以点计。分析：单日波动幅度很大，但不能据指数变化直接推断全部日本企业盈利同步恶化。",
+          "2. A股三大指数收跌。11月6日北京时间15时收盘，上证指数3,649.18点，跌1.10%；深证成指11,175.78点，跌2.57%；创业板指2,465.23点，跌3.96%。A股交易币种为人民币，指数以点计；沪深成交额约1.66万亿元人民币。分析：成长板块跌幅更大，成交金额下降不应被简单解释为全部资金离场。",
+          "3. 港股恒指与科技指数回落。11月6日香港收盘，恒生指数报24,481.86点，跌1.27%；恒生科技指数跌1.83%，国企指数跌1.13%。市场股票交易币种为港元，指数以点计。分析：科技板块表现更弱，但行业集中度不同，不宜将其跌幅与恒指直接视为同类组合比较。",
+          "4. 欧洲主要股市收低。11月6日欧洲收盘，欧元价格口径的 STOXX 600 报648.33点，跌1.00%；DAX 跌1.92%，CAC 40 跌0.81%，英国 FTSE 100 跌1.01%。德国、法国股票交易币种为欧元，英国为英镑；上述指数均以点计。分析：当日下跌覆盖多个市场，不能仅用单一科技股叙事解释全部变化。",
+          "5. 美国三大股指收盘分化。当地11月6日16时、北京时间11月7日5时，美股收盘：道指51,285.73点，跌0.46%；标普500报7,376.86点，升0.31%；纳指24,579.42点，升1.09%。股票以美元交易，指数以点计。分析：科技反弹与道指下跌并存，局部修复不等于前一日跌幅已全部收复。"
+        ],
+        "sources": [
+          {
+            "label": "1. 日经官方每日数据",
+            "url": "https://indexes.nikkei.co.jp/nkave/statistics/dataload?list=daily"
+          },
+          {
+            "label": "2. 新华财经当日收盘报道",
+            "url": "https://www.cnfin.com/gs-lb/detail/20261106/4492047_1.html"
+          },
+          {
+            "label": "3. 新浪财经港股收盘报道",
+            "url": "https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-11-06/doc-inixuuqw8766859.shtml"
+          },
+          {
+            "label": "4. 路透欧洲收盘报道",
+            "url": "https://www.reuters.com/markets/europe/european-shares-set-fall-global-ai-rout-gathers-pace-2026-11-06/"
+          },
+          {
+            "label": "5. 新华财经纽约收盘原始报道",
+            "url": "https://www.cnfin.com/yw-lb/detail/20261107/4492419_1.html"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 国务院常务会议部署经济工作并研究社会救助。11月6日会议提出推进重大项目、发挥政策资金作用，并加强就业与风险防范；社会救助方面强调动态监测、数据共享和服务衔接。分析：本次是政策部署，具体项目落地、资金规模和地方实施效果仍需后续文件与数据验证。",
+          "2. 反跨境腐败法获通过并公布全文。11月6日全国人大常委会通过该法，明确跨境腐败范围，建立由国家监察委员会牵头的工作机制，并规定案件办理、国际合作及廉洁合规要求。第四十七条规定自公布之日起施行。分析：企业跨境经营合规框架进一步明确；通过与具体执法结果是两回事，个案仍须依法定程序判断。",
+          "3. 南极活动与环境保护法获通过。该法11月6日通过并公布，第五十九条明确自2027年1月1日起施行。法律规定，开展南极活动原则上须取得许可，仅以通过为目的且不靠抵南极的航运活动除外；申请涉及活动方案、环境评估、应急及保险材料。分析：科研、旅游和航运的组织责任更加具体，并非宣布开放南极矿产商业开发。",
+          "4. 中国与加蓬签署早期收获安排谈判结束备忘录。商务部11月6日称，双方就关税减让、原产地规则和实施程序等达成一致，并签署相关文件。分析：这一进展为双边贸易安排提供制度基础，但结束谈判不等于所有具体减让已在当日执行，适用时间需依后续安排。",
+          "5. 中美经贸牵头人举行视频通话。商务部刊载的消息称，北京时间11月6日晚，何立峰与贝森特、格里尔就落实双方领导人共识及经贸事项交换意见，中方表达对相关限制措施的关切，双方同意保持沟通。分析：沟通渠道继续运作，但通话本身不能视为已达成新的关税或贸易协议。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社国务院常务会议报道",
+            "url": "https://www.cnfin.com/hg-lb/detail/20261106/4492366_1.html"
+          },
+          {
+            "label": "2. 新华社受权发布法律全文",
+            "url": "https://www.news.cn/politics/20261106/dadda64918534f8e9cb2521b40f58346/c.html"
+          },
+          {
+            "label": "3. 新华社受权发布法律全文",
+            "url": "https://www.news.cn/politics/20261106/7972b2cb24704fe393e104fe42135a8b/c.html"
+          },
+          {
+            "label": "4. 商务部原创发布",
+            "url": "https://www.mofcom.gov.cn/xwfb/bldhd/art/2026/art_884a3523858f4f4fbdb76d2c3dfea8b5.html"
+          },
+          {
+            "label": "5. 商务部刊载新华社通话报道",
+            "url": "https://www.mofcom.gov.cn/xwfb/ldrhd/art/2026/art_181968933abd4dd8afb0bdc4d86b6923.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 欧元集团公布欧洲央行行长职位的两名提名人选。11月6日声明确认收到西班牙提名的 Pablo Hernández de Cos 与荷兰提名的 Klaas Knot，欧元集团拟于11月9日讨论。分析：接任程序进入候选人审议阶段，但提名不是正式任命，政策方向也不能由候选名单直接推定。",
+          "2. 欧盟与黑山暂时结束两个入盟谈判章节。11月6日会议结束货物自由流动及食品安全等相关章节的谈判，暂时关闭的章节达到33章中的23章。分析：技术谈判取得进展，但“暂时关闭”可被重新审议，不等于黑山已经获得欧盟成员资格。",
+          "3. 欧盟理事会同意能源与轮胎标签简化谈判立场。11月6日通过的立场拟扩大数字信息使用、减少重复提交，并保留消费者按需获取纸质信息的渠道。分析：目标是降低合规负担，同时维持消费信息可得性；这仍是理事会立场，须与欧洲议会完成立法协商。",
+          "4. 欧盟理事会主张部分甲烷进口规则推迟一年。11月6日立场拟将进口监测、报告和核证要求从2027年推至2028年，并相应顺延甲烷强度报告与限值节点。分析：能源供应与排放监管之间的政策权衡更加明显，但议会协商尚未完成，不能将提案日期当成已生效的新期限。",
+          "5. 欧盟与西巴尔干司法内务论坛发布联合声明。11月6日结束的布德瓦论坛强调加强网络诈骗调查、数字取证和跨境协作，并讨论移民、庇护与边境管理。分析：区域安全合作议题进一步细化；声明表达共同方向，不代表各国法律、数据访问权限已即时统一。"
+        ],
+        "sources": [
+          {
+            "label": "1. 欧元集团主席声明",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/06/statement-by-the-eurogroup-president-on-the-nominations-for-the-post-of-ecb-president/"
+          },
+          {
+            "label": "2. 欧盟理事会扩员公告",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/06/enlargement-eu-and-montenegro-close-accession-negotiations-on-free-movement-of-goods-and-food-safety/"
+          },
+          {
+            "label": "3. 欧盟理事会标签规则公告",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/06/simplification-council-agrees-position-to-simplify-energy-and-tyre-labelling/"
+          },
+          {
+            "label": "4. 欧盟理事会甲烷规则公告",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/06/methane-regulation-council-agrees-to-postpone-monitoring-rules-for-one-year/"
+          },
+          {
+            "label": "5. 欧盟与西巴尔干联合声明",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/06/joint-press-release-eu-western-balkans-ministerial-forum-on-justice-and-home-affairs-budva-montenegro-5-6-november-2026/"
+          }
+        ]
+      }
+    ],
+    "closing": "市场表现是已结束交易日的记录，不构成个性化投资建议。政策提案、谈判立场与正式实施分别标明。",
+    "publishedAt": "2026-11-07T03:05:32Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-06T03:01:47Z",
+      "end": "2026-11-07T03:01:47Z"
+    }
   }
 ]
