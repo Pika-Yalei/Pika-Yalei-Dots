@@ -39,6 +39,7 @@
   .article-reader:has(input[name="reader-narrow"]:checked) .prose{max-width:28em;margin-inline:auto}
   .article-reader:has(input[name="reader-spaced"]:checked) .prose p{line-height:2.2;margin-block:1.5em}
   .article-reader:has(input[name="reader-spaced"]:checked) .article-sources{line-height:2.2}
+  .article-reader:has(input[name="reader-sans"]:checked) .prose{font-family:var(--sans)}
 }
 @media print{.reader-layout{display:none}}
 @media (forced-colors:active){.reader-layout label:has(input:checked){border-color:Highlight}.reader-layout label:has(input:focus-visible){outline-color:Highlight}}
