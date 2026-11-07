@@ -57,6 +57,23 @@
       const detail = document.createElement('p');
       detail.textContent = `${record.date} · ${labels[record.type]} · ${record.detail}`;
       item.append(link, detail);
+      // Keep original text intact: expansion is optional and uses safe text sinks.
+      if (scope.value === 'body' && terms.length && record.type === 'headline' && record.body) {
+        const matches = record.body.split('\n').filter(paragraph => terms.some(term => normalize(paragraph).includes(term)));
+        if (matches.length) {
+          const context = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.textContent = '查看匹配正文';
+          context.className = 'search-match-context';
+          context.append(summary);
+          for (const paragraph of matches) {
+            const text = document.createElement('p');
+            text.textContent = paragraph;
+            context.append(text);
+          }
+          item.append(context);
+        }
+      }
       if (record.reference) {
         const reference = document.createElement('a');
         reference.textContent = record.referenceLabel || '查看引用章节';
