@@ -207,3 +207,9 @@
 .website-initials ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
 .website-initials a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border:1px solid var(--control-border);border-radius:3px}
 .website-initials a:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+
+/* Optional original paragraphs explain full-text matches without crowding the list. */
+.search-match-context{margin-block:8px;padding-inline:12px;border-inline-start:2px solid var(--line)}
+.search-match-context>summary{cursor:pointer;min-height:44px;padding-block:8px;overflow-wrap:anywhere}
+.search-match-context>summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+@media(forced-colors:active){.search-match-context>summary:focus-visible{outline-color:Highlight}}

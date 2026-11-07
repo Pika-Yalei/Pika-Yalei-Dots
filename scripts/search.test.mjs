@@ -453,3 +453,20 @@ test('changing news prose scope resets pagination and does not turn scope alone 
   assert.equal(nodes['search-results'].start, 1);
   assert.match(nodes['search-status'].textContent, /共找到 0 条/);
 });
+
+
+test('full-text matches expose original matching paragraphs through optional native disclosures', () => {
+ const body='1. Title。First fact.\nＡＩ <img src=x> detail.\nAnother unrelated paragraph.';
+ const nodes=boot([{type:'headline',title:'Title',detail:'AI',date:'2026-01-01',href:'/notes/example/#news-1',body}]);
+ nodes['search-query'].value='ai'; nodes['search-query'].fire('input');
+ assert.equal(nodes['search-results'].children[0].children[0].children.length,2);
+ nodes['search-scope'].value='body'; nodes['search-scope'].fire('change');
+ const disclosure=nodes['search-results'].children[0].children[0].children[2];
+ assert.equal(disclosure.className,'search-match-context');
+ assert.equal(disclosure.children[0].textContent,'查看匹配正文');
+ assert.equal(disclosure.children[1].textContent,'ＡＩ <img src=x> detail.');
+ assert.equal(disclosure.children.length,2);
+ assert.equal(disclosure.open,undefined);
+ nodes['search-query'].value=''; nodes['search-type'].value='headline'; nodes['search-type'].fire('change');
+ assert.equal(nodes['search-results'].children[0].children[0].children.length,2);
+});
