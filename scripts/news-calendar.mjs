@@ -31,9 +31,20 @@ export function collectNewsCalendar(posts) {
   });
 }
 
+
+// A review-day calendar must not imply that a backfilled article was published that day.
+export function renderCalendarPublication(post) {
+  if (!post.publishedAt) return '';
+  const instant = new Date(post.publishedAt);
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(post.publishedAt) || !Number.isFinite(instant.getTime()) || instant.toISOString() !== post.publishedAt.replace('Z', '.000Z')) throw new RangeError('Invalid calendar publication timestamp');
+  const label = post.publicationKind === 'backfill' ? '补发时间' : '发布时间';
+  const text = instant.toLocaleString('sv-SE', {timeZone:'Asia/Shanghai', hour12:false});
+  return `<span class="calendar-publication">${label}：<time datetime="${escape(post.publishedAt)}">${escape(text)}</time>（北京时间）</span>`;
+}
+
 export function renderCalendarPrint(months) {
   if (!months.length) return '';
-  return `<section class="calendar-print" aria-label="新闻日历打印清单"><h2>全部新闻简报</h2>${months.map(month => `<h3>${escape(month.month)}</h3><ul>${month.days.flatMap(day => day.posts.map(post => `<li><time datetime="${day.date}">${day.date}</time> · <a href="/notes/${escape(post.slug)}/">${escape(post.title)}</a></li>`)).join('')}</ul>`).join('')}</section>`;
+  return `<section class="calendar-print" aria-label="新闻日历打印清单"><h2>全部新闻简报</h2>${months.map(month => `<h3>${escape(month.month)}</h3><ul>${month.days.flatMap(day => day.posts.map(post => `<li><time datetime="${day.date}">${day.date}</time> · <a href="/notes/${escape(post.slug)}/">${escape(post.title)}</a>${renderCalendarPublication(post)}</li>`)).join('')}</ul>`).join('')}</section>`;
 }
 
 export function renderMonthNavigation(months) {
@@ -43,5 +54,5 @@ export function renderMonthNavigation(months) {
 
 export function renderNewsCalendar(posts) {
   const months = collectNewsCalendar(posts);
-  return `<div class="article-shell news-calendar"><header class="article-header"><h1>新闻日历</h1><p class="article-subtitle">按简报回顾日期定位文章。点击有文章的日期，可跳到当天的标题列表。空白日期表示本站未刊发该回顾日的新闻简报，不代表当天没有新闻；实际发布时间请看文章页。</p></header>${renderMonthNavigation(months)}${months.length ? months.map((month, index) => `<details class="calendar-month" id="calendar-month-${escape(month.month)}"${index === 0 ? ' open' : ''}><summary id="calendar-summary-${escape(month.month)}">${escape(month.month)} · ${month.count} 篇简报</summary><table class="calendar-grid"><caption>${escape(month.month)} 新闻简报（周一开始）</caption><thead><tr>${weekdays.map(day => `<th scope="col"><span aria-hidden="true">${day}</span><span class="sr-only">星期${day}</span></th>`).join('')}</tr></thead><tbody>${month.weeks.map(week => `<tr>${week.map(day => !day ? '<td class="calendar-padding"></td>' : day.posts.length ? `<td><a id="calendar-cell-${day.date}" href="#calendar-day-${day.date}" aria-label="${day.date}，${day.posts.length} 篇新闻简报"><time datetime="${day.date}">${day.day}</time><small>${day.posts.length}篇</small></a></td>` : `<td><span class="calendar-empty" aria-label="${day.date}，未刊发新闻简报">${day.day}</span></td>`).join('')}</tr>`).join('')}</tbody></table><div class="calendar-entries">${month.days.filter(day => day.posts.length).map(day => `<section aria-labelledby="calendar-day-${day.date}"><h2 id="calendar-day-${day.date}" tabindex="-1"><time datetime="${day.date}">${day.date}</time> · ${day.posts.length} 篇</h2><ul>${day.posts.map(post => `<li><a href="/notes/${escape(post.slug)}/">${escape(post.title)}</a></li>`).join('')}</ul><p><a class="calendar-return" href="#calendar-cell-${day.date}">返回 ${day.date} 日期格</a></p></section>`).join('')}</div><p><a href="/archive/${month.month}/">阅读本月全部手记</a></p></details>`).join('') : '<p>暂未刊发新闻简报。</p>'}${renderCalendarPrint(months)}<p><a href="/archive/">全部日期归档</a> · <a href="/headlines/">按新闻条目浏览</a></p></div>`;
+  return `<div class="article-shell news-calendar"><header class="article-header"><h1>新闻日历</h1><p class="article-subtitle">按简报回顾日期定位文章。点击有文章的日期，可跳到当天的标题列表。空白日期表示本站未刊发该回顾日的新闻简报，不代表当天没有新闻；实际发布时间请看文章页。</p></header>${renderMonthNavigation(months)}${months.length ? months.map((month, index) => `<details class="calendar-month" id="calendar-month-${escape(month.month)}"${index === 0 ? ' open' : ''}><summary id="calendar-summary-${escape(month.month)}">${escape(month.month)} · ${month.count} 篇简报</summary><table class="calendar-grid"><caption>${escape(month.month)} 新闻简报（周一开始）</caption><thead><tr>${weekdays.map(day => `<th scope="col"><span aria-hidden="true">${day}</span><span class="sr-only">星期${day}</span></th>`).join('')}</tr></thead><tbody>${month.weeks.map(week => `<tr>${week.map(day => !day ? '<td class="calendar-padding"></td>' : day.posts.length ? `<td><a id="calendar-cell-${day.date}" href="#calendar-day-${day.date}" aria-label="${day.date}，${day.posts.length} 篇新闻简报"><time datetime="${day.date}">${day.day}</time><small>${day.posts.length}篇</small></a></td>` : `<td><span class="calendar-empty" aria-label="${day.date}，未刊发新闻简报">${day.day}</span></td>`).join('')}</tr>`).join('')}</tbody></table><div class="calendar-entries">${month.days.filter(day => day.posts.length).map(day => `<section aria-labelledby="calendar-day-${day.date}"><h2 id="calendar-day-${day.date}" tabindex="-1"><time datetime="${day.date}">${day.date}</time> · ${day.posts.length} 篇</h2><ul>${day.posts.map(post => `<li><a href="/notes/${escape(post.slug)}/">${escape(post.title)}</a>${renderCalendarPublication(post)}</li>`).join('')}</ul><p><a class="calendar-return" href="#calendar-cell-${day.date}">返回 ${day.date} 日期格</a></p></section>`).join('')}</div><p><a href="/archive/${month.month}/">阅读本月全部手记</a></p></details>`).join('') : '<p>暂未刊发新闻简报。</p>'}${renderCalendarPrint(months)}<p><a href="/archive/">全部日期归档</a> · <a href="/headlines/">按新闻条目浏览</a></p></div>`;
 }
