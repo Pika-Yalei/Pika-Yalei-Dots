@@ -41,3 +41,6 @@
 .calendar-grid a:target{outline:2px solid var(--green);outline-offset:-3px}
 .calendar-return{font-size:.875rem}
 @media(forced-colors:active){.calendar-grid a:target{outline-color:Highlight}}
+
+.calendar-publication{display:block;font-size:.8125rem;line-height:1.7;color:var(--muted);margin-bottom:8px;overflow-wrap:anywhere}
+@media print{.calendar-publication{font-size:9pt;color:inherit;margin-bottom:0}}

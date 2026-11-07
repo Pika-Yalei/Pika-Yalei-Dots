@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { daysInMonth, collectNewsCalendar, renderNewsCalendar } from './news-calendar.mjs';
+import { daysInMonth, collectNewsCalendar, renderNewsCalendar, renderCalendarPublication } from './news-calendar.mjs';
 const post = (date, slug = date, title = date) => ({date, slug, title, category: '新闻回顾'});
 
 test('calendar handles Gregorian leap years and invalid dates', () => {
@@ -72,4 +72,20 @@ test('built calendar, sitemap and archive expose the stable calendar route', asy
   assert.match(sitemap, /\/calendar\/<\/loc>/);
   assert.match(archive, /href="\/calendar\/">用日历定位新闻简报日期/);
   assert.doesNotMatch(html, /<script/);
+});
+
+
+test('calendar separates review dates from actual Beijing publication and backfill instants', () => {
+ const original={...post('2026-11-06','news-original'),publishedAt:'2026-11-07T01:23:45Z',publicationKind:'original'};
+ const backfill={...post('2026-10-01','news-backfill'),publishedAt:'2026-11-06T20:00:00Z',publicationKind:'backfill'};
+ const html=renderNewsCalendar([original,backfill]);
+ assert.match(html,/id="calendar-day-2026-11-06"/);
+ assert.match(html,/发布时间：<time datetime="2026-11-07T01:23:45Z">2026-11-07 09:23:45<\/time>（北京时间）/);
+ assert.match(html,/补发时间：<time datetime="2026-11-06T20:00:00Z">2026-11-07 04:00:00<\/time>/);
+ for(const item of [original,backfill]) {
+  const publication=renderCalendarPublication(item);
+  assert.equal(html.split(publication).length-1,2,'screen and print lists use the same instant');
+ }
+ assert.equal(renderCalendarPublication(post('2026-11-06')), '');
+ for(const publishedAt of ['bad','2026-02-30T00:00:00Z','2026-11-06T12:00:00Z" onclick="x']) assert.throws(()=>renderCalendarPublication({...original,publishedAt}),RangeError);
 });
