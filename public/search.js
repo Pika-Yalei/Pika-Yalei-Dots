@@ -16,6 +16,7 @@
   const from = ui.querySelector('#search-from');
   const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
+  const dateError = ui.querySelector('#search-date-error');
   const pagination = ui.querySelector('#search-pagination');
   const first = ui.querySelector('#search-first');
   const last = ui.querySelector('#search-last');
@@ -38,6 +39,10 @@
     const invalidRange = from.value && to.value && from.value > to.value;
     from.setAttribute('aria-invalid', String(Boolean(invalidDate(from) || invalidRange)));
     to.setAttribute('aria-invalid', String(Boolean(invalidDate(to) || invalidRange)));
+    dateError.textContent = invalidInput
+      ? `${[invalidDate(from) ? '起始日期' : '', invalidDate(to) ? '结束日期' : ''].filter(Boolean).join('、')}未填写完整或无效。请使用 0001–9999 年的有效日期。`
+      : invalidRange ? '起始日期晚于结束日期。请调整任一日期，起止日期均包含在查询内。' : '';
+    dateError.hidden = !invalidInput && !invalidRange;
     const hasFilter = terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all';
     const fragment = document.createDocumentFragment();
     let total = 0;

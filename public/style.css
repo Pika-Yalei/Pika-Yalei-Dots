@@ -213,3 +213,7 @@
 .search-match-context>summary{cursor:pointer;min-height:44px;padding-block:8px;overflow-wrap:anywhere}
 .search-match-context>summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}
 @media(forced-colors:active){.search-match-context>summary:focus-visible{outline-color:Highlight}}
+
+#search-date-error{margin:0;padding:10px 12px;border-inline-start:3px solid var(--green);font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}
+#search-date-error[hidden]{display:none}
+#search-controls input[aria-invalid="true"]{border-width:2px;border-style:dashed}

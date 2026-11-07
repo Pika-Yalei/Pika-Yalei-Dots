@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-scope'].value = 'summary';
   ids['search-type'].value = 'all';
@@ -229,7 +229,7 @@ test('incomplete native dates block results instead of silently removing a bound
  to.validity={badInput:true};to.fire('input');assert.equal(to['aria-invalid'],'true');assert.equal(nodes['search-pagination'].hidden,true);
  to.validity={badInput:false};to.value='2025-12-31';to.fire('change');assert.equal(from['aria-invalid'],'true');assert.equal(to['aria-invalid'],'true');
  to.value='2026-01-01';to.fire('input');assert.equal(from['aria-invalid'],'false');assert.equal(to['aria-invalid'],'false');
- assert.equal((renderSearch([]).match(/type="date" min="0001-01-01" max="9999-12-31" aria-describedby="search-help search-status"/g)||[]).length,2);
+ assert.equal((renderSearch([]).match(/type="date" min="0001-01-01" max="9999-12-31" aria-describedby="search-help search-date-error"/g)||[]).length,2);
 
 });
 
@@ -469,4 +469,21 @@ test('full-text matches expose original matching paragraphs through optional nat
  assert.equal(disclosure.open,undefined);
  nodes['search-query'].value=''; nodes['search-type'].value='headline'; nodes['search-type'].fire('change');
  assert.equal(nodes['search-results'].children[0].children[0].children.length,2);
+});
+
+
+test('date errors sit beside date controls, identify invalid fields and clear after recovery', () => {
+ const html=renderSearch([]);
+ for(const id of ['search-from','search-to']) assert.match(html,new RegExp(`id="${id}"[^>]+aria-describedby="search-help search-date-error"[^>]+aria-errormessage="search-date-error"`));
+ assert.match(html,/<p id="search-date-error" hidden><\/p><button id="search-clear"/);
+ const nodes=boot([]),from=nodes['search-from'],to=nodes['search-to'],error=nodes['search-date-error'];
+ assert.equal(error.hidden,true);
+ from.validity={badInput:true}; from.fire('input');
+ assert.match(error.textContent,/起始日期未填写完整/); assert.equal(error.hidden,false);
+ assert.equal(from['aria-invalid'],'true'); assert.equal(to['aria-invalid'],'false');
+ from.validity={}; from.value='2026-11-07'; to.value='2026-11-01'; to.fire('input');
+ assert.match(error.textContent,/起始日期晚于结束日期/); assert.equal(to['aria-invalid'],'true');
+ to.value='2026-11-08'; to.fire('change');
+ assert.equal(error.hidden,true); assert.equal(error.textContent,'');
+ assert.equal(from['aria-invalid'],'false'); assert.equal(to['aria-invalid'],'false');
 });
