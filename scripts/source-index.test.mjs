@@ -69,7 +69,7 @@ test('numbered keyboard links, current page and previous/next links match source
   const posts = fixtures(sourcePageSize*2+1);
   for (const number of [1,2,3]) {
     const html = renderSourceIndex(posts,number);
-    assert.equal([...html.matchAll(/aria-current="page"/g)].length,1);
+    assert.equal([...html.matchAll(/aria-current="page"/g)].length,2);
     assert.ok(html.includes(`aria-label="第 ${number} 页，当前页"`));
     assert.equal(html.includes('rel="prev"'),number > 1);
     assert.equal(html.includes('rel="next"'),number < 3);
@@ -106,4 +106,19 @@ test('built source pages include each cited URL exactly once with canonical meta
     await assert.rejects(stat(path.join(temp,'dist/sources/page')), {code:'ENOENT'});
     await validateLinks(path.join(temp,'dist'));
   } finally { await rm(temp,{recursive:true,force:true}); }
+});
+
+
+test('long source indexes have matching navigation before and after references',()=>{
+ for(const number of [1,2,3]) {
+  const html=renderSourceIndex(fixtures(sourcePageSize*2+1),number);
+  const top=html.indexOf('aria-label="来源分页（顶部）"');
+  const list=html.indexOf('<li class="source-entry"');
+  const bottom=html.indexOf('aria-label="来源分页"');
+  assert.ok(top>=0 && top<list && bottom>list);
+  const navigations=[...html.matchAll(/<nav class="pagination"[^>]*>(.*?)<\/nav>/g)];
+  assert.equal(navigations.length,2);
+  assert.equal(navigations[0][1],navigations[1][1]);
+ }
+ for(const count of [0,1,40]) assert.doesNotMatch(renderSourceIndex(fixtures(count)),/aria-label="来源分页/);
 });
