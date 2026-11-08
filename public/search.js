@@ -18,6 +18,10 @@
   const from = ui.querySelector('#search-from');
   const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
+  const latest = ui.querySelector('#search-latest');
+  const latestDate = records.reduce((date, record) => record.date > date ? record.date : date, '');
+  latest.disabled = !latestDate;
+  latest.textContent = latestDate ? `最新收录回顾日：${latestDate}` : '暂无可筛选回顾日';
   const dateError = ui.querySelector('#search-date-error');
   const pagination = ui.querySelector('#search-pagination');
   const first = ui.querySelector('#search-first');
@@ -129,6 +133,7 @@
   last.addEventListener('click', () => { if (!last.disabled) { page = pageCount; update(false, true); } });
   previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(false, true); } });
   next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(false, true); } });
+  latest.addEventListener('click', () => { if (!latest.disabled) { from.value = latestDate; to.value = latestDate; update(true); } });
   clear.addEventListener('click', () => { query.value = ''; scope.value = 'summary'; order.value = 'newest'; type.value = 'all'; topic.value = 'all'; from.value = ''; to.value = ''; update(true); query.focus(); });
   update();
   // Reveal controls only after data parsing and all handlers succeeded. No form submission.

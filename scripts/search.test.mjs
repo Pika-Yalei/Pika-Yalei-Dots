@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-scope'].value = 'summary';
   ids['search-type'].value = 'all';
@@ -475,7 +475,7 @@ test('full-text matches expose original matching paragraphs through optional nat
 test('date errors sit beside date controls, identify invalid fields and clear after recovery', () => {
  const html=renderSearch([]);
  for(const id of ['search-from','search-to']) assert.match(html,new RegExp(`id="${id}"[^>]+aria-describedby="search-help search-date-error"[^>]+aria-errormessage="search-date-error"`));
- assert.match(html,/<p id="search-date-error" hidden><\/p><button id="search-clear"/);
+ assert.match(html,/<p id="search-date-error" hidden><\/p><button id="search-latest"/);
  const nodes=boot([]),from=nodes['search-from'],to=nodes['search-to'],error=nodes['search-date-error'];
  assert.equal(error.hidden,true);
  from.validity={badInput:true}; from.fire('input');
@@ -501,4 +501,20 @@ test('quoted phrases require contiguous normalized text and combine with other t
  query.value='"开源 模型" fast';query.fire('input');assert.match(nodes['search-status'].textContent,/共找到 1 条/);
  query.value='"open source"';nodes['search-scope'].value='body';nodes['search-scope'].fire('change');
  assert.equal(nodes['search-results'].children[0].children[0].children[2].children[1].textContent,'Original open source context.');
+});
+
+
+test('latest review-day shortcut uses indexed dates and preserves every other search filter',()=>{
+ const records=[{type:'headline',topics:['ai'],title:'Model',detail:'Fast',date:'2026-11-01',href:'/notes/a/'},{type:'headline',topics:['ai'],title:'Model',detail:'Fast',date:'2026-11-07',href:'/notes/b/'}];
+ const nodes=boot(records);
+ assert.equal(nodes['search-latest'].textContent,'最新收录回顾日：2026-11-07');
+ for(const [id,value] of [['query','model'],['scope','body'],['topic','ai'],['type','headline'],['order','oldest']]) nodes[`search-${id}`].value=value;
+ nodes['search-latest'].fire('click');
+ assert.equal(nodes['search-from'].value,'2026-11-07');assert.equal(nodes['search-to'].value,'2026-11-07');
+ for(const [id,value] of [['query','model'],['scope','body'],['topic','ai'],['type','headline'],['order','oldest']]) assert.equal(nodes[`search-${id}`].value,value);
+ assert.match(nodes['search-status'].textContent,/共找到 1 条/);
+ assert.equal(nodes['search-results'].children[0].children[0].children[0].href,'/notes/b/');
+ nodes['search-clear'].fire('click');assert.equal(nodes['search-from'].value,'');assert.equal(nodes['search-to'].value,'');
+ const empty=boot([]);assert.equal(empty['search-latest'].disabled,true);empty['search-latest'].fire('click');assert.equal(empty['search-from'].value,'');
+ assert.match(renderSearch([]),/不代表今天、实际发布时间或实时新闻/);
 });
