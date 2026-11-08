@@ -27,11 +27,13 @@ export function renderAdjacent(posts, index) {
   const newer = posts[index - 1];
   const older = posts[index + 1];
   const links = [];
+  const current = posts[index];
+  const reviewLabel = (post, direction) => `${post.date === current.date ? '同回顾日手记' : direction} · 回顾日 <time datetime="${escape(post.date)}">${escape(post.date)}</time>`;
   if (older) {
-    links.push(`<a href="/notes/${escape(older.slug)}/" rel="prev"><span>上一篇 · 较早的手记</span>${escape(older.title)}</a>`);
+    links.push(`<a href="/notes/${escape(older.slug)}/" rel="prev"><span>上一篇 · ${reviewLabel(older, '较早的手记')}</span>${escape(older.title)}</a>`);
   }
   if (newer) {
-    links.push(`<a href="/notes/${escape(newer.slug)}/" rel="next"><span>下一篇 · 较新的手记</span>${escape(newer.title)}</a>`);
+    links.push(`<a href="/notes/${escape(newer.slug)}/" rel="next"><span>下一篇 · ${reviewLabel(newer, '较新的手记')}</span>${escape(newer.title)}</a>`);
   }
   if (!links.length) {
     return '';
