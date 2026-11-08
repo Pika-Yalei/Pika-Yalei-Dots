@@ -2,6 +2,8 @@
 // This reviewed script runs only on /search/. All data was embedded at build time.
 (() => {
   const normalize = value => value.normalize('NFKC').toLowerCase().replace(/\s+/gu, ' ').trim();
+  // Quoted phrases remain contiguous; an unfinished quote treats the remainder as one phrase.
+  const queryTerms = value => [...normalize(value).matchAll(/"([^"]*)"|"([^"]+)$|(\S+)/gu)].map(match => (match[1] ?? match[2] ?? match[3]).trim()).filter(Boolean);
   const data = document.getElementById('search-data');
   const records = JSON.parse(data.content.textContent).map(record => {
     const haystack = normalize(`${record.title} ${record.detail}${record.type === 'source' ? ` ${record.href}` : ''}`);
@@ -34,7 +36,7 @@
   function update(reset = false, focusResults = false) {
     if (reset) page = 1;
     lastDateState = dateState();
-    const terms = normalize(query.value.slice(0,200)).split(' ').filter(Boolean);
+    const terms = queryTerms(query.value.slice(0,200));
     const invalidInput = [from, to].some(invalidDate);
     const invalidRange = from.value && to.value && from.value > to.value;
     from.setAttribute('aria-invalid', String(Boolean(invalidDate(from) || invalidRange)));
