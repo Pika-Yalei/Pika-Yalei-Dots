@@ -487,3 +487,18 @@ test('date errors sit beside date controls, identify invalid fields and clear af
  assert.equal(error.hidden,true); assert.equal(error.textContent,'');
  assert.equal(from['aria-invalid'],'false'); assert.equal(to['aria-invalid'],'false');
 });
+
+
+test('quoted phrases require contiguous normalized text and combine with other terms',()=>{
+ const records=[{type:'headline',title:'Open source model 开源 模型',detail:'Fast',body:'Original open source context.',date:'2026-11-01',href:'/notes/a/'},{type:'headline',title:'Open model with source 开源 其他 模型',detail:'Fast',body:'Other context',date:'2026-11-01',href:'/notes/b/'}];
+ const nodes=boot(records),query=nodes['search-query'];
+ query.value='open source';query.fire('input');assert.match(nodes['search-status'].textContent,/共找到 2 条/);
+ query.value='"ＯＰＥＮ   SOURCE" fast';query.fire('input');assert.match(nodes['search-status'].textContent,/共找到 1 条/);
+ assert.equal(nodes['search-results'].children[0].children[0].children[0].href,'/notes/a/');
+ query.value='"open source" missing';query.fire('input');assert.match(nodes['search-status'].textContent,/共找到 0 条/);
+ query.value='""';query.fire('input');assert.match(nodes['search-status'].textContent,/请输入/);
+ query.value='"open';query.fire('input');assert.match(nodes['search-status'].textContent,/共找到 2 条/);
+ query.value='"开源 模型" fast';query.fire('input');assert.match(nodes['search-status'].textContent,/共找到 1 条/);
+ query.value='"open source"';nodes['search-scope'].value='body';nodes['search-scope'].fire('change');
+ assert.equal(nodes['search-results'].children[0].children[0].children[2].children[1].textContent,'Original open source context.');
+});
