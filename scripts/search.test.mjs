@@ -518,3 +518,17 @@ test('latest review-day shortcut uses indexed dates and preserves every other se
  const empty=boot([]);assert.equal(empty['search-latest'].disabled,true);empty['search-latest'].fire('click');assert.equal(empty['search-from'].value,'');
  assert.match(renderSearch([]),/不代表今天、实际发布时间或实时新闻/);
 });
+
+test('fallback date fields reject impossible calendar days and century leap errors', () => {
+  const nodes = boot([{type:'article',title:'date',detail:'',date:'2026-01-01',href:'/notes/date/'}]);
+  const from = nodes['search-from'];
+  for (const value of ['2026-02-30', '1900-02-29', '2026-04-31', '0000-01-01', '2026-13-01']) {
+    from.value = value; from.fire('input');
+    assert.equal(from['aria-invalid'], 'true', value);
+    assert.equal(nodes['search-results'].children[0].children.length, 0);
+  }
+  for (const value of ['2000-02-29', '0001-01-01', '9999-12-31']) {
+    from.value = value; from.fire('input');
+    assert.equal(from['aria-invalid'], 'false', value);
+  }
+});
