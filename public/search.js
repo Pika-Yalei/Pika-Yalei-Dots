@@ -18,6 +18,8 @@
   const from = ui.querySelector('#search-from');
   const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
+  const browse = ui.querySelector('#search-browse');
+  let browsingAll = false;
   const latest = ui.querySelector('#search-latest');
   const latestDate = records.reduce((date, record) => record.date > date ? record.date : date, '');
   latest.disabled = !latestDate;
@@ -57,7 +59,7 @@
       ? `${[invalidDate(from) ? '起始日期' : '', invalidDate(to) ? '结束日期' : ''].filter(Boolean).join('、')}未填写完整或无效。请使用 0001–9999 年的有效日期。`
       : invalidRange ? '起始日期晚于结束日期。请调整任一日期，起止日期均包含在查询内。' : '';
     dateError.hidden = !invalidInput && !invalidRange;
-    const hasFilter = terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all';
+    const hasFilter = browsingAll || terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all';
     const fragment = document.createDocumentFragment();
     let total = 0;
     // Stable sorting preserves article/headline/source order within the same day.
@@ -119,7 +121,7 @@
     previous.disabled = page <= 1;
     next.disabled = page * 50 >= total;
     status.textContent = invalidInput ? '日期输入不完整或超出支持范围，请输入 0001–9999 年的完整有效日期；当前未显示结果。' : invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择内容类型、新闻栏目、回顾日期范围。';
-    printContext.textContent = `搜索快照：匹配范围：${scope.value === 'body' ? '同时匹配新闻正文' : '标题、摘要与来源'}；排序：${order.value === 'oldest' ? '回顾日期从旧到新' : '回顾日期从新到旧'}；关键词：${query.value.slice(0,200) || '未指定'}；内容类型：${labels[type.value] || '全部'}；新闻栏目：${({ai:'AI',business:'商业',markets:'股票市场','china-policy':'中国政治与政策',world:'国际政治与重大事件'})[topic.value] || '全部'}；回顾日期：${invalidDate(from) ? '无效或未填完整' : from.value || '不限'} 至 ${invalidDate(to) ? '无效或未填完整' : to.value || '不限'}。仅包含当前显示的一页结果，不是全部匹配内容。结果范围及输入错误见下方状态。`;
+    printContext.textContent = `搜索快照：浏览模式：${browsingAll ? '全部条目起步，可继续筛选' : '条件搜索'}；匹配范围：${scope.value === 'body' ? '同时匹配新闻正文' : '标题、摘要与来源'}；排序：${order.value === 'oldest' ? '回顾日期从旧到新' : '回顾日期从新到旧'}；关键词：${query.value.slice(0,200) || '未指定'}；内容类型：${labels[type.value] || '全部'}；新闻栏目：${({ai:'AI',business:'商业',markets:'股票市场','china-policy':'中国政治与政策',world:'国际政治与重大事件'})[topic.value] || '全部'}；回顾日期：${invalidDate(from) ? '无效或未填完整' : from.value || '不限'} 至 ${invalidDate(to) ? '无效或未填完整' : to.value || '不限'}。仅包含当前显示的一页结果，不是全部匹配内容。结果范围及输入错误见下方状态。`;
     if (focusResults) status.focus();
   }
   let composing = false;
@@ -151,7 +153,9 @@
   previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(false, true); } });
   next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(false, true); } });
   latest.addEventListener('click', () => { if (!latest.disabled) { from.value = latestDate; to.value = latestDate; update(true); } });
-  clear.addEventListener('click', () => { query.value = ''; scope.value = 'summary'; order.value = 'newest'; type.value = 'all'; topic.value = 'all'; from.value = ''; to.value = ''; update(true); query.focus(); });
+  const resetFilters = () => { query.value = ''; scope.value = 'summary'; order.value = 'newest'; type.value = 'all'; topic.value = 'all'; from.value = ''; to.value = ''; };
+  browse.addEventListener('click', () => { resetFilters(); browsingAll = true; update(true, true); });
+  clear.addEventListener('click', () => { resetFilters(); browsingAll = false; update(true); query.focus(); });
   update();
   // Reveal controls only after data parsing and all handlers succeeded. No form submission.
   document.getElementById('search-controls').append(ui);
