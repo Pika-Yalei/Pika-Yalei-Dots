@@ -5847,5 +5847,140 @@
       "start": "2026-11-07T02:23:33Z",
       "end": "2026-11-08T02:23:33Z"
     }
+  },
+  {
+    "slug": "news-2026-11-09",
+    "date": "2026-11-09",
+    "title": "2026-11-09｜24 小时新闻简报",
+    "subtitle": "编码Agent更新、企业采购与治理、印度特别交易，以及物价数据和国际新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 8,
+    "summary": "五栏分别收录2、4、1、2、4条，共13项独立进展；距每栏5条的目标分别缺3、1、4、3、1条。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "本栏收录2条可靠新增，距5条目标仍缺3条；未用旧闻补足。",
+          "1. Open WebUI 0.13.3把编码Agent接入定时任务。11月8日23:48 UTC（北京时间9日07:48）发布的版本允许保存终端、工作目录和该终端可用的编码Agent；运行前检查可用性，结果送入聊天。它还允许聊天中切换终端和目录，并修复局域网HTTP下的复制操作。分析：定时编码从模型选择扩展到执行环境，但仍依赖终端在线及Agent可用，不能理解为任务必定成功。",
+          "2. Claudian 2.3.40更新笔记内的编码Agent体验。该Obsidian插件于11月8日04:08 UTC（北京时间12:08）发布，新增DeepSeek Harness的apply_patch支持和补丁展示，让聊天字号随笔记字号缩放，并修复Claude /goal菜单入口及部分启动清理行为。分析：更新改善笔记与代码协作的可用性，不代表所接入模型本身升级，也不替代对文件修改的审查。"
+        ],
+        "sources": [
+          {
+            "label": "1. Open WebUI官方发行说明",
+            "url": "https://github.com/open-webui/open-webui/releases/tag/v0.13.3"
+          },
+          {
+            "label": "2. Claudian官方发行说明",
+            "url": "https://github.com/YishenTu/claudian/releases/tag/2.3.40"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "本栏收录4条可靠新增，距5条目标仍缺1条；未用旧闻补足。",
+          "1. NVIDIA董事会启动独立调查。11月8日官方声明称，针对创始人兼CEO黄仁勋成为外国情报活动目标的相关报道，由独立董事委员会在外部独立律师协助下开展调查。董事会表示目前没有理由认为美国国家安全或公司机密受损，黄仁勋支持审查并承诺配合。分析：新增事实是公司治理层面的调查启动，不能写成泄密已证实或调查已结束。",
+          "2. JTL披露马哈拉施特拉工厂扩张试车进展。印度上市钢管企业11月8日向交易所提交公告，称酸洗生产线已完成热试，镀锌生产线开始冷试，彩涂线及相关工序仍待推进。分析：试车是产能投运前的具体里程碑，但不等于全部产线已商业化运营；公司提出的全年增长目标仍属预期。",
+          "3. 宝武在进博会与14家企业签署采购协议。11月8日的集中签约覆盖智能装备、资源矿产和生产协同等领域，公开报道未披露统一成交金额。分析：这为原料供应和设备升级提供合作基础，但签约本身不代表全部采购已经执行。",
+          "4. 上海零售采购商联盟举行集中签约。百联集团11月8日主办进博会采购对接活动，联盟本届累计达成72项采购意向，并吸纳新的零售渠道成员。分析：进口商品与线上线下渠道的对接有所扩展；采购意向不能等同于已实现销售额。"
+        ],
+        "sources": [
+          {
+            "label": "1. NVIDIA董事会原始声明",
+            "url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors"
+          },
+          {
+            "label": "2. JTL向印度国家证券交易所提交的原始公告",
+            "url": "https://nsearchives.nseindia.com/corporate/JTLIND_08112026122203_PressReleaseJTL08112026Signed.pdf"
+          },
+          {
+            "label": "3. 新华财经现场报道",
+            "url": "https://www.cnfin.com/dz-lb/detail/20261108/4492597_1.html"
+          },
+          {
+            "label": "4. 劳动报现场报道",
+            "url": "https://www.51ldb.com/shsldb/cj/content/01a1bad6fd8ec001000066d533acd97d.html"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "本栏收录1条可靠新增，距5条目标仍缺4条；未用旧闻补足。周日欧美主要现金股票市场无新常规收盘；截至本稿检索结束，未取得可核的周一亚洲市场盘中截面，不以周五收盘替代今日行情。",
+          "1. 印度排灯节特别交易小幅收跌。11月8日当地Muhurat特别交易收盘，Sensex报80,999.40点，下跌28.62点（0.04%）；Nifty报24,986.40点，下跌43.95点（0.18%）。以上是指数点位，印度股票以卢比计价。分析：短时节庆交易不能代表下一交易日方向，也不应与普通全天交易直接比较。"
+        ],
+        "sources": [
+          {
+            "label": "1. 印度国家证券交易所特别交易日历",
+            "url": "https://www.nseindia.com/resources/exchange-communication-holidays"
+          },
+          {
+            "label": "1. Moneycontrol收盘现场报道",
+            "url": "https://www.moneycontrol.com/news/business/markets/diwali-muhurat-trading-2026-sensex-nifty-end-lower-after-early-rally-experts-bullish-eye-upside-with-caution-14074937.html"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "本栏收录2条可靠新增，距5条目标仍缺3条；未用旧闻补足。",
+          "1. 落实中央八项规定精神年度民意调查启动。国家统计局社情民意调查中心与人民网11月8日启动网上调查，开放至11月20日，参与方式为匿名填写。分析：这是收集社会反馈的调查启动，并非调查结果公布或一项新法律生效。",
+          "2. 国家统计局发布10月物价数据。11月9日发布的官方检索摘要显示，2026年10月CPI同比上涨0.7%，PPI同比上涨5.7%、环比上涨0.7%。分析：消费端与工业生产端价格变化幅度不同，不能只用单一指标概括全部价格压力。当前仅核得官方检索摘要，原始页面未能直接打开，未扩展引用细分项目。"
+        ],
+        "sources": [
+          {
+            "label": "1. 人民网原始调查通知",
+            "url": "https://cpc.people.com.cn/n1/2026/1108/c164113-40830019.html"
+          },
+          {
+            "label": "2. 国家统计局10月CPI发布（官方检索摘要）",
+            "url": "https://www.stats.gov.cn/sj/zxfbhjd/202611/t20261109_1965795.html"
+          },
+          {
+            "label": "2. 国家统计局10月PPI发布（官方检索摘要）",
+            "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261109_1965794.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "本栏收录4条可靠新增，距5条目标仍缺1条；未用旧闻补足。",
+          "1. 教宗在阿根廷谈民主与公共责任。利奥十四世11月8日在布宜诺斯艾利斯向当局和社会各界发表讲话，强调维护民主、公共权力服务共同利益，以及让经济发展惠及弱势群体。分析：这是公开外交与社会倡议，不是阿根廷新政策或双方达成的条约。",
+          "2. 艾森科特正式获以色列组阁授权。赫尔佐格总统11月8日在正式仪式上授权加迪·艾森科特组建政府。总统府此前公布咨询程序，现场报道确认授权仪式举行。分析：这开启组阁阶段，不等于联合政府已经谈成，也不能写成其已经就任总理。",
+          "3. 法国称欧洲将参与阿布扎比俄乌会谈。法国外交部长巴罗11月8日接受采访时表示，包括法国在内的欧洲方面将参加计划于11月10日至11日举行、由美国斡旋的会谈；他本人不出席。分析：新增的是参与安排的公开表态，会谈尚未发生，不能据此声称停火已取得结果。",
+          "4. 伊拉克Khor Mor气田遇袭，发电供气受扰。法新社援引当地自然资源和电力部门声明报道，11月8日当地23时（北京时间9日04时）的袭击造成向发电厂供气中断；安全消息人士称袭击使用无人机。分析：能源基础设施受损可能传导至地区供电，但责任方和最终损失尚未确认，不宜推断袭击归属。"
+        ],
+        "sources": [
+          {
+            "label": "1. 梵蒂冈官方讲话全文",
+            "url": "https://press.vatican.va/content/leo-xiv/en/speeches/2026/november/documents/20261108-argentina-autorita.html"
+          },
+          {
+            "label": "2. 以色列总统府组阁授权安排",
+            "url": "https://www.president.gov.il/en/president-herzog-concludes-consultations-and-announces-he-will-task-gadi-eisenkot-with-forming-a-government/"
+          },
+          {
+            "label": "2. 以色列时报11月8日仪式现场报道",
+            "url": "https://www.timesofisrael.com/liveblog_entry/watch-eisenkot-receives-mandate-to-form-next-government-in-official-ceremony/"
+          },
+          {
+            "label": "3. Euronews对当日采访的报道",
+            "url": "https://fr.euronews.com/2026/11/08/ukraine-les-europeens-sinvitent-a-la-table-des-negociations-a-abu-dhabi-annonce-barrot"
+          },
+          {
+            "label": "4. 法新社报道（Arab News刊载）",
+            "url": "https://www.arabnews.com/middle-east/attack-on-iraq-gas-complex-cuts-supply-authorities-3010589"
+          }
+        ]
+      }
+    ],
+    "closing": "影响判断属于分析，不构成投资建议；企业计划、调查中的事项与外交表态不视为已实现的结果。",
+    "publishedAt": "2026-11-09T02:24:58Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-08T02:23:15Z",
+      "end": "2026-11-09T02:23:15Z"
+    }
   }
 ]
