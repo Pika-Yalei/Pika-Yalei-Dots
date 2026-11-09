@@ -24,6 +24,7 @@ function decodeAttribute(value) {
 function inspectHtml(html) {
   const ids = new Map();
   const references = [];
+  const idReferences = [];
   let line = 1;
   let lineOffset = 0;
   const tags = /<!--[\s\S]*?-->|<(\/?)([a-z][a-z\d:-]*)(?=[\s/>])((?:[^"'<>]|"[^"]*"|'[^']*')*)>/gi;
@@ -46,6 +47,11 @@ function inspectHtml(html) {
       occurrences.push(line);
       ids.set(id, occurrences);
     }
+    for (const attribute of ['aria-labelledby', 'aria-describedby', 'aria-controls', 'aria-errormessage', ...(name === 'label' ? ['for'] : [])]) {
+      if (attributes.has(attribute)) for (const id of attributes.get(attribute).trim().split(/\s+/).filter(Boolean)) {
+        idReferences.push({attribute, id});
+      }
+    }
     for (const attribute of ['href', 'src']) {
       if (attributes.has(attribute)) references.push({ tag: name, attribute, value: attributes.get(attribute) });
     }
@@ -56,7 +62,7 @@ function inspectHtml(html) {
       tags.lastIndex = closing.exec(html) ? closing.lastIndex : html.length;
     }
   }
-  return { ids, references };
+  return { ids, references, idReferences };
 }
 
 async function listFiles(directory, prefix = '') {
@@ -79,7 +85,10 @@ export async function validateLinks(directory) {
     if (file.endsWith('.html')) pages.set(file, inspectHtml(await readFile(path.join(directory, file), 'utf8')));
   }
   const problems = [];
-  for (const [source, { ids, references }] of pages) {
+  for (const [source, { ids, references, idReferences }] of pages) {
+    for (const {attribute, id} of idReferences) {
+      if (!ids.has(id)) problems.push(`${source}: ${attribute} references missing ID ${JSON.stringify(id)}`);
+    }
     for (const [id, lines] of ids) {
       if (lines.length > 1) {
         problems.push(`${source}: Duplicate id=${JSON.stringify(id)} on lines ${lines.join(', ')}`);

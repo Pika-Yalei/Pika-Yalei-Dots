@@ -213,3 +213,13 @@ test('raw-text elements own IDs count, and duplicate top IDs are not exempt', as
     return true;
   });
 });
+
+test('accessible labels, descriptions, controls and error targets must exist locally', async t => {
+  const bad = await fixture(t, {'index.html':'<label for="missing">Query</label><input aria-labelledby="name" aria-describedby="help detail" aria-controls="result" aria-errormessage="error"><p id="help">Help</p>'});
+  await assert.rejects(validateLinks(bad), error => {
+    for (const id of ['missing','name','detail','result','error']) assert.ok(error.message.includes(JSON.stringify(id)));
+    return true;
+  });
+  const good = await fixture(t, {'index.html':'<label for="q" id="label">Query</label><input id="q" aria-labelledby="label" aria-describedby="help&#32;detail" aria-controls="result" aria-errormessage="error"><p id="help"></p><p id="detail"></p><p id="error"></p><div id="result"></div>'});
+  await assert.doesNotReject(validateLinks(good));
+});
