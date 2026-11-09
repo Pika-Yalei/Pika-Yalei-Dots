@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-scope'].value = 'summary';
   ids['search-type'].value = 'all';
@@ -217,7 +217,7 @@ test('explicit paging moves focus to the new range without stealing input focus'
  nodes['search-previous'].fire('click');assert.equal(status.focused,true);
  status.focused=false;nodes['search-query'].fire('input');assert.equal(status.focused,false);
  assert.match(renderSearch([]),/id="search-status" tabindex="-1"/);
- assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,4);
+ assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,5);
 });
 
 test('incomplete native dates block results instead of silently removing a boundary',()=>{
@@ -544,4 +544,25 @@ test('full-text results retain a safe print copy independently of disclosure sta
   const css = readFileSync(new URL('../public/style.css', import.meta.url), 'utf8');
   assert.match(css, /\.search-print-match\{display:none\}/);
   assert.match(css, /@media print\{[\s\S]*?\.search-match-context\{display:none\}\s*\.search-print-match\{display:block/);
+});
+
+test('explicit browse-all mode paginates all types, supports filtering and exits on clear', () => {
+  const nodes = boot(Array.from({length:73}, (_,i) => ({type:i%2 ? 'article':'source',title:'entry',detail:'',date:'2026-01-01',href:'/notes/a/'})));
+  nodes['search-query'].value='missing';
+  nodes['search-from'].value='9999-01-01';
+  nodes['search-browse'].fire('click');
+  assert.equal(nodes['search-query'].value, '');
+  assert.equal(nodes['search-from'].value, '');
+  assert.match(nodes['search-status'].textContent, /共找到 73 条/);
+  assert.equal(nodes['search-status'].focused, true);
+  nodes['search-next'].fire('click');
+  assert.equal(nodes['search-results'].start, 51);
+  nodes['search-type'].value='article'; nodes['search-type'].fire('change');
+  assert.match(nodes['search-status'].textContent, /共找到 36 条/);
+  nodes['search-browse'].fire('click');
+  assert.match(nodes['search-status'].textContent, /共找到 73 条/);
+  assert.equal(nodes['search-results'].start, 1);
+  nodes['search-clear'].fire('click');
+  assert.match(nodes['search-status'].textContent, /请输入/);
+  assert.equal(nodes['search-results'].children[0].children.length, 0);
 });
