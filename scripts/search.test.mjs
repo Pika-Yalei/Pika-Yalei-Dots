@@ -532,3 +532,16 @@ test('fallback date fields reject impossible calendar days and century leap erro
     assert.equal(from['aria-invalid'], 'false', value);
   }
 });
+
+test('full-text results retain a safe print copy independently of disclosure state', () => {
+  const nodes = boot([{type:'headline',title:'A',detail:'',body:'matching <tag> paragraph\nother',date:'2026-01-01',href:'/notes/a/'}]);
+  nodes['search-query'].value='matching';
+  nodes['search-scope'].value='body'; nodes['search-scope'].fire('change');
+  const children = nodes['search-results'].children[0].children[0].children;
+  const print = children.find(node => node.className === 'search-print-match');
+  assert.equal(print.children.length, 1);
+  assert.equal(print.children[0].textContent, 'matching <tag> paragraph');
+  const css = readFileSync(new URL('../public/style.css', import.meta.url), 'utf8');
+  assert.match(css, /\.search-print-match\{display:none\}/);
+  assert.match(css, /@media print\{[\s\S]*?\.search-match-context\{display:none\}\s*\.search-print-match\{display:block/);
+});

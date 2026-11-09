@@ -91,6 +91,15 @@
             context.append(text);
           }
           item.append(context);
+          // A separate print copy avoids browser-dependent printing of closed details.
+          const printMatch = document.createElement('div');
+          printMatch.className = 'search-print-match';
+          for (const paragraph of matches) {
+            const text = document.createElement('p');
+            text.textContent = paragraph;
+            printMatch.append(text);
+          }
+          item.append(printMatch);
         }
       }
       if (record.reference) {
