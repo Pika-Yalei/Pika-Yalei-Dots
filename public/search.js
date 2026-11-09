@@ -34,7 +34,15 @@
   const results = document.getElementById('search-results');
   const printContext = document.getElementById('search-print-context');
   const labels = {article:'文章', headline:'新闻条目', source:'引用来源'};
-  const invalidDate = input => Boolean(input.validity?.badInput || input.validity?.rangeOverflow || input.validity?.rangeUnderflow || (input.value && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(input.value)));
+  // Validate calendar reality even when a browser falls back to a text field.
+  const realDate = value => {
+    if (!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(value)) return false;
+    const [year, month, day] = value.split('-').map(Number);
+    const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    return year >= 1 && month >= 1 && month <= 12 && day >= 1 &&
+      day <= [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+  };
+  const invalidDate = input => Boolean(input.validity?.badInput || input.validity?.rangeOverflow || input.validity?.rangeUnderflow || (input.value && !realDate(input.value)));
   const dateState = () => JSON.stringify([from.value, to.value, invalidDate(from), invalidDate(to)]);
   let lastDateState = dateState();
   function update(reset = false, focusResults = false) {
