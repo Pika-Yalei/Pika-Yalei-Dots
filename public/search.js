@@ -63,6 +63,7 @@
     const hasFilter = browsingAll || terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all';
     const fragment = document.createDocumentFragment();
     let total = 0;
+    const counts = {article:0, headline:0, source:0};
     // Stable sorting preserves article/headline/source order within the same day.
     const ordered = [...records].sort((a, b) => order.value === 'oldest' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date));
     if (hasFilter && !invalidInput && !invalidRange) for (const record of ordered) {
@@ -70,6 +71,7 @@
       if ((from.value && record.date < from.value) || (to.value && record.date > to.value)) continue;
       if ((type.value !== 'all' && record.type !== type.value) || !terms.every(term => (scope.value === 'body' ? record.fulltext : record.haystack).includes(term))) continue;
       total += 1;
+      counts[record.type] += 1;
       if (total <= (page - 1) * 50 || total > page * 50) continue;
       const item = document.createElement('li');
       const link = document.createElement('a');
@@ -122,6 +124,7 @@
     previous.disabled = page <= 1;
     next.disabled = page * 50 >= total;
     status.textContent = invalidInput ? '日期输入不完整或超出支持范围，请输入 0001–9999 年的完整有效日期；当前未显示结果。' : invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*50,0),50)} 条。${total > 50 ? `第 ${page} / ${Math.ceil(total/50)} 页，显示第 ${(page-1)*50+1}–${Math.min(page*50,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择内容类型、新闻栏目、回顾日期范围。';
+    if (hasFilter && !invalidInput && !invalidRange) status.textContent += ` 分类合计：文章 ${counts.article} 篇，新闻条目 ${counts.headline} 条，引用来源 ${counts.source} 处（按引用位置计数）。合计覆盖全部匹配页。`;
     printContext.textContent = `搜索快照：浏览模式：${browsingAll ? '全部条目起步，可继续筛选' : '条件搜索'}；匹配范围：${scope.value === 'body' ? '同时匹配新闻正文' : '标题、摘要与来源'}；排序：${order.value === 'oldest' ? '回顾日期从旧到新' : '回顾日期从新到旧'}；关键词：${query.value.slice(0,200) || '未指定'}；内容类型：${labels[type.value] || '全部'}；新闻栏目：${({ai:'AI',business:'商业',markets:'股票市场','china-policy':'中国政治与政策',world:'国际政治与重大事件'})[topic.value] || '全部'}；回顾日期：${invalidDate(from) ? '无效或未填完整' : from.value || '不限'} 至 ${invalidDate(to) ? '无效或未填完整' : to.value || '不限'}。仅包含当前显示的一页结果，不是全部匹配内容。结果范围及输入错误见下方状态。`;
     if (focusResults) status.focus();
   }

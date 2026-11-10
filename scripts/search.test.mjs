@@ -581,3 +581,22 @@ test('Chinese paired quotes search contiguous phrases and preserve mixed terms',
   nodes['search-query'].value = '“open source” 不存在'; nodes['search-query'].fire('input');
   assert.match(nodes['search-status'].textContent, /共找到 0 条/);
 });
+
+test('result breakdown counts all matched pages by type and clears on invalid filters', () => {
+  const records = Array.from({length:52}, (_,i)=>({type:'headline', title:`AI ${i}`,detail:'',date:'2026-11-10',href:`/notes/a/#news-${i}`}));
+  records.push({type:'article',title:'AI briefing',detail:'',date:'2026-11-10',href:'/notes/a/'});
+  for(let i=0;i<2;i++) records.push({type:'source',title:'AI source',detail:'',date:'2026-11-10',href:'https://example.org/'});
+  const n=boot(records); n['search-query'].value='AI'; n['search-query'].fire('input');
+  assert.match(n['search-status'].textContent,/文章 1 篇，新闻条目 52 条，引用来源 2 处/);
+  assert.match(n['search-status'].textContent,/共找到 55 条，显示 50 条/);
+  n['search-next'].fire('click');
+  assert.match(n['search-status'].textContent,/文章 1 篇，新闻条目 52 条，引用来源 2 处/);
+  assert.match(n['search-status'].textContent,/显示 5 条/);
+  n['search-type'].value='source'; n['search-type'].fire('change');
+  assert.match(n['search-status'].textContent,/文章 0 篇，新闻条目 0 条，引用来源 2 处/);
+  n['search-from'].value='2026-02-30'; n['search-from'].fire('input');
+  assert.doesNotMatch(n['search-status'].textContent,/分类合计/);
+  n['search-clear'].fire('click'); assert.doesNotMatch(n['search-status'].textContent,/分类合计/);
+  n['search-query'].value='missing'; n['search-query'].fire('input');
+  assert.match(n['search-status'].textContent,/文章 0 篇，新闻条目 0 条，引用来源 0 处/);
+});
