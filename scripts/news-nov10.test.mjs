@@ -8,7 +8,7 @@ test('November 10 briefing retains five columns, 24 distinct items and immediate
  assert.equal(p.title,'2026-11-10｜24 小时新闻简报');
  assert.deepEqual(p.sections.map(s=>s.heading),['AI','商业','股票市场','中国政治与政策','国际政治与重大事件']);
  assert.deepEqual(p.sections.map(s=>s.paragraphs.filter(t=>/^\d+\. /.test(t)).length),[5,5,5,4,5]);
- assert.deepEqual(p.newsWindow,{start:'2026-11-09T02:50:00Z',end:'2026-11-10T02:50:00Z'});
+ assert.deepEqual(p.newsWindow,{start:'2026-11-09T03:01:06Z',end:'2026-11-10T03:01:06Z'});
  assert.equal(Date.parse(p.newsWindow.end)-Date.parse(p.newsWindow.start),86400000);
  assert.ok(Date.parse(p.publishedAt)>=Date.parse(p.newsWindow.end));
  for(const s of p.sections){
