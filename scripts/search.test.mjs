@@ -566,3 +566,18 @@ test('explicit browse-all mode paginates all types, supports filtering and exits
   assert.match(nodes['search-status'].textContent, /请输入/);
   assert.equal(nodes['search-results'].children[0].children.length, 0);
 });
+
+test('Chinese paired quotes search contiguous phrases and preserve mixed terms', () => {
+  const records = [
+    {type:'article',title:'open source 人工智能 商业动态',detail:'',date:'2026-11-10',href:'/one/'},
+    {type:'article',title:'open other source 人工 智能 商业',detail:'',date:'2026-11-10',href:'/two/'}
+  ];
+  const nodes = boot(records);
+  for (const value of ['“open source”', '「open source」', '“open source', '「open source', '“open source” 人工', '「商业动态」', '“” 「」 人工智能']) {
+    nodes['search-query'].value = value; nodes['search-query'].fire('input');
+    assert.match(nodes['search-status'].textContent, /共找到 1 条/);
+    assert.equal(nodes['search-results'].children[0].children[0].children[0].href, '/one/');
+  }
+  nodes['search-query'].value = '“open source” 不存在'; nodes['search-query'].fire('input');
+  assert.match(nodes['search-status'].textContent, /共找到 0 条/);
+});

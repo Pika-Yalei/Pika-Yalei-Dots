@@ -3,7 +3,8 @@
 (() => {
   const normalize = value => value.normalize('NFKC').toLowerCase().replace(/\s+/gu, ' ').trim();
   // Quoted phrases remain contiguous; an unfinished quote treats the remainder as one phrase.
-  const queryTerms = value => [...normalize(value).matchAll(/"([^"]*)"|"([^"]+)$|(\S+)/gu)].map(match => (match[1] ?? match[2] ?? match[3]).trim()).filter(Boolean);
+  const queryTerms = value => [...normalize(value).matchAll(/"([^"]*)"|“([^”]*)”|「([^」]*)」|"([^"]+)$|“([^”]+)$|「([^」]+)$|(\S+)/gu)]
+    .map(match => match.slice(1).find(term => term !== undefined).trim()).filter(Boolean);
   const data = document.getElementById('search-data');
   const records = JSON.parse(data.content.textContent).map(record => {
     const haystack = normalize(`${record.title} ${record.detail}${record.type === 'source' ? ` ${record.href}` : ''}`);
