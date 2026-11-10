@@ -1,3 +1,4 @@
+import { renderListingPublication } from './listing-publication.mjs';
 import { fingerprintSearch, renderSearch } from './search.mjs';
 import { renderSourceCsv } from './source-csv.mjs';
 import { renderTopicFocus, topicFocusSections } from './topic-focus.mjs';
@@ -97,7 +98,7 @@ for (const [original, fingerprint] of stylesheets) {
   await writeFile(path.join(out, fingerprint), publicAssets.get(original));
 }
 for (const page of indexPages) {
-const entries = page.posts.map((post, index) => `<article class="entry"><div class="entry-index">${String(posts.length - page.offset - index).padStart(2,'0')}</div><div class="entry-content"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${readingTimeText(post)}</span></div><h2><a href="${link(post)}">${escape(post.title)}<svg class="entry-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2><p>${escape(post.summary)}</p><a class="read-link" href="${link(post)}">读这篇手记 <span aria-hidden="true">→</span><span class="sr-only">：${escape(post.title)}</span></a></div></article>`).join('\n');
+const entries = page.posts.map((post, index) => `<article class="entry"><div class="entry-index">${String(posts.length - page.offset - index).padStart(2,'0')}</div><div class="entry-content"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${readingTimeText(post)}</span></div><h2><a href="${link(post)}">${escape(post.title)}<svg class="entry-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2>${renderListingPublication(post)}<p>${escape(post.summary)}</p><a class="read-link" href="${link(post)}">读这篇手记 <span aria-hidden="true">→</span><span class="sr-only">：${escape(post.title)}</span></a></div></article>`).join('\n');
 const dir = path.join(out, page.path);
 await mkdir(dir, {recursive:true});
 const title = page.number === 1 ? '手记' : `手记 · 第 ${page.number} 页`;

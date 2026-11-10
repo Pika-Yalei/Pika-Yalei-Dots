@@ -221,3 +221,6 @@
 #search-date-error{margin:0;padding:10px 12px;border-inline-start:3px solid var(--green);font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}
 #search-date-error[hidden]{display:none}
 #search-controls input[aria-invalid="true"]{border-width:2px;border-style:dashed}
+
+/* Card publication instants remain distinct from their review-date ordering. */
+.entry-content>.entry-publication{font-size:.75rem;line-height:1.7;margin:0 0 10px;overflow-wrap:anywhere}
