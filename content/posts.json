@@ -5982,5 +5982,199 @@
       "start": "2026-11-08T02:23:15Z",
       "end": "2026-11-09T02:23:15Z"
     }
+  },
+  {
+    "slug": "news-2026-11-10",
+    "date": "2026-11-10",
+    "title": "2026-11-10｜24 小时新闻简报",
+    "subtitle": "新模型与算力工具、企业季度披露、全球股市收盘，以及政策和国际新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 12,
+    "summary": "五栏分别收录5、5、5、4、5条，共24项独立进展；中国政治与政策栏距5条目标缺1条，未用旧闻或拆分同一事件补足。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Anthropic发布Claude Fable与Mythos 5.2。11月9日官方介绍两个版本使用相同底层模型，Fable面向更广泛用户并增加网络与生物安全防护；Mythos需组织申请并接受验证。标准API价格为每百万输入/输出token分别8/40美元。分析：能力之外，访问资格与防护方式成为选型条件；官方能力评价不等于独立验证。",
+          "2. ChatGPT Enterprise进入AWS Marketplace。OpenAI于11月9日宣布，企业可沿用AWS采购和账单流程购买，符合条件的支出可计入AWS承诺消费额度；服务功能与直接向OpenAI购买一致。分析：变化主要在企业采购路径，不代表所有AWS客户自动获得资格，额度适用情况仍需核对合同。",
+          "3. Google公布TPU 8tx与8iMax。11月9日官方介绍两款新增系统：8iMax侧重大上下文推理和部署密度，8tx强调安全及机密推理需求。分析：AI基础设施开始针对不同推理场景进一步分化，实际选型还要看开放安排、工作负载与成本，不能套用此前8t、8i的性能数字。",
+          "4. GKE的TPU动态切片正式可用。Google Cloud于11月9日宣布Dynamic Slicing达到GA，允许逻辑TPU切片与底层节点池配置分离，减少为改变任务拓扑而删除、重建节点池的需要。分析：这是集群调度与运维能力更新，可减少工作负载切换摩擦，不等于新增一款芯片。",
+          "5. OpenAI公开Control Room研究工作负载控制系统。11月9日披露的系统在推理层检查任务授权，官方称接收停止指令后最多35秒阻止进一步模型输出。研究进程本身可能仍存活；系统故障时拒绝推理的机制已覆盖前沿模型研究，其他研究任务仍在推广。分析：这是研究基础设施的安全控制，不是给ChatGPT用户新增的开关。"
+        ],
+        "sources": [
+          {
+            "label": "1. Anthropic发布说明",
+            "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+          },
+          {
+            "label": "2. OpenAI官方公告",
+            "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace/"
+          },
+          {
+            "label": "3. Google Cloud硬件公告",
+            "url": "https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max"
+          },
+          {
+            "label": "4. Google Cloud正式可用公告",
+            "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-dynamic-slicing-on-tpus/"
+          },
+          {
+            "label": "5. OpenAI技术原文",
+            "url": "https://openai.com/index/control-room/"
+          },
+          {
+            "label": "5. OpenAI新闻目录（发布日期）",
+            "url": "https://openai.com/news/?display=list"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. monday.com披露第三季度收入增长19%。11月9日财报显示，季度收入3.775亿美元，GAAP营业利润3120万美元，去年同期为营业亏损240万美元；公司另报AI年度经常性收入3600万美元。分析：主营增长与盈利改善同步出现，但ARR是经常性业务指标，不能当作当季已经确认的收入。",
+          "2. KKR第三季度管理资产达到8040亿美元。11月9日发布的业绩显示，管理资产同比增长11%，季度新募资本250亿美元，费用相关收益约13.16亿美元、同比增长27%。分析：募资和收费业务扩张有助于提升收入基础；费用相关收益为公司非GAAP指标，不应与法定净利润混同。",
+          "3. Barrick第三季度收入同比增长22%。11月9日财报公布收入50.7亿美元、净利润13.2亿美元，黄金产量81.6万盎司、较第二季度增长3%；公司维持全年黄金产量指引。分析：收入增长并不意味着成本压力消失，企业公布的黄金全部维持成本仍为每盎司1911美元，属于非GAAP成本口径。",
+          "4. Quanterix收入环比回升，仍录净亏损。11月9日公布的第三季度收入为3500万美元，环比增长6.3%；净亏损2160万美元，同比收窄35.6%。分析：环比改善提供经营修复信号，但不能据此写成公司已盈利，也不宜用环比增幅替代同比表现。",
+          "5. AMG第三季度净客户资金流入210亿美元。11月9日披露的管理资产规模为9740亿美元，归属控股股东净利润1.73亿美元；另类投资策略净流入超过310亿美元。分析：另类策略扩张是主要看点，但其流入与公司总净流入属于不同口径，不能相加计算。"
+        ],
+        "sources": [
+          {
+            "label": "1. monday.com投资者公告",
+            "url": "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Third-Quarter-2026-Results-new/default.aspx"
+          },
+          {
+            "label": "2. KKR向SEC提交的财报",
+            "url": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000030/q326earningsrelease_vf.htm"
+          },
+          {
+            "label": "3. Barrick官方季度财报PDF",
+            "url": "https://s25.q4cdn.com/322814910/files/doc_news/2026/11/Barrick-Reports-Third-Quarter-2026-Results.pdf"
+          },
+          {
+            "label": "4. Quanterix向SEC提交的财报",
+            "url": "https://www.sec.gov/Archives/edgar/data/1503274/000150327426000042/ex991-qtrxx20260930.htm"
+          },
+          {
+            "label": "5. AMG向SEC提交的季度披露",
+            "url": "https://www.sec.gov/Archives/edgar/data/1004434/000162828026071872/amgq32026ex991.htm"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. A股11月9日收盘分化。北京时间15:00收盘，上证指数涨0.32%，深证成指和创业板指均跌0.27%；沪深成交额约1.48万亿元人民币。分析：沪指上涨没有覆盖全部市场，不能把单一指数表现描述为普涨。",
+          "2. 港股11月9日收盘小幅下跌。香港当日收市，恒生指数报24448.95点、跌0.13%，恒生科技指数报4040.73点、跌0.92%；主板成交1737.07亿港元。分析：科技板块弱于恒指整体，指数点位不是港元报价。",
+          "3. 日本股市11月9日收盘上涨。东京当地15:30收市，日经225指数上涨2.33%；同一亚洲交易时段，韩国综合指数收跌0.79%。日本股票通常以日元计价，本文所述为指数涨跌幅。分析：区域股市方向不一，不能将日本反弹概括为整个亚洲市场同步上涨。",
+          "4. 欧洲股市11月9日收盘走高。欧洲当日收市，STOXX Europe 600欧元口径指数涨1.26%至656.52点，Euro STOXX 50涨1.94%至6290.45点；路透报道银行和防务板块领涨。分析：板块广度较强，但当天反弹本身不能证明后续趋势；上述均为指数点位。",
+          "5. 美股11月9日收盘反弹。纽约当地16:00、北京时间11月10日05:00收市，道指报52389.75点、涨2.15%，标普500报7549.94点、涨2.35%，纳指报25253.14点、涨2.74%。美国股票以美元计价，以上为指数点位。分析：三大指数同步回升，但单日表现不构成对后续收益的承诺。"
+        ],
+        "sources": [
+          {
+            "label": "1. 第一财经收盘报道",
+            "url": "https://www.yicai.com/brief/103432356.html"
+          },
+          {
+            "label": "1. 财联社收盘报道",
+            "url": "https://m.cls.cn/detail/2528909"
+          },
+          {
+            "label": "2. 新华社收盘报道（新浪刊载）",
+            "url": "https://cj.sina.com.cn/articles/view/1699432410/654b47da02001xt84"
+          },
+          {
+            "label": "3. 第一财经亚太收盘快讯",
+            "url": "https://www.yicai.com/brief/103432274.html"
+          },
+          {
+            "label": "4. 路透收盘报道（MarketScreener刊载）",
+            "url": "https://se.marketscreener.com/nyheter/europaborserna-steg-nar-banker-och-forsvarsaktier-ledde-bred-uppg-ng-ce785fd3de88f726"
+          },
+          {
+            "label": "5. MarketEdge当日收盘行情表",
+            "url": "https://www.marketedge.com/article/DailyMarketComment"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "本栏收录4条，距5条目标缺1条。未将窗口之前公布的物价数据、旧文件转载或同一贸易安排的不同通知重复计数。",
+          "1. 对美部分贸易措施暂停期限延长。11月9日公布的安排包括：自11月10日13:01起，24%对美加征关税继续暂停两个月，保留10%；商务部同日16:00公布，针对韩华海洋5家美国子公司的措施自11月10日起继续暂停两个月。分析：同一轮贸易安排合并计为一条，缓和措施具有期限，不能理解为永久取消；关税调整在本稿窗口截止时尚未生效。",
+          "2. 《中医药传统知识保护条例》公布。新华社11月9日17:03授权发布国务院令第850号，条例将于2027年1月1日起施行。令文签署日期为10月23日，新增事实是本窗口内公开发布，不能写成11月9日签署。分析：相关主体获得明确的施行时间表，具体权利义务应以条例全文为准。",
+          "3. 网信备案入口整合上线。国家网信办11月9日15:00公告，统一备案平台整合生成式人工智能、算法、深度合成和区块链等备案服务，原算法和区块链备案系统同时停止服务。分析：企业申报入口更加集中，但入口变化不等于原有合规义务被免除。",
+          "4. 外交部公布古巴与斯洛伐克外长访华安排。11月9日例行记者会宣布，古巴特使兼外长罗德里格斯将于10日至13日正式访华，斯洛伐克外长布拉纳尔将于10日至11日访华。分析：这是新的外交日程公告，后续访问成果和协议尚不能预先认定。"
+        ],
+        "sources": [
+          {
+            "label": "1. 国务院关税税则委员会公告",
+            "url": "https://gss.mof.gov.cn/gzdt/zhengcefabu/202611/t20261109_4004260.htm"
+          },
+          {
+            "label": "1. 商务部公告",
+            "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_41f0892910554f57af175883b35ca360.html"
+          },
+          {
+            "label": "2. 新华社授权发布国务院令",
+            "url": "https://www.xinhuanet.com/20261109/7c1d8f4e7c23444781b458b8f66dedbe/c.html"
+          },
+          {
+            "label": "3. 国家网信办官方通知",
+            "url": "https://www.cac.gov.cn/2026-11/09/c_1795978604463007.htm"
+          },
+          {
+            "label": "4. 外交部11月9日记者会实录",
+            "url": "https://www.mfa.gov.cn/web/fyrbt_673021/jzhsl_673025/202611/t20261109_12056081.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. COP31在土耳其安塔利亚开幕。11月9日启动的新一届联合国气候大会计划持续至20日，近200个国家聚焦减排、适应和资金承诺落实。分析：开幕把议题推进到正式谈判阶段，不等于已经形成最终协议。",
+          "2. WMO发布2026年气候状态阶段报告。11月9日的新报告显示，1—9月全球平均地表温度较工业化前水平高约1.47℃，预计2026年将位列有记录以来最暖的四年之一。分析：这是当年数据更新，为气候风险管理提供依据；并非全年最终定值，完整年度报告预计2027年3月发布。",
+          "3. 乌克兰公布阿布扎比会谈代表团。总统顾问11月9日向国际文传电讯社乌克兰分社介绍代表团组成，三方工作会谈计划于10日至11日举行。分析：相较此前的参与意向，本窗口新增了人员安排；会议尚未产生结果，不能写成俄乌已达成停火。",
+          "4. 特朗普称海湾国家希望和平解决伊朗冲突。11月9日接受路透电话采访时，他表示卡塔尔和沙特倾向和平解决，同时保留恢复军事打击的选择。分析：这是美方领导人的当日立场表述，不能据此认定伊朗接受条件或和平协议已经达成。",
+          "5. 加拿大新增对俄制裁对象。加拿大外交部11月9日在巴黎宣布，将38家实体和24名个人列入制裁，称对象涉及导弹技术、网络活动及相关金融支持。分析：新增名单扩大了相关交易的合规范围；政策目标不等于制裁效果已经得到验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. 联合国开幕报道",
+            "url": "https://www.un.org/en/cop31-opens-antalya-can-climate-promises-finally-deliver-results"
+          },
+          {
+            "label": "1. 联合国气候变化框架公约大会页面",
+            "url": "https://unfccc.int/cop31"
+          },
+          {
+            "label": "2. 世界气象组织原始报告说明",
+            "url": "https://wmo.int/news/media-centre/state-of-climate-2026-gives-new-meaning-phrase-charts"
+          },
+          {
+            "label": "3. 国际文传电讯社对总统顾问的原始采访",
+            "url": "https://interfax.com.ua/news/political/1233489.html"
+          },
+          {
+            "label": "3. 乌克兰真理报交叉报道",
+            "url": "https://www.pravda.com.ua/eng/news/2026/11/09/8061971/index.amp"
+          },
+          {
+            "label": "4. 路透采访报道（耶路撒冷邮报刊载）",
+            "url": "https://www.jpost.com/middle-east/iran-news/article-914386"
+          },
+          {
+            "label": "5. 加拿大外交部公告",
+            "url": "https://www.canada.ca/en/global-affairs/news/2026/11/minister-anand-announces-additional-sanctions-to-reduce-russias-missile-capabilities-and-raise-economic-costs.html"
+          }
+        ]
+      }
+    ],
+    "closing": "影响判断属于分析，不构成投资建议；企业自报指标、政策公布与生效、外交安排与实际成果分别表述。",
+    "publishedAt": "2026-11-10T02:59:04Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-09T02:50:00Z",
+      "end": "2026-11-10T02:50:00Z"
+    }
   }
 ]
