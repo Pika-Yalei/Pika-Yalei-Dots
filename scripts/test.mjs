@@ -1,3 +1,4 @@
+import { renderReaderSettings } from './reader-settings.mjs';
 import { paginateMonthArchive } from './month-archive.mjs';
 import { allHeadlinePages } from './headlines.mjs';
 import { paginateWebsiteDirectory, websitePages } from './source-websites.mjs';
@@ -46,14 +47,15 @@ test('every page has semantic and accessible foundations', async () => {
     assert.match(html, /name="description"/);
   }
 });
-test('only search has its exact reviewed script; output has no forms, trackers, remote imports or common secrets', async () => {
+test('only search has its exact reviewed script; only reviewed local-reset forms are allowed, no trackers, remote imports or common secrets', async () => {
   for (const file of all) {
     const text = await readFile(file,'utf8');
     if (file === path.join(dist, 'search/index.html')) {
       assert.equal([...text.matchAll(/<script\b/g)].length, 1);
       assert.match(text, /<script src="\/search\.[a-f0-9]{16}\.js" defer><\/script>/);
     } else assert.doesNotMatch(text, /<script\b/i);
-    assert.doesNotMatch(text, /<iframe\b|<form\b|@import\b|localStorage|sessionStorage|document\.cookie|google-analytics|googletagmanager|cloudflareinsights/i);
+    const privacyText = text.includes(renderReaderSettings()) ? text.replace('<form method="dialog" aria-label="阅读外观">', '') : text;
+    assert.doesNotMatch(privacyText, /<iframe\b|<form\b|@import\b|localStorage|sessionStorage|document\.cookie|google-analytics|googletagmanager|cloudflareinsights/i);
     assert.doesNotMatch(text, /(?:gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/i);
     if (file.endsWith('.css')) {
       assert.doesNotMatch(text,/url\s*\(/i);
