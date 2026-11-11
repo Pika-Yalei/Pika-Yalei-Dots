@@ -19,6 +19,13 @@ export function sectionAnchors(sections) {
   });
 }
 
+// Bypass the directory and optional controls using the existing focusable heading.
+export function renderArticleStart(sections) {
+  const first = sections[0];
+  if (!first) return '';
+  return `<p class="article-start"><a href="#${escape(first.id)}">跳到正文 ↓</a></p>`;
+}
+
 export function renderContents(sections) {
   return `<nav class="article-contents" aria-labelledby="contents-title"><h2 id="contents-title" tabindex="-1">本篇目录</h2><ol>${sections.map((section) => `<li><a href="#${section.id}">${escape(section.heading)}</a></li>`).join('')}</ol></nav>`;
 }
