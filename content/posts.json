@@ -6176,5 +6176,243 @@
       "start": "2026-11-09T03:01:06Z",
       "end": "2026-11-10T03:01:06Z"
     }
+  },
+  {
+    "slug": "news-2026-11-11",
+    "date": "2026-11-11",
+    "title": "2026-11-11｜24 小时新闻简报",
+    "subtitle": "AI商业开放与协作工具、企业业绩、全球收盘行情，以及政策和国际新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 12,
+    "summary": "五个栏目各收录5条，共25项独立进展，涵盖AI工具开放、企业财报、11月10日市场收盘及政策与外交动态。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Google将Gemini 4 Carbon向付费开发者与企业开放。11月10日，Carbon经Google AI Studio和Gemini for business API向付费开发者及企业开放，每百万输入/输出token的限时介绍价为2/10美元；优惠期11月30日结束后将分别为4/20美元；同时向AI Ultra用户推出，并预览Antigravity多代理协作功能。分析：此前面向网络防御者的受限开放扩大为更广泛商业可用，选型仍需实测任务成本。",
+          "2. DeepMind公布AlphaProof Code，对Signal核心协议实现作形式验证。11月10日公布的多代理框架由人类审核安全规格，再由模型生成Lean证明，验证Signal实际编译代码的关键安全属性；团队还用两处已修复漏洞回植测试区分不安全版本。结论仅覆盖规定安全属性与验证假设，并非对整套应用或端点永无漏洞的保证。分析：形式验证向实际实现靠近，可减少设计与实现之间的安全落差。",
+          "3. ChatGPT推出Business Hub与商家代理测试版。企业通过验证后可管理商家信息及产品价格、库存资料，查看达到门槛后的汇总互动指标；Business Agents先面向美国符合条件的电商和在线服务企业，与用户原有对话明确分开。这是地区和商家类别有限的测试版。分析：商家信息维护和咨询开始进入AI对话入口，企业需要管理信息准确性与代理权限。",
+          "4. Anthropic推出Claude白板与表格测试版，Data转为正式可用。11月10日，Claude Whiteboards和Sheets进入beta，原Claude Dashboards以Claude Data之名正式可用；付费用户可共同编辑白板、表格并连接数据，认证查询与实时分享仍为beta。分析：AI办公从生成单份内容走向团队持续协作，但表格功能仍较基础。",
+          "5. Adobe MAX把创意代理扩展至Firefly与Creative Cloud。Adobe于MAX宣布扩展Creative Agent，支持更复杂的多步骤创意任务，并预览Creative Cloud本地MCP集成，让第三方代理在Photoshop、Illustrator、Premiere及After Effects原生文件中操作。本地MCP集成为预览，不代表全部功能已正式可用。分析：创意AI开始围绕既有工程文件工作，流程控制与权限管理成为落地重点。"
+        ],
+        "sources": [
+          {
+            "label": "1. 官方原始公告",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+          },
+          {
+            "label": "1. 同日独立报道",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/1030787/google-gemini-4-carbon-public-rollout"
+          },
+          {
+            "label": "2. 官方原始公告",
+            "url": "https://deepmind.google/blog/introducing-alphaproof-code/"
+          },
+          {
+            "label": "2. 同日独立报道",
+            "url": "https://www.theregister.com/ai-and-ml/2026/11/10/google-deepmind-melds-humans-and-ai-agents-to-vet-signals-secure-messaging-techniques/5308625?source=newscura"
+          },
+          {
+            "label": "3. 官方原始公告",
+            "url": "https://openai.com/index/introducing-businesses-chatgpt/"
+          },
+          {
+            "label": "3. 同日独立报道",
+            "url": "https://www.streetinsider.com/Reuters/OpenAI%2Blets%2Bbusinesses%2Bclaim%2BChatGPT%2Bprofiles%2C%2Badds%2BAI%2Bagents%2Bfor%2BUS%2Be-commerce%2Bfirms/27322031.html"
+          },
+          {
+            "label": "4. 官方原始公告",
+            "url": "https://claude.com/resources/articles/sheets-whiteboards-data"
+          },
+          {
+            "label": "5. Adobe官方通稿（Nasdaq转载）",
+            "url": "https://www.nasdaq.com/press-release/adobe-powers-new-era-creativity-bringing-agents-and-tools-creatives-wherever-and"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 台积电董事会批准对Anthropic和OpenAI各最多投资5亿美元。11月10日董事会批准，以IPO每股价格购买最多5亿美元Anthropic普通股，以及购买最多5亿美元OpenAI优先股；还批准约409.267亿美元资本预算。批准额度不等于已交割金额，资本预算不等于当季实际支出。分析：芯片制造商进一步参与AI客户生态，但股权投资与长期扩产需分别评估。",
+          "2. Wix第三季度收入增长13%，Base44接近2.5亿美元ARR。11月10日财报显示收入5.702亿美元、同比增长13%，预订额5.730亿美元、增长11%；Base44当前ARR接近2.5亿美元。公司同时任命Nir Zohar为联席CEO。ARR为年化经常性收入指标，不等于当季确认收入。分析：AI建站业务扩大经常性业务规模，领导分工调整支持商业运营与产品技术分别推进。",
+          "3. 本田上半财年营业利润同比增长48.1%。11月10日披露，截至9月30日六个月收入12.037658万亿日元、同比增长13.2%，营业利润6487.37亿日元、增长48.1%，归母利润5167.61亿日元、增长65.7%。分析：收入与盈利同时修复，但半年累计业绩不能等同单季表现。",
+          "4. On第三季度销售创纪录，关税退款抬升毛利率。11月10日财报公布净销售9.314亿瑞郎，同比增长17.2%，直营渠道销售增长25%。毛利率72.6%，剔除5260万瑞郎美国关税退款后为66.9%。分析：直营扩张与产品组合支持盈利，但退款的一次性贡献须与经营改善区分。",
+          "5. 沃达丰上调全年预期，但半年录得36亿欧元亏损。11月10日公布的FY27上半年收入为219亿欧元，同比增长11.4%；公司上调全年调整后EBITDAaL至132亿至134亿欧元、调整后自由现金流至28亿至30亿欧元。同期法定亏损36亿欧元，主要受德国减值及英国递延税资产减记等非现金项目影响。分析：经营指标增长与法定亏损并存，读者需要区分主营表现、并表扩张和非现金会计影响。"
+        ],
+        "sources": [
+          {
+            "label": "1. 公司原始财务披露",
+            "url": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000797/tsm-boardx202611xx.htm"
+          },
+          {
+            "label": "2. 公司原始财务披露",
+            "url": "https://www.globenewswire.com/news-release/2026/11/10/3399144/0/en/wix-reports-third-quarter-2026-results.html"
+          },
+          {
+            "label": "3. 公司原始财务披露",
+            "url": "https://www.sec.gov/Archives/edgar/data/715153/000119312526454310/d164844d6k.htm"
+          },
+          {
+            "label": "4. 公司原始财务披露",
+            "url": "https://s21.q4cdn.com/241001792/files/content_files/2026-11-10_On-Reports-Results-for-the-Third-Quarter.pdf"
+          },
+          {
+            "label": "5. 公司原始财务披露",
+            "url": "https://www.sec.gov/Archives/edgar/data/839923/000165495426009641/a4345c.htm"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. A股11月10日收涨，创业板指表现较强。北京时间11月10日15:00收盘，上证指数报3663.72点、涨0.08%，深证成指报11241.54点、涨0.86%，创业板指报2494.40点、涨1.46%。股票交易以人民币计价，以上为指数点位。分析：主要指数涨幅不同，成长板块相对较强，不能将指数上涨概括为全部股票同步上涨。",
+          "2. 港股11月10日收高，恒生科技指数涨1.08%。香港11月10日收市，恒生指数报24557.04点、涨0.44%，恒生科技指数报4084.45点、涨1.08%，国企指数报8265.81点、涨0.07%。股票交易通常以港元计价，以上为指数点位。分析：科技指数涨幅高于恒指及国企指数，显示上涨力度存在板块差异。",
+          "3. 日经225收复六万点，11月10日上涨2.87%。东京11月10日15:30（北京时间14:30）收盘，日经225报60459.58点，涨1684.08点、涨幅2.87%；225只成分股中161只上涨、64只下跌。股票交易以日元计价，本稿指数数值统一写点。分析：上涨覆盖多数成分股，但价格加权指数仍较受高权重股票影响，不能将指数涨幅视为全部股票的平均回报。",
+          "4. 欧洲股市11月10日收高，银行板块领涨。欧洲11月10日交易日收市，STOXX Europe 600欧元口径指数涨0.27%至658.32点，银行板块涨1.7%。路透报道油价回落及对中东局势缓和的预期支持市场情绪。该指数涵盖不同股票交易币种。分析：银行板块强于大盘，但地缘局势改善只是当时市场预期，不等于冲突已经结束。",
+          "5. 美股11月10日收跌，纳指跌幅较大。纽约11月10日16:00 EST、北京时间11月11日05:00收盘，道指报52231.89点、跌0.3%，标普500报7520.93点、跌0.4%，纳指约25065.9点、跌0.7%。股票以美元计价，以上均为指数点位。分析：三大指数同时回落且纳指跌幅较大，表明当天科技与成长股权重较高的指数更弱；单日变化不构成后市预测。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华财经收盘报道",
+            "url": "https://www.cnfin.com/gs-lb/detail/20261110/4493455_1.html"
+          },
+          {
+            "label": "1. 同花顺原创收盘快讯",
+            "url": "https://yuanchuang.10jqka.com.cn/20261110/c681653089.shtml"
+          },
+          {
+            "label": "2. 财联社原创收盘报道",
+            "url": "https://www.cls.cn/detail/2530313"
+          },
+          {
+            "label": "2. 东方财富Choice收盘数据",
+            "url": "https://finance.eastmoney.com/a/202611103927319025.html"
+          },
+          {
+            "label": "3. 日经指数官方历史日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=11102026&idx=nk225"
+          },
+          {
+            "label": "3. News On Japan收盘报道",
+            "url": "https://newsonjapan.com/article/151315.php"
+          },
+          {
+            "label": "4. 路透收盘报道，MarketScreener刊载",
+            "url": "https://www.marketscreener.com/news/european-shares-near-record-high-as-lower-oil-prices-boost-sentiment-ce785edadb8aff23"
+          },
+          {
+            "label": "4. 阿纳多卢通讯社收盘报道",
+            "url": "https://www.aa.com.tr/en/economy/european-stocks-close-higher-except-uk-as-falling-oil-prices-ease-inflation-concerns/4119442"
+          },
+          {
+            "label": "5. 美联社完整收盘报道（Chron刊载）",
+            "url": "https://www.chron.com/business/article/how-major-us-stock-indexes-fared-tuesday-22523888.php"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 修订后的《基金会管理条例》公布。新华社11月10日受权公布国务院令第848号，修订后的条例自2027年1月1日起施行。条例在9月11日国务院常务会议通过，令文签署日为10月13日。分析：基金会登记、运行与监督将按新的制度安排调整，当前应区分公布与正式施行。",
+          "2. 王毅同法国外长巴罗通电话。11月10日，王毅应约同巴罗通话。中方谈及中欧贸易伙伴关系，法方表示愿加强联合国事务、人工智能等议题沟通；双方还讨论联合国秘书长选举。法方立场按中方通稿转述。分析：高层沟通延续，但通稿未宣布贸易协议或联合国人选共识。",
+          "3. 中国与斯洛伐克外长在北京会谈。王毅11月10日在北京同斯洛伐克外长布拉纳尔会谈。中方表示愿加强战略协调和双边合作，斯方表示愿拓展各领域交流。分析：此前访华安排进入实际会谈阶段；公开通稿未列出已签署的新协议。",
+          "4. 四部门公开创新药安全合理配备使用措施。11月10日公开的通知要求二级以上医疗机构完善创新药进院流程，按诊疗需求及时纳入用药目录；有关创新药不纳入门诊、住院次均药品费用增幅等公立医疗机构绩效监测指标。通知于10月30日印发，新增事实为本窗口内公开。分析：可减少医院合理配备创新药的流程与考核障碍，但并不意味着全部创新药自动获得医保支付或无条件入院。",
+          "5. 工信部公布10家企业获批700号码保护试点。工信部11月10日公布，10家企业获批开展号码保护服务试点并获配700专用码号资源，优先探索外卖、网约车等场景。用户可选择启用，通话双方通过中间号联系而不展示真实号码。批复的具体日期未披露，本条以当日公开的新进展收录。分析：隐私号码服务进入具体企业试点阶段；仍需企业开通和平台接入，不能称全国用户已自动启用。"
+        ],
+        "sources": [
+          {
+            "label": "1. 新华社受权令文",
+            "url": "https://www.xinhuanet.com/politics/20261110/d391f2fa2db1492ba96dd689aa2b0015/c.html"
+          },
+          {
+            "label": "1. 条例全文",
+            "url": "https://www1.xinhuanet.com/politics/20261110/69ce9aa1223f41249225fd90da146c98/c.html"
+          },
+          {
+            "label": "2. 新华社会谈通稿",
+            "url": "https://www2.xinhuanet.com/politics/20261110/0c329af41a284ee98fd8814c6a115434/c.html"
+          },
+          {
+            "label": "3. 新华社现场会谈报道",
+            "url": "https://www1.xinhuanet.com/politics/20261110/5c268bbb23d7457eb66cbe2df98546e7/c.html"
+          },
+          {
+            "label": "4. 新华社独立采访",
+            "url": "https://www3.xinhuanet.com/20261110/0376c3b826ce43a2b6ebabbf473f8324/c.html"
+          },
+          {
+            "label": "4. 央视当日发布报道（中新网）",
+            "url": "https://www.chinanews.com/jk/2026/11-10/10729351.shtml"
+          },
+          {
+            "label": "5. 中新网转引工信部全文",
+            "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729485.shtml"
+          },
+          {
+            "label": "5. 新华社确认批复和资源核配",
+            "url": "https://www.xinhuanet.com/fortune/20261110/aea6adf558134f53b448b3192c14b371/c.html"
+          },
+          {
+            "label": "5. 中新社记者确认10日公布",
+            "url": "https://www.chinanews.com/cj/2026/11-10/10729746.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 俄乌美阿布扎比三方会谈实际启动。俄罗斯、乌克兰和美国代表11月10日在阿布扎比举行三方会谈。乌方称讨论涉及人道和安全议题；俄方认为应等第二天会议后再作评估。分析：从先前人员与日程安排进入面对面谈判，但各方积极评价并不等于已达成停火。",
+          "2. 英欧联合委员会通过三项决定。英欧11月10日在布鲁塞尔举行脱欧协议联合委员会会议，通过社会保障协调、人工智能及强迫劳动三项决定，并就北爱尔兰消费者包裹费用作出联合声明。分析：变化涉及协议实施和跨境合规，三项决定合并计为同一次会议进展；不能把所有欧盟AI法规自动适用于北爱尔兰。",
+          "3. 以色列新一届议会宣誓就职，组阁未完成。以色列第26届议会120名议员11月10日宣誓就职。艾森科特仍在争取组建执政联盟，新的政府尚未成立。分析：议会开始运作与政府成功组建是两个不同节点，政治不确定性仍在。",
+          "4. 美国众议院将赫格塞思弹劾案转交委员会。众议院11月10日以211票对204票将针对国防部长赫格塞思的弹劾条款转交司法委员会，阻止立即进入全院弹劾表决。分析：这是程序性表决，不是参议院定罪，也不能表述为法院认定指控成立或不成立。",
+          "5. UNDP发布厄尔尼诺提前应对成本研究。联合国开发计划署11月10日在COP31发布报告，估算发展中国家提前保护脆弱家庭的成本最高约360亿美元，而损害发生后响应可能最高约730亿美元。分析：研究强调预防融资的价值；这是模型情景估算，不是已经发生的损失或新增出资承诺。"
+        ],
+        "sources": [
+          {
+            "label": "1. 路透会后综合稿",
+            "url": "https://www.reuters.com/world/europe/russia-ukraine-meet-us-backed-talks-after-trump-says-broad-deal-possible-2026-11-10/"
+          },
+          {
+            "label": "1. CBS/AP启动报道",
+            "url": "https://www.cbsnews.com/news/us-russia-ukraine-war-talks-peace-abu-dhabi-deal/"
+          },
+          {
+            "label": "2. 英国内阁办公室联合声明",
+            "url": "https://www.gov.uk/government/news/joint-statement-on-the-withdrawal-agreement-joint-committee-10-november-2026"
+          },
+          {
+            "label": "3. 以色列时报仪式完成现场稿",
+            "url": "https://www.timesofisrael.com/liveblog_entry/knesset-swearing-in-completed-kicking-off-new-parliament/"
+          },
+          {
+            "label": "3. 路透报道",
+            "url": "https://www.reuters.com/world/israels-parliament-sworn-eisenkot-tries-forge-government-2026-11-10/"
+          },
+          {
+            "label": "4. NPR报道，由WBAA刊载",
+            "url": "https://www.wbaa.org/npr-news/2026-11-10/house-votes-to-effectively-end-the-impeachment-effort-against-pete-hegseth"
+          },
+          {
+            "label": "4. 众议员Larsen官方声明确认票数",
+            "url": "https://larsen.house.gov/news/documentsingle.aspx?DocumentID=4297"
+          },
+          {
+            "label": "5. UNDP原始公告",
+            "url": "https://www.undp.org/press-releases/waiting-act-el-nino-could-roughly-double-cost-protecting-vulnerable-households-un-development-programme-warns"
+          },
+          {
+            "label": "5. UNDP报告",
+            "url": "https://www.undp.org/publications/cost-waiting-warmer-world-why-climate-investment-cannot-wait-next-disaster"
+          }
+        ]
+      }
+    ],
+    "closing": "影响判断属于分析，不构成投资建议；公司声明、政策公开与施行、外交沟通与已达成成果分别表述。",
+    "publishedAt": "2026-11-11T02:30:41Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-10T02:30:41Z",
+      "end": "2026-11-11T02:30:41Z"
+    }
   }
 ]
