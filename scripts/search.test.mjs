@@ -20,8 +20,9 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
+  ids['search-size'].value = '50';
   ids['search-scope'].value = 'summary';
   ids['search-type'].value = 'all';
   ids['search-topic'].value = 'all';
@@ -550,7 +551,7 @@ test('explicit browse-all mode paginates all types, supports filtering and exits
   const nodes = boot(Array.from({length:73}, (_,i) => ({type:i%2 ? 'article':'source',title:'entry',detail:'',date:'2026-01-01',href:'/notes/a/'})));
   nodes['search-query'].value='missing';
   nodes['search-from'].value='9999-01-01';
-  nodes['search-browse'].fire('click');
+  nodes['search-size','search-browse'].fire('click');
   assert.equal(nodes['search-query'].value, '');
   assert.equal(nodes['search-from'].value, '');
   assert.match(nodes['search-status'].textContent, /共找到 73 条/);
@@ -559,7 +560,7 @@ test('explicit browse-all mode paginates all types, supports filtering and exits
   assert.equal(nodes['search-results'].start, 51);
   nodes['search-type'].value='article'; nodes['search-type'].fire('change');
   assert.match(nodes['search-status'].textContent, /共找到 36 条/);
-  nodes['search-browse'].fire('click');
+  nodes['search-size','search-browse'].fire('click');
   assert.match(nodes['search-status'].textContent, /共找到 73 条/);
   assert.equal(nodes['search-results'].start, 1);
   nodes['search-clear'].fire('click');
@@ -599,4 +600,39 @@ test('result breakdown counts all matched pages by type and clears on invalid fi
   n['search-clear'].fire('click'); assert.doesNotMatch(n['search-status'].textContent,/分类合计/);
   n['search-query'].value='missing'; n['search-query'].fire('input');
   assert.match(n['search-status'].textContent,/文章 0 篇，新闻条目 0 条，引用来源 0 处/);
+});
+
+
+test('page size changes preserve criteria, reset range, and cover exact boundaries', () => {
+  const records = Array.from({length:100}, (_,i) => ({type:'headline', topics:['ai'], title:`Match ${i}`, detail:'', date:'2026-11-01', href:`/notes/${i}/`}));
+  const n = boot(records), size = n['search-size'];
+  n['search-query'].value='match'; n['search-topic'].value='ai'; n['search-query'].fire('input');
+  n['search-last'].fire('click'); assert.equal(n['search-results'].start,51);
+  size.value='25'; size.fire('change');
+  assert.equal(n['search-query'].value,'match'); assert.equal(n['search-topic'].value,'ai');
+  assert.equal(n['search-results'].start,1); assert.equal(n['search-results'].children[0].children.length,25);
+  const destinations=[];
+  for (let page=0; page<4; page++) {
+    destinations.push(...n['search-results'].children[0].children.map(item=>item.children[0].href));
+    n['search-next'].fire('click');
+  }
+  assert.deepEqual(destinations,records.map(item=>item.href));
+  assert.equal(n['search-results'].start,76); assert.equal(n['search-next'].disabled,true);
+  size.value='100'; size.fire('change');
+  assert.equal(n['search-results'].start,1); assert.equal(n['search-results'].children[0].children.length,100);
+  assert.equal(n['search-pagination'].hidden,true); assert.match(n['search-print-context'].textContent,/每页 100 条/);
+  n['search-clear'].fire('click'); assert.equal(size.value,'50'); assert.match(n['search-status'].textContent,/请输入/);
+});
+
+test('page size remains presentation-only, clamps unsupported values, and has an accessible label', () => {
+  const n=boot(Array.from({length:101},(_,i)=>({type:'article',title:'match',detail:'',date:'2026-11-01',href:`/notes/${i}/`})));
+  n['search-size'].value='100'; n['search-size'].fire('change'); assert.match(n['search-status'].textContent,/请输入/);
+  n['search-browse'].fire('click'); assert.equal(n['search-size'].value,'50');
+  for (const value of ['0','-1','Infinity','1000','bad']) {
+    n['search-size'].value=value; n['search-size'].fire('change');
+    assert.equal(n['search-results'].children[0].children.length,50);
+  }
+  const html=renderSearch([]);
+  assert.match(html,/<label for="search-size">每页条数<\/label>/);
+  assert.match(html,/<option value="50" selected>50 条/);
 });
