@@ -54,6 +54,24 @@ test('disclosure preserves native keyboard semantics and indicators, no-has fall
   }
 });
 
-test('grouping does not introduce persistence, executable content, external requests or submitted forms', () => {
-  assert.doesNotMatch(settings, /<script|<form|on\w+=|localStorage|sessionStorage|document\.cookie|https?:|style=/i);
+test('grouping does not introduce persistence, executable content, external requests or submission destinations', () => {
+  assert.doesNotMatch(settings, /<script|action=|on\w+=|localStorage|sessionStorage|document\.cookie|https?:|style=/i);
+});
+
+
+test('reset uses one isolated native form with no navigable submission destination', () => {
+  assert.equal((settings.match(/<form /g)||[]).length, 1);
+  assert.match(settings, /<form method="dialog" aria-label="阅读外观">/);
+  assert.match(settings, /<button class="reader-reset" type="reset" aria-describedby="reader-reset-help">恢复默认外观<\/button>/);
+  const form = settings.slice(settings.indexOf('<form'), settings.indexOf('</form>'));
+  assert.equal((form.match(/<fieldset/g)||[]).length, 3);
+  assert.doesNotMatch(form, /news-focus|type="submit"|action=|on\w+=/);
+  assert.match(form, /id="reader-reset-help"/);
+  // Defaults restored by reset are the original two radios and unchecked layout.
+  assert.equal((form.match(/ checked/g)||[]).length, 2);
+  assert.doesNotMatch(form, /type="checkbox"[^>]*checked/);
+  const css = read('../public/reader-controls.css');
+  assert.match(css, /\.reader-reset\{min-height:44px;max-width:100%/);
+  assert.match(css, /\.reader-reset:focus-visible\{outline:2px solid var\(--green\)/);
+  assert.match(css, /\.reader-reset:focus-visible\{outline-color:Highlight/);
 });

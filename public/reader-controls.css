@@ -103,3 +103,10 @@
 }
 @media print{.reader-settings{display:none}}
 @media (forced-colors:active){.reader-settings>summary:focus-visible{outline-color:Highlight}}
+
+/* A native reset affects only this form's appearance controls, not topic focus. */
+@media screen{
+  .reader-reset{min-height:44px;max-width:100%;margin:0 0 12px;padding:10px 16px;border:1px solid var(--control-border);border-radius:3px;font:inherit;line-height:1.7;background:var(--paper);color:var(--ink);overflow-wrap:anywhere;cursor:pointer;touch-action:manipulation}
+  .reader-reset:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+}
+@media (forced-colors:active){.reader-reset{border-color:ButtonText}.reader-reset:focus-visible{outline-color:Highlight}}
