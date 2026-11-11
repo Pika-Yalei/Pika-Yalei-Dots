@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-context-toggle','search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-size'].value = '50';
   ids['search-scope'].value = 'summary';
@@ -218,7 +218,7 @@ test('explicit paging moves focus to the new range without stealing input focus'
  nodes['search-previous'].fire('click');assert.equal(status.focused,true);
  status.focused=false;nodes['search-query'].fire('input');assert.equal(status.focused,false);
  assert.match(renderSearch([]),/id="search-status" tabindex="-1"/);
- assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,5);
+ assert.equal((renderSearch([]).match(/aria-controls="search-results"/g)||[]).length,6);
 });
 
 test('incomplete native dates block results instead of silently removing a boundary',()=>{
@@ -551,7 +551,7 @@ test('explicit browse-all mode paginates all types, supports filtering and exits
   const nodes = boot(Array.from({length:73}, (_,i) => ({type:i%2 ? 'article':'source',title:'entry',detail:'',date:'2026-01-01',href:'/notes/a/'})));
   nodes['search-query'].value='missing';
   nodes['search-from'].value='9999-01-01';
-  nodes['search-size','search-browse'].fire('click');
+  nodes['search-browse'].fire('click');
   assert.equal(nodes['search-query'].value, '');
   assert.equal(nodes['search-from'].value, '');
   assert.match(nodes['search-status'].textContent, /共找到 73 条/);
@@ -560,7 +560,7 @@ test('explicit browse-all mode paginates all types, supports filtering and exits
   assert.equal(nodes['search-results'].start, 51);
   nodes['search-type'].value='article'; nodes['search-type'].fire('change');
   assert.match(nodes['search-status'].textContent, /共找到 36 条/);
-  nodes['search-size','search-browse'].fire('click');
+  nodes['search-browse'].fire('click');
   assert.match(nodes['search-status'].textContent, /共找到 73 条/);
   assert.equal(nodes['search-results'].start, 1);
   nodes['search-clear'].fire('click');
@@ -635,4 +635,34 @@ test('page size remains presentation-only, clamps unsupported values, and has an
   const html=renderSearch([]);
   assert.match(html,/<label for="search-size">每页条数<\/label>/);
   assert.match(html,/<option value="50" selected>50 条/);
+});
+
+
+test('page-wide matched prose toggle handles mixed states and preserves safe print copies', () => {
+ const n=boot(Array.from({length:3},(_,i)=>({type:'headline',title:'title',detail:'',body:'match <script>text</script>',date:'2026-11-01',href:`/notes/${i}/`})));
+ const button=n['search-context-toggle']; assert.equal(button.hidden,true);
+ n['search-query'].value='match'; n['search-scope'].value='body'; n['search-scope'].fire('change');
+ const items=n['search-results'].children[0].children;
+ const contexts=items.map(item=>item.children.find(c=>c.className==='search-match-context'));
+ assert.equal(button.hidden,false); assert.equal(button['aria-expanded'],'false');
+ button.fire('click'); assert.ok(contexts.every(c=>c.open)); assert.equal(button['aria-expanded'],'true');
+ assert.equal(button.textContent,'收起本页匹配正文');
+ contexts[0].open=false; contexts[0].fire('toggle'); assert.equal(button['aria-expanded'],'false');
+ assert.equal(button.textContent,'展开本页匹配正文');
+ button.fire('click'); assert.ok(contexts.every(c=>c.open));
+ button.fire('click'); assert.ok(contexts.every(c=>!c.open));
+ for(const item of items) assert.equal(item.children.find(c=>c.className==='search-print-match').children[0].textContent,'match <script>text</script>');
+ n['search-query'].value='missing'; n['search-query'].fire('input'); assert.equal(button.hidden,true);
+});
+
+test('matched prose batch state resets on paging, size, scope, filters and clearing', () => {
+ const n=boot(Array.from({length:51},(_,i)=>({type:'headline',title:'title',detail:'',body:'match',date:'2026-11-01',href:`/notes/${i}/`})));
+ n['search-query'].value='match'; n['search-scope'].value='body'; n['search-scope'].fire('change');
+ const button=n['search-context-toggle']; button.fire('click');
+ n['search-next'].fire('click'); assert.equal(button['aria-expanded'],'false'); assert.equal(n['search-results'].start,51);
+ button.fire('click'); n['search-size'].value='25'; n['search-size'].fire('change'); assert.equal(button['aria-expanded'],'false');
+ button.fire('click'); n['search-from'].value='2026-11-01'; n['search-from'].fire('change'); assert.equal(button['aria-expanded'],'false');
+ n['search-scope'].value='summary'; n['search-scope'].fire('change'); assert.equal(button.hidden,true);
+ n['search-clear'].fire('click'); assert.equal(button.hidden,true); assert.equal(button['aria-expanded'],'false');
+ assert.match(renderSearch([]),/id="search-context-toggle" type="button" aria-controls="search-results" aria-expanded="false" hidden/);
 });
