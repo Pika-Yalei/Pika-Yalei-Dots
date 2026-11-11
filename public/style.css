@@ -104,6 +104,7 @@
 .news-outline{border:1px solid var(--line);padding:8px 16px;margin:16px 0 24px;font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}.news-outline summary{cursor:pointer;min-height:44px;padding:10px 0}.news-outline summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.news-outline nav{display:block}.news-outline ul{list-style:none;padding:0;margin:8px 0}.news-outline a{display:block;min-height:44px;padding:10px 0;line-height:1.6;text-decoration:underline}
 @media print{
   .archive-month-return{display:none}
+  .article-start{display:none}
   /* Closed screen disclosures must not hide matched paragraphs on paper. */
   .search-match-context{display:none}
   .search-print-match{display:block;overflow-wrap:anywhere}
@@ -224,3 +225,10 @@
 
 /* Card publication instants remain distinct from their review-date ordering. */
 .entry-content>.entry-publication{font-size:.75rem;line-height:1.7;margin:0 0 10px;overflow-wrap:anywhere}
+
+/* A visible shortcut bypasses article navigation and preferences without scripts.
+   Its target reuses section heading focus, contrast and scroll-margin rules. */
+@media screen{
+  .article-start{margin:0 0 16px;font-size:.875rem;line-height:1.7}
+  .article-start a{display:inline-block;min-width:44px;min-height:44px;max-width:100%;padding:10px 4px;overflow-wrap:anywhere;text-decoration:underline}
+}
