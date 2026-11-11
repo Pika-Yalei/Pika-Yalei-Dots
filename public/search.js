@@ -20,6 +20,14 @@
   const from = ui.querySelector('#search-from');
   const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
+  const contextToggle = ui.querySelector('#search-context-toggle');
+  let disclosures = [];
+  const refreshContextToggle = () => {
+    const allOpen = disclosures.length > 0 && disclosures.every(context => context.open);
+    contextToggle.hidden = disclosures.length === 0;
+    contextToggle.textContent = allOpen ? '收起本页匹配正文' : '展开本页匹配正文';
+    contextToggle.setAttribute('aria-expanded', String(allOpen));
+  };
   const browse = ui.querySelector('#search-browse');
   let browsingAll = false;
   const latest = ui.querySelector('#search-latest');
@@ -64,6 +72,7 @@
     dateError.hidden = !invalidInput && !invalidRange;
     const hasFilter = browsingAll || terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all';
     const fragment = document.createDocumentFragment();
+    disclosures = [];
     let total = 0;
     const counts = {article:0, headline:0, source:0};
     // Stable sorting preserves article/headline/source order within the same day.
@@ -91,6 +100,8 @@
           const summary = document.createElement('summary');
           summary.textContent = '查看匹配正文';
           context.className = 'search-match-context';
+          context.addEventListener('toggle', refreshContextToggle);
+          disclosures.push(context);
           context.append(summary);
           for (const paragraph of matches) {
             const text = document.createElement('p');
@@ -118,6 +129,7 @@
       fragment.append(item);
     }
     results.replaceChildren(fragment);
+    refreshContextToggle();
     results.start = (page - 1) * pageSize + 1;
     pageCount = Math.max(1, Math.ceil(total / pageSize));
     pagination.hidden = total <= pageSize;
@@ -130,6 +142,11 @@
     printContext.textContent = `搜索快照：每页 ${pageSize} 条；浏览模式：${browsingAll ? '全部条目起步，可继续筛选' : '条件搜索'}；匹配范围：${scope.value === 'body' ? '同时匹配新闻正文' : '标题、摘要与来源'}；排序：${order.value === 'oldest' ? '回顾日期从旧到新' : '回顾日期从新到旧'}；关键词：${query.value.slice(0,200) || '未指定'}；内容类型：${labels[type.value] || '全部'}；新闻栏目：${({ai:'AI',business:'商业',markets:'股票市场','china-policy':'中国政治与政策',world:'国际政治与重大事件'})[topic.value] || '全部'}；回顾日期：${invalidDate(from) ? '无效或未填完整' : from.value || '不限'} 至 ${invalidDate(to) ? '无效或未填完整' : to.value || '不限'}。仅包含当前显示的一页结果，不是全部匹配内容。结果范围及输入错误见下方状态。`;
     if (focusResults) status.focus();
   }
+  contextToggle.addEventListener('click', () => {
+    const open = !disclosures.every(context => context.open);
+    for (const context of disclosures) context.open = open;
+    refreshContextToggle();
+  });
   let composing = false;
   query.addEventListener('compositionstart', () => { composing = true; });
   query.addEventListener('compositionend', () => { composing = false; update(true); });
