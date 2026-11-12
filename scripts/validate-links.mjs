@@ -1,9 +1,11 @@
+import { validateJobs } from './jobs.mjs';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { sourceUrls } from './article-content.mjs';
 import { siteUrl } from './feed.mjs';
 
-const allowedExternalUrls = new Set(['https://github.com/Pika-Yalei/Pika-Yalei-Dots', ...sourceUrls]);
+const jobUrls = validateJobs(JSON.parse(await readFile(new URL('../content/jobs.json', import.meta.url), 'utf8'))).map(job => job.url);
+const allowedExternalUrls = new Set(['https://github.com/Pika-Yalei/Pika-Yalei-Dots', ...sourceUrls, ...jobUrls]);
 const entities = { amp: '&', AMP: '&', lt: '<', LT: '<', gt: '>', GT: '>', quot: '"', QUOT: '"', apos: "'" };
 
 // Decode once, just as HTML attributes are decoded before URL resolution.
