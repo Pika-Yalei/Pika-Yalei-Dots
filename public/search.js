@@ -15,6 +15,7 @@
   const scope = ui.querySelector('#search-scope');
   const type = ui.querySelector('#search-type');
   const topic = ui.querySelector('#search-topic');
+  const host = ui.querySelector('#search-host');
   const order = ui.querySelector('#search-order');
   const size = ui.querySelector('#search-size');
   const from = ui.querySelector('#search-from');
@@ -70,7 +71,7 @@
       ? `${[invalidDate(from) ? '起始日期' : '', invalidDate(to) ? '结束日期' : ''].filter(Boolean).join('、')}未填写完整或无效。请使用 0001–9999 年的有效日期。`
       : invalidRange ? '起始日期晚于结束日期。请调整任一日期，起止日期均包含在查询内。' : '';
     dateError.hidden = !invalidInput && !invalidRange;
-    const hasFilter = browsingAll || terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all';
+    const hasFilter = browsingAll || terms.length || from.value || to.value || topic.value !== 'all' || type.value !== 'all' || host.value !== 'all';
     const fragment = document.createDocumentFragment();
     disclosures = [];
     let total = 0;
@@ -78,6 +79,7 @@
     // Stable sorting preserves article/headline/source order within the same day.
     const ordered = [...records].sort((a, b) => order.value === 'oldest' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date));
     if (hasFilter && !invalidInput && !invalidRange) for (const record of ordered) {
+      if (host.value !== 'all' && (record.type !== 'source' || record.hostname !== host.value)) continue;
       if (topic.value !== 'all' && !(record.topics || []).includes(topic.value)) continue;
       if ((from.value && record.date < from.value) || (to.value && record.date > to.value)) continue;
       if ((type.value !== 'all' && record.type !== type.value) || !terms.every(term => (scope.value === 'body' ? record.fulltext : record.haystack).includes(term))) continue;
@@ -137,9 +139,9 @@
     last.disabled = page >= pageCount;
     previous.disabled = page <= 1;
     next.disabled = page * pageSize >= total;
-    status.textContent = invalidInput ? '日期输入不完整或超出支持范围，请输入 0001–9999 年的完整有效日期；当前未显示结果。' : invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*pageSize,0),pageSize)} 条。${total > pageSize ? `第 ${page} / ${Math.ceil(total/pageSize)} 页，显示第 ${(page-1)*pageSize+1}–${Math.min(page*pageSize,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择内容类型、新闻栏目、回顾日期范围。';
+    status.textContent = invalidInput ? '日期输入不完整或超出支持范围，请输入 0001–9999 年的完整有效日期；当前未显示结果。' : invalidRange ? '起始日期不能晚于结束日期，请调整日期范围。' : hasFilter ? `共找到 ${total} 条，显示 ${Math.min(Math.max(total-(page-1)*pageSize,0),pageSize)} 条。${total > pageSize ? `第 ${page} / ${Math.ceil(total/pageSize)} 页，显示第 ${(page-1)*pageSize+1}–${Math.min(page*pageSize,total)} 条。` : total === 0 ? '请尝试更短的关键词或其他内容类型。' : ''}` : '请输入关键词或选择内容类型、来源域名、新闻栏目、回顾日期范围。';
     if (hasFilter && !invalidInput && !invalidRange) status.textContent += ` 分类合计：文章 ${counts.article} 篇，新闻条目 ${counts.headline} 条，引用来源 ${counts.source} 处（按引用位置计数）。合计覆盖全部匹配页。`;
-    printContext.textContent = `搜索快照：每页 ${pageSize} 条；浏览模式：${browsingAll ? '全部条目起步，可继续筛选' : '条件搜索'}；匹配范围：${scope.value === 'body' ? '同时匹配新闻正文' : '标题、摘要与来源'}；排序：${order.value === 'oldest' ? '回顾日期从旧到新' : '回顾日期从新到旧'}；关键词：${query.value.slice(0,200) || '未指定'}；内容类型：${labels[type.value] || '全部'}；新闻栏目：${({ai:'AI',business:'商业',markets:'股票市场','china-policy':'中国政治与政策',world:'国际政治与重大事件'})[topic.value] || '全部'}；回顾日期：${invalidDate(from) ? '无效或未填完整' : from.value || '不限'} 至 ${invalidDate(to) ? '无效或未填完整' : to.value || '不限'}。仅包含当前显示的一页结果，不是全部匹配内容。结果范围及输入错误见下方状态。`;
+    printContext.textContent = `搜索快照：每页 ${pageSize} 条；浏览模式：${browsingAll ? '全部条目起步，可继续筛选' : '条件搜索'}；匹配范围：${scope.value === 'body' ? '同时匹配新闻正文' : '标题、摘要与来源'}；排序：${order.value === 'oldest' ? '回顾日期从旧到新' : '回顾日期从新到旧'}；关键词：${query.value.slice(0,200) || '未指定'}；来源域名：${host.value === 'all' ? '全部' : host.value}；内容类型：${labels[type.value] || '全部'}；新闻栏目：${({ai:'AI',business:'商业',markets:'股票市场','china-policy':'中国政治与政策',world:'国际政治与重大事件'})[topic.value] || '全部'}；回顾日期：${invalidDate(from) ? '无效或未填完整' : from.value || '不限'} 至 ${invalidDate(to) ? '无效或未填完整' : to.value || '不限'}。仅包含当前显示的一页结果，不是全部匹配内容。结果范围及输入错误见下方状态。`;
     if (focusResults) status.focus();
   }
   contextToggle.addEventListener('click', () => {
@@ -168,6 +170,7 @@
   from.addEventListener('change', () => update(true));
   to.addEventListener('change', () => update(true));
   topic.addEventListener('change', () => update(true));
+  host.addEventListener('change', () => update(true));
   order.addEventListener('change', () => update(true));
   size.addEventListener('change', () => update(true));
   type.addEventListener('change', () => update(true));
@@ -177,7 +180,7 @@
   previous.addEventListener('click', () => { if (!previous.disabled) { page -= 1; update(false, true); } });
   next.addEventListener('click', () => { if (!next.disabled) { page += 1; update(false, true); } });
   latest.addEventListener('click', () => { if (!latest.disabled) { from.value = latestDate; to.value = latestDate; update(true); } });
-  const resetFilters = () => { query.value = ''; scope.value = 'summary'; order.value = 'newest'; size.value = '50'; type.value = 'all'; topic.value = 'all'; from.value = ''; to.value = ''; };
+  const resetFilters = () => { query.value = ''; scope.value = 'summary'; order.value = 'newest'; size.value = '50'; type.value = 'all'; topic.value = 'all'; host.value = 'all'; from.value = ''; to.value = ''; };
   browse.addEventListener('click', () => { resetFilters(); browsingAll = true; update(true, true); });
   clear.addEventListener('click', () => { resetFilters(); browsingAll = false; update(true); query.focus(); });
   update();
