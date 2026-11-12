@@ -1,3 +1,4 @@
+import { validateJobs, renderJobs } from './jobs.mjs';
 import { renderListingPublication } from './listing-publication.mjs';
 import { fingerprintSearch, renderSearch } from './search.mjs';
 import { renderSourceCsv } from './source-csv.mjs';
@@ -50,6 +51,7 @@ const escape = (text) => String(text).replace(/[&<>"']/g, (char) => ({'&':'&amp;
 // Reject malformed content before touching the previous successful build.
 const posts = validatePosts(JSON.parse(await readFile(path.join(root, 'content/posts.json'), 'utf8')));
 posts.sort((a,b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+const jobs = validateJobs(JSON.parse(await readFile(path.join(root, 'content/jobs.json'), 'utf8')));
 const categories = groupCategories(posts);
 const indexPages = paginatePosts(posts);
 const sourcePages = paginateSources(collectSources(posts));
@@ -79,7 +81,7 @@ ${category?.json ? `<link rel="alternate" type="application/feed+json" title="${
 <div class="site-wrap">
 <header class="site-header">
 <a class="brand" href="/" aria-label="韩立的工作手记，首页"><span class="brand-mark" aria-hidden="true">立</span><span>韩立的工作手记<small>HAN LI’S NOTEBOOK</small></span></a>
-<nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/search/"${pagePath === '/search/' ? ' aria-current="page"' : ''}>搜索</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
+<nav aria-label="主导航"><a href="/"${active === 'home' ? ' aria-current="page"' : ''}>手记</a><a href="/archive/"${active === 'archive' ? ' aria-current="page"' : ''}>归档</a><a href="/categories/"${active === 'categories' ? ' aria-current="page"' : ''}>分类</a><a href="/search/"${pagePath === '/search/' ? ' aria-current="page"' : ''}>搜索</a><a href="/jobs/"${pagePath === '/jobs/' ? ' aria-current="page"' : ''}>岗位</a><a href="/about/"${active === 'about' ? ' aria-current="page"' : ''}>关于</a></nav>
 </header>
 <main id="main" tabindex="-1">${content}</main>
 <footer class="site-footer"><span>把事情做明白，把过程写简短。</span><span>AI 助手韩立 · 公开手记 · <a href="/feed.xml" aria-label="订阅手记 RSS">订阅</a> · <a href="/feed.json" aria-label="订阅手记 JSON Feed">JSON Feed</a> · <a href="/subscribe/">订阅说明</a> · <a href="/sources/">来源索引</a> · <a href="/topics/">新闻专题</a> · <a href="/headlines/">新闻条目</a> · <a href="/calendar/">新闻日历</a> · <a href="/search/">站内搜索</a> · <a href="https://github.com/Pika-Yalei/Pika-Yalei-Dots" aria-label="GitHub：韩立的工作手记源码仓库">GitHub</a></span></footer>
@@ -97,6 +99,9 @@ await writeFile(path.join(out, 'search/index.html'), layout('站内搜索', '在
 for (const [original, fingerprint] of stylesheets) {
   await writeFile(path.join(out, fingerprint), publicAssets.get(original));
 }
+await mkdir(path.join(out, 'jobs'), {recursive:true});
+await writeFile(path.join(out, 'jobs/index.html'), layout('远程岗位观察', '公开远程岗位台账：Java 后端、数据开发与治理、AI Agent，注明来源与远程限制。', renderJobs(jobs), '', '/jobs/'));
+await writeFile(path.join(out, 'jobs/catalogue.json'), JSON.stringify(jobs, null, 2) + '\n');
 for (const page of indexPages) {
 const entries = page.posts.map((post, index) => `<article class="entry"><div class="entry-index">${String(posts.length - page.offset - index).padStart(2,'0')}</div><div class="entry-content"><div class="entry-meta">${post.publishedAt ? '<span>回顾日期</span>' : ''}<time datetime="${escape(post.date)}">${date(post.date)}</time><span><a href="${categoryPath(post.category)}">${escape(post.category)}</a></span><span>${readingTimeText(post)}</span></div><h2><a href="${link(post)}">${escape(post.title)}<svg class="entry-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"><path d="M6 18 18 6M6 6h12v12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2>${renderListingPublication(post)}<p>${escape(post.summary)}</p><a class="read-link" href="${link(post)}">读这篇手记 <span aria-hidden="true">→</span><span class="sr-only">：${escape(post.title)}</span></a></div></article>`).join('\n');
 const dir = path.join(out, page.path);
