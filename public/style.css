@@ -103,8 +103,11 @@
 /* Printed copies keep authorship and flow naturally across page boundaries. */
 .news-outline{border:1px solid var(--line);padding:8px 16px;margin:16px 0 24px;font-family:var(--sans);font-size:.875rem;overflow-wrap:anywhere}.news-outline summary{cursor:pointer;min-height:44px;padding:10px 0}.news-outline summary:focus-visible{outline:2px solid var(--green);outline-offset:4px}.news-outline nav{display:block}.news-outline ul{list-style:none;padding:0;margin:8px 0}.news-outline a{display:block;min-height:44px;padding:10px 0;line-height:1.6;text-decoration:underline}
 @media print{
+
   .archive-month-return{display:none}
   .article-start{display:none}
+  .jobs-nav{display:none}
+  .job-entry h3 a::after{content:" (" attr(href) ")";font-family:var(--sans);font-size:.75rem}
   /* Closed screen disclosures must not hide matched paragraphs on paper. */
   .search-match-context{display:none}
   .search-print-match{display:block;overflow-wrap:anywhere}
@@ -232,3 +235,7 @@
   .article-start{margin:0 0 16px;font-size:.875rem;line-height:1.7}
   .article-start a{display:inline-block;min-width:44px;min-height:44px;max-width:100%;padding:10px 4px;overflow-wrap:anywhere;text-decoration:underline}
 }
+
+/* Public job records retain readable paper-and-ink typography without scripts. */
+.jobs-nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:24px 0}.jobs-nav a,.job-source a{display:inline-block;padding:10px 0;text-decoration:underline}.jobs-group{margin:40px 0}.jobs-group h2{font-family:var(--serif);font-size:1.5rem}.jobs-group h2 small{font-family:var(--sans);font-size:.875rem;font-weight:400}.jobs-group h2:focus{outline:2px solid var(--green);outline-offset:6px}.job-entry{border-top:1px solid var(--line);padding:24px 0;scroll-margin-top:24px}.job-entry h3{font-family:var(--serif);font-size:1.25rem;margin:0 0 12px;line-height:1.7}.job-entry h3 a{text-decoration:underline}.job-entry dl{margin:18px 0}.job-entry dl>div{display:grid;grid-template-columns:7em minmax(0,1fr);gap:12px;padding:7px 0;line-height:1.9}.job-entry dt{font-weight:600}.job-entry dd{margin:0}.job-source{font-size:.875rem;line-height:1.9}.jobs{overflow-wrap:anywhere}.jobs>p{line-height:1.9}
+@media(max-width:43.75em){.job-entry dl>div{grid-template-columns:1fr;gap:0}.jobs-nav{gap:6px 16px}}
