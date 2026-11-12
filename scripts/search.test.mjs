@@ -20,12 +20,13 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-context-toggle','search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-host','search-context-toggle','search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-size'].value = '50';
   ids['search-scope'].value = 'summary';
   ids['search-type'].value = 'all';
   ids['search-topic'].value = 'all';
+  ids['search-host'].value = 'all';
   ids['search-data'].content = {textContent:JSON.stringify(records)};
   ids['search-ui'].content = {cloneNode:() => ({querySelector:selector => ids[selector.slice(1)]})};
   const document = {getElementById:id => ids[id], createDocumentFragment:() => new Node(), createElement:() => new Node()};
@@ -665,4 +666,49 @@ test('matched prose batch state resets on paging, size, scope, filters and clear
  n['search-scope'].value='summary'; n['search-scope'].fire('change'); assert.equal(button.hidden,true);
  n['search-clear'].fire('click'); assert.equal(button.hidden,true); assert.equal(button['aria-expanded'],'false');
  assert.match(renderSearch([]),/id="search-context-toggle" type="button" aria-controls="search-results" aria-expanded="false" hidden/);
+});
+
+
+test('source hosts are indexed from URL authorities and rendered once in sorted options', () => {
+  const entries = collectSearchEntries(posts);
+  for (const entry of entries.filter(entry => entry.type === 'source')) assert.equal(entry.hostname, new URL(entry.href).hostname);
+  const hosts = [...new Set(entries.filter(entry => entry.type === 'source').map(entry => entry.hostname))].sort();
+  const html = renderSearch(posts);
+  const options = html.match(/id="search-host"[^>]*>(.*?)<\/select>/s)[1];
+  assert.deepEqual([...options.matchAll(/<option value="([^"]+)"/g)].map(match => match[1]), ['all', ...hosts]);
+  assert.match(html, /label for="search-host"/);
+  assert.match(html, /不合并 www 或其他子域名/);
+});
+
+test('exact host filter excludes domain text, URL paths and sibling hosts while combining filters', () => {
+  const records = [
+    {type:'source', hostname:'example.org', title:'match', detail:'', date:'2026-11-01', href:'https://example.org/a', topics:['ai']},
+    {type:'source', hostname:'www.example.org', title:'match', detail:'example.org', date:'2026-11-01', href:'https://www.example.org/a'},
+    {type:'source', hostname:'other.org', title:'match', detail:'example.org', date:'2026-11-01', href:'https://other.org/example.org'},
+    {type:'article', title:'example.org', detail:'', date:'2026-11-01', href:'/notes/a/'}
+  ];
+  const n = boot(records), host = n['search-host'];
+  host.value='example.org'; host.fire('change');
+  assert.match(n['search-status'].textContent,/共找到 1 条/);
+  assert.equal(n['search-results'].children[0].children[0].children[0].href,'https://example.org/a');
+  assert.match(n['search-print-context'].textContent,/来源域名：example.org/);
+  n['search-query'].value='missing'; n['search-query'].fire('input');
+  assert.match(n['search-status'].textContent,/共找到 0 条/);
+  n['search-query'].value='match'; n['search-topic'].value='ai'; n['search-topic'].fire('change');
+  assert.match(n['search-status'].textContent,/共找到 1 条/);
+  n['search-type'].value='headline'; n['search-type'].fire('change');
+  assert.match(n['search-status'].textContent,/共找到 0 条/);
+  n['search-clear'].fire('click'); assert.equal(host.value,'all');
+  assert.match(n['search-status'].textContent,/请输入/);
+  host.value='example.org'; n['search-browse'].fire('click'); assert.equal(host.value,'all');
+});
+
+test('host selection resets paging and preserves query, dates and presentation', () => {
+  const n=boot(Array.from({length:51},(_,i)=>({type:'source',hostname:'example.org',title:'match',detail:'',date:'2026-11-01',href:'https://example.org/'+i})));
+  n['search-query'].value='match'; n['search-query'].fire('input');
+  n['search-next'].fire('click'); assert.equal(n['search-results'].start,51);
+  n['search-host'].value='example.org'; n['search-host'].fire('change');
+  assert.equal(n['search-results'].start,1); assert.equal(n['search-query'].value,'match');
+  n['search-latest'].fire('click'); assert.equal(n['search-host'].value,'example.org');
+  n['search-last'].fire('click'); assert.equal(n['search-results'].children[0].children.length,1);
 });
