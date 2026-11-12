@@ -6414,5 +6414,251 @@
       "start": "2026-11-10T02:30:41Z",
       "end": "2026-11-11T02:30:41Z"
     }
+  },
+  {
+    "slug": "news-2026-11-12",
+    "date": "2026-11-12",
+    "title": "2026-11-12｜24 小时新闻简报",
+    "subtitle": "AI接口与端侧模型、企业业绩、五地收盘，以及政策与国际会谈的新进展。",
+    "category": "新闻回顾",
+    "readingMinutes": 12,
+    "summary": "五栏各5条，共25项独立进展，涵盖AI应用、公司公告、11月11日全球市场收盘及政策与外交动态。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Google推出Gemini Decisions API，专门处理有界选项判断。11月11日Google推出由Gemini Decision 1驱动的Decisions API，可在一份多模态输入上评估最多1000个独立问题，输入上限256K token，返回概率和置信度；每百万输入token收费0.10美元，不计输出token。分析：工具选择、路由和规则检查可使用专门的判断接口，不必生成长文本。",
+          "2. AlphaGenome 2把DNA预测细化到特定细胞类型。DeepMind于11月11日公布AlphaGenome 2，预测DNA变异在不同细胞类型和状态中的作用；非商业研究可通过AlphaGenome API使用，商业研究处于私有预览。这属于研究预测，不是临床诊断或治疗结论。分析：研究者可以更有针对性地筛选候选变异和后续实验，而非只依赖组织平均值。",
+          "3. Google Labs推出Tabletop协作实验，限美国成年人候补开放。Google于11月11日推出Tabletop，用户可加入链接、文件和想法，让AI生成行程、投票、费用分摊或赛事表，并通过链接让多人实时使用。目前仅向美国18岁以上用户通过候补名单开放。分析：AI生成的小工具开始与群体协作结合，但目前仍是受限实验。",
+          "4. Tether研究团队发布0.8B端侧工具调用模型BotPsy。Tether AI Research于11月11日发布BotPsy，基于Qwen3.5-0.8B，面向函数调用与低至中等难度代理任务，提供可下载权重和GGUF格式。性能来自团队测试，不代表所有任务均优于大模型。分析：小模型为本地运行日常助手提供另一种选择，但工具执行仍需权限控制和任务验证。",
+          "5. AI销售代理Rox宣布1亿美元B轮融资。Rox于11月11日宣布1亿美元B轮融资，估值13亿美元，由General Catalyst和March Capital共同领投；公司计划将资金用于AI研究、定制模型和评估基础设施，并扩大大型企业部署。分析：企业AI代理投资继续向销售等具体业务流程深入；融资估值不代表产品效果已经独立验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. 公司或研究团队原始公告",
+            "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+          },
+          {
+            "label": "2. 公司或研究团队原始公告",
+            "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+          },
+          {
+            "label": "2. 同日独立报道",
+            "url": "https://www.theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model"
+          },
+          {
+            "label": "3. 公司或研究团队原始公告",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/"
+          },
+          {
+            "label": "4. 公司或研究团队原始公告",
+            "url": "https://huggingface.co/blog/qvac/botpsy"
+          },
+          {
+            "label": "4. 团队原始说明",
+            "url": "https://qvac.tether.io/blog/on-device-ai-agent-botpsy"
+          },
+          {
+            "label": "5. 公司或研究团队原始公告",
+            "url": "https://www.prnewswire.com/news-releases/rox-raises-100-million-series-b-at-1-3-billion-valuation-to-grow-revenue-for-the-global-2000--302936434.html"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. CAE季度营收下降，但上调全年调整后盈利预期。CAE于11月11日公布2027财年第二季营收12.047亿加元，同比下降2.6%；每股收益0.18加元，上年0.23；调整后每股收益0.33加元，上年0.28。全年调整后每股收益指引上调至1.28—1.35加元。调整后指标为非GAAP口径。分析：营收和法定盈利下降与调整后盈利改善并存，衡量经营趋势不能混用口径。",
+          "2. Franco-Nevada第三季度收入增长13%，销量指标下降。Franco-Nevada11月11日公布第三季收入5.493亿美元，同比增长13%；净利润3.955亿美元，增长38%；售出黄金当量130435盎司，下降6%。公司称更高金价、油价支持收入。黄金当量为公司换算指标，不等于实物黄金销量。分析：收入增长主要不能简单归结为销量增加，价格与产品组合影响更关键。",
+          "3. Boyd第三季度销售增长28.2%，新增网点贡献明显。汽车维修集团Boyd于11月11日公布第三季销售10.127亿美元，同比增长28.2%；新增网点贡献2.06亿美元，同店销售增长2.2%；调整后EBITDA为1.321亿美元，同比增长34.3%。调整后EBITDA及同店销售为公司非GAAP指标。分析：并购和网点扩张贡献远大于同店增幅，不能把总增长等同原有门店需求增长。",
+          "4. OTC Markets净收入增长7%，宣布特别股息。OTC Markets于11月11日公布第三季净收入3286.1万美元，同比增长7%；净利润880.4万美元，增长3%。董事会批准每股1.75美元特别股息及0.30美元季度股息。股息已宣布，尚未发放。分析：成交与数据业务支持增长，但利润增幅落后于收入，成本压力仍需关注。",
+          "5. Innoviz披露季度收入1210万美元，计划第四季运营调整。Innoviz于11月11日公布第三季收入1210万美元，并宣布将在第四季实施运营调整，预计相较当前支出速度每年节约约1750万美元。节约金额为预期年化目标，尚未实现。分析：企业在拓展车用与其他激光雷达市场时同步压缩成本，节约目标仍有执行风险。"
+        ],
+        "sources": [
+          {
+            "label": "1. 公司或研究团队原始公告",
+            "url": "https://www.prnewswire.com/news-releases/cae-reports-second-quarter-fiscal-2027-results-302936965.html"
+          },
+          {
+            "label": "2. 公司或研究团队原始公告",
+            "url": "https://www.prnewswire.com/news-releases/franco-nevada-reports-q3-2026-results-812447402.html"
+          },
+          {
+            "label": "3. 公司或研究团队原始公告",
+            "url": "https://www.prnewswire.com/news-releases/boyd-group-services-inc-reports-third-quarter-2026-results-302935790.html"
+          },
+          {
+            "label": "4. 公司或研究团队原始公告",
+            "url": "https://www.globenewswire.com/news-release/2026/11/11/3401155/0/en/otc-markets-group-reports-third-quarter-2026-financial-results.html"
+          },
+          {
+            "label": "5. 公司或研究团队原始公告",
+            "url": "https://www.prnewswire.com/news-releases/innoviz-reports-third-quarter-2026-results-302936411.html"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. A股11月11日收涨，创业板指领涨。北京时间11月11日15:00收盘；股票人民币计价，以下指数均为点数。上证指数收3680.64点，涨0.46%；深证成指收11389.74点，涨1.32%；创业板指收2572.07点，涨3.11%。分析：主要指数涨幅分化，创业板明显强于沪指；不能据此判断所有个股同步上涨。",
+          "2. 港股11月11日收低，恒生科技指数跌1.41%。香港11月11日收市竞价结束后数据（北京时间约16:10）；股票通常港元计价，以下指数均为点数。恒生指数收24315.92点，跌0.98%；恒生科技指数收4027.06点，跌1.41%；国企指数收8171.45点，跌1.14%。分析：三项指数共同走低，科技指数跌幅更大，显示港股主要板块承压程度不同。",
+          "3. 日经225续涨1.31%，收61248.59点。东京11月11日15:30收盘（北京时间14:30）；股票日元计价，以下指数均为点数。11月11日日经225收61248.59点，上涨789.01点、涨1.31%；225只成分股140只上涨、85只下跌。分析：多数成分股上涨，但价格加权指数表现仍较受高权重股影响。",
+          "4. 欧洲STOXX 600收涨0.72%，科技板块领跑。欧洲11月11日交易日收盘，主要现金市场17:30 CET结束（北京时间12日00:30），数据页17:50 CET标记已收市。指数为欧元口径点数，成分股涉及多个币种。11月11日STOXX Europe 600欧元口径指数收663.05点，涨0.72%；路透称科技板块上涨2.5%。分析：科技板块涨幅超过大盘，企业业绩预期支持当天情绪，但单日反弹不代表盈利已经兑现。",
+          "5. 美股三大指数11月11日收涨，纳指涨1.6%。纽约11月11日16:00 EST收盘（北京时间11月12日05:00）；股票美元计价，以下指数均为点数。道指收52486.49点，涨0.5%；标普500收7619.38点，涨1.3%；纳斯达克综合指数收25466.19点，涨1.6%。分析：纳指涨幅高于道指，科技股反弹对市场贡献较大；当天美国债市假日休市，不应混用旧债市收盘。"
+        ],
+        "sources": [
+          {
+            "label": "1. 21世纪经济报道原创收盘稿，东方财富刊载",
+            "url": "https://finance.eastmoney.com/a/202611113928366387.html"
+          },
+          {
+            "label": "1. 金十数据15:03:31收盘快讯",
+            "url": "https://flash.jin10.com/detail/20261111150331415800"
+          },
+          {
+            "label": "2. 新华社香港收盘稿，17:39:27",
+            "url": "https://app.xinhuanet.com/news/article.html?articleId=2026111100a0314e32cf43729414b5d0ec3b4a1d"
+          },
+          {
+            "label": "2. 中国基金报郭玟君原创收盘稿，17:52",
+            "url": "https://www.chnfund.com/article/ARc2542a44-919a-8a8b-912d-3a24dc0685cc"
+          },
+          {
+            "label": "3. 日经指数官方11日历史日报",
+            "url": "https://indexes.nikkei.co.jp/en/nkave/archives/summary?dt=11112026&idx=nk225"
+          },
+          {
+            "label": "3. 新华财经东京原创收盘报道",
+            "url": "https://www.cnfin.com/gs-lb/detail/20261111/4494136_1.html"
+          },
+          {
+            "label": "4. 路透完整收盘稿，StreetInsider刊载",
+            "url": "https://new.streetinsider.com/dr/news.php?id=27325735"
+          },
+          {
+            "label": "4. MarketScreener指数数据页，11日Market Closed 11:50 EST",
+            "url": "https://www.marketscreener.com/quote/index/STOXX-EUROPE-600-EUR-7477/"
+          },
+          {
+            "label": "4. 路透原始链接",
+            "url": "https://www.reuters.com/business/europes-stoxx-600-near-record-high-siemens-energy-coreweave-outlooks-lift-2026-11-11/"
+          },
+          {
+            "label": "5. 美联社完整收盘稿，La Nacion刊载",
+            "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-wednesday-11112026-nid11112026/"
+          },
+          {
+            "label": "5. 加拿大通讯社独立收盘报道，Yahoo刊载",
+            "url": "https://ca.finance.yahoo.com/news/p-tsx-composite-250-points-163234799.html/"
+          },
+          {
+            "label": "5. AP原始链接",
+            "url": "https://apnews.com/article/027cd5f4583d1a11c1795150bf065afb"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 央行发布第三季度货币政策执行报告。11月11日，央行发布2026年第三季度报告，表示继续实施适度宽松货币政策，加大逆周期调节力度；新华社据报告指出将加力实施支持资本市场的两项货币政策工具。分析：政策重点仍在扩大内需与维护金融市场稳定，报告发布并不等于当天新设或降息。",
+          "2. 财政部宣布拟在香港发行最多20亿美元主权债券。财政部11月11日公告，经国务院批准，将于11月16日当周在香港发行不超过20亿美元主权债券，具体安排另行公布。分析：为境外主权融资提供新的发行计划，实际规模和定价仍待后续公告。",
+          "3. 财政部发布会计改革与发展“十五五”规划。财政部11月11日召开发布会，公布会计法治、人才、服务等七大体系建设任务，强调协同监督、惩治财务造假及安全有序推进数智化应用。分析：为会计行业监管和能力建设明确中期方向，具体落实仍依赖配套制度。",
+          "4. 李强访问泰国及赴菲律宾与会行程公布。外交部11月11日宣布，李强将于13日至15日正式访问泰国，并于15日至16日赴马尼拉出席第29次中国—东盟领导人会议。分析：东南亚高层往来日程明确，后续合作成果仍需等待实际会议。",
+          "5. 王毅同美国国务卿鲁比奥通电话。11月11日王毅与鲁比奥通话，中方通稿称双方就中美关系及两国元首互动交换意见，王毅提出加强沟通、妥善处理分歧，并相互支持办好APEC与G20峰会。分析：高层沟通继续，但通稿未披露新的贸易或安全协议。"
+        ],
+        "sources": [
+          {
+            "label": "1. 央行原始报告页面",
+            "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026111116292271519/index.html"
+          },
+          {
+            "label": "1. 新华社原创报道",
+            "url": "https://www1.xinhuanet.com/20261111/33b7f5c761d743518eb408fa6a58ce92/c.html"
+          },
+          {
+            "label": "2. 财政部原始公告",
+            "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261111_4004480.htm"
+          },
+          {
+            "label": "2. 新华社当日采访",
+            "url": "https://www.xinhuanet.com/fortune/20261111/8398f44702a84fd0ab67afa821b0ae59/c.html"
+          },
+          {
+            "label": "3. 财政部发布会实录",
+            "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261111_4004515.htm"
+          },
+          {
+            "label": "3. 新华社当日发布报道",
+            "url": "https://www1.xinhuanet.com/20261111/e9fec9d2d9a34ed084030ca69b1d2b6e/c.html"
+          },
+          {
+            "label": "4. 外交部原始记者会实录",
+            "url": "https://www.mfa.gov.cn/wjdt_674879/fyrbt_674889/202611/t20261111_12057499.shtml"
+          },
+          {
+            "label": "5. 外交部原始通稿",
+            "url": "https://www.fmprc.gov.cn/wjbzhd/202611/t20261111_12057696.shtml"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 俄乌就交换战俘达成原则性共识。11月11日结束的阿布扎比三方会谈中，俄乌原则同意交换战俘，人数拟于12日确定；美国斡旋方表示领土等关键问题仍存在分歧。分析：相较前一天会谈启动，新增具体人道主义安排，但不能视为停火或和平协议。",
+          "2. 美联社判定科洛姆赢得密西西比参议院选举。11月11日，美联社判定民主党人斯科特·科洛姆击败共和党现任参议员辛迪·海德-史密斯；NPR报道海德-史密斯随后承认败选。这是媒体胜者判定，并非法定结果认证。分析：这一席位转变影响新一届参议院力量对比；选举结果判定与正式认证须区分。",
+          "3. 德国推进24太瓦时国家应急天然气储备。德国经济部11月11日表示，将推进24太瓦时危机天然气储备，计划最多用三年积累，并由用户附加费融资。分析：有助于应对严重供应中断，但不替代企业正常冬季储气义务，用户可能承担额外成本。",
+          "4. 伊朗安全负责人重申不允许浓缩核材料运出境外。伊朗安全负责人穆赫辛·雷扎伊11月11日在电视讲话中表示，不允许浓缩核材料离境，并警告美国若再发动打击将面临后果。分析：伊方公开立场显示核材料处置仍是谈判难点，不能由此认定谈判已经破裂或冲突必然升级。",
+          "5. COP31领导人峰会启动，各方就能源转型阐明立场。11月11日，COP31领导人峰会进入国家领导人发言阶段；土耳其推动把扩大电气化纳入最终协议，联合国方面强调气候适应融资和预警覆盖。分析：领导人表态为后续谈判提供方向，但电气化目标等仍属提议，并未形成大会最终协议。"
+        ],
+        "sources": [
+          {
+            "label": "1. 路透原始报道",
+            "url": "https://www.reuters.com/world/europe/us-russia-ukraine-start-second-day-abu-dhabi-peace-talks-2026-11-11/"
+          },
+          {
+            "label": "1. 路透全文刊载",
+            "url": "https://gvwire.com/2026/11/11/russia-ukraine-reach-deal-on-prisoner-swap-as-us-says-lack-of-trust-holds-back-talks/"
+          },
+          {
+            "label": "2. NPR原始报道，Iowa Public Radio刊载",
+            "url": "https://www.iowapublicradio.org/news-from-npr/2026-11-11/democrat-scott-colom-wins-mississippi-senate-race"
+          },
+          {
+            "label": "2. Mississippi Today当地原创报道",
+            "url": "https://mississippitoday.org/2026/11/11/scott-colom-wins-senate-mississippi-hyde-smith/"
+          },
+          {
+            "label": "3. 路透原创报道，gCaptain全文刊载",
+            "url": "https://gcaptain.com/germany-to-set-up-state-gas-reserve-after-missing-winter-storage-targets/"
+          },
+          {
+            "label": "4. 路透原始电视讲话报道，StreetInsider刊载",
+            "url": "https://www.streetinsider.com/Reuters/Iran%2Bwill%2Bnot%2Ballow%2Benriched%2Bnuclear%2Bmaterial%2Bto%2Bleave%2Bthe%2Bcountry,%2Bsecurity%2Bchief%2Bsays/27325885.html"
+          },
+          {
+            "label": "4. 路透同稿核对",
+            "url": "https://www.brecorder.com/news/amp/40448428"
+          },
+          {
+            "label": "5. 世界气象组织当日现场通稿",
+            "url": "https://wmo.int/media/news/cop31-leaders-summit-turn-commitments-action"
+          },
+          {
+            "label": "5. 路透现场报道全文",
+            "url": "https://gvwire.com/2026/11/11/conflict-must-not-distract-from-climate-action-leaders-warn-cop31/"
+          },
+          {
+            "label": "5. UNFCCC峰会日程",
+            "url": "https://unfccc.int/cop31/high-level"
+          }
+        ]
+      }
+    ],
+    "closing": "市场数字记录相应交易日收盘，不构成投资建议。政策计划与谈判立场不等于已经执行。",
+    "publishedAt": "2026-11-12T02:23:12Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-11T02:23:12Z",
+      "end": "2026-11-12T02:23:12Z"
+    }
   }
 ]
