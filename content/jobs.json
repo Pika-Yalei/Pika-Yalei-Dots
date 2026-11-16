@@ -78,5 +78,53 @@
     "requirements": "本科，3–5 年经验；Python / FastAPI / LangChain / LangGraph / 向量数据库",
     "summary": "Agent 工作流、工具调用、企业 RAG 与 Coding Agent；页面标注 09:00–18:00、双休。",
     "limitations": "需确认远程地域、劳动合同主体、具体薪酬及是否需要到岗。"
+  },
+  {
+    "checkedOn": "2026-11-16",
+    "remoteScope": "confirmed",
+    "status": "雇主原页标注正在招聘，申请表可见；未与招聘方确认",
+    "id": "emagen-agent-engineer",
+    "category": "agent",
+    "title": "Agent Engineer",
+    "company": "Emagen AI",
+    "url": "https://emagen.ai/cn/careers/agent-engineer",
+    "location": "中国、美国",
+    "remote": "官网标注全职、全远程，列出中国和美国",
+    "salary": "未披露",
+    "requirements": "有生产 Agent 或系统落地经历；熟悉 Claude Code 或 Codex；未列最低学历和固定年限",
+    "summary": "开发 Agent 上下文、工具、记忆和运行时，建立评测并将模型能力用于生产；技术栈为 Python、Go 和 TypeScript。",
+    "limitations": "发布日期、境内签约主体、工作时区和福利未披露。"
+  },
+  {
+    "checkedOn": "2026-11-16",
+    "remoteScope": "confirmed",
+    "status": "雇主官方招聘板显示职位正在列出；未向雇主确认实际名额",
+    "id": "bjak-cb5b5d4a-e889-467b-a6cb-5da46b8b9981",
+    "category": "agent",
+    "title": "Applied AI Engineer",
+    "company": "BJAK / Act",
+    "url": "https://jobs.ashbyhq.com/bjakcareer/cb5b5d4a-e889-467b-a6cb-5da46b8b9981",
+    "location": "中国",
+    "remote": "雇主招聘板标注中国、全职、远程",
+    "salary": "未披露",
+    "requirements": "3 年以上软件或机器学习工程经历；具备生产 Python 后端、LLM API 和工具调用经验；未列学历门槛",
+    "summary": "开发多步骤 Agent 工作流、上下文与记忆，接入企业工具并通过评测改善可靠性、延迟和推理成本。",
+    "limitations": "官方招聘板发布日期为 2026-11-06（北京时间）；国内签约主体、时区和福利未披露。"
+  },
+  {
+    "checkedOn": "2026-11-16",
+    "remoteScope": "confirmed",
+    "status": "雇主官方招聘板显示职位正在列出；未向雇主确认实际名额",
+    "id": "himalayas-bjak-ai-automation-8496755930",
+    "category": "agent",
+    "title": "Software Engineer, AI Automation",
+    "company": "BJAK / Act",
+    "url": "https://jobs.ashbyhq.com/bjakcareer/b32e9552-6806-49e8-8d83-0d7929f423af",
+    "location": "中国",
+    "remote": "雇主招聘板标注中国、全职、远程",
+    "salary": "未披露",
+    "requirements": "3 年以上后端、全栈或应用开发；可使用 Python、TypeScript 或 JavaScript 等；未列学历门槛",
+    "summary": "建设人力、财务和运营内部应用，开发采用 LLM 和 Agent 的自动化流程，并对接数据库、API 和第三方系统。",
+    "limitations": "官方招聘板发布日期为 2026-11-10（北京时间）；境内签约主体及工作时区未披露。"
   }
 ]
