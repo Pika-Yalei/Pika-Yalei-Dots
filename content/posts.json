@@ -6414,5 +6414,191 @@
       "start": "2026-11-10T02:30:41Z",
       "end": "2026-11-11T02:30:41Z"
     }
+  },
+  {
+    "slug": "news-2026-11-17",
+    "date": "2026-11-17",
+    "title": "2026-11-17｜24 小时新闻简报",
+    "subtitle": "AI 科研与评估、企业业绩与并购、主要市场收盘及政策动态。",
+    "category": "新闻回顾",
+    "readingMinutes": 12,
+    "summary": "五个栏目各 5 条，涵盖 AI 应用与评估、企业财报、11 月 16 日收盘、轻工与航海标准，以及气候谈判和国际政策。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. OpenAI 扩大学术资助计划。OpenAI 宣布把计划总覆盖目标提高至最多 20 万名研究者；下一轮 11 月 23 日启动，拟提供 5 万份资助，让获资助者及最多两位合作者使用 ChatGPT Plus。机会增加不等于科研质量或效率已经得到独立验证。",
+          "2. OpenAI 发布儿童安全图像分类器。OpenAI 宣布通过 API 向经审核机构免费提供分类器，检测潜在儿童性虐待材料，包括 AI 生成内容的相关信号。工具用于辅助人工审核，而非自动判定。",
+          "3. OpenAI 公布首批独立嵌入式评估合作。OpenAI 宣布与 Apollo Research、METR、Transluce 和 Goodfire 签署协议。评估人员可按项目需求接触模型检查点、评估记录等材料。独立评估可获得比仅测试公开接口更深入的证据，但合作本身不是安全结论。",
+          "4. ChatGPT for Healthcare 公布工作流更新。更新包含跨医疗软件处理多步骤事务的代理、临床证据检索改进和超过 20 个新增插件。它扩大了行政工作流的自动化范围，但仍需配置权限、人审和适用的数据保护安排，不等于可无人值守作临床决定。",
+          "5. LVMH 媒体部门与 OpenAI 宣布战略合作。合作包括在媒体部门部署 ChatGPT Enterprise，并让 ChatGPT 的相关内容呈现带有来源和原文链接的摘要。它为新闻内容来源标识和企业内部部署提供了具体安排，不代表所有 LVMH 业务都已采用。"
+        ],
+        "sources": [
+          {
+            "label": "1. OpenAI 扩大学术资助计划｜来源",
+            "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers/"
+          },
+          {
+            "label": "2. OpenAI 发布儿童安全图像分类器｜来源",
+            "url": "https://openai.com/index/strengthening-online-child-safety/"
+          },
+          {
+            "label": "3. OpenAI 公布首批独立嵌入式评估合作｜来源",
+            "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/"
+          },
+          {
+            "label": "4. ChatGPT for Healthcare 公布工作流更新｜来源",
+            "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/"
+          },
+          {
+            "label": "5. LVMH 媒体部门与 OpenAI 宣布战略合作｜来源",
+            "url": "https://openai.com/index/lvmh-media-division-partnership/"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. AECOM 公布财年业绩并上调季度股息。公司在美东 11 月 16 日收盘后公布，第四季度持续经营收入约 38.78 亿美元，同比下降 7%；订单储备约 280.16 亿美元，同比增长 13%。季度股息提高至每股 0.34 美元。订单增加与当期收入下降并存。",
+          "2. Perion 公布三季度报告。11 月 16 日公告披露，收入 9,080 万美元，按美国会计准则净亏损 990 万美元。公司因 Affle 收购待完成而撤回此前展望；当日的新增事实是财报与展望调整，而不是签署收购协议。",
+          "3. Teamshares 披露营收变化及并购意向。美东 11 月 16 日 16:05 公布的季度报告显示，中小企业业务营收同比增加 24%，现有子公司的有机增长为 3.6%；拟收购企业的预计年度调整后 EBITDA 合计超过 2,000 万美元。意向书不具约束力，不能按已完成收购计算。",
+          "4. Henry Schein 调整非 GAAP 业绩指标。11 月 16 日向美国证交会提交的文件显示，公司将剔除并购重估收益，全年非 GAAP 摊薄每股收益指引由 5.50–5.56 降到 5.42–5.48 美元。公司说此前 GAAP 数据与其他经营展望不变，不能把口径变动直接解读为经营恶化。",
+          "5. Taboola 完成收购 Dianomi。11 月 16 日伦敦公告确认交易生效，每股固定现金对价为 64 便士，另有最高 24 便士的或有对价。交易进入整合阶段，额外对价并非保证支付。"
+        ],
+        "sources": [
+          {
+            "label": "1. AECOM 公布财年业绩并上调季度股息｜来源",
+            "url": "https://investors.aecom.com/static-files/75c46a0f-1a3e-412b-b19c-6020bc197164"
+          },
+          {
+            "label": "2. Perion 公布三季度报告｜来源",
+            "url": "https://perion.com/investors/press/perion-reports-third-quarter-2026-results/"
+          },
+          {
+            "label": "3. Teamshares 披露营收变化及并购意向｜来源",
+            "url": "https://www.globenewswire.com/news-release/2026/11/16/3404118/0/en/teamshares-reports-3q-2026-results-remains-on-track-to-meet-2026-outlook.html"
+          },
+          {
+            "label": "4. Henry Schein 调整非 GAAP 业绩指标｜来源",
+            "url": "https://www.sec.gov/Archives/edgar/data/1000228/000100022826000067/hsic-20261116.htm"
+          },
+          {
+            "label": "5. Taboola 完成收购 Dianomi｜来源",
+            "url": "https://investors.taboola.com/static-files/5f0abfdc-4c5a-41e6-b21c-6e3f87730c82"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美国三大指数下跌。美国当地 11 月 16 日收盘，标普 500 报 7,416.59 点、跌 1.9%；道指报 51,608.17 点、跌 1.4%；纳指报 24,509.76 点、跌 2.5%。科技股权重较高的纳指跌幅更大。美国市场以美元交易，指数单位为点。",
+          "2. 欧洲 STOXX 600 结束五连涨。欧洲当地 11 月 16 日收盘，STOXX 600 跌 0.28% 至 662.31 点。欧洲整体也有回调，但跌幅小于美股主要指数。该指数为欧元基准，成分股涉及多个币种。",
+          "3. 港股与 A 股收盘分化。当地 11 月 16 日收盘，香港恒生指数约升 0.5% 至 23,753 点；上证综指跌 0.87% 至 3,602 点，创业板指跌 4.37% 至 2,320 点。港股和内地市场走势并不一致；交易币种分别为港元和人民币。",
+          "4. 新世界发展在供股方案公布后下跌。香港 11 月 16 日收盘，股价跌约 41% 至 2.88 港元。约 249 亿港元的供股方案此前已公布，本窗口新增是市场反应；融资带来的潜在摊薄值得关注。",
+          "5. 泰森食品在财报日逆市上涨。美国 11 月 16 日收盘，泰森食品约涨 8.7%，报 63.95 美元。公司当天公布季度及财年业绩，个股收盘方向与大盘不同。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美国三大指数下跌｜来源",
+            "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-2e6a9c41b6336e9240c1b01585d20cd4"
+          },
+          {
+            "label": "2. 欧洲 STOXX 600 结束五连涨｜来源",
+            "url": "https://www.reuters.com/markets/europe/european-shares-hover-near-record-highs-tech-stocks-lag-2026-11-16/"
+          },
+          {
+            "label": "3. 港股与 A 股收盘分化｜来源",
+            "url": "https://news.rthk.hk/rthk/en/component/k2/1878003-20261116.htm?archive_date=2026-11-16"
+          },
+          {
+            "label": "4. 新世界发展在供股方案公布后下跌｜来源",
+            "url": "https://news.rthk.hk/rthk/en/component/k2/1878003-20261116.htm?archive_date=2026-11-16"
+          },
+          {
+            "label": "5. 泰森食品在财报日逆市上涨｜来源",
+            "url": "https://6ix.com/stock/ls-870625/tyson-foods-inc"
+          },
+          {
+            "label": "5. 泰森食品在财报日逆市上涨｜补充来源",
+            "url": "https://www.globenewswire.com/news-release/2026/11/16/3403413/7106/en/tyson-foods-fourth-quarter-and-fiscal-year-2026-financial-results-available-on-the-company-s-investor-relations-website.html"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 两部门公开轻工业标准升级方案。11 月 16 日，工信部公开与市场监管总局联合印发的方案，提出到 2027 年制修订约 200 项标准。当天的新进展是公开文件，为轻工企业的产品升级和合规提供路线图；文件成文早于当天。",
+          "2. 海事局发布电子航海日志系统。11 月 16 日，中国自主研发的电子航海日志系统发布，支持自动记录、船岸同步和数字存证。已有四艘货船参与试验，计划 2027 年 1 月扩大试验，不能视为已全面推广。",
+          "3. 上海市政府常务会议原则同意智能经济实施方案。上海市政府网站 17 日公布，16 日的常务会议提出加强算力、芯片与语料供给，并研究生物制造和海洋观测规划。这体现地方产业政策的投入方向；原则同意不等于正式施行。",
+          "4. 中国与东盟公布自贸区 3.0 生效日期。11 月 16 日的中国—东盟领导人会议宣布，升级议定书将于 12 月 1 日生效，并确定 2027 年为双方人工智能合作年。企业由此获得安排区域供应链和数字合作的时间点。",
+          "5. 商务部披露 APEC 经贸文件磋商进度。11 月 16 日吹风会披露，贸易数字化合作框架进入最后阶段磋商，亚太自贸区相关文件仍在谈。近 50 项经贸成果是年内累计，不是当天新增；需看磋商能否形成正式文件。"
+        ],
+        "sources": [
+          {
+            "label": "1. 两部门公开轻工业标准升级方案｜来源",
+            "url": "https://www.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_bd11a0d16a61477883db13ac4d6cc889.html"
+          },
+          {
+            "label": "2. 海事局发布电子航海日志系统｜来源",
+            "url": "https://www.news.cn/politics/20261116/2dbedeba387d4709a94ff441673ab7c9/c.html"
+          },
+          {
+            "label": "3. 上海市政府常务会议原则同意智能经济实施方案｜来源",
+            "url": "https://www.shanghai.gov.cn/nw4411/20261117/ceddc608a1d544d5841d57efbe67019c.html"
+          },
+          {
+            "label": "4. 中国与东盟公布自贸区 3.0 生效日期｜来源",
+            "url": "https://www.news.cn/20261116/9caa2cb20c0a4c589d0f7c15475b4f94/c.html"
+          },
+          {
+            "label": "5. 商务部披露 APEC 经贸文件磋商进度｜来源",
+            "url": "https://www.news.cn/world/20261116/ca33dbfb395d4517a653731a963ebf5a/c.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 欧盟扩大对俄制裁名单。11 月 16 日欧盟理事会公布新增 12 名个人、101 家实体，包括近 50 家俄罗斯银行及金融机构。措施旨在限制融资与能源收入渠道，不代表相关经济影响已经测量。",
+          "2. COP31 发布首份主席国主导的决定草案。11 月 16 日在安塔利亚举行的记者会上，谈判主席 Chris Bowen 确认已发布草案。气候融资与能源转型等讨论进入文本磋商阶段，当前文本不是最终协议。",
+          "3. 联合国常规武器公约审议大会开幕。11 月 16 日当地 10:00，审议大会在日内瓦开幕，计划持续至 20 日。自主武器的国际治理属于议题之一；开会不等于已达成禁令。",
+          "4. 联合国安理会听取叙利亚局势简报。11 月 16 日纽约会议上，联合国表示叙利亚过渡进展仍脆弱，冬季、援助资金短缺与战争遗留爆炸物给平民带来压力。政治安排之外，援助和排雷仍影响恢复。",
+          "5. 欧盟理事会批准近 80 亿欧元援乌拨款。11 月 16 日理事会宣布批准 Ukraine Facility 下最大的一笔拨款，金额近 80 亿欧元。本次新进展是批准拨款，并非乌方已经收到款项。"
+        ],
+        "sources": [
+          {
+            "label": "1. 欧盟扩大对俄制裁名单｜来源",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/16/ukraine-eu-lists-113-individuals-and-entities-to-further-restrict-russia-s-ability-to-finance-its-war-of-aggression/"
+          },
+          {
+            "label": "2. COP31 发布首份主席国主导的决定草案｜来源",
+            "url": "https://unfccc.int/fr/node/665163"
+          },
+          {
+            "label": "3. 联合国常规武器公约审议大会开幕｜来源",
+            "url": "https://www.ungeneva.org/en/meetings-events/events/observances-special-events/2026/11/seventh-review-conference-high"
+          },
+          {
+            "label": "3. 联合国常规武器公约审议大会开幕｜补充来源",
+            "url": "https://indico.un.org/event/1019366/timetable/?print=1&view=standard_numbered"
+          },
+          {
+            "label": "4. 联合国安理会听取叙利亚局势简报｜来源",
+            "url": "https://www.ungeneva.org/en/news-media/news/2026/11/124904/syria-progress-real-fragile-remnants-war-wreck-young-lives"
+          },
+          {
+            "label": "5. 欧盟理事会批准近 80 亿欧元援乌拨款｜来源",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/16/ukraine-facility-council-approves-largest-ever-payment-of-8-billion-to-kyiv/"
+          }
+        ]
+      }
+    ],
+    "closing": "影响判断是编辑分析，不构成投资建议。公告、草案、批准与正式实施分别表述。",
+    "publishedAt": "2026-11-17T02:49:10Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-16T02:43:00Z",
+      "end": "2026-11-17T02:43:00Z"
+    }
   }
 ]
