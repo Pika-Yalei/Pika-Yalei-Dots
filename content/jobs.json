@@ -382,5 +382,53 @@
     "checkedOn": "2026-11-18",
     "remoteScope": "unclear",
     "url": "https://jobs.ashbyhq.com/supabase/3b5d54ca-741b-45ac-bd3f-31605a0d3541"
+  },
+  {
+    "id": "wellfound-5079523",
+    "category": "agent",
+    "title": "Software Engineer — AI Agent QA & Observability",
+    "company": "Softprobe.ai",
+    "location": "杭州或旧金山湾区；支持全球远程",
+    "remote": "全职，可远程或现场；偏好中国标准时间或美国太平洋时间。",
+    "requirements": "平台标注 3 年经验；要求生产 LLM Agent、评测和可观测性经验，Java 或 Rust、DuckDB 加分；学历未披露。",
+    "salary": "原帖标 $30k–$50k、0–1% 股权；未注明币种代码和计薪周期。",
+    "summary": "建设 Agent 质量评测、生产追踪和故障诊断，完善 Java 流量捕获与回放及数据查询。",
+    "limitations": "该岗位不是仅限远程；实际到场约定、合同与发薪方式未披露，不提供签证担保。原始发布日期未核实。",
+    "status": "雇主 Wellfound 原始职位详情仍可读。",
+    "checkedOn": "2026-11-18",
+    "remoteScope": "confirmed",
+    "url": "https://wellfound.com/jobs/5079523-software-engineer-ai-agent-qa-observability"
+  },
+  {
+    "id": "greenhouse-sportygroup-4725271101",
+    "category": "java",
+    "title": "Weekend Backend Engineer",
+    "company": "Sporty Group",
+    "location": "全球远程",
+    "remote": "官方标全球远程；有覆盖周末的地区轮班。",
+    "requirements": "3 年以上后端经验；Java/Spring 优先，需理解 SQL、分布式系统和可观测性；学历未披露。",
+    "salary": "未披露。",
+    "summary": "建设内部开发平台、可观测性和压测能力；轮班处理故障初筛与交接。",
+    "limitations": "申请表询问能否接受 B2B/B2C 合作；具体班次、大陆签约方式未披露。原始岗位长期刊载，不是今日新发布。",
+    "status": "官方招聘系统的职位详情及申请入口可读。",
+    "checkedOn": "2026-11-18",
+    "remoteScope": "unclear",
+    "url": "https://job-boards.greenhouse.io/sportygroup/jobs/4725271101"
+  },
+  {
+    "id": "macrocoderz-data-engineer",
+    "category": "data",
+    "title": "Data Engineer",
+    "company": "MacroCoderz",
+    "location": "全球远程",
+    "remote": "官网注明全球可申请、全职全远程。",
+    "requirements": "2 年以上数据工程；Python、SQL、任务编排、增量加载及 schema 演进；计算机相关学历或同等实战经验。",
+    "salary": "未披露。",
+    "summary": "维护数据库、API 和文件的批量及增量数据摄取、向量索引同步、分析建模与数据质量。",
+    "limitations": "官网标注 2026-10-10；大陆签约主体、发薪和工作时间未披露。",
+    "status": "官网在招目录和原始岗位详情可读。",
+    "checkedOn": "2026-11-18",
+    "remoteScope": "unclear",
+    "url": "https://macrocoderz.com/careers/data-engineer"
   }
 ]
