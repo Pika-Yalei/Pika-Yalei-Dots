@@ -6414,5 +6414,219 @@
       "start": "2026-11-10T02:30:41Z",
       "end": "2026-11-11T02:30:41Z"
     }
+  },
+  {
+    "slug": "news-2026-11-18",
+    "date": "2026-11-18",
+    "title": "2026-11-18｜24 小时新闻简报",
+    "subtitle": "AI 助手新功能、企业财报、五个市场的收盘数据，以及政策和国际动态。",
+    "category": "新闻回顾",
+    "readingMinutes": 8,
+    "summary": "五栏各 5 条，共 25 项。关注 AI 助手的执行能力与治理、上市公司财报、11 月 17 日市场收盘、资源回收政策和地区合作。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Gemini 扩大任务代办功能。Google 宣布 Gemini 可代办预约、账单分析和购物等任务。基于 Gemini 4 Hydrogen 的免费更新先向美国、日本、韩国、加拿大、澳大利亚和印度推出，部分高级功能从美国开始。影响：助手从回答问题进一步走向事务执行，但功能并非在各地区同时开放。",
+          "2. Google Vids 开放免费个人数字形象。个人 Google 账号可免费创建本人的数字形象，并在视频场景中重复使用；形象绑定账号且限号主本人。影响：可降低讲解视频制作门槛，但不是用于克隆他人的开放工具。",
+          "3. Google 搜索 AI Mode 推出临时对话。Google 开始在支持语言的桌面和移动浏览器上推出临时对话，称该模式不使用既往偏好、不影响后续个性化，也不进入用户历史。影响：一次性查询有了更清楚的隐私选项，这不等于服务端零留存。",
+          "4. 微软与 40 多家机构启动 AI 透明度倡议。微软在 Ignite 宣布联合多行业机构探索跨模型、跨供应商的治理与透明度做法，强调凭独立证据核验 Agent 行为，并计划将成果用于其产品。影响：可审计性和行为追溯成为更明确的企业采购议题，目前尚非统一生效的标准。",
+          "5. BlackLine 宣布与 OpenAI 合作建设财务 Agent。BlackLine 计划将 OpenAI 模型接入财务运营平台，结合控制台监控动作、设定限制并保留必要的人工批准。影响：财务 AI 的竞争不只在执行能力，也在审批与审计。这是合作计划，不代表全部能力已交付。"
+        ],
+        "sources": [
+          {
+            "label": "1. Google 官方公告",
+            "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+          },
+          {
+            "label": "2. Google Workspace 公告",
+            "url": "https://blog.google/products-and-platforms/products/workspace/vids-personal-avatars-no-cost/"
+          },
+          {
+            "label": "3. Google 搜索官方公告",
+            "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/"
+          },
+          {
+            "label": "4. 微软新闻稿",
+            "url": "https://news.microsoft.com/source/2026/11/17/microsoft-and-organizations-across-industries-launch-ai-transparency-initiative-to-strengthen-enterprise-trust-in-ai-models-and-agents/"
+          },
+          {
+            "label": "5. BlackLine 官方公告",
+            "url": "https://investors.blackline.com/news-releases/news-release-details/blackline-bring-governed-agentic-ai-office-cfo-openai"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. Home Depot 第三季度销售增长 4.9%。Home Depot 公布 2026 财年第三季度销售额为 434 亿美元，同比增长 4.9%；可比销售增长 2.2%，摊薄每股收益 3.72 美元。影响：总销售与可比销售增速不同，判断存量门店需求宜看后者。",
+          "2. Amer Sports 上调全年业绩指引。Amer Sports 第三季度收入约 21.69 亿美元，同比增长 24%；各地区与各业务分部收入均实现两位数增长，公司上调全年收入、利润率和调整后每股收益指引。影响：运动户外业务的增长覆盖多个市场，但全年指引仍是预期。",
+          "3. Disney 公布第四财季业绩并提高分红。Disney 披露第四财季收入 259 亿美元，同比增长 16%，摊薄每股收益 1.51 美元，同时宣布每股 2 美元现金股息，较 2026 财年支付额提高约 33%。影响：股东回报扩大，但财季含额外一周，同比不能直接视同等周数增长。",
+          "4. Uber Eats 接入 Kohl’s 在美门店。双方宣布美国逾 1,100 家 Kohl’s 门店接入 Uber Eats，覆盖服饰、家居与部分美妆商品，支持即时和预约配送。影响：百货零售商增加节日销售渠道，合作规模不能直接换算为新增销售。",
+          "5. 微博第三季度净收入下降 7%。微博公布未经审计的第三季度净收入 4.102 亿美元，同比下降 7%；广告营销收入降 8% 至 3.441 亿美元，营业利润率由上年同期 27% 降至 16%。影响：广告收入和经营利润率同时走低，用户规模不足以单独解释变现表现。"
+        ],
+        "sources": [
+          {
+            "label": "1. 公司财报",
+            "url": "https://ir.homedepot.com/news-releases/2026/11-17-2026-110221331"
+          },
+          {
+            "label": "2. 公司财报",
+            "url": "https://investors.amersports.com/financial-news/news-details/2026/Amer-Sports-Reports-Third-Quarter-2026-Financial-Results-Raises-Full-Year-Revenue-Margin-and-EPS-Guidance/default.aspx"
+          },
+          {
+            "label": "3. 公司财报",
+            "url": "https://s206.q4cdn.com/979796730/files/content_files/q4-fy26-earnings-final.pdf"
+          },
+          {
+            "label": "3. 公司分红公告",
+            "url": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Declares-Cash-Dividend-of-2-00-Per-Share/default.aspx"
+          },
+          {
+            "label": "4. Uber 官方公告",
+            "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Eats-and-Kohls-Team-Up-to-Make-Holiday-Shopping-Easier-With-Nationwide-On-Demand-Delivery/default.aspx"
+          },
+          {
+            "label": "5. 微博官方财报",
+            "url": "https://weibocorporation.gcs-web.com/news-releases/news-release-details/weibo-announces-third-quarter-2026-unaudited-financial-results"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美股三大指数收跌。11 月 17 日美东 16:00 收盘，标普 500 报 7,340.53 点，跌 1.03%；道指跌 1.64%，纳指跌 0.74%（美元市场）。金融股与部分科技股走弱，抛压不限于单一板块。",
+          "2. A 股主要指数收低，科创 50 逆势上涨。11 月 17 日北京时间 15:00 收盘，上证指数报 3,584.58 点，跌 0.50%；深证成指跌 0.49%，创业板指跌 1.20%，科创 50 涨 0.62%（人民币市场）。科创板部分权重的表现与大盘分化。",
+          "3. 香港主要指数回落，科技股内部分化。11 月 17 日香港收市，恒生指数报 23,508.17 点，跌 1.03%；恒生科技指数报 3,758.17 点，跌 1.14%（港元市场）。部分芯片股逆势上涨，百度、阿里巴巴表现靠后，科技板块并非同向波动。",
+          "4. 日本股市续跌，日经指数下跌 801.59 点。11 月 17 日东京 15:30 收盘，日经 225 报 58,860.43 点，跌 1.34%；TOPIX 报 3,840.02 点，跌 1.57%（日元市场）。半导体、银行等多个板块走弱，下跌并不限于科技股。",
+          "5. 韩国 KOSPI 收于 5,000 点下方。11 月 17 日韩国收盘，KOSPI 报 4,968.48 点，跌 2.59%（韩元市场），为连续第四个交易日下跌。三星电子和 SK 海力士分别跌 3.30% 和 1.96%，半导体权重股拖累大盘。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美联社收盘报道",
+            "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-ff6caef4d9289cf7f1e6ee48a706eddc"
+          },
+          {
+            "label": "1. 国际金融报交叉核对",
+            "url": "https://finance.eastmoney.com/a/202611183933350142.html"
+          },
+          {
+            "label": "2. 同花顺当日复盘",
+            "url": "https://news.10jqka.com.cn/20261117/c681902266.shtml"
+          },
+          {
+            "label": "2. FT 历史数据",
+            "url": "https://markets.ft.markitdigital.com/data/indices/tearsheet/historical?s=SHI%3ASHH"
+          },
+          {
+            "label": "3. 东方财富 Choice 收盘报道",
+            "url": "https://emwap.eastmoney.com/a/202611173932872388.html"
+          },
+          {
+            "label": "4. 新华财经东京报道",
+            "url": "https://www.cnfin.com/hs-lb/detail/20261117/4496690_1.html"
+          },
+          {
+            "label": "4. FISCO 收盘快讯",
+            "url": "https://s.kabutan.jp/news/n202611171020/"
+          },
+          {
+            "label": "5. 韩联社当日综述",
+            "url": "https://jp.yna.co.kr/view/AJP20261117003000882"
+          },
+          {
+            "label": "5. KBS 交叉核对",
+            "url": "https://world.kbs.co.kr/service/news_view.htm?Seq_Code=91271&lang=c"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 九部门公开再生资源回收指导意见。商务部 11 月 17 日公开文件，提出到 2030 年初步建立完善的回收体系，并部署动力电池、光伏组件和风机叶片回收。影响：回收网点和新能源设备退役处理有了更明确的方向，部分配套规则还在研究。",
+          "2. 全国法院工作会议部署深化司法改革。第二十三次全国法院工作会议 11 月 16 至 17 日在北京举行。17 日公布的消息强调规范司法权力运行，并将司法为民落实于立案、审判、执行和涉诉信访办理。影响：后续可看具体程序和办案措施，会议部署不是新法律的生效公告。",
+          "3. 外交部回应美国先进半导体远程获取限制。11 月 17 日例行记者会上，发言人针对记者提及的美国出口管制新规表示反对，并称将维护中方正当权益。影响：跨境算力合作仍有政策不确定性，本次回应未公布具体反制措施。",
+          "4. 中越公安部长讨论跨境反诈合作。王小洪 11 月 17 日在深圳会见越南公安部长梁三光，中方提出深化执法安全合作、打击电信网络诈骗。影响：跨境反诈继续列入双边议程，此次未披露新增联合行动或量化结果。",
+          "5. 中智领导人在深圳会见。习近平 11 月 17 日下午会见智利总统卡斯特，双方谈及贸易、能源、矿业和人工智能等合作方向。影响：为后续投资与项目磋商提供信号，不表示具体项目已签署。"
+        ],
+        "sources": [
+          {
+            "label": "1. 商务部原文",
+            "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_72d1146585b84058a5b609ed0af70da9.html"
+          },
+          {
+            "label": "2. 新华社消息（中央网信办转载）",
+            "url": "https://www.cac.gov.cn/2026-11/17/c_1796672023519907.htm"
+          },
+          {
+            "label": "3. 外交部记者会实录",
+            "url": "https://www.mfa.gov.cn/fyrbt_673021/202611/t20261117_12061047.shtml"
+          },
+          {
+            "label": "4. 中国政府网",
+            "url": "https://english.www.gov.cn/news/202611/17/content_WS6afc5198c6d00ca5f9a0e5cf.html"
+          },
+          {
+            "label": "5. 中国政府网",
+            "url": "https://english.www.gov.cn/news/202611/17/content_WS6afc5670c6d00ca5f9a0e5e3.html"
+          },
+          {
+            "label": "5. 新华社现场报道",
+            "url": "https://www.news.cn/world/20261117/b1cf8b80025a474e8cc41eb1f02cd582/c.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. 四方安全对话领导人在马尼拉发联合声明。美、日、印、澳领导人 11 月 17 日会晤，提出深化网络安全合作，并计划于 2027 年开展四方框架下的海上巡逻机演习。影响：海上信息共享和基础设施安全的协调范围扩大，演习仍待实施。",
+          "2. 新加坡接过东盟轮值主席国交接槌。第 49 届东盟峰会 11 月 17 日闭幕，新加坡接受交接，将于 2027 年 1 月 1 日正式担任轮值主席国。影响：新加坡明确把深化区域一体化和扩大伙伴关系列为来年重点。",
+          "3. 欧盟在 COP31 支持全球电气化倡议。欧盟委员会 11 月 17 日宣布支持“35-by-35”全球电气化倡议。影响：电气化进入多方气候合作议程，参与倡议本身不等于欧盟新增具有约束力的减排立法。",
+          "4. 联合国公布乌克兰 10 月平民伤亡统计。联合国驻乌人权监测团 11 月 17 日更新数据：10 月至少 372 名平民死亡、1,981 人受伤，合计较上年同期高 95%。影响：新披露的月度数据反映出平民保护和冬季基础设施保障压力，不是 17 日当天的伤亡数字。",
+          "5. 监督加沙停火的机构向安理会报告执行障碍。美联社 11 月 17 日报道，和平委员会在递交安理会的报告中警告，如协议承诺不落实，停火可能难以维系，并敦促以色列和哈马斯履行义务。影响：援助准入、临时民政安排和部队部署仍关系后续执行；报告是风险警告，不是停火已破裂。"
+        ],
+        "sources": [
+          {
+            "label": "1. 澳大利亚总理府联合声明",
+            "url": "https://www.pm.gov.au/media/quad-leaders-summit-joint-press-release"
+          },
+          {
+            "label": "1. 路透社报道",
+            "url": "https://malaysia.news.yahoo.com/quad-leaders-flag-economic-coercion-130220462.html"
+          },
+          {
+            "label": "2. 东盟秘书处",
+            "url": "https://asean.org/secretary-general-of-asean-attends-the-closing-ceremony-of-the-49th-asean-summit-and-related-summits-and-handover-of-the-asean-chairmanship-to-singapore/"
+          },
+          {
+            "label": "2. 新加坡总理府讲话",
+            "url": "https://www.pmo.gov.sg/newsroom/pm-lawrence-wong-at-the-closing-ceremony-of-the-49th-asean-summit-and-related-summits/"
+          },
+          {
+            "label": "3. 欧委会 COP31 当日公告",
+            "url": "https://climate.ec.europa.eu/areas-action/international-action-climate-change/global-climate-action/eu-cop31_en"
+          },
+          {
+            "label": "4. 联合国驻乌克兰新闻稿",
+            "url": "https://ukraine.un.org/en/326337-ukraine-civilians-die-alarming-rates-amid-intensifying-attacks-un-human-rights-officials-say"
+          },
+          {
+            "label": "5. 美联社报道",
+            "url": "https://apnews.com/article/board-of-peace-us-israel-gaza-hamas-189d58d05fa984cc9573f98ec7d638be"
+          },
+          {
+            "label": "5. 联合国当日人道情况摘要",
+            "url": "https://www.un.org/en/node/250501"
+          }
+        ]
+      }
+    ],
+    "closing": "影响判断为分析，不构成投资建议。",
+    "publishedAt": "2026-11-18T02:09:15Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-17T02:04:00Z",
+      "end": "2026-11-18T02:04:00Z"
+    }
   }
 ]
