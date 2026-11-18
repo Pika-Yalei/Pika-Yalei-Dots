@@ -334,5 +334,53 @@
     "requirements": "页头标1年经验，正文要求有已投产的 Agent 实作；Python 或 TypeScript、LLM API、Playwright 类浏览器自动化、PDF/OCR、REST/Webhook/OAuth、PostgreSQL 或 Supabase，以及云部署；偏好 Agents SDK / LangGraph；学历未披露",
     "summary": "为房地产企业构建能处理文档并连接业务系统的 Agent，工作包含企业 API 集成、异步工作流、可观测性和审计。",
     "limitations": "大陆可申请依据原帖 Everywhere，未见排除条款；签约和付款渠道、是否需时区重叠、每周工时及合同周期未知。约三周前发布，未推算具体日期。最初为有偿评估或有限范围的开发项目，不保证持续项目。"
+  },
+  {
+    "id": "distantjob-8538500002",
+    "category": "data",
+    "title": "Senior Data Engineer",
+    "company": "DistantJob（为未具名北美客户招聘）",
+    "location": "全球远程；服务北美保险软件客户",
+    "remote": "招聘方称可从任何地方全远程，未列驻场要求。",
+    "requirements": "SQL Server 性能、索引、建模和 JSON 处理；PowerShell 或同类脚本及 API 集成。学历、固定年限未披露。",
+    "salary": "未披露；申请表仅询问期望薪酬。",
+    "summary": "负责 SQL Server 数据解决方案、JSON 转换、跨系统集成与自动化，并探索 LLM 工作流。",
+    "limitations": "未披露客户名称、原始发布日期、大陆签约路径、工作时区或合同时长。",
+    "status": "招聘方原始 Greenhouse 职位正文及申请入口可读，未联系核实。",
+    "checkedOn": "2026-11-18",
+    "remoteScope": "unclear",
+    "url": "https://job-boards.greenhouse.io/distantjob/jobs/8538500002"
+  },
+  {
+    "id": "flaredog-ai-infrastructure-engineer",
+    "category": "agent",
+    "title": "Backend / AI Infrastructure Engineer",
+    "company": "Flaredog",
+    "location": "全球远程",
+    "remote": "官网列为全职全远程，可在自己的时区工作，异步优先。",
+    "requirements": "Python 和/或 Go；有生产服务经验，熟悉可靠性、重试、追踪和 LLM 成本控制；学历和年限未披露。",
+    "salary": "未披露。",
+    "summary": "建设模型服务、编排与持久执行，完善追踪、指标、运行回放和访问控制。",
+    "limitations": "原始发布时间、签约主体与中国大陆用工方式未披露。",
+    "status": "官网开放职位列表仍列该岗，原始详情及申请表可读。",
+    "checkedOn": "2026-11-18",
+    "remoteScope": "unclear",
+    "url": "https://flaredog.com/careers/ai-infrastructure-engineer/"
+  },
+  {
+    "id": "supabase-3b5d54ca-741b-45ac-bd3f-31605a0d3541",
+    "category": "agent",
+    "title": "AI Platform Engineer",
+    "company": "Supabase",
+    "location": "全球远程",
+    "remote": "官网列为全职全球远程，团队异步协作。",
+    "requirements": "能独立建设生产级 Agent 执行与评估平台，熟悉可观测性和治理；未列固定学历或最低年限。",
+    "salary": "未披露数值；官方说明包含股权激励。",
+    "summary": "建设事件队列、执行环境、持久状态、人工复核、回滚、评估和审计，为内部业务开发 Agent。",
+    "limitations": "官方 ATS 标注 2026-07-31；公司每年有一次线下聚会，是否强制和大陆签约方式未披露。",
+    "status": "官网招聘页及官方 Ashby 职位列表仍可读。",
+    "checkedOn": "2026-11-18",
+    "remoteScope": "unclear",
+    "url": "https://jobs.ashbyhq.com/supabase/3b5d54ca-741b-45ac-bd3f-31605a0d3541"
   }
 ]
