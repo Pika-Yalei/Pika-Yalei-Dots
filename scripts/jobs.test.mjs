@@ -28,3 +28,19 @@ test('build publishes linked jobs page and exact public catalogue',()=>{
   assert.deepEqual(JSON.parse(readFileSync(new URL('../dist/jobs/catalogue.json',import.meta.url))),jobs);
   assert.match(readFileSync(new URL('../dist/sitemap.xml',import.meta.url),'utf8'),/\/jobs\/<\/loc>/);
 });
+
+test('each job category shows most recently checked listings first without changing the catalogue',()=>{
+  const entries = [
+    {...jobs[0],id:'older-check',category:'java',checkedOn:'2026-11-01',url:'https://example.com/older'},
+    {...jobs[0],id:'newer-check',category:'java',checkedOn:'2026-11-18',url:'https://example.com/newer'},
+    {...jobs[0],id:'same-day-check',category:'java',checkedOn:'2026-11-18',url:'https://example.com/same-day'},
+    {...jobs[0],id:'separate-group',category:'data',checkedOn:'2026-11-19',url:'https://example.com/data'}
+  ];
+  const html=renderJobs(entries);
+  for (const [first, second] of [['newer-check','same-day-check'],['same-day-check','older-check'],['older-check','separate-group']]) {
+    assert.ok(html.includes(`id="${first}"`));
+    assert.ok(html.indexOf(`id="${first}"`) < html.indexOf(`id="${second}"`));
+  }
+  assert.deepEqual(entries.map(job=>job.id),['older-check','newer-check','same-day-check','separate-group']);
+  assert.match(html,/按核读日期从新到旧，同日保留原顺序。核读日期不等于发布时间/);
+});
