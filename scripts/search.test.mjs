@@ -666,3 +666,23 @@ test('matched prose batch state resets on paging, size, scope, filters and clear
  n['search-clear'].fire('click'); assert.equal(button.hidden,true); assert.equal(button['aria-expanded'],'false');
  assert.match(renderSearch([]),/id="search-context-toggle" type="button" aria-controls="search-results" aria-expanded="false" hidden/);
 });
+
+test('source return links expose their own article and item context to assistive technology', () => {
+  const records = ['First article · AI · First item', 'Second article · Business · Second item'].map(detail => ({
+    type:'source', title:'Shared source', detail, date:'2026-01-01', href:'https://example.com',
+    reference:'/notes/example/#section-1', referenceLabel:'查看引用新闻条目'
+  }));
+  const nodes = boot(records);
+  nodes['search-query'].value = 'Shared source';
+  nodes['search-query'].fire('input');
+  const items = nodes['search-results'].children[0].children;
+  for (let index = 0; index < items.length; index += 1) {
+    const reference = items[index].children.at(-1);
+    assert.equal(reference.textContent, '查看引用新闻条目');
+    assert.equal(reference['aria-label'], `查看引用新闻条目：${records[index].detail}`);
+    assert.equal(reference.href, records[index].reference);
+  }
+  const fallback = boot([{...records[0], referenceLabel:undefined}]);
+  fallback['search-browse'].fire('click');
+  assert.equal(fallback['search-results'].children[0].children[0].children.at(-1)['aria-label'], `查看引用章节：${records[0].detail}`);
+});
