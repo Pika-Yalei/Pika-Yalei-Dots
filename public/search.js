@@ -123,6 +123,8 @@
       if (record.reference) {
         const reference = document.createElement('a');
         reference.textContent = record.referenceLabel || '查看引用章节';
+        // Keep concise visible text while making repeated return links distinguishable.
+        reference.setAttribute('aria-label', `${reference.textContent}：${record.detail}`);
         reference.href = record.reference;
         item.append(reference);
       }
