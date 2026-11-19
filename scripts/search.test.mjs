@@ -20,7 +20,7 @@ class Node {
   setAttribute(name, value) { this[name] = value; }
 }
 function boot(records) {
-  const ids = Object.fromEntries(['search-context-toggle','search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
+  const ids = Object.fromEntries(['search-show-results','search-context-toggle','search-size','search-browse','search-latest','search-date-error','search-scope','search-first','search-last','search-order','search-topic','search-print-context','search-data','search-ui','search-query','search-type','search-clear','search-status','search-results','search-controls','search-from','search-to','search-pagination','search-previous','search-next'].map(id => [id, new Node()]));
   ids['search-order'].value = 'newest';
   ids['search-size'].value = '50';
   ids['search-scope'].value = 'summary';
@@ -685,4 +685,36 @@ test('source return links expose their own article and item context to assistive
   const fallback = boot([{...records[0], referenceLabel:undefined}]);
   fallback['search-browse'].fire('click');
   assert.equal(fallback['search-results'].children[0].children[0].children.at(-1)['aria-label'], `查看引用章节：${records[0].detail}`);
+});
+
+test('explicit result navigation preserves filters, current page and context disclosures', () => {
+  const nodes = boot(Array.from({length:75}, (_,i) => ({type:'headline',title:`AI ${i}`,detail:'Example',body:'AI context',date:'2026-11-18',href:`/notes/example/#${i}`})));
+  nodes['search-query'].value = 'AI';
+  nodes['search-scope'].value = 'body';
+  nodes['search-query'].fire('input');
+  nodes['search-next'].fire('click');
+  nodes['search-context-toggle'].fire('click');
+  const rendered = nodes['search-results'].children[0];
+  const status = nodes['search-status'].textContent;
+  nodes['search-status'].focused = false;
+  nodes['search-show-results'].fire('click');
+  assert.equal(nodes['search-status'].focused, true);
+  assert.equal(nodes['search-status'].textContent, status);
+  assert.match(status, /第 2 \/ 2 页/);
+  assert.equal(nodes['search-results'].children[0], rendered);
+  assert.equal(nodes['search-query'].value, 'AI');
+  assert.equal(nodes['search-context-toggle']['aria-expanded'], 'true');
+});
+test('result navigation remains usable for empty, invalid-date and composing states without rerunning search', () => {
+  const nodes = boot([]);
+  for (const prepare of [() => {}, () => {nodes['search-from'].value='2026-02-30';nodes['search-from'].fire('input');}, () => {nodes['search-query'].fire('compositionstart');nodes['search-query'].value='拼音';nodes['search-query'].fire('input');}]) {
+    prepare();
+    const status = nodes['search-status'].textContent;
+    nodes['search-status'].focused = false;
+    nodes['search-show-results'].fire('click');
+    assert.equal(nodes['search-status'].focused, true);
+    assert.equal(nodes['search-status'].textContent, status);
+  }
+  const html=renderSearch([]);
+  assert.match(html, /id="search-show-results" type="button" aria-controls="search-status search-results">查看搜索结果/);
 });
