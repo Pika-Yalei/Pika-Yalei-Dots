@@ -430,5 +430,53 @@
     "checkedOn": "2026-11-18",
     "remoteScope": "unclear",
     "url": "https://macrocoderz.com/careers/data-engineer"
+  },
+  {
+    "company": "Boosta / FlintN",
+    "category": "java",
+    "limitations": "上述工时未标时区，不能直接当北京时间；原始发布日期、薪资、学历年限、合同类型及中国大陆签约方式未披露。页面 New 标签不作为精确发布日期。",
+    "remoteScope": "unclear",
+    "location": "官网标 Remote, Global，可在办公室之外远程",
+    "salary": "未披露",
+    "url": "https://job-boards.eu.greenhouse.io/boosta/jobs/5036514101",
+    "checkedOn": "2026-11-19",
+    "requirements": "Java 21+、Spring Boot 3/Spring 6、PostgreSQL、Kafka、CI/CD 与灰度、测试、可观测性和 AI 辅助编程；学历、最低年限、工作语言未注明。",
+    "title": "Middle Software Engineer - Backend (Platform) | FlintN",
+    "status": "雇主官网当前职位详情和申请入口可读；未与招聘方确认名额。",
+    "id": "greenhouse-boosta-5036514101",
+    "remote": "官网标 Remote, Global，允许在任意有网络的地点工作；08:00–11:00 开始、17:00–20:00 结束，需配合团队。",
+    "summary": "建设支付平台分布式后端和集成 API，负责幂等、消息投递、向后兼容、灰度上线和生产故障排查。技术栈还包含 ClickHouse、Docker、Gradle。"
+  },
+  {
+    "company": "Appsilon",
+    "category": "agent",
+    "limitations": "原始发布日期、协作时区及中国大陆 B2B 签约方式未披露；官网要求非波兰籍候选人具备有效护照。",
+    "remoteScope": "unclear",
+    "location": "全球全远程",
+    "salary": "PLN 17,000–22,000/月（官网列为B2B报酬）",
+    "url": "https://appsilon-1739358905.teamtailor.com/jobs/7750183-applied-ai-engineer",
+    "checkedOn": "2026-11-19",
+    "requirements": "生产AI Agent交付经验、Python后端、任务编排框架、RAG、工具调用、多步流程测试和追踪；未披露学历或最低年限。",
+    "title": "Applied AI Engineer",
+    "status": "雇主官网当前职位详情和申请入口可读；未与招聘方确认名额。",
+    "id": "teamtailor-appsilon-7750183",
+    "remote": "雇主该岗标 Worldwide / Fully Remote，工作时间灵活",
+    "summary": "面向企业及科研客户开发生产级Agent，将模型、检索、工具和客户应用接入，负责结构化评测、可观测性与上线运维。"
+  },
+  {
+    "company": "EndLabs",
+    "category": "java",
+    "limitations": "原始发布日期、薪资、学历、协作时区及中国大陆签约方式未披露；全球远程政策不等于境内雇佣安排已确认。",
+    "remoteScope": "unclear",
+    "location": "全职远程；公司招聘页写可从任意地点工作",
+    "salary": "未披露",
+    "url": "https://endlabs.ai/careers",
+    "checkedOn": "2026-11-19",
+    "requirements": "至少4年Java后端，Spring Boot/REST API/微服务、企业系统集成及分布式设计；Kafka或RabbitMQ加分；学历未披露。",
+    "title": "Java Backend Engineer",
+    "status": "雇主官网当前职位详情和申请入口可读；未与招聘方确认名额。",
+    "id": "endlabs-java-backend-engineer",
+    "remote": "官网当前招聘标注全职远程，未列驻场要求",
+    "summary": "开发并维护企业Java后端与集成，将AI服务接入银行核心、ERP和既有企业应用。"
   }
 ]
