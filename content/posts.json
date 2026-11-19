@@ -6628,5 +6628,203 @@
       "start": "2026-11-17T02:04:00Z",
       "end": "2026-11-18T02:04:00Z"
     }
+  },
+  {
+    "slug": "news-2026-11-19",
+    "date": "2026-11-19",
+    "title": "2026-11-19｜24 小时新闻简报",
+    "subtitle": "AI 新工具、公司财报和 11 月 18 日市场收盘，以及国内政策和国际动态。",
+    "category": "新闻回顾",
+    "readingMinutes": 8,
+    "summary": "五栏各 5 条，共 25 项。关注 Gemini 模型与工具更新、腾讯等公司的三季度业绩、五地市场收盘，以及亚太外交与 COP31 全球盘点。",
+    "sections": [
+      {
+        "heading": "AI",
+        "paragraphs": [
+          "1. Google 发布 Gemini 4 Neon。新模型支持 100 万 token 上下文，API 每百万输入和输出 token 分别为 3 美元和 15 美元，并开始在符合条件的产品和账号中推出。影响：长流程编程多了一个选择，但单次任务成本仍取决于实际输入、输出和推理用量。",
+          "2. Google Labs 公布 Stitch Loop。该实验工具可结合代码、日志和指标提出维护改动，在隔离环境里生成 GitHub PR，合并仍需用户审查；目前开放候补。影响：编程助手开始覆盖上线后的维护工作，但暂非全面开放。",
+          "3. Project Genie 开放 Genie 4 访问。符合条件的 AI Ultra 用户可用文字实时改变场景并听到与画面同步生成的声音。影响：互动环境更适合做原型，但 Google 仍将长时一致性、延迟和复杂物理互动列为研究难点。",
+          "4. Gemini 扩至部分低内存 Android 设备。Google 公布轻量应用，为符合条件的 Android Go 设备提供语音交流、相机理解等能力。影响：设备门槛下降，但不代表所有 Android Go 机型都支持。",
+          "5. Palo Alto Networks 拟收购 Applied Compute。公司宣布以约 45 亿美元全股票交易收购这家开放权重模型后训练与推理平台，尚待监管等条件。影响：网络安全厂商将业务延伸到模型训练和部署，协同效果仍待验证。"
+        ],
+        "sources": [
+          {
+            "label": "1. Google 官方公告",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+          },
+          {
+            "label": "2. Google Labs 官方公告",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/"
+          },
+          {
+            "label": "3. Google DeepMind 官方公告",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
+          },
+          {
+            "label": "4. Google 官方公告",
+            "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
+          },
+          {
+            "label": "5. 公司正式新闻稿",
+            "url": "https://www.prnewswire.com/news-releases/palo-alto-networks-to-acquire-applied-compute-bringing-secure-open-weight-ai-to-the-enterprise-302944421.html"
+          }
+        ]
+      },
+      {
+        "heading": "商业",
+        "paragraphs": [
+          "1. 腾讯三季度营收增长，非 IFRS 经营盈利下降。公司报告收入 2,073 亿元人民币，同比增长 8%；非 IFRS 经营盈利 681 亿元，同比降 6%；资本开支付款 651 亿元，同比增 225%。影响：收入扩张与利润承压并存，投入增加并不自动转化为当期利润。",
+          "2. Target 上调全年销售预期。第三季度净销售额约 271 亿美元，同比增长 7.1%，可比销售增长 5.6%；每股收益 2.65 美元，其中 0.50 美元源于关税退款。影响：评估其零售表现时需要把一次性退款和经营改善分开。",
+          "3. TJX 可比销售增长 4%。公司财年第三季度销售额约 160 亿美元，同比增 6%，国际部门可比销售增 8%，美国 Marmaxx 增 2%。影响：海外部门强于集团主要美国业务，折扣零售增长并不均匀。",
+          "4. EnQuest 拟出售英国上游业务。交易对价包括 8.4 亿美元交割现金及最高 1.2 亿美元或有付款，仍待监管等条件。影响：若完成，将推动该公司进一步转向东南亚，但预期对价不能当作已到账。",
+          "5. Trasteel 和 Sizzle II 公布合并注册文件。双方公布了推进拟议合并和纳斯达克上市的 F-4，注册文件尚未获 SEC 宣布生效。影响：公众可以查看更多拟议交易信息，但程序进展不是批准或上市完成。"
+        ],
+        "sources": [
+          {
+            "label": "1. 腾讯官方业绩",
+            "url": "https://www.tencent.com/wp-content/uploads/2026/11/Tencent-Announces-2026-Third-Quarter-Results.pdf"
+          },
+          {
+            "label": "2. Target 官方业绩",
+            "url": "https://corporate.target.com/getmedia/bdfa5ae0-ed6a-4cfc-af14-7f438ee8cd66/Target-Corporation-Reports-Third-Quarter-Earnings.pdf"
+          },
+          {
+            "label": "3. TJX 8-K 与业绩附件",
+            "url": "https://investor.tjx.com/static-files/db25d3bd-98fd-4ca8-9d4c-50bc40e655fb"
+          },
+          {
+            "label": "4. EnQuest 官方公告",
+            "url": "https://www.enquest.com/media/press-releases/article/sale-of-uk-upstream-business-to-neo-next-for-up-to-us960-million"
+          },
+          {
+            "label": "5. 公司公告",
+            "url": "https://www.globenewswire.com/news-release/2026/11/18/3405715/0/en/trasteel-holding-s-a-and-sizzle-acquisition-corp-ii-announce-public-filing-of-registration-statement-on-form-f-4-in-connection-with-the-proposed-business-combination.html"
+          }
+        ]
+      },
+      {
+        "heading": "股票市场",
+        "paragraphs": [
+          "1. 美国股市收盘分化。美东 11 月 18 日常规交易收盘，标普 500 报 7,323.63 点，跌 0.23%；道指跌 1.11%，纳指涨约 0.42%（美元市场）。影响：纳指反弹未带动整体市场同步走强。",
+          "2. 沪深主要指数反弹但成交缩量。北京时间 11 月 18 日收盘，上证指数报 3,587.83 点，涨 0.09%；深成指涨 0.20%，创业板指涨 0.85%，两市成交约 13,697 亿元人民币。影响：成交量尚未支持对风险偏好全面回升的判断。",
+          "3. 香港恒生指数继续回落。香港 11 月 18 日收市，恒指报 23,294.75 点，跌 0.91%；恒生科技指数跌 0.58%，主板成交约 1,772 亿港元。影响：港股与反弹的沪深主要指数走势不同。",
+          "4. 日本日经指数和 TOPIX 涨跌不一。日本当地 11 月 18 日收盘，日经 225 涨 0.28% 至 59,024.28 点，TOPIX 跌 0.42%（日元市场）。影响：主要指数方向分化，不宜把日经上涨理解成东京市场普涨。",
+          "5. 韩国 KOSPI 重返 5,000 点上方。韩国当地 11 月 18 日收盘，KOSPI 报 5,067.44 点，涨约 1.99%（韩元市场）。影响：单日收复前一天失守的关口，尚不足以确认趋势反转。"
+        ],
+        "sources": [
+          {
+            "label": "1. 美联社收盘数据",
+            "url": "https://apnews.com/article/wall-street-stocks-dow-nasdaq-990749d3d269f7ef05b9f6c089713a58"
+          },
+          {
+            "label": "2. 上海证券报经同花顺转载",
+            "url": "https://stock.10jqka.com.cn/20261118/c681953990.shtml"
+          },
+          {
+            "label": "3. 新华社香港收盘报道",
+            "url": "https://www.xinhuanet.com/20261118/2d1c360df96a4ec7a704bf90be5f8f1d/c.html"
+          },
+          {
+            "label": "4. 新华财经东京报道",
+            "url": "https://www.cnfin.com/hs-lb/detail/20261118/4497134_1.html"
+          },
+          {
+            "label": "5. 韩联社收盘快讯",
+            "url": "https://cn.yna.co.kr/view/ACK20261118001900881"
+          }
+        ]
+      },
+      {
+        "heading": "中国政治与政策",
+        "paragraphs": [
+          "1. 外交部公布也门制裁延期执行通知。11 月 18 日中午公布的通知要求有关单位执行联合国安理会第 2837 号决议。影响：此次新增是国内执行通知，安理会决议已于 11 月 12 日通过，并非当天新增联合国制裁。",
+          "2. 中韩元首会见内容在窗口内披露。双方在深圳会见，通稿提到加强人工智能等新兴产业合作，并讨论人员往来和供应链。影响：为双边政策对话提供方向；通稿提到已实质性完成的自贸协定第二阶段谈判，不代表谈判在这次会见上完成。",
+          "3. 中俄元首在深圳讨论经贸合作。11 月 18 日中午举行的会见涉及贸易、能源、教育和投资环境。影响：双方重申合作方向，通稿未宣布新的重大商业合同。",
+          "4. 特朗普抵达深圳。新华社报道其于 11 月 18 日下午抵达，外交部当天确认中俄美元首会晤将讨论全球和平稳定问题。影响：高层会晤进入现场日程，抵达本身不代表三方达成协议。",
+          "5. 湖南就 18 项地方标准征求意见。11 月 18 日公布的草案涉及沩山毛尖质量和张家界莓茶加工，意见反馈截至 12 月 18 日。影响：行业和公众可以反馈，现阶段尚不是生效要求。"
+        ],
+        "sources": [
+          {
+            "label": "1. 外交部通知",
+            "url": "https://www.mfa.gov.cn/wjb_673085/zfxxgk_674865/gknrlb/jytz/202611/t20261118_12061681.shtml"
+          },
+          {
+            "label": "2. 外交部通稿",
+            "url": "https://www.fmprc.gov.cn/web/gjhdq_676201/gj_676203/yz_676205/1206_676524/xgxw_676530/202611/t20261118_12061802.shtml"
+          },
+          {
+            "label": "3. 新华社通稿经中央网信办转载",
+            "url": "https://www.cac.gov.cn/2026-11/18/c_1796759058512478.htm"
+          },
+          {
+            "label": "4. 新华社抵达报道",
+            "url": "https://www.news.cn/20261118/2a735fe10d104e76a8a761f820846127/c.html"
+          },
+          {
+            "label": "4. 外交部记者会",
+            "url": "https://www.mfa.gov.cn/web/fyrbt_673021/202611/t20261118_12061934.shtml"
+          },
+          {
+            "label": "5. 湖南省标准信息公共服务平台",
+            "url": "https://www.hnbzw.com/Docs/NewsHtml/GenerateFile/20261118/92549aef-0fb6-4826-b4d7-87a4c75b3093.html"
+          }
+        ]
+      },
+      {
+        "heading": "国际政治与重大事件",
+        "paragraphs": [
+          "1. COP31 启动第二次全球盘点。联合国气候机构在安塔利亚启动新一轮盘点，从收集信息开始，预计 2027 年进行技术评估。影响：机制用于评估《巴黎协定》落实进展；启动没有产生新的气候协议。",
+          "2. 联合国通报加沙代尔拜拉赫面临新的流离失所风险。OCHA 在午间简报称，军事行动宣布后，一些居民向西及西南移动。联合国初步估算相关约 2.5 平方公里此前有超过 1.8 万人居住，这并非撤离人数。影响：当地医疗、供水与食品供应面临进一步中断的风险。",
+          "3. 印度东海岸升级气旋 Akvan 防灾部署。奥迪沙部署救援队，并识别逾 20 万名可能需要疏散的居民；安得拉邦暂停捕鱼。影响：沿海社区、航运及农业需防范风雨，预报仍有不确定性。",
+          "4. 一架俄罗斯客机因威胁在土耳其安全降落。飞机在安塔利亚接受检查，65 名乘客和 4 名机组人员撤离；当地媒体报道检查未发现可疑物。影响：这是航空安保事件，不是已经发生的爆炸或袭击。",
+          "5. 俄驻荷使馆就 Destinus 武器发表指责。继荷兰总部企业确认其导弹用于此前的克里米亚大桥袭击后，俄方 11 月 18 日公开质疑荷兰是否直接参与战争。影响：军工企业和军援政策面对新的外交争议；俄方指责不是荷兰直接参战已得到证实。"
+        ],
+        "sources": [
+          {
+            "label": "1. 联合国气候机构讲话",
+            "url": "https://unfccc.int/news/an-ambitious-outcome-is-within-reach-un-climate-chief-at-cop31-event-to-launch-the-second-global"
+          },
+          {
+            "label": "1. 官方时间表",
+            "url": "https://unfccc.int/zh/node/662596"
+          },
+          {
+            "label": "2. 联合国午间简报",
+            "url": "https://www.un.org/sg/fr/node/401528"
+          },
+          {
+            "label": "3. 新华社报道",
+            "url": "https://english.news.cn/20261118/df61544881894ca3b81c159f346e3150/c.html"
+          },
+          {
+            "label": "3. 印度媒体与预报更新",
+            "url": "https://www.downtoearth.org.in/amp/story/climate-change/cyclone-akvans-track-and-intensity-remain-uncertain-as-weather-models-diverge"
+          },
+          {
+            "label": "4. 新华社报道",
+            "url": "https://english.news.cn/20261118/2edce246d6f64886bd7b2231f5af7592/c.html"
+          },
+          {
+            "label": "4. 检查结果补充",
+            "url": "https://today.lorientlejour.com/article/1554893/false-bomb-threat-prompts-evacuation-of-russian-airliner-in-turkey.html"
+          },
+          {
+            "label": "5. 路透社转载",
+            "url": "https://www.themoscowtimes.com/2026/11/18/russia-asks-if-netherlands-is-joining-ukraine-war-after-dutch-companys-missiles-used-in-bridge-attack-a94298/pdf"
+          },
+          {
+            "label": "5. 荷兰通讯社报道",
+            "url": "https://nltimes.nl/2026/11/18/russia-asks-whether-netherlands-joining-war-dutch-missiles-used-attack"
+          }
+        ]
+      }
+    ],
+    "closing": "下一期继续跟踪有明确进展的消息；交易、征求意见和拟议政策不当作已经完成。",
+    "publishedAt": "2026-11-19T02:46:42Z",
+    "publicationKind": "original",
+    "newsWindow": {
+      "start": "2026-11-18T02:42:00Z",
+      "end": "2026-11-19T02:42:00Z"
+    }
   }
 ]
