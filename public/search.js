@@ -20,6 +20,7 @@
   const from = ui.querySelector('#search-from');
   const to = ui.querySelector('#search-to');
   const clear = ui.querySelector('#search-clear');
+  const showResults = ui.querySelector('#search-show-results');
   const contextToggle = ui.querySelector('#search-context-toggle');
   let disclosures = [];
   const refreshContextToggle = () => {
@@ -149,6 +150,8 @@
     for (const context of disclosures) context.open = open;
     refreshContextToggle();
   });
+  // Preserve the current page and expanded snippets; focusing is not a new query.
+  showResults.addEventListener('click', () => { status.focus(); });
   let composing = false;
   query.addEventListener('compositionstart', () => { composing = true; });
   query.addEventListener('compositionend', () => { composing = false; update(true); });
