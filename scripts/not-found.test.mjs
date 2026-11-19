@@ -47,6 +47,16 @@ test('built recovery routes all resolve without assuming the missing page locati
   const html = readFileSync(new URL('../dist/404.html', import.meta.url), 'utf8');
   const panel = html.match(/<nav class="prose" aria-labelledby="recovery-title">[\s\S]*?<\/nav>/)[0];
   const hrefs = [...panel.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
-  assert.deepEqual(hrefs, ['/search/', '/calendar/', '/sources/']);
+  assert.deepEqual(hrefs, ['/search/', '/calendar/', '/sources/', '/jobs/']);
   for (const href of hrefs) assert.match(readFileSync(new URL(`../dist${href}index.html`, import.meta.url), 'utf8'), /<h1/);
+});
+
+test('published backfills are discoverable from missing links and display their review dates', () => {
+  const html = renderNotFound([
+    {slug:'new', date:'2026-11-19', publishedAt:'2026-11-19T01:00:00Z', title:'New'},
+    {slug:'backfill', date:'2026-11-16', publishedAt:'2026-11-19T02:00:00Z', title:'Backfill'}
+  ]);
+  assert.match(html, /按发布时间排列，下方日期为回顾日期/);
+  assert.ok(html.indexOf('/notes/backfill/') < html.indexOf('/notes/new/'));
+  assert.match(html, /datetime="2026-11-16">2026.11.16<\/time><a href="\/notes\/backfill\/">/);
 });
